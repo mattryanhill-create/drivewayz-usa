@@ -64,7 +64,7 @@ sans-serif;
 }
 
 .logo img {
-    height: 120;
+    height: 60;
     width: auto;
 }
 
@@ -82,7 +82,7 @@ sans-serif;
 
 .nav-links a {
     text-decoration: none;
-     font-size: 3rem;
+     font-size: 1.5rem;
     color: var(--text-dark);
     font-weight: 500;
     transition: color 0.3s ease;
