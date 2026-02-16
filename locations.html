@@ -1081,7 +1081,7 @@
                     <ul class="services-list">
                         ${state.services.map(s => `<li>${s}</li>`).join('')}
                     </ul>
-                    <a href="locations/state-page.html#${state.name.toLowerCase().replace(/ /g, '-')}" class="estimate-link">
+                    <a href="locations/state-page.html#${state.name.toLowerCase().replace(/\./g, '').replace(/ /g, '-')}" class="estimate-link">
                         Get Estimate →
                     </a>
                 `;
