@@ -1,4 +1,3 @@
-cat /mnt/okcomputer/output/guides-hub.html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,188 +7,58 @@ cat /mnt/okcomputer/output/guides-hub.html
     <meta name="description" content="Comprehensive driveway guides covering installation, maintenance, and repair. Learn from 15+ years of Central Florida expertise.">
     <link rel="stylesheet" href="main.css">
     <style>
-        /* Guides Hub Styles - Matching Homepage Theme */
+        /* Guides Hub Page Styles */
         .guides-hero {
             position: relative;
-            height: 50vh;
-            min-height: 400px;
+            height: 40vh;
+            min-height: 300px;
             display: flex;
             align-items: center;
             justify-content: center;
             background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
             margin-top: 100px;
         }
-
         .guides-hero-content {
-            position: relative;
-            z-index: 10;
             text-align: center;
             color: white;
             padding: 2rem;
-            max-width: 800px;
         }
-
         .guides-hero h1 {
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: 800;
             margin-bottom: 1rem;
         }
-
         .guides-hero p {
             font-size: 1.2rem;
             opacity: 0.95;
-            margin-bottom: 2rem;
         }
-
-        /* Search & Filter Section */
-        .guides-filter {
-            background-color: var(--bg-white);
-            padding: 2rem 0;
-            border-bottom: 1px solid var(--border-color);
-            position: sticky;
-            top: 100px;
-            z-index: 100;
-            box-shadow: var(--shadow);
-        }
-
-        .filter-container {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .search-box {
-            position: relative;
-            flex: 1;
-            min-width: 250px;
-            max-width: 400px;
-        }
-
-        .search-box input {
-            width: 100%;
-            padding: 0.875rem 1rem 0.875rem 3rem;
-            border: 2px solid var(--border-color);
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-        }
-
-        .search-box input:focus {
-            outline: none;
-            border-color: var(--primary-color);
-        }
-
-        .search-icon {
-            position: absolute;
-            left: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 1.1rem;
-        }
-
-        .filter-buttons {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        }
-
-        .filter-btn {
-            padding: 0.6rem 1.2rem;
-            border: 2px solid var(--border-color);
-            background-color: var(--bg-white);
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: 0.95rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .filter-btn:hover,
-        .filter-btn.active {
-            background-color: var(--primary-color);
-            border-color: var(--primary-color);
-            color: white;
-        }
-
-        /* Category Sections */
         .guides-section {
             padding: 4rem 0;
-        }
-
-        .guides-section:nth-child(even) {
             background-color: var(--bg-light);
         }
-
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
-        }
-
-        .section-header h2 {
-            font-size: 1.8rem;
-            color: var(--text-dark);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .view-all {
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 0.3rem;
-            transition: color 0.3s ease;
-        }
-
-        .view-all:hover {
-            color: var(--primary-dark);
-        }
-
-        /* Guide Cards - Matching Homepage Style */
         .guides-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
+            margin-top: 2rem;
         }
-
         .guide-card {
             background-color: var(--bg-white);
             border-radius: 12px;
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
         }
-
         .guide-card:hover {
             transform: translateY(-8px);
             box-shadow: var(--shadow-lg);
         }
-
         .guide-card-image {
             height: 200px;
             background-size: cover;
             background-position: center;
             position: relative;
         }
-
-        .guide-card-image::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 50%;
-            background: linear-gradient(to top, rgba(0,0,0,0.4), transparent);
-        }
-
         .guide-card-badge {
             position: absolute;
             top: 1rem;
@@ -199,62 +68,24 @@ cat /mnt/okcomputer/output/guides-hub.html
             font-size: 0.75rem;
             font-weight: 600;
             text-transform: uppercase;
-            z-index: 10;
-            letter-spacing: 0.5px;
+            color: white;
         }
-
-        .badge-eco { background-color: #10b981; color: white; }
-        .badge-traditional { background-color: #8b5cf6; color: white; }
-        .badge-maintenance { background-color: #f59e0b; color: white; }
-        .badge-installation { background-color: var(--primary-color); color: white; }
-
-        .saved-indicator {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background-color: white;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            z-index: 10;
-            border: none;
-            font-size: 1rem;
-        }
-
-        .saved-indicator:hover {
-            transform: scale(1.1);
-        }
-
-        .saved-indicator.saved {
-            background-color: #ef4444;
-        }
-
+        .badge-eco { background-color: #10b981; }
+        .badge-traditional { background-color: #8b5cf6; }
+        .badge-maintenance { background-color: #f59e0b; }
         .guide-card-content {
             padding: 1.5rem;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
         }
-
         .guide-card h3 {
             font-size: 1.25rem;
             margin-bottom: 0.75rem;
             color: var(--text-dark);
-            line-height: 1.4;
         }
-
         .guide-card p {
             color: var(--text-light);
             line-height: 1.6;
             margin-bottom: 1rem;
-            flex: 1;
         }
-
         .guide-meta {
             display: flex;
             gap: 1rem;
@@ -262,108 +93,20 @@ cat /mnt/okcomputer/output/guides-hub.html
             font-size: 0.85rem;
             color: var(--text-light);
         }
-
-        .guide-meta span {
-            display: flex;
-            align-items: center;
-            gap: 0.3rem;
-        }
-
-        .guide-card-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-top: 1rem;
-            border-top: 1px solid var(--border-color);
-        }
-
-        .difficulty {
-            display: flex;
-            gap: 0.2rem;
-        }
-
-        .difficulty-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background-color: var(--border-color);
-        }
-
-        .difficulty-dot.filled {
-            background-color: var(--primary-color);
-        }
-
         .read-more {
             color: var(--primary-color);
             text-decoration: none;
             font-weight: 600;
-            display: flex;
+            display: inline-flex;
             align-items: center;
             gap: 0.3rem;
-            transition: color 0.3s ease;
         }
-
         .read-more:hover {
             color: var(--primary-dark);
         }
-
-        /* No Results */
-        .no-results {
-            text-align: center;
-            padding: 4rem 2rem;
-            color: var(--text-light);
-        }
-
-        .no-results-icon {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-        }
-
-        /* CTA Section */
-        .guides-cta {
-            background-color: var(--bg-light);
-            padding: 4rem 0;
-            text-align: center;
-        }
-
-        .guides-cta h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: var(--text-dark);
-        }
-
-        .guides-cta p {
-            font-size: 1.1rem;
-            color: var(--text-light);
-            margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Responsive */
         @media (max-width: 768px) {
-            .guides-hero h1 {
-                font-size: 2rem;
-            }
-
-            .guides-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .filter-container {
-                flex-direction: column;
-            }
-
-            .search-box {
-                max-width: 100%;
-            }
-
-            .section-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 1rem;
-            }
+            .guides-hero h1 { font-size: 2rem; }
+            .guides-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -372,10 +115,106 @@ cat /mnt/okcomputer/output/guides-hub.html
     <nav class="navbar" id="navbar">
         <div class="container nav-container">
             <div class="logo">
-                <a href="index.html">
-                    <img src="logov3.jpg?v=2" alt="Drivewayz USA" onerror="this.style.display='none'">
-                </a>
+                <a href="index.html"><img src="logov3.jpg" alt="Drivewayz USA"></a>
             </div>
             <ul class="nav-links">
-                <li><a href="index.html#home">Home</a></li>
-                <li><a href="index.html#se<response clipped><NOTE>Result is longer than **10000 characters**, will be **truncated**.</NOTE>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#why-choose">Why Us</a></li>
+                <li><a href="guides-hub.html" style="color: var(--primary-color);">Guides</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <button class="cta-button-small" onclick="window.location.href='index.html#contact'">Free Estimate</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="guides-hero">
+        <div class="guides-hero-content">
+            <h1>Driveway Guides & Expert Tips</h1>
+            <p>Learn from our 15+ years of Central Florida driveway expertise</p>
+        </div>
+    </section>
+
+    <!-- Guides Section -->
+    <section class="guides-section">
+        <div class="container">
+            <h2 class="section-title">Our Expert Guides</h2>
+            <p class="section-subtitle">Comprehensive tutorials and cost breakdowns for every driveway type</p>
+            
+            <div class="guides-grid">
+                <!-- Recycled Glass Driveway Guide -->
+                <article class="guide-card">
+                    <div class="guide-card-image" style="background-image: url('recycled-glass-driveway.jpg');">
+                        <span class="guide-card-badge badge-eco">Eco-Friendly</span>
+                    </div>
+                    <div class="guide-card-content">
+                        <h3>Recycled Glass Driveway Guide</h3>
+                        <p>Discover the eco-friendly benefits of glass cullet driveways, color options, installation process, and maintenance requirements.</p>
+                        <div class="guide-meta">
+                            <span>⏱️ 15 min read</span>
+                            <span>💰 Cost calculator included</span>
+                        </div>
+                        <a href="guides/recycled-glass-driveway.html" class="read-more">Read Full Guide →</a>
+                    </div>
+                </article>
+
+                <!-- Cobblestone Driveway Guide -->
+                <article class="guide-card">
+                    <div class="guide-card-image" style="background-image: url('cobblestone-driveway.jpg');">
+                        <span class="guide-card-badge badge-traditional">Traditional</span>
+                    </div>
+                    <div class="guide-card-content">
+                        <h3>Cobblestone Driveway Guide</h3>
+                        <p>Timeless elegance with unmatched durability. Learn about cobblestone patterns, installation techniques, and long-term value.</p>
+                        <div class="guide-meta">
+                            <span>⏱️ 18 min read</span>
+                            <span>💰 Cost calculator included</span>
+                        </div>
+                        <a href="guides/cobblestone-driveway.html" class="read-more">Read Full Guide →</a>
+                    </div>
+                </article>
+
+                <!-- Gravel Pothole Repair Guide -->
+                <article class="guide-card">
+                    <div class="guide-card-image" style="background-image: url('gravel-repair.jpg');">
+                        <span class="guide-card-badge badge-maintenance">Maintenance</span>
+                    </div>
+                    <div class="guide-card-content">
+                        <h3>Gravel Driveway Pothole Repair</h3>
+                        <p>Step-by-step instructions for fixing potholes in your gravel driveway. DIY tips and when to call the professionals.</p>
+                        <div class="guide-meta">
+                            <span>⏱️ 10 min read</span>
+                            <span>🔧 DIY friendly</span>
+                        </div>
+                        <a href="guides/gravel-pothole-repair.html" class="read-more">Read Full Guide →</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="contact" style="background-color: var(--bg-white); padding: 4rem 0; text-align: center;">
+        <div class="container">
+            <h2 class="section-title">Need Professional Help?</h2>
+            <p class="section-subtitle">Our team of experts is ready to help with your driveway project</p>
+            <button class="cta-button" onclick="window.location.href='index.html#contact'">Get Your Free Estimate</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Drivewayz USA. Licensed & Insured. Serving Central Florida with Pride.</p>
+            <p class="footer-links">
+                <a href="index.html#services">Services</a> • 
+                <a href="guides-hub.html">Guides</a> • 
+                <a href="index.html#contact">Contact</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="main.js" defer></script>
+</body>
+</html>
