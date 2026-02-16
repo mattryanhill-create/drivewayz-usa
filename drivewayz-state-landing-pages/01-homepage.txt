@@ -1,0 +1,104 @@
+================================================================================
+DRIVEWAYZ USA - HOMEPAGE LANDING PAGE
+================================================================================
+
+HEADLINE:
+Your Complete Driveway Resource | Drivewayz USA
+
+SUBHEADLINE:
+Expert guides, cost calculators, and local contractor connections for all your driveway needs. From installation to repair, we've got you covered nationwide.
+
+HERO SECTION:
+- Main CTA: "Get Your Free Driveway Estimate" (Lead capture form)
+- Secondary CTA: "Explore Our Guides" (Link to Guides Hub)
+- Trust Badge: "15+ Years Experience | Serving 100+ Cities Nationwide"
+
+NAVIGATION STRUCTURE:
+1. Services (Dropdown)
+   - Driveway Installation
+   - Driveway Repair
+   - Driveway Resurfacing
+   - Sealcoating
+
+2. Materials (Dropdown)
+   - Concrete Driveways
+   - Asphalt Driveways
+   - Gravel Driveways
+   - Paver Driveways
+   - Chip Seal Driveways
+   - Exposed Aggregate
+   - Basalt Driveways
+   - Recycled Glass Driveways
+   - Oyster Shell Driveways
+
+3. Cost Guides (Dropdown)
+   - Driveway Cost Calculator
+   - Cost by Material
+   - Cost by State
+   - Repair Cost Guide
+
+4. DIY Guides (Dropdown)
+   - Crack Repair
+   - Sealing & Maintenance
+   - Cleaning Tips
+
+5. Find a Contractor (Lead Gen)
+   - By State
+   - By City
+
+6. Guides Hub (National Content)
+
+REVENUE INTEGRATION POINTS:
+- AdSense: Above-the-fold sidebar unit, mid-content unit
+- Affiliate: "Recommended Products" section linking to Home Depot
+- Lead Gen: Hero form captures zip code for local contractor matching
+
+CONTENT SECTIONS:
+
+SECTION 1: Why Choose Drivewayz USA?
+- Expert-written guides
+- Unbiased material comparisons
+- Free cost estimates
+- Local contractor network
+- Nationwide coverage
+
+SECTION 2: Popular Services by Location
+[Dynamic section showing nearby cities based on IP/geolocation]
+- Orlando Driveway Installation
+- Winter Garden Driveway Repair
+- [Other nearby cities]
+
+SECTION 3: Latest Guides
+[50/50 mix of informational and commercial content]
+- "Gravel vs Chip Seal: Complete Comparison" (Info)
+- "Best Driveway Sealers for Hot Climates" (Commercial)
+- "How to Fix Cracks in Exposed Aggregate" (Info)
+- "Driveway Replacement Cost Calculator" (Commercial)
+
+SECTION 4: Get Your Free Estimate
+[Lead capture form with fields:]
+- Name
+- Phone
+- Email
+- Zip Code
+- Project Type (Installation/Repair/Resurfacing)
+- Preferred Material
+- Project Timeline
+
+FOOTER:
+- State Directory (Links to all state hub pages)
+- Popular Cities
+- About Us
+- Contractor Partnership Program
+- Privacy Policy
+- Terms of Service
+
+SEO META:
+Title: Drivewayz USA | Driveway Installation, Repair & Cost Guides
+Description: Free driveway cost calculators, material comparisons, and local contractor quotes. Serving 100+ cities nationwide. Get your free estimate today!
+Keywords: driveway installation, driveway repair, driveway cost, driveway contractors, driveway materials
+
+MONETIZATION NOTES:
+- Primary: Lead generation ($30-100 per qualified lead)
+- Secondary: AdSense display ads ($8 RPM target)
+- Tertiary: Product affiliate links (Home Depot 1-8% commission)

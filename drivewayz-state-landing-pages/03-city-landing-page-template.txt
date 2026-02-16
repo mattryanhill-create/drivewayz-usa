@@ -1,0 +1,158 @@
+================================================================================
+CITY LANDING PAGE TEMPLATE
+URL: /[state]/[city]-driveway-[service]/
+Examples: 
+- /florida/orlando-driveway-installation/
+- /texas/austin-driveway-repair/
+- /california/san-diego-driveway-contractors/
+================================================================================
+
+HEADLINE:
+Driveway [Service] in [City], [State] | Free Estimates
+
+SUBHEADLINE:
+Top-rated driveway contractors serving [City] and surrounding areas. Free quotes, competitive pricing, quality guaranteed.
+
+HERO SECTION:
+- Local image of driveway work in [City] area
+- Main CTA: "Get Your Free [City] Driveway Estimate"
+- Phone CTA: "Call Now: [Local Phone Number]"
+- Trust Badges: "Same-Day Quotes | Licensed & Insured | 5-Star Rated"
+
+LOCALIZED OPENING PARAGRAPH (Unique for each city):
+[Example for Orlando, Florida:]
+"Orlando's subtropical climate, with hot summers and frequent afternoon thunderstorms, 
+requires driveways built to withstand heat, humidity, and occasional flooding. Our 
+Orlando driveway contractors understand Central Florida's unique sandy soil conditions 
+and building codes, ensuring your driveway installation or repair is done right the 
+first time. Whether you're in Winter Park, Baldwin Park, or Lake Nona, we connect 
+you with local experts who know your neighborhood."
+
+[Include local landmarks, neighborhoods, ZIP codes:]
+- Mention specific neighborhoods
+- Reference local landmarks
+- Include relevant ZIP codes (32801, 32803, 32806, etc.)
+- Reference nearby cities
+
+SERVICES OFFERED IN [CITY]:
+1. Driveway Installation [City]
+   - New construction
+   - Replacement
+   - Extensions
+
+2. Driveway Repair [City]
+   - Crack repair
+   - Pothole filling
+   - Surface leveling
+
+3. Driveway Resurfacing [City]
+   - Overlay
+   - Sealcoating
+   - Rejuvenation
+
+4. Driveway Maintenance [City]
+   - Sealing
+   - Cleaning
+   - Annual inspections
+
+[CITY]-SPECIFIC COST INFORMATION:
+"Driveway Costs in [City], [State]"
+[Table format:]
+| Service | Low End | Average | High End |
+|---------|---------|---------|----------|
+| New Installation (per sq ft) | $X | $X | $X |
+| Basic Repair | $XXX | $XXX | $XXX |
+| Full Resurfacing | $X,XXX | $X,XXX | $X,XXX |
+| Sealcoating | $XXX | $XXX | $XXX |
+
+"Factors affecting cost in [City]:"
+- Local permit fees ([City] specific)
+- Distance from material suppliers
+- [City]'s soil conditions
+- Local labor rates
+
+BEST MATERIALS FOR [CITY] DRIVEWAYS:
+[Climate and soil-specific recommendations]
+
+Example for Orlando:
+1. Concrete - Excellent for Florida's climate, durable, low maintenance
+2. Pavers - Great drainage for heavy rains, easy to repair
+3. Exposed Aggregate - Slip-resistant, handles humidity well
+4. Asphalt - Cost-effective, but requires more maintenance in heat
+
+AREAS WE SERVE IN [CITY]:
+[Neighborhood-specific list:]
+- Downtown [City]
+- [Neighborhood 1]
+- [Neighborhood 2]
+- [Neighborhood 3]
+- Surrounding suburbs
+
+[Embedded Google Map showing service area]
+
+CUSTOMER TESTIMONIALS FROM [CITY]:
+[2-3 testimonials with:]
+- Customer name
+- [City] neighborhood
+- Project type
+- Rating
+- Brief review
+
+WHY CHOOSE OUR [CITY] CONTRACTORS:
+- Local expertise and knowledge
+- Licensed and insured in [State]
+- Familiar with [City] building codes
+- Proven track record in [City] area
+- Competitive local pricing
+
+LEAD CAPTURE FORM:
+"Get Your Free [City] Driveway Estimate"
+[Form fields:]
+- Full Name
+- Phone Number
+- Email Address
+- [City] Address or ZIP
+- Service Needed (Installation/Repair/Resurfacing/Maintenance)
+- Preferred Material
+- Project Timeline (ASAP/1-3 months/3-6 months/Just researching)
+- Additional Details
+
+[Form CTA button: "Get My Free Estimate"]
+
+[Privacy note: "Your information is secure. We never spam."]
+
+REVENUE INTEGRATION:
+- Primary: Lead capture form ($30-100 per qualified lead)
+- Secondary: Click-to-call phone tracking
+- AdSense: Sidebar and mid-content units
+- Affiliate: "Materials for [City] Climate" product recommendations
+
+CONVERSION OPTIMIZATION ELEMENTS:
+- Urgency: "Limited appointments available this week"
+- Trust: "Join [X]+ satisfied [City] homeowners"
+- Social proof: Recent project photos from [City]
+- Guarantee: "100% satisfaction guaranteed"
+
+INTERNAL LINKING:
+- Link to [State] hub page
+- Link to nearby city pages
+- Link to material guides
+- Link to cost calculator
+
+SEO META:
+Title: Driveway [Service] in [City], [State] | Free Estimates
+Description: Professional driveway [service] in [City], [State]. Free quotes from local contractors. Serving [neighborhoods]. Call today!
+H1: Driveway [Service] in [City], [State]
+
+SCHEMA MARKUP:
+- LocalBusiness schema
+- Service schema
+- Review schema
+- BreadcrumbList schema
+- ServiceArea schema
+
+MOBILE OPTIMIZATION:
+- Click-to-call button prominent
+- Form fields optimized for mobile
+- Fast loading (< 3 seconds)
+- Tap-friendly buttons

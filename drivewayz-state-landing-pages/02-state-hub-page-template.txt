@@ -1,0 +1,103 @@
+================================================================================
+STATE HUB PAGE TEMPLATE
+URL: /[state-name]/
+Example: /florida/, /texas/, /california/
+================================================================================
+
+HEADLINE:
+Driveway Installation & Repair in [State Name] | Drivewayz USA
+
+SUBHEADLINE:
+Connect with trusted driveway contractors across [State Name]. Free estimates, competitive pricing, and quality workmanship guaranteed.
+
+HERO SECTION:
+- Dynamic state image or map
+- Main CTA: "Get Free Estimates from [State] Contractors"
+- Trust Elements: "Licensed & Insured Contractors | Serving [X] Cities in [State]"
+
+STATE-SPECIFIC CONTENT:
+
+INTRODUCTION (Unique for each state):
+[State Name]'s unique climate and soil conditions make driveway selection important. 
+From [climate-specific detail] to [local soil condition], our [State] contractors 
+understand the local factors that affect driveway performance and longevity.
+
+[Examples of unique content per state:]
+- Florida: "Florida's hot, humid climate and sandy soil require driveways that can 
+  withstand intense sun and occasional flooding."
+- Texas: "Texas's expansive clay soils and temperature extremes demand flexible, 
+  durable driveway materials."
+- Arizona: "Arizona's extreme heat and monsoon seasons require heat-resistant 
+  materials with excellent drainage."
+- California: "California's diverse climate zones, from coastal to desert, require 
+  region-specific driveway solutions."
+
+POPULAR CITIES IN [STATE]:
+[Grid of city links - 6-12 major cities per state]
+
+Example for Florida:
+- Orlando Driveway Contractors
+- Miami Driveway Contractors
+- Tampa Driveway Contractors
+- Jacksonville Driveway Contractors
+- Winter Garden Driveway Contractors
+- St. Petersburg Driveway Contractors
+- Hialeah Driveway Contractors
+- Fort Lauderdale Driveway Contractors
+
+STATE-SPECIFIC COST INFORMATION:
+"Average Driveway Costs in [State]"
+- Minimum cost: $X,XXX
+- Average cost: $X,XXX
+- Maximum cost: $X,XXX
+- Cost per square foot: $X.XX - $X.XX
+
+[Factors affecting cost in this state:]
+- Local permitting requirements
+- Climate considerations
+- Material availability
+- Labor rates
+
+BEST DRIVEWAY MATERIALS FOR [STATE] CLIMATE:
+1. [Material 1] - [Why it works for this state]
+2. [Material 2] - [Why it works for this state]
+3. [Material 3] - [Why it works for this state]
+
+[State] DRIVEWAY REGULATIONS:
+- Permit requirements
+- HOA considerations
+- Setback requirements
+- Drainage requirements
+
+LEAD CAPTURE FORM:
+"Get Free Estimates from [State] Contractors"
+[Form fields:]
+- Name
+- Phone
+- Email
+- City in [State]
+- Project Type
+- Preferred Material
+- Comments
+
+REVENUE INTEGRATION:
+- AdSense: Sidebar unit, mid-content unit
+- Lead Gen: Primary CTA - each lead worth $30-100
+- Affiliate: "Recommended Materials for [State] Climate" section
+
+INTERNAL LINKING:
+- Link to city-specific pages within state
+- Link to material guides
+- Link to cost calculator
+- Link to DIY repair guides
+
+SEO META TEMPLATE:
+Title: Driveway Contractors in [State] | Free Estimates | Drivewayz USA
+Description: Find trusted driveway contractors in [State]. Free estimates for installation, repair, and resurfacing. Serving [X] cities statewide. Get your quote today!
+H1: Driveway Installation & Repair Services in [State]
+
+SCHEMA MARKUP:
+- LocalBusiness schema
+- ServiceArea schema
+- AggregateRating schema (if available)
+- BreadcrumbList schema

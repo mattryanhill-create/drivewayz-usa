@@ -1,0 +1,179 @@
+================================================================================
+COST CALCULATOR LANDING PAGE
+URL: /tools/driveway-cost-calculator/
+================================================================================
+
+HEADLINE:
+Driveway Cost Calculator (2026) | Free Estimate Tool
+
+SUBHEADLINE:
+Get an instant estimate for your driveway project. Calculate costs by material, size, and location. Used by 50,000+ homeowners.
+
+HERO SECTION:
+- Interactive calculator interface
+- Main CTA: "Calculate Your Cost Now"
+- Trust Badges: "Free Tool | Instant Results | No Obligation"
+
+INTERACTIVE COST CALCULATOR:
+
+STEP 1: PROJECT TYPE
+[Radio buttons:]
+- New Installation
+- Replacement (Remove & Replace)
+- Extension
+- Repair Only
+
+STEP 2: DRIVEWAY SIZE
+[Input fields:]
+- Length (feet)
+- Width (feet)
+- OR Select preset:
+  - 1-car driveway (12' x 24')
+  - 2-car driveway (20' x 24')
+  - 3-car driveway (30' x 24')
+  - Custom size
+
+[Auto-calculates:]
+- Total square footage: XXX sq ft
+
+STEP 3: MATERIAL SELECTION
+[Dropdown with options:]
+- Concrete ($8-18/sq ft)
+- Asphalt ($5-10/sq ft)
+- Pavers ($12-25/sq ft)
+- Gravel ($3-7/sq ft)
+- Chip Seal ($5-8/sq ft)
+- Exposed Aggregate ($10-20/sq ft)
+- Basalt ($15-30/sq ft)
+- Recycled Glass ($18-35/sq ft)
+
+[Material info popup for each:]
+- Average lifespan
+- Maintenance level
+- Best climate
+- Link to full material guide
+
+STEP 4: LOCATION
+[ZIP code input]
+[Auto-detects:]
+- State
+- City
+- Regional cost adjustment
+
+STEP 5: ADDITIONAL OPTIONS
+[Checkboxes:]
+- Remove old driveway (+$1-3/sq ft)
+- Grading/sloping (+$500-2,000)
+- Drainage system (+$800-3,000)
+- Borders/edging (+$5-15/linear ft)
+- Stamped pattern (concrete only) (+$8-15/sq ft)
+- Colored concrete (+$4-8/sq ft)
+- Heated driveway (+$12-25/sq ft)
+- Sealcoating (+$0.50-2/sq ft)
+
+INSTANT RESULTS DISPLAY:
+
+YOUR ESTIMATED COST:
+┌─────────────────────────────────────────┐
+│  Low Estimate: $X,XXX                   │
+│  Average Estimate: $X,XXX               │
+│  High Estimate: $X,XXX                  │
+│                                         │
+│  Cost per sq ft: $X - $X                │
+│  Total sq ft: XXX                       │
+└─────────────────────────────────────────┘
+
+COST BREAKDOWN:
+| Item | Cost |
+|------|------|
+| Materials | $X,XXX |
+| Labor | $X,XXX |
+| Removal (if selected) | $X,XXX |
+| Additional options | $X,XXX |
+| Permits (estimated) | $XXX |
+
+[CTA BUTTON: "Get Detailed Quote from Local Contractors"]
+
+COST FACTORS EXPLAINED:
+
+MATERIAL COSTS:
+- Concrete: Most popular, mid-range cost, long-lasting
+- Asphalt: Most affordable paved option
+- Pavers: Premium look, highest cost, longest life
+- Gravel: Budget-friendly, high maintenance
+
+LABOR COSTS:
+- Vary by region (20-40% difference)
+- Complex designs cost more
+- Accessibility affects pricing
+
+ADDITIONAL COSTS:
+- Permits: $100-500 depending on location
+- Excavation: $500-5,000 for difficult sites
+- Drainage: Essential for longevity
+
+COST BY REGION:
+| Region | Cost Multiplier |
+|--------|-----------------|
+| Northeast | 1.2x - 1.4x |
+| Southeast | 0.9x - 1.1x |
+| Midwest | 0.9x - 1.1x |
+| Southwest | 1.0x - 1.2x |
+| West Coast | 1.3x - 1.6x |
+
+SAMPLE PROJECT COSTS:
+
+2-CAR CONCRETE DRIVEWAY (20' x 24' = 480 sq ft):
+- Basic: $3,840 - 8,640
+- With border: $4,440 - 9,840
+- Stamped & colored: $8,640 - 14,400
+
+2-CAR ASPHALT DRIVEWAY (480 sq ft):
+- Basic: $2,400 - 4,800
+- With sealcoating: $2,640 - 5,280
+
+2-CAR PAVER DRIVEWAY (480 sq ft):
+- Basic: $5,760 - 12,000
+- Premium pavers: $8,640 - 16,800
+
+FINANCING OPTIONS:
+- Contractor financing available
+- Home improvement loans
+- HELOC options
+- Credit card (for smaller projects)
+
+REVENUE INTEGRATION:
+- Primary: Lead capture after showing estimate
+- AdSense: Sidebar units during calculator use
+- Affiliate: "Shop Materials" links to Home Depot
+- Lead Gen: High-intent users ready to buy
+
+LEAD CAPTURE FORM (Shown after calculation):
+"Get Your Free, Detailed Quote"
+"Connect with 3-5 local contractors for competitive bids"
+[Fields:]
+- Name
+- Phone
+- Email
+- Address
+- Preferred start date
+- Any additional details
+
+[CTA: "Get My Free Quotes"]
+
+WHY USE OUR CALCULATOR:
+- Based on 10,000+ real projects
+- Updated for 2026 pricing
+- Location-specific estimates
+- Includes all cost factors
+- No email required for basic estimate
+
+RELATED TOOLS:
+- Material Comparison Tool
+- Driveway Size Calculator
+- Maintenance Cost Estimator
+- ROI Calculator
+
+SEO META:
+Title: Driveway Cost Calculator 2026 | Free Estimate Tool | Drivewayz USA
+Description: Free driveway cost calculator. Get instant estimates by material, size, and location. Used by 50,000+ homeowners. Calculate your project cost now!
