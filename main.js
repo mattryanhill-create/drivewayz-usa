@@ -15,4 +15,27 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (targetSection) {
                     const navbarHeight = 
 document.querySelector('.navbar').offsetHeight;
+                    "alabama": {
+  name: "Alabama",
+  abbreviation: "AL",
+  // ADD THESE NEW FIELDS:
+  introHTML: `<p>Your HTML content here...</p>`,
+  drivewayTypes: [
+    { title: "Concrete Driveways", description: "..." },
+    { title: "Asphalt Driveways", description: "..." }
+  ],
+  localFacts: [
+    { title: "Climate Considerations", description: "..." },
+    { title: "Soil Types", description: "..." }
+  ],
+  references: ["Reference 1", "Reference 2"],
+  relatedResources: [
+    { title: "Resource Name", url: "https://..." }
+  ],
+  // KEEP YOUR EXISTING FIELDS:
+  cities: [...],
+  services: [...],
+  averageCost: "...",
+  climate: "..."
+}
 
