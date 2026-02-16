@@ -54,7 +54,8 @@ sans-serif;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 20px;
+    padding: 0.5rem 20px;
+    height: 100px;
 }
 
 .logo {
@@ -64,8 +65,9 @@ sans-serif;
 }
 
 .logo img {
-    height: 50;
+    height: 75px;
     width: auto;
+    display: block;
 }
 
 .logo-text {
@@ -82,9 +84,9 @@ sans-serif;
 
 .nav-links a {
     text-decoration: none;
-     font-size: 1.1rem;
+    font-size: 1.25rem;
     color: var(--text-dark);
-    font-weight: 500;
+    font-weight: 600;
     transition: color 0.3s ease;
 }
 
@@ -95,9 +97,10 @@ sans-serif;
 .cta-button-small {
     background-color: var(--primary-color);
     color: white;
-    padding: 0.5rem 1.5rem;
+    padding: 0.6rem 1.75rem;
     border: none;
     border-radius: 6px;
+    font-size: 1.05rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -120,7 +123,8 @@ sans-serif;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    margin-top: 70px;
+    margin-top: 100px;
+    min-height: calc(90vh - 100px);
 }
 
 .hero-overlay {
@@ -440,7 +444,21 @@ section {
 
 @media (max-width: 768px) {
     .nav-links {
-        display: none;
+        display: flex;
+        gap: 1rem;
+    }
+    
+    .nav-links a {
+        font-size: 1rem;
+    }
+    
+    .nav-container {
+        height: auto;
+        padding: 0.5rem 10px;
+    }
+    
+    .logo img {
+        height: 55px;
     }
     
     .hero-title {
@@ -466,6 +484,25 @@ section {
     
     .form-row {
         grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .nav-links {
+        gap: 0.75rem;
+    }
+    
+    .nav-links a {
+        font-size: 0.9rem;
+    }
+    
+    .logo img {
+        height: 50px;
+    }
+    
+    .cta-button-small {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
     }
 }
 
