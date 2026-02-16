@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driveway Guides | Expert Tips & How-To Guides | Drivewayz USA</title>
+    <meta name="description" content="Comprehensive driveway guides covering installation, maintenance, and repair. Learn from 15+ years of Central Florida expertise.">
+    <link rel="stylesheet" href="../main.css">
+    <style>
+        /* Guides Hub Specific Styles */
+        .guides-hero {
+            position: relative;
+            height: 60vh;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
+            margin-top: 100px;
+        }
+
+        .guides-hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            color: white;
+            padding: 2rem;
+        }
+
+        .guides-hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .guides-hero p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Search & Filter Section */
+        .guides-filter {
+            background-color: var(--bg-white);
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 100px;
+            z-index: 100;
+        }
+
+        .filter-container {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .search-box {
+            position: relative;
+            flex: 1;
+            min-width: 250px;
+            max-width: 400px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 0.75rem 1rem 0.75rem 2.5rem;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .search-box::before {
+            content: "🔍";
+            position: absolute;
+            left: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.6rem 1.2rem;
+            border: 2px solid var(--border-color);
+            background-color: var(--bg-white);
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Category Sections */
+        .guides-section {
+            padding: 4rem 0;
+        }
+
+        .guides-section:nth-child(even) {
+            background-color: var(--bg-light);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .section-header h2 {
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .view-all {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .view-all:hover {
+            color: var(--primary-dark);
+        }
+
+        /* Enhanced Guide Cards */
+        .guides-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .guide-card {
+            background-color: var(--bg-white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .guide-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .guide-card-image {
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .guide-card-image::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60%;
+            background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
+        }
+
+        .guide-card-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            z-index: 10;
+        }
+
+        .badge-eco { background-color: #10b981; color: white; }
+        .badge-traditional { background-color: #8b5cf6; color: white; }
+        .badge-maintenance { background-color: #f59e0b; color: white; }
+        .badge-installation { background-color: #3b82f6; color: white; }
+
+        .guide-card-content {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .guide-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-dark);
+            line-height: 1.4;
+        }
+
+        .guide-card p {
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            flex: 1;
+        }
+
+        .guide-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .guide-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .guide-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .difficulty {
+            display: flex;
+            gap: 0.2rem;
+        }
+
+        .difficulty-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--border-color);
+        }
+
+        .difficulty-dot.filled {
+            background-color: var(--primary-color);
+        }
+
+        .read-more {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .read-more:hover {
+            color: var(--primary-dark);
+        }
+
+        /* No Results */
+        .no-results {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--text-light);
+        }
+
+        .no-results-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Saved Guides */
+        .saved-indicator {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background-color: white;
+            padding: 0.4rem;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .saved-indicator:hover {
+            transform: scale(1.1);
+        }
+
+        .saved-indicator.saved {
+            background-color: #ef4444;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .guides-hero h1 {
+                font-size: 2rem;
+            }
+
+            .guides-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .filter-container {
+                flex-direction: column;
+            }
+
+            .search-box {
+                max-width: 100%;
+            }
+
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../logov3.jpg?v=2" alt="Drivewayz USA" onerror="this.style.display='none'">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html#home">Home</a></li>
+                <li><a href="../index.html#services">Services</a></li>
+                <li><a href="../index.html#why-choose">Why Us</a></li>
+                <li><a href="guides-hub.html" style="color: var(--primary-color);">Guides</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+            <button class="cta-button-small" onclick="window.location.href='../index.html#contact'">Free Estimate</button>
+        </div>
+    </nav>
+
+    <!-- Guides Hero -->
+    <section class="guides-hero">
+        <div class="guides-hero-content">
+            <h1>Driveway Guides & Resources</h1>
+            <p>Expert knowledge from 15+ years of driveway installation and repair experience in Central Florida</p>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="guides-filter">
+        <div class="container">
+            <div class="filter-container">
+                <div class="search-box">
+                    <input type="text" id="guideSearch" placeholder="Search guides..." onkeyup="filterGuides()">
+                </div>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" onclick="filterByCategory('all')">All Guides</button>
+                    <button class="filter-btn" onclick="filterByCategory('eco-friendly')">Eco-Friendly</button>
+                    <button class="filter-btn" onclick="filterByCategory('traditional')">Traditional</button>
+                    <button class="filter-btn" onclick="filterByCategory('maintenance')">Maintenance</button>
+                    <button class="filter-btn" onclick="filterByCategory('installation')">Installation</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Eco-Friendly Guides -->
+    <section class="guides-section" data-category="eco-friendly">
+        <div class="container">
+            <div class="section-header">
+                <h2><span>🌿</span> Eco-Friendly Driveways</h2>
+                <a href="#" class="view-all">View All →</a>
+            </div>
+            <div class="guides-grid">
+                <article class="guide-card" data-category="eco-friendly" data-title="recycled glass driveway sustainable eco-friendly">
+                    <div class="guide-card-image" style="background: linear-gradient(135deg, #0d9488 0%, #14b8a6 50%, #5eead4 100%);">
+                        <span class="guide-card-badge badge-eco">Eco-Friendly</span>
+                        <span class="saved-indicator" onclick="toggleSave(this, 'recycled-glass')" title="Save guide">🔖</span>
+                    </div>
+                    <div class="guide-card-content">
+                        <h3>What is a Recycled Glass Driveway?</h3>
+                        <p>Discover the eco-friendly benefits of glass cullet driveways, color options, installation process, and maintenance requirements.</p>
+                        <div class="guide-meta">
+                            <span>⏱️ 15 min read</span>
+                            <span>📋 Installation</span>
+                        </div>
+                        <div class="guide-card-footer">
+                            <div class="difficulty" title="Difficulty: Moderate">
+                                <span class="difficulty-dot filled"></span>
+                                <span class="difficulty-dot filled"></span>
+                                <span class="difficulty-dot"></span>
+                            </div>
+                            <a href="recycled-glass-driveway.html" class="read-more">Read Guide →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="guide-card" data-category="eco-friendly" data-title="oyster shell driveway coastal sustainable">
+                    <div class="guide-card-image" style="background: linear-gradient(135deg, #d4c4a8 0%, #e8dcc8 50%, #f5f0e8 100%);">
+                        <span class="guide-card-badge badge-eco">Eco-Friendly</span>
+                        <span class="saved-indicator" onclick="toggleSave(this, 'oyster-shell')" title="Save guide">🔖</span>
+                    </div>
+                    <div class="guide-card-content">
+                        <h3>Maintaining Oyster Shell Driveways</h3>
+                        <p>Expert tips for preserving the natural charm of oyster shell surfaces, from leveling and weed control to drainage management.</p>
+                        <div class="guide-meta">
+                            <span>⏱️ 10 min read</span>
+                            <span>🔧 Maintenance</span>
+                        </div>
+                        <div class="guide-card-footer">
+                            <div class="difficulty" title="Difficulty: Easy">
+                                <span class="difficulty-dot filled"></span>
+                                <span class="difficulty-dot"></span>
+                                <span class="difficulty-dot"></span>
+                            </div>
+                            <a href="#" class="read-more">Read Guide →</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Traditional Materials -->
+    <section class="guides-section" data-category="traditional">
+        <div class="container">
+            <div class="section-header">
+                <h2><span>🏛️</span> Traditional Materials</h2>
+                <a href="#" class="view-all">View All →</a>
+            </div>
+            <div class="guides-grid">
+                <article class="guide-card" data-category="traditional" data-title="cobblestone driveway installation pavers">
+                    <div class="guide-card-image" style="background: linear-gradient(135deg, #92400e 0%, #b45309 50%, #d97706 100%);">
+                        <span class="guide-card-badge badge-traditional">Traditional</span>
+                        <span class="saved-indicator" onclick="toggleSave(this, 'cobblestone')" title="Save guide">🔖</span>
+                    </div>
+                    <div class="guide-card-content">
+                        <h3>Cobblestone Driveway Installation Guide</h3>
+                        <p>Complete step-by-step guide to installing a timeless cobblestone driveway that adds historic charm and lasts over 100 years.</p>
+                        <div class="guide-meta">
+                            <span>⏱️ 20 min read</span>
+                            <span>📋 Installation</span>
+                        </div>
+                        <div class="guide-card-footer">
+                            <div class="difficulty" title="Difficulty: Advanced">
+                                <span class="difficulty-dot filled"></span>
+                                <span class="difficulty-dot filled"></span>
+                                <span class="difficulty-dot filled"></span>
+                            </div>
+                            <a href="cobblestone-driveway.html" class="read-more">Read Guide →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="guide-card" data-category="traditional" data-title="basalt driveway cost luxury stone">
+                    <div class="guide-card-image" style="background: linear-gradient(135deg, #374151 0%, #4b5563 50%, #6b7280 100%);">
+                        <span class="guide-card-badge badge-traditional">Traditional</span>
+                        <span class="saved-indicator" onclick="toggleSave(this, 'basalt-cost')" title="Save guide">🔖</span>
+                    </div>
+                    <div class="guide-card-content">
+                        <h3>What is the Cost to Install a Basalt Driveway?</h3>
+                        <p>Understand the factors that influence basalt driveway costs, from material grades to site preparation and customization options.</p>
+                        <div class="guide-meta">
+                            <span>⏱️ 12 min read</span>
+                            <span>💰 Cost Guide</span>
+                        </div>
+                        <div class="guide-card-footer">
+                            <div class="difficulty" title="Difficulty: Easy">
+                                <span class="difficulty-dot filled"></span>
+                                <span class="difficulty-dot"></span>
+                                <span class="difficulty-dot"></span>
+                            </div>
+                            <a href="#" class="read-more">Read Guide →</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Maintenance & Repair -->
+    <section class="guides-section" data-category="maintenance">
+        <div class="container">
+            <div class="section-header">
+                <h2><span>🔧</span> Maintenance & Repair</h2>
+                <a href="#" class="view-all">View All →</a>
+            </div>
+            <div class="guides-grid">
+                <article class="guide-card" data-category="maintenance" data-title="gravel driveway pothole repair fix">
+                    <div class="guide-card-image" style="background: linear-gradient(135deg, #ea580c 0%, #f97316 50%, #fb923c 100%);">
+                        <span class="guide-card-badge badge-maintenance">Maintenance</span>
+                        <span class="saved-indicator" onclick="toggleSave(this, 'gravel-pothole')" title="Save guide">🔖</span>
+                    </div>
+                    <div class="guide-card-content">
+                        <h3>How to Remove Potholes in Gravel Driveways</h3>
+                        <p>Step-by-step repair guide for fixing potholes, preventing future damage, and maintaining a smooth gravel surface year-round.</p>
+                        <div class="guide-meta">
+                            <span>⏱️ 15 min read</span>
+                            <span>🔧 Repair</span>
+                        </div>
+                        <div class="guide-card-footer">
+                            <div class="difficulty" title="Difficulty: Moderate">
+                                <span class="difficulty-dot filled"></span>
+                                <span class="difficulty-dot filled"></span>
+                                <span class="difficulty-dot"></span>
+                            </div>
+                            <a href="gravel-pothole-repair.html" class="read-more">Read Guide →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="guide-card" data-category="maintenance" data-title="concrete driveway repair cracks fix">
+                    <div class="guide-card-image" style="background: linear-gradient(135deg, #64748b 0%, #94a3b8 50%, #cbd5e1 100%);">
+                        <span class="guide-card-badge badge-maintenance">Maintenance</span>
+                        <span class="saved-indicator" onclick="toggleSave(this, 'concrete-repair')" title="Save guide">🔖</span>
+                    </div>
+                    <div class="guide-card-content">
+                        <h3>How to Repair a Concrete Driveway</h3>
+                        <p>DIY tips for minor repairs and when to call professionals. Prevent small cracks from becoming costly replacements.</p>
+                        <div class="guide-meta">
+                            <span>⏱️ 12 min read</span>
+                            <span>🔧 Repair</span>
+                        </div>
+                        <div class="guide-card-footer">
+                            <div class="difficulty" title="Difficulty: Moderate">
+                                <span class="difficulty-dot filled"></span>
+                                <span class="difficulty-dot filled"></span>
+                                <span class="difficulty-dot"></span>
+                            </div>
+                            <a href="#" class="read-more">Read Guide →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="guide-card" data-category="maintenance" data-title="exposed aggregate cracks repair">
+                    <div class="guide-card-image" style="background: linear-gradient(135deg, #78716c 0%, #a8a29e 50%, #d6d3d1 100%);">
+                        <span class="guide-card-badge badge-maintenance">Maintenance</span>
+                        <span class="saved-indicator" onclick="toggleSave(this, 'exposed-aggregate')" title="Save guide">🔖</span>
+                    </div>
+                    <div class="guide-card-content">
+                        <h3>How to Fix Cracks in Exposed Aggregate Concrete</h3>
+                        <p>Repair hairline and larger cracks to restore your driveway's appearance and prevent further damage with our step-by-step guide.</p>
+                        <div class="guide-meta">
+                            <span>⏱️ 15 min read</span>
+                            <span>🔧 Repair</span>
+                        </div>
+                        <div class="guide-card-footer">
+                            <div class="difficulty" title="Difficulty: Advanced">
+                                <span class="difficulty-dot filled"></span>
+                                <span class="difficulty-dot filled"></span>
+                                <span class="difficulty-dot filled"></span>
+                            </div>
+                            <a href="#" class="read-more">Read Guide →</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Installation Guides -->
+    <section class="guides-section" data-category="installation">
+        <div class="container">
+            <div class="section-header">
+                <h2><span>📋</span> Installation Guides</h2>
+                <a href="#" class="view-all">View All →</a>
+            </div>
+            <div class="guides-grid">
+                <article class="guide-card" data-category="installation" data-title="gravel driveway installation base preparation">
+                    <div class="guide-card-image" style="background: linear-gradient(135deg, #a16207 0%, #ca8a04 50%, #eab308 100%);">
+                        <span class="guide-card-badge badge-installation">Installation</span>
+                        <span class="saved-indicator" onclick="toggleSave(this, 'gravel-install')" title="Save guide">🔖</span>
+                    </div>
+                    <div class="guide-card-content">
+                        <h3>Gravel Driveway Installation: What You Need to Know</h3>
+                        <p>From base preparation to choosing the right stone size, learn the essential facts for a long-lasting gravel driveway.</p>
+                        <div class="guide-meta">
+                            <span>⏱️ 18 min read</span>
+                            <span>📋 Installation</span>
+                        </div>
+                        <div class="guide-card-footer">
+                            <div class="difficulty" title="Difficulty: Moderate">
+                                <span class="difficulty-dot filled"></span>
+                                <span class="difficulty-dot filled"></span>
+                                <span class="difficulty-dot"></span>
+                            </div>
+                            <a href="#" class="read-more">Read Guide →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="guide-card" data-category="installation" data-title="chip seal driveway diy installation">
+                    <div class="guide-card-image" style="background: linear-gradient(135deg, #7c2d12 0%, #9a3412 50%, #c2410c 100%);">
+                        <span class="guide-card-badge badge-installation">Installation</span>
+                        <span class="saved-indicator" onclick="toggleSave(this, 'chip-seal')" title="Save guide">🔖</span>
+                    </div>
+                    <div class="guide-card-content">
+                        <h3>DIY Chip Seal Driveway Installation</h3>
+                        <p>Complete guide to installing an affordable asphalt alternative with superior weather resistance and a smooth finish.</p>
+                        <div class="guide-meta">
+                            <span>⏱️ 25 min read</span>
+                            <span>📋 Installation</span>
+                        </div>
+                        <div class="guide-card-footer">
+                            <div class="difficulty" title="Difficulty: Advanced">
+                                <span class="difficulty-dot filled"></span>
+                                <span class="difficulty-dot filled"></span>
+                                <span class="difficulty-dot filled"></span>
+                            </div>
+                            <a href="#" class="read-more">Read Guide →</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- No Results Message -->
+    <div id="noResults" class="no-results" style="display: none;">
+        <div class="no-results-icon">🔍</div>
+        <h3>No guides found</h3>
+        <p>Try adjusting your search or filter criteria</p>
+    </div>
+
+    <!-- CTA Section -->
+    <section class="contact" style="background-color: var(--bg-light);">
+        <div class="container" style="text-align: center;">
+            <h2 class="section-title">Need Professional Help?</h2>
+            <p class="section-subtitle">Our experts are ready to assist with your driveway project</p>
+            <button class="cta-button" onclick="window.location.href='../index.html#contact'">Get Your Free Estimate</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Drivewayz USA. Licensed & Insured. Serving Central Florida with Pride.</p>
+            <p class="footer-links">
+                <a href="../index.html#services">Services</a> • 
+                <a href="guides-hub.html">Guides</a> • 
+                <a href="../index.html#contact">Contact</a> • 
+                <a href="#">Privacy Policy</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Filter guides by category
+        function filterByCategory(category) {
+            // Update active button
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // Show/hide sections
+            const sections = document.querySelectorAll('.guides-section');
+            let visibleCount = 0;
+
+            sections.forEach(section => {
+                if (category === 'all' || section.dataset.category === category) {
+                    section.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    section.style.display = 'none';
+                }
+            });
+
+            // Show/hide no results message
+            document.getElementById('noResults').style.display = visibleCount === 0 ? 'block' : 'none';
+        }
+
+        // Search guides
+        function filterGuides() {
+            const searchTerm = document.getElementById('guideSearch').value.toLowerCase();
+            const cards = document.querySelectorAll('.guide-card');
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const description = card.querySelector('p').textContent.toLowerCase();
+                const keywords = card.dataset.title.toLowerCase();
+
+                if (title.includes(searchTerm) || description.includes(searchTerm) || keywords.includes(searchTerm)) {
+                    card.style.display = 'flex';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Show/hide sections based on visible cards
+            document.querySelectorAll('.guides-section').forEach(section => {
+                const visibleCards = section.querySelectorAll('.guide-card[style="display: flex;"], .guide-card:not([style*="display: none"])');
+                section.style.display = visibleCards.length > 0 ? 'block' : 'none';
+            });
+
+            document.getElementById('noResults').style.display = visibleCount === 0 ? 'block' : 'none';
+        }
+
+        // Save/unsave guides
+        function toggleSave(element, guideId) {
+            element.classList.toggle('saved');
+            const isSaved = element.classList.contains('saved');
+            
+            // Get saved guides from localStorage
+            let savedGuides = JSON.parse(localStorage.getItem('savedGuides') || '[]');
+            
+            if (isSaved) {
+                if (!savedGuides.includes(guideId)) {
+                    savedGuides.push(guideId);
+                }
+            } else {
+                savedGuides = savedGuides.filter(id => id !== guideId);
+            }
+            
+            localStorage.setItem('savedGuides', JSON.stringify(savedGuides));
+            
+            // Visual feedback
+            element.textContent = isSaved ? '❤️' : '🔖';
+        }
+
+        // Load saved guides on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedGuides = JSON.parse(localStorage.getItem('savedGuides') || '[]');
+            
+            document.querySelectorAll('.saved-indicator').forEach(indicator => {
+                const guideId = indicator.getAttribute('onclick').match(/'([^']+)'/)[1];
+                if (savedGuides.includes(guideId)) {
+                    indicator.classList.add('saved');
+                    indicator.textContent = '❤️';
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
+            } else {
+                navbar.style.boxShadow = 'var(--shadow)';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recycled Glass Driveway Guide | Eco-Friendly Installation | Drivewayz USA</title>
+    <meta name="description" content="Complete guide to recycled glass driveways. Learn about glass cullet benefits, color options, installation process, costs, and maintenance for this sustainable driveway solution.">
+    <link rel="stylesheet" href="../main.css">
+    <style>
+        /* Guide Page Styles - Eco Theme (Teal/Green) */
+        :root {
+            --guide-primary: #0d9488;
+            --guide-primary-light: #14b8a6;
+            --guide-primary-dark: #0f766e;
+            --guide-accent: #5eead4;
+            --guide-bg: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 50%, #99f6e4 100%);
+        }
+
+        body {
+            background: var(--guide-bg);
+            background-attachment: fixed;
+        }
+
+        /* Guide Hero */
+        .guide-hero {
+            position: relative;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            margin-top: 100px;
+            background: linear-gradient(135deg, #0d9488 0%, #14b8a6 50%, #5eead4 100%);
+            overflow: hidden;
+        }
+
+        .guide-hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.3;
+        }
+
+        .guide-hero-content {
+            position: relative;
+            z-index: 10;
+            padding: 4rem 0;
+            color: white;
+        }
+
+        .guide-breadcrumb {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .guide-breadcrumb a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+        }
+
+        .guide-breadcrumb a:hover {
+            color: white;
+        }
+
+        .guide-hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            max-width: 800px;
+        }
+
+        .guide-hero-subtitle {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+
+        .guide-meta-bar {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .guide-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255,255,255,0.15);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Action Buttons */
+        .guide-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .action-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .action-btn-primary {
+            background-color: white;
+            color: var(--guide-primary-dark);
+        }
+
+        .action-btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .action-btn-secondary {
+            background-color: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .action-btn-secondary:hover {
+            background-color: rgba(255,255,255,0.3);
+        }
+
+        /* Tab Navigation */
+        .guide-tabs {
+            background-color: var(--bg-white);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 100px;
+            z-index: 100;
+        }
+
+        .tabs-container {
+            display: flex;
+            gap: 0;
+            overflow-x: auto;
+        }
+
+        .tab-btn {
+            padding: 1rem 1.5rem;
+            background: none;
+            border: none;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-light);
+            white-space: nowrap;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn:hover {
+            color: var(--guide-primary);
+        }
+
+        .tab-btn.active {
+            color: var(--guide-primary);
+            border-bottom-color: var(--guide-primary);
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            padding: 3rem 0;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Content Layout */
+        .guide-content-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 3rem;
+        }
+
+        .guide-main {
+            background-color: var(--bg-white);
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+        }
+
+        .guide-sidebar {
+            position: sticky;
+            top: 180px;
+            height: fit-content;
+        }
+
+        /* Typography */
+        .guide-main h2 {
+            font-size: 2rem;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--guide-accent);
+        }
+
+        .guide-main h3 {
+            font-size: 1.4rem;
+            color: var(--text-dark);
+            margin: 2rem 0 1rem;
+        }
+
+        .guide-main p {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .guide-main ul, .guide-main ol {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+
+        .guide-main li {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Info Boxes */
+        .info-box {
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+
+        .info-box-tip {
+            background-color: #f0fdfa;
+            border-left: 4px solid var(--guide-primary);
+        }
+
+        .info-box-warning {
+            background-color: #fffbeb;
+            border-left: 4px solid #f59e0b;
+        }
+
+        .info-box-title {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Interactive Steps */
+        .steps-container {
+            margin: 2rem 0;
+        }
+
+        .step-item {
+            display: flex;
+            gap: 1rem;
+            padding: 1.5rem;
+            background-color: var(--bg-light);
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .step-item:hover {
+            background-color: #f0fdfa;
+        }
+
+        .step-item.completed {
+            background-color: #d1fae5;
+        }
+
+        .step-checkbox {
+            width: 28px;
+            height: 28px;
+            border: 3px solid var(--guide-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .step-item.completed .step-checkbox {
+            background-color: var(--guide-primary);
+        }
+
+        .step-checkbox::after {
+            content: "✓";
+            color: white;
+            font-weight: bold;
+            opacity: 0;
+        }
+
+        .step-item.completed .step-checkbox::after {
+            opacity: 1;
+        }
+
+        .step-content h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .step-content p {
+            margin-bottom: 0;
+            font-size: 0.95rem;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            background-color: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.75rem;
+        }
+
+        .progress-bar {
+            height: 10px;
+            background-color: var(--border-color);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--guide-primary), var(--guide-primary-light));
+            border-radius: 5px;
+            transition: width 0.3s ease;
+        }
+
+        /* Cost Calculator */
+        .calculator-box {
+            background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%);
+            padding: 2rem;
+            border-radius: 16px;
+            margin: 2rem 0;
+        }
+
+        .calculator-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .calc-input-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .calc-input-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .calc-input-group input,
+        .calc-input-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .calc-input-group input:focus,
+        .calc-input-group select:focus {
+            outline: none;
+            border-color: var(--guide-primary);
+        }
+
+        .calc-result {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .calc-result-label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .calc-result-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--guide-primary-dark);
+        }
+
+        .calc-result-range {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-top: 0.5rem;
+        }
+
+        /* Sidebar Cards */
+        .sidebar-card {
+            background-color: var(--bg-white);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow);
+        }
+
+        .sidebar-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .quick-stat {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .quick-stat:last-child {
+            border-bottom: none;
+        }
+
+        .quick-stat-label {
+            color: var(--text-light);
+        }
+
+        .quick-stat-value {
+            font-weight: 700;
+            color: var(--guide-primary);
+        }
+
+        /* CTA Form */
+        .sidebar-cta {
+            background: linear-gradient(135deg, var(--guide-primary) 0%, var(--guide-primary-light) 100%);
+            color: white;
+        }
+
+        .sidebar-cta h4 {
+            color: white;
+        }
+
+        .sidebar-cta p {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .sidebar-cta input,
+        .sidebar-cta textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 8px;
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+        }
+
+        .sidebar-cta button {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: white;
+            color: var(--guide-primary-dark);
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar-cta button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Related Guides */
+        .related-guide {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border-color);
+            text-decoration: none;
+        }
+
+        .related-guide:last-child {
+            border-bottom: none;
+        }
+
+        .related-guide-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, var(--guide-primary) 0%, var(--guide-primary-light) 100%);
+            flex-shrink: 0;
+        }
+
+        .related-guide-content h5 {
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            margin-bottom: 0.25rem;
+        }
+
+        .related-guide-content span {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .guide-content-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .guide-sidebar {
+                position: static;
+                order: -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .guide-hero h1 {
+                font-size: 2rem;
+            }
+
+            .guide-main {
+                padding: 1.5rem;
+            }
+
+            .guide-actions {
+                flex-direction: column;
+            }
+
+            .tabs-container {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../logov3.jpg?v=2" alt="Drivewayz USA" onerror="this.style.display='none'">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html#home">Home</a></li>
+                <li><a href="../index.html#services">Services</a></li>
+                <li><a href="../index.html#why-choose">Why Us</a></li>
+                <li><a href="../guides-hub.html" style="color: var(--primary-color);">Guides</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+            <button class="cta-button-small" onclick="window.location.href='../index.html#contact'">Free Estimate</button>
+        </div>
+    </nav>
+
+    <!-- Guide Hero -->
+    <section class="guide-hero">
+        <div class="container guide-hero-content">
+            <div class="guide-breadcrumb">
+                <a href="../index.html">Home</a>
+                <span>/</span>
+                <a href="../guides-hub.html">Guides</a>
+                <span>/</span>
+                <span>Eco-Friendly</span>
+            </div>
+            <h1>What is a Recycled Glass Driveway?</h1>
+            <p class="guide-hero-subtitle">Discover the sustainable, stunning alternative that's transforming driveways across Florida with its light-reflective beauty and eco-friendly benefits.</p>
+            <div class="guide-meta-bar">
+                <div class="guide-meta-item">
+                    <span>⏱️</span>
+                    <span>15 min read</span>
+                </div>
+                <div class="guide-meta-item">
+                    <span>📊</span>
+                    <span>Moderate difficulty</span>
+                </div>
+                <div class="guide-meta-item">
+                    <span>♻️</span>
+                    <span>Eco-friendly</span>
+                </div>
+            </div>
+            <div class="guide-actions">
+                <button class="action-btn action-btn-primary" onclick="scrollToTab('calculator')">
+                    <span>💰</span> Get Cost Estimate
+                </button>
+                <button class="action-btn action-btn-secondary" onclick="saveGuide()">
+                    <span id="saveIcon">🔖</span> <span id="saveText">Save Guide</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tab Navigation -->
+    <section class="guide-tabs">
+        <div class="container">
+            <div class="tabs-container">
+                <button class="tab-btn active" onclick="switchTab('overview')">Overview</button>
+                <button class="tab-btn" onclick="switchTab('materials')">Materials & Tools</button>
+                <button class="tab-btn" onclick="switchTab('installation')">Installation Steps</button>
+                <button class="tab-btn" onclick="switchTab('calculator')">Cost Calculator</button>
+                <button class="tab-btn" onclick="switchTab('maintenance')">Maintenance</button>
+                <button class="tab-btn" onclick="switchTab('faq')">FAQ</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tab Content -->
+    <section class="tab-content active" id="overview">
+        <div class="container">
+            <div class="guide-content-wrapper">
+                <div class="guide-main">
+                    <h2>What is Recycled Glass Driveway Material?</h2>
+                    <p>Recycled glass driveways, also known as glass cullet driveways, use crushed and processed glass as the primary surface material. This innovative approach transforms waste glass into a beautiful, functional driveway surface that sparkles in sunlight and provides excellent drainage.</p>
+                    
+                    <p>The glass used is typically post-consumer recycled glass that has been tumbled to remove sharp edges, making it safe for vehicles and foot traffic. Available in various colors—from crystal clear to amber, green, and blue—glass driveways can be customized to complement any home's aesthetic.</p>
+
+                    <div class="info-box info-box-tip">
+                        <div class="info-box-title"><span>💡</span> Pro Tip</div>
+                        <p>Glass cullet is often mixed with a binding agent or resin to create a stable surface, or it can be used as a top dressing over a stable base material for a more loose, permeable surface.</p>
+                    </div>
+
+                    <h3>Key Benefits of Recycled Glass Driveways</h3>
+                    <ul>
+                        <li><strong>Eco-Friendly:</strong> Diverts glass from landfills and reduces the need for virgin materials</li>
+                        <li><strong>Unique Aesthetic:</strong> Creates a stunning, light-reflective surface that changes appearance throughout the day</li>
+                        <li><strong>Excellent Drainage:</strong> Permeable surface allows water to pass through, reducing runoff</li>
+                        <li><strong>Durable:</strong> Glass doesn't decompose or break down like organic materials</li>
+                        <li><strong>Low Maintenance:</strong> Doesn't attract pests or support weed growth when properly installed</li>
+                        <li><strong>Heat Reflective:</strong> Lighter colors reflect heat, keeping the surface cooler in Florida's climate</li>
+                    </ul>
+
+                    <h3>Ideal Applications</h3>
+                    <p>Recycled glass driveways are perfect for:</p>
+                    <ul>
+                        <li>Coastal homes seeking a beach-inspired aesthetic</li>
+                        <li>Eco-conscious homeowners wanting sustainable materials</li>
+                        <li>Properties requiring excellent drainage solutions</li>
+                        <li>Modern and contemporary architectural styles</li>
+                        <li>Decorative accents and borders combined with other materials</li>
+                    </ul>
+                </div>
+
+                <aside class="guide-sidebar">
+                    <div class="sidebar-card">
+                        <h4>📊 Quick Facts</h4>
+                        <div class="quick-stat">
+                            <span class="quick-stat-label">Lifespan</span>
+                            <span class="quick-stat-value">20-30 years</span>
+                        </div>
+                        <div class="quick-stat">
+                            <span class="quick-stat-label">Cost per sq ft</span>
+                            <span class="quick-stat-value">$8-15</span>
+                        </div>
+                        <div class="quick-stat">
+                            <span class="quick-stat-label">Installation Time</span>
+                            <span class="quick-stat-value">2-4 days</span>
+                        </div>
+                        <div class="quick-stat">
+                            <span class="quick-stat-label">Maintenance</span>
+                            <span class="quick-stat-value">Low</span>
+                        </div>
+                        <div class="quick-stat">
+                            <span class="quick-stat-label">Permeability</span>
+                            <span class="quick-stat-value">High</span>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-card sidebar-cta">
+                        <h4>🚀 Get Started Today</h4>
+                        <p>Ready to transform your driveway with sustainable glass? Get a free estimate from our experts.</p>
+                        <form onsubmit="handleSidebarSubmit(event)">
+                            <input type="text" placeholder="Your Name" required>
+                            <input type="tel" placeholder="Phone Number" required>
+                            <textarea placeholder="Tell us about your project" rows="3"></textarea>
+                            <button type="submit">Request Free Estimate</button>
+                        </form>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <h4>📚 Related Guides</h4>
+                        <a href="#" class="related-guide">
+                            <div class="related-guide-image" style="background: linear-gradient(135deg, #d4c4a8 0%, #e8dcc8 100%);"></div>
+                            <div class="related-guide-content">
+                                <h5>Oyster Shell Driveway Maintenance</h5>
+                                <span>10 min read</span>
+                            </div>
+                        </a>
+                        <a href="gravel-pothole-repair.html" class="related-guide">
+                            <div class="related-guide-image" style="background: linear-gradient(135deg, #ea580c 0%, #f97316 100%);"></div>
+                            <div class="related-guide-content">
+                                <h5>Gravel Driveway Repair</h5>
+                                <span>15 min read</span>
+                            </div>
+                        </a>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <section class="tab-content" id="materials">
+        <div class="container">
+            <div class="guide-content-wrapper">
+                <div class="guide-main">
+                    <h2>Materials & Tools Needed</h2>
+                    
+                    <h3>Required Materials</h3>
+                    <ul>
+                        <li><strong>Glass Cullet:</strong> 2-3 inches deep for the surface layer (calculate 1 ton per 80-100 sq ft at 2" depth)</li>
+                        <li><strong>Base Material:</strong> Crushed stone or gravel (4-6 inches compacted)</li>
+                        <li><strong>Sub-base:</strong> Larger aggregate for drainage (2-4 inches)</li>
+                        <li><strong>Geotextile Fabric:</strong> To prevent weed growth and soil migration</li>
+                        <li><strong>Binding Agent (Optional):</strong> Resin or stabilizer for a firmer surface</li>
+                        <li><strong>Edging Material:</strong> Pavers, timber, or metal edging to contain the glass</li>
+                    </ul>
+
+                    <h3>Tools Required</h3>
+                    <ul>
+                        <li>Shovel and rake</li>
+                        <li>Plate compactor (rental recommended)</li>
+                        <li>Wheelbarrow</li>
+                        <li>Level and string line</li>
+                        <li>Tamper</li>
+                        <li>Measuring tape</li>
+                        <li>Safety equipment (gloves, safety glasses, dust mask)</li>
+                    </ul>
+
+                    <div class="info-box info-box-warning">
+                        <div class="info-box-title"><span>⚠️</span> Important</div>
+                        <p>Always wear safety glasses and gloves when handling glass materials, even tumbled cullet. Work during cooler parts of the day as glass can become hot in direct sunlight.</p>
+                    </div>
+                </div>
+
+                <aside class="guide-sidebar">
+                    <div class="sidebar-card">
+                        <h4>🛒 Material Checklist</h4>
+                        <div class="quick-stat">
+                            <span class="quick-stat-label">Glass Cullet</span>
+                            <span class="quick-stat-value">Required</span>
+                        </div>
+                        <div class="quick-stat">
+                            <span class="quick-stat-label">Base Stone</span>
+                            <span class="quick-stat-value">Required</span>
+                        </div>
+                        <div class="quick-stat">
+                            <span class="quick-stat-label">Geotextile</span>
+                            <span class="quick-stat-value">Recommended</span>
+                        </div>
+                        <div class="quick-stat">
+                            <span class="quick-stat-label">Binding Agent</span>
+                            <span class="quick-stat-value">Optional</span>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <section class="tab-content" id="installation">
+        <div class="container">
+            <div class="guide-content-wrapper">
+                <div class="guide-main">
+                    <h2>Installation Steps</h2>
+                    
+                    <div class="progress-container">
+                        <div class="progress-header">
+                            <span>Your Progress</span>
+                            <span id="progressText">0 of 6 steps completed</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+                        </div>
+                    </div>
+
+                    <div class="steps-container">
+                        <div class="step-item" onclick="toggleStep(this, 0)">
+                            <div class="step-checkbox"></div>
+                            <div class="step-content">
+                                <h4>Step 1: Site Preparation & Excavation</h4>
+                                <p>Mark your driveway boundaries and excavate to a depth of 8-10 inches. Remove all vegetation, roots, and debris. Ensure proper slope (1-2%) for drainage away from structures.</p>
+                            </div>
+                        </div>
+
+                        <div class="step-item" onclick="toggleStep(this, 1)">
+                            <div class="step-checkbox"></div>
+                            <div class="step-content">
+                                <h4>Step 2: Install Sub-base</h4>
+                                <p>Lay 2-4 inches of larger aggregate (2-3 inch stone) for drainage. Compact thoroughly using a plate compactor. This layer prevents settling and ensures proper water flow.</p>
+                            </div>
+                        </div>
+
+                        <div class="step-item" onclick="toggleStep(this, 2)">
+                            <div class="step-checkbox"></div>
+                            <div class="step-content">
+                                <h4>Step 3: Add Geotextile Fabric</h4>
+                                <p>Install geotextile fabric over the sub-base, overlapping seams by 6 inches. This prevents weeds and keeps layers separated while allowing water drainage.</p>
+                            </div>
+                        </div>
+
+                        <div class="step-item" onclick="toggleStep(this, 3)">
+                            <div class="step-checkbox"></div>
+                            <div class="step-content">
+                                <h4>Step 4: Install Base Layer</h4>
+                                <p>Add 4-6 inches of crushed stone or gravel base material. Compact in 2-inch lifts for maximum stability. The base should be level with a slight crown for drainage.</p>
+                            </div>
+                        </div>
+
+                        <div class="step-item" onclick="toggleStep(this, 4)">
+                            <div class="step-checkbox"></div>
+                            <div class="step-content">
+                                <h4>Step 5: Install Edging</h4>
+                                <p>Place edging material around the perimeter to contain the glass. Ensure edging is level and securely anchored. This prevents glass from spreading onto lawns or walkways.</p>
+                            </div>
+                        </div>
+
+                        <div class="step-item" onclick="toggleStep(this, 5)">
+                            <div class="step-checkbox"></div>
+                            <div class="step-content">
+                                <h4>Step 6: Spread Glass Cullet</h4>
+                                <p>Spread glass cullet evenly to a depth of 2-3 inches. Use a rake for initial leveling, then lightly compact. For resin-bound applications, mix glass with binding agent per manufacturer instructions before spreading.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <aside class="guide-sidebar">
+                    <div class="sidebar-card sidebar-cta">
+                        <h4>👷 Need Professional Installation?</h4>
+                        <p>Glass driveway installation requires precision. Our experts ensure proper drainage and a flawless finish.</p>
+                        <button onclick="window.location.href='../index.html#contact'" style="width: 100%; padding: 0.75rem; background-color: white; color: var(--guide-primary-dark); border: none; border-radius: 8px; font-weight: 700; cursor: pointer;">Get Free Estimate</button>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <section class="tab-content" id="calculator">
+        <div class="container">
+            <div class="guide-content-wrapper">
+                <div class="guide-main">
+                    <h2>Cost Calculator</h2>
+                    <p>Get an instant estimate for your recycled glass driveway project. This calculator provides a rough range—contact us for a detailed quote.</p>
+
+                    <div class="calculator-box">
+                        <div class="calculator-title"><span>💰</span> Recycled Glass Driveway Cost Estimator</div>
+                        
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                            <div class="calc-input-group">
+                                <label>Driveway Dimensions</label>
+                                <div style="display: flex; gap: 0.5rem;">
+                                    <input type="number" id="calcLength" placeholder="Length (ft)" oninput="calculateCost()">
+                                    <span style="align-self: center;">×</span>
+                                    <input type="number" id="calcWidth" placeholder="Width (ft)" oninput="calculateCost()">
+                                </div>
+                            </div>
+
+                            <div class="calc-input-group">
+                                <label>Glass Type</label>
+                                <select id="calcGlassType" onchange="calculateCost()">
+                                    <option value="8">Standard Clear ($8/sq ft)</option>
+                                    <option value="10">Colored Glass ($10/sq ft)</option>
+                                    <option value="12">Premium Mixed ($12/sq ft)</option>
+                                    <option value="15">Resin-Bound ($15/sq ft)</option>
+                                </select>
+                            </div>
+
+                            <div class="calc-input-group">
+                                <label>Site Condition</label>
+                                <select id="calcSiteCondition" onchange="calculateCost()">
+                                    <option value="1">Flat, Clear Site</option>
+                                    <option value="1.15">Slight Slope</option>
+                                    <option value="1.3">Steep Slope/Obstacles</option>
+                                </select>
+                            </div>
+
+                            <div class="calc-input-group">
+                                <label>Location</label>
+                                <select id="calcLocation" onchange="calculateCost()">
+                                    <option value="1">Central Florida</option>
+                                    <option value="1.1">Coastal Areas</option>
+                                    <option value="0.95">Rural Areas</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="calc-result">
+                            <div class="calc-result-label">Estimated Total Cost</div>
+                            <div class="calc-result-value" id="calcResult">$0</div>
+                            <div class="calc-result-range">Range: <span id="calcRange">$0 - $0</span></div>
+                        </div>
+
+                        <button class="cta-button" style="width: 100%; margin-top: 1.5rem;" onclick="window.location.href='../index.html#contact'">Get Exact Quote</button>
+                    </div>
+
+                    <h3>Cost Breakdown</h3>
+                    <ul>
+                        <li><strong>Glass Cullet:</strong> $3-6 per sq ft (material only)</li>
+                        <li><strong>Base Materials:</strong> $2-4 per sq ft</li>
+                        <li><strong>Labor:</strong> $3-5 per sq ft</li>
+                        <li><strong>Edging & Extras:</strong> $1-2 per sq ft</li>
+                    </ul>
+
+                    <div class="info-box info-box-tip">
+                        <div class="info-box-title"><span>💡</span> Money-Saving Tip</div>
+                        <p>Consider combining glass with other materials—use glass as an accent border or inlay with gravel or pavers to reduce costs while maintaining the unique aesthetic.</p>
+                    </div>
+                </div>
+
+                <aside class="guide-sidebar">
+                    <div class="sidebar-card">
+                        <h4>📊 Average Costs</h4>
+                        <div class="quick-stat">
+                            <span class="quick-stat-label">Small (1-car)</span>
+                            <span class="quick-stat-value">$3,200-6,000</span>
+                        </div>
+                        <div class="quick-stat">
+                            <span class="quick-stat-label">Medium (2-car)</span>
+                            <span class="quick-stat-value">$6,400-12,000</span>
+                        </div>
+                        <div class="quick-stat">
+                            <span class="quick-stat-label">Large (3-car)</span>
+                            <span class="quick-stat-value">$9,600-18,000</span>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <section class="tab-content" id="maintenance">
+        <div class="container">
+            <div class="guide-content-wrapper">
+                <div class="guide-main">
+                    <h2>Maintenance Guide</h2>
+                    
+                    <p>One of the biggest advantages of recycled glass driveways is their low maintenance requirements. With proper care, your glass driveway will maintain its stunning appearance for decades.</p>
+
+                    <h3>Regular Maintenance Tasks</h3>
+                    
+                    <h4>Monthly</h4>
+                    <ul>
+                        <li>Inspect for any glass displacement after heavy rain</li>
+                        <li>Remove leaves and debris to prevent staining</li>
+                        <li>Check edging for damage or shifting</li>
+                    </ul>
+
+                    <h4>Seasonally</h4>
+                    <ul>
+                        <li><strong>Spring:</strong> Rinse thoroughly to remove winter debris; replenish any displaced glass</li>
+                        <li><strong>Summer:</strong> Monitor for heat-related settling; add water to compacted areas if needed</li>
+                        <li><strong>Fall:</strong> Keep clear of fallen leaves to prevent organic staining</li>
+                        <li><strong>Winter:</strong> Glass driveways handle freeze-thaw well; avoid metal snow shovels</li>
+                    </ul>
+
+                    <h3>Cleaning Your Glass Driveway</h3>
+                    <p>Glass driveways are easy to clean:</p>
+                    <ul>
+                        <li>Use a leaf blower or plastic rake for debris removal</li>
+                        <li>Rinse with a garden hose as needed</li>
+                        <li>For stubborn stains, use a mild detergent and soft brush</li>
+                        <li>Avoid pressure washing directly on the glass surface</li>
+                    </ul>
+
+                    <div class="info-box info-box-warning">
+                        <div class="info-box-title"><span>⚠️</span> What to Avoid</div>
+                        <p>Never use salt or chemical de-icers on glass driveways—they can damage the glass surface and surrounding vegetation. Use sand for traction instead.</p>
+                    </div>
+                </div>
+
+                <aside class="guide-sidebar">
+                    <div class="sidebar-card">
+                        <h4>✅ Maintenance Checklist</h4>
+                        <div class="quick-stat">
+                            <span class="quick-stat-label">Debris Removal</span>
+                            <span class="quick-stat-value">Monthly</span>
+                        </div>
+                        <div class="quick-stat">
+                            <span class="quick-stat-label">Deep Clean</span>
+                            <span class="quick-stat-value">Seasonally</span>
+                        </div>
+                        <div class="quick-stat">
+                            <span class="quick-stat-label">Glass Top-up</span>
+                            <span class="quick-stat-value">As needed</span>
+                        </div>
+                        <div class="quick-stat">
+                            <span class="quick-stat-label">Edging Check</span>
+                            <span class="quick-stat-value">Annually</span>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <section class="tab-content" id="faq">
+        <div class="container">
+            <div class="guide-content-wrapper">
+                <div class="guide-main">
+                    <h2>Frequently Asked Questions</h2>
+                    
+                    <h3>Is recycled glass safe for driveways?</h3>
+                    <p>Yes, recycled glass used for driveways is tumbled to remove sharp edges, making it safe for vehicles, pets, and foot traffic. The glass pieces are smooth and rounded, similar to river rock.</p>
+
+                    <h3>How long does a glass driveway last?</h3>
+                    <p>With proper installation and maintenance, a recycled glass driveway can last 20-30 years or more. Glass doesn't decompose, erode, or break down like organic materials.</p>
+
+                    <h3>Can glass driveways handle heavy vehicles?</h3>
+                    <p>Yes, when properly installed with an adequate base, glass driveways can support regular vehicle traffic including cars, trucks, and RVs. The key is proper base preparation and compaction.</p>
+
+                    <h3>Does glass get hot in the sun?</h3>
+                    <p>Clear and light-colored glass reflects heat and stays cooler than dark asphalt. However, darker colored glass can absorb heat. In Florida's climate, lighter colors are recommended.</p>
+
+                    <h3>Where can I buy recycled glass for driveways?</h3>
+                    <p>Recycled glass cullet is available from landscape supply companies, specialty aggregate suppliers, and some recycling facilities. Drivewayz USA can source high-quality glass and handle your entire installation.</p>
+
+                    <h3>Can I install a glass driveway myself?</h3>
+                    <p>While DIY installation is possible for small areas, professional installation is recommended for driveways. Proper base preparation and compaction are critical for longevity and performance.</p>
+                </div>
+
+                <aside class="guide-sidebar">
+                    <div class="sidebar-card sidebar-cta">
+                        <h4>❓ Have More Questions?</h4>
+                        <p>Our experts are here to help. Reach out for personalized advice about your glass driveway project.</p>
+                        <button onclick="window.location.href='../index.html#contact'" style="width: 100%; padding: 0.75rem; background-color: white; color: var(--guide-primary-dark); border: none; border-radius: 8px; font-weight: 700; cursor: pointer;">Contact Us</button>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" style="margin-top: 4rem;">
+        <div class="container">
+            <p>&copy; 2026 Drivewayz USA. Licensed & Insured. Serving Central Florida with Pride.</p>
+            <p class="footer-links">
+                <a href="../index.html#services">Services</a> • 
+                <a href="../guides-hub.html">Guides</a> • 
+                <a href="../index.html#contact">Contact</a> • 
+                <a href="#">Privacy Policy</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Tab switching
+        function switchTab(tabName) {
+            // Update buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // Update content
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.getElementById(tabName).classList.add('active');
+
+            // Save to localStorage
+            localStorage.setItem('glassGuideTab', tabName);
+        }
+
+        // Scroll to tab
+        function scrollToTab(tabName) {
+            document.querySelectorAll('.tab-btn').forEach((btn, index) => {
+                if (btn.textContent.toLowerCase().includes(tabName)) {
+                    btn.click();
+                    btn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            });
+        }
+
+        // Step completion tracking
+        let completedSteps = JSON.parse(localStorage.getItem('glassGuideSteps') || '[]');
+
+        function toggleStep(element, stepIndex) {
+            element.classList.toggle('completed');
+            
+            if (element.classList.contains('completed')) {
+                if (!completedSteps.includes(stepIndex)) {
+                    completedSteps.push(stepIndex);
+                }
+            } else {
+                completedSteps = completedSteps.filter(s => s !== stepIndex);
+            }
+            
+            localStorage.setItem('glassGuideSteps', JSON.stringify(completedSteps));
+            updateProgress();
+        }
+
+        function updateProgress() {
+            const totalSteps = 6;
+            const completed = completedSteps.length;
+            const percentage = (completed / totalSteps) * 100;
+            
+            document.getElementById('progressFill').style.width = percentage + '%';
+            document.getElementById('progressText').textContent = `${completed} of ${totalSteps} steps completed`;
+        }
+
+        // Cost calculator
+        function calculateCost() {
+            const length = parseFloat(document.getElementById('calcLength').value) || 0;
+            const width = parseFloat(document.getElementById('calcWidth').value) || 0;
+            const glassType = parseFloat(document.getElementById('calcGlassType').value) || 0;
+            const siteCondition = parseFloat(document.getElementById('calcSiteCondition').value) || 1;
+            const location = parseFloat(document.getElementById('calcLocation').value) || 1;
+
+            const sqft = length * width;
+            const baseCost = sqft * glassType;
+            const totalCost = baseCost * siteCondition * location;
+
+            const minCost = Math.round(totalCost * 0.85);
+            const maxCost = Math.round(totalCost * 1.15);
+
+            document.getElementById('calcResult').textContent = '$' + Math.round(totalCost).toLocaleString();
+            document.getElementById('calcRange').textContent = `$${minCost.toLocaleString()} - $${maxCost.toLocaleString()}`;
+        }
+
+        // Save guide functionality
+        function saveGuide() {
+            let savedGuides = JSON.parse(localStorage.getItem('savedGuides') || '[]');
+            const guideId = 'recycled-glass';
+            
+            if (savedGuides.includes(guideId)) {
+                savedGuides = savedGuides.filter(id => id !== guideId);
+                document.getElementById('saveIcon').textContent = '🔖';
+                document.getElementById('saveText').textContent = 'Save Guide';
+            } else {
+                savedGuides.push(guideId);
+                document.getElementById('saveIcon').textContent = '❤️';
+                document.getElementById('saveText').textContent = 'Saved!';
+            }
+            
+            localStorage.setItem('savedGuides', JSON.stringify(savedGuides));
+        }
+
+        // Load saved state
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load saved guides
+            const savedGuides = JSON.parse(localStorage.getItem('savedGuides') || '[]');
+            if (savedGuides.includes('recycled-glass')) {
+                document.getElementById('saveIcon').textContent = '❤️';
+                document.getElementById('saveText').textContent = 'Saved!';
+            }
+
+            // Load completed steps
+            completedSteps.forEach(stepIndex => {
+                const steps = document.querySelectorAll('.step-item');
+                if (steps[stepIndex]) {
+                    steps[stepIndex].classList.add('completed');
+                }
+            });
+            updateProgress();
+
+            // Load last viewed tab
+            const lastTab = localStorage.getItem('glassGuideTab');
+            if (lastTab) {
+                const tabBtn = document.querySelector(`.tab-btn[onclick="switchTab('${lastTab}')"]`);
+                if (tabBtn) tabBtn.click();
+            }
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
+            } else {
+                navbar.style.boxShadow = 'var(--shadow)';
+            }
+        });
+
+        // Form submission
+        function handleSidebarSubmit(event) {
+            event.preventDefault();
+            alert('Thank you! We will contact you shortly with your free estimate.');
+            event.target.reset();
+        }
+    </script>
+</body>
+</html>
