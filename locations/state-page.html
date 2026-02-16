@@ -830,11 +830,9 @@
         };
 
             function getStateFromHash() {
-            const hash = window.location.hash;
-            return hash ? hash.substring(1).toLowerCase() : null;
-        }
-
-
+                    const hash = window.location.hash;
+    return hash ? hash.substring(1).toLowerCase() : null;
+}
         function toggleFact(element) {
             const factItem = element.parentElement;
             factItem.classList.toggle('active');
