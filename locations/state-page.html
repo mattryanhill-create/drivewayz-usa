@@ -1,0 +1,2468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driveway Services | Drivewayz USA</title>
+    <meta name="description" content="Professional driveway services tailored to your state's unique climate and terrain.">
+    <link rel="stylesheet" href="../main.css">
+    <style>
+        /* State Page Specific Styles */
+        :root {
+            --primary: #5B9BD5;
+            --primary-dark: #2B5797;
+            --accent: #2B5797;
+            --text-dark: #1a1a1a;
+            --text-light: #666;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Hero Section */
+        .state-hero {
+            position: relative;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            margin-top: 120px;
+        }
+
+        @media (max-width: 768px) {
+            .state-hero {
+                margin-top: 80px;
+                min-height: 60vh;
+            }
+        }
+
+        .state-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            z-index: 1;
+        }
+
+        .state-hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(43, 87, 151, 0.8), rgba(91, 155, 213, 0.6));
+            z-index: 2;
+        }
+
+        .state-hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            padding: 2rem;
+            max-width: 900px;
+            color: var(--white);
+        }
+
+        .state-hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            letter-spacing: -0.02em;
+        }
+
+        .state-hero .tagline {
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            font-weight: 300;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .state-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 5rem 2rem;
+            background: var(--bg-light);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(91, 155, 213, 0.1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            color: var(--text-dark);
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Why Choose Section */
+        .why-section {
+            padding: 5rem 2rem;
+            background: var(--white);
+            position: relative;
+        }
+
+        .why-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--primary), transparent);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .benefit-card {
+            display: flex;
+            gap: 1.5rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border-radius: 16px;
+            border-left: 4px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateX(5px);
+            box-shadow: var(--shadow);
+        }
+
+        .benefit-number {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .benefit-content h3 {
+            font-size: 1.3rem;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .benefit-content p {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Service Areas */
+        .areas-section {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .areas-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+        }
+
+        .areas-section h2 {
+            color: white;
+            position: relative;
+            z-index: 1;
+        }
+
+        .areas-section .section-header p {
+            color: rgba(255,255,255,0.9);
+        }
+
+        .cities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .city-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .city-card:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-3px);
+        }
+
+        .city-card h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .city-card p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 2rem;
+            background: var(--bg-light);
+            text-align: center;
+        }
+
+        .cta-box {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 24px;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--primary-dark));
+        }
+
+        .cta-box h2 {
+            font-size: 2.2rem;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .cta-box p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(91, 155, 213, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(91, 155, 213, 0.6);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 3rem 2rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* Loading State */
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cities-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .cta-box {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="../index.html">
+                    <img src="../logov3.jpg" alt="Drivewayz USA" onerror="this.style.display='none'">
+                </a>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../index.html#services">Services</a></li>
+                <li><a href="../index.html#why-choose">Why Us</a></li>
+                <li><a href="../locations.html" class="active">Locations</a></li>
+                <li><a href="../guides-hub.html">Guides</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+                <li><a href="../index.html#contact" class="btn-primary">Free Estimate</a></li>
+            </ul>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+        </div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <div id="content">
+        <div class="loading">Loading...</div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="../index.html">Home</a>
+                <a href="../index.html#services">Services</a>
+                <a href="../locations.html">Locations</a>
+                <a href="../guides-hub.html">Guides</a>
+                <a href="../index.html#contact">Contact</a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Drivewayz USA. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../main.js"></script>
+    <script>
+        // Complete states data for all 57 states and territories
+        const statesData = {
+            "alabama": {
+                "name": "Alabama",
+                "abbreviation": "AL",
+                "region": "southeast",
+                "services": ["Asphalt Paving", "Sealcoating", "Repairs"],
+                "heroTagline": "Premium Driveway Solutions for the Heart of Dixie",
+                "gradient": "linear-gradient(135deg, #2B5797 0%, #5B9BD5 50%, #50C878 100%)",
+                "unsplashQuery": "asphalt+driveway+suburban",
+                "metaDescription": "Professional driveway services in Alabama. Asphalt paving, sealcoating, and repairs for Birmingham, Montgomery, Huntsville, and all surrounding areas. Free estimates.",
+                "benefits": [
+                    {
+                        "title": "Humidity Resistant Materials",
+                        "description": "Our asphalt and sealcoating solutions are specifically formulated to withstand Alabama's high humidity and prevent moisture damage."
+                    },
+                    {
+                        "title": "Clay Soil Expertise",
+                        "description": "We understand Alabama's expansive clay soils and install proper drainage and base layers to prevent cracking and shifting."
+                    },
+                    {
+                        "title": "Storm Season Ready",
+                        "description": "Reinforced driveway designs that stand up to Alabama's severe thunderstorms and tropical weather systems."
+                    }
+                ],
+                "cities": [
+                    {"name": "Birmingham", "description": "Greater metro area"},
+                    {"name": "Montgomery", "description": "Capital region"},
+                    {"name": "Huntsville", "description": "Rocket City area"},
+                    {"name": "Mobile", "description": "Gulf Coast"},
+                    {"name": "Tuscaloosa", "description": "West Alabama"},
+                    {"name": "Auburn", "description": "East Alabama"}
+                ]
+            },
+            "alaska": {
+                "name": "Alaska",
+                "abbreviation": "AK",
+                "region": "west",
+                "services": ["Concrete Installation", "Heated Driveways", "Snow Removal"],
+                "heroTagline": "Built for the Last Frontier's Extreme Conditions",
+                "gradient": "linear-gradient(135deg, #2B5797 0%, #5B9BD5 50%, #9013FE 100%)",
+                "unsplashQuery": "concrete+driveway+snow+winter",
+                "metaDescription": "Alaska's premier driveway contractor. Heated driveways, concrete installation, and snow removal for Anchorage, Fairbanks, Juneau, and all Alaskan communities.",
+                "benefits": [
+                    {
+                        "title": "Permafrost Protection",
+                        "description": "Specialized installation techniques that protect your driveway from Alaska's unique permafrost conditions and ground heaving."
+                    },
+                    {
+                        "title": "Heated Driveway Systems",
+                        "description": "Energy-efficient heated driveway solutions to eliminate snow and ice accumulation during Alaska's long winters."
+                    },
+                    {
+                        "title": "Extreme Cold Durability",
+                        "description": "Concrete mixes and reinforcement designed specifically for Alaska's temperature extremes and freeze-thaw cycles."
+                    }
+                ],
+                "cities": [
+                    {"name": "Anchorage", "description": "Southcentral hub"},
+                    {"name": "Fairbanks", "description": "Interior Alaska"},
+                    {"name": "Juneau", "description": "Southeast region"},
+                    {"name": "Wasilla", "description": "Matanuska Valley"},
+                    {"name": "Sitka", "description": "Baranof Island"},
+                    {"name": "Ketchikan", "description": "Southern panhandle"}
+                ]
+            },
+            "arizona": {
+                "name": "Arizona",
+                "abbreviation": "AZ",
+                "region": "southwest",
+                "services": ["Concrete Paving", "Decorative Concrete", "Heat Resistant Coatings"],
+                "heroTagline": "Desert-Tested Driveway Excellence",
+                "gradient": "linear-gradient(135deg, #2B5797 0%, #5B9BD5 50%, #D0021B 100%)",
+                "unsplashQuery": "decorative+concrete+driveway+desert",
+                "metaDescription": "Arizona driveway specialists. Heat-resistant concrete, decorative paving, and protective coatings for Phoenix, Tucson, and all desert communities. Free consultations.",
+                "benefits": [
+                    {
+                        "title": "Extreme Heat Resistance",
+                        "description": "Specialized concrete mixes and coatings that withstand Arizona's scorching summer temperatures without cracking or fading."
+                    },
+                    {
+                        "title": "UV Protection Technology",
+                        "description": "Advanced sealants that protect your driveway from intense UV radiation and prevent color degradation."
+                    },
+                    {
+                        "title": "Monsoon Drainage Solutions",
+                        "description": "Engineered drainage systems designed to handle Arizona's intense monsoon rains and prevent washout damage."
+                    }
+                ],
+                "cities": [
+                    {"name": "Phoenix", "description": "Valley of the Sun"},
+                    {"name": "Tucson", "description": "Southern Arizona"},
+                    {"name": "Mesa", "description": "East Valley"},
+                    {"name": "Scottsdale", "description": "Premium communities"},
+                    {"name": "Flagstaff", "description": "Northern Arizona"},
+                    {"name": "Sedona", "description": "Red Rock country"}
+                ]
+            },
+            "arkansas": {
+                "name": "Arkansas",
+                "abbreviation": "AR",
+                "region": "southeast",
+                "services": ["Asphalt Paving", "Gravel Driveways", "Drainage Solutions"],
+                "heroTagline": "Natural State Driveway Solutions",
+                "gradient": "linear-gradient(135deg, #2B5797 0%, #5B9BD5 50%, #50C878 100%)",
+                "unsplashQuery": "gravel+driveway+rural+ozarks",
+                "metaDescription": "Arkansas driveway experts. Asphalt paving, gravel driveways, and drainage solutions for Little Rock, Fayetteville, and all Natural State communities.",
+                "benefits": [
+                    {
+                        "title": "Ozark Terrain Expertise",
+                        "description": "Specialized grading and installation techniques for Arkansas's hilly Ozark terrain and rocky substrates."
+                    },
+                    {
+                        "title": "Flash Flood Protection",
+                        "description": "Advanced drainage systems designed to handle Arkansas's sudden heavy rains and prevent driveway erosion."
+                    },
+                    {
+                        "title": "Rural Driveway Specialists",
+                        "description": "Expert gravel and asphalt solutions for long rural driveways common throughout Arkansas's countryside."
+                    }
+                ],
+                "cities": [
+                    {"name": "Little Rock", "description": "Capital region"},
+                    {"name": "Fayetteville", "description": "Northwest Arkansas"},
+                    {"name": "Fort Smith", "description": "Western Arkansas"},
+                    {"name": "Springdale", "description": "NWA metro"},
+                    {"name": "Jonesboro", "description": "Northeast Arkansas"},
+                    {"name": "Bentonville", "description": "Corporate hub"}
+                ]
+            },
+            "california": {
+                "name": "California",
+                "abbreviation": "CA",
+                "region": "west",
+                "services": ["Concrete Installation", "Pavers", "Permeable Paving", "Earthquake Resistant"],
+                "heroTagline": "Golden State Driveway Innovation",
+                "gradient": "linear-gradient(135deg, #2B5797 0%, #5B9BD5 50%, #9013FE 100%)",
+                "unsplashQuery": "concrete+pavers+driveway+modern",
+                "metaDescription": "California's leading driveway contractor. Earthquake-resistant concrete, permeable pavers, and custom designs for LA, SF, San Diego, and all CA regions.",
+                "benefits": [
+                    {
+                        "title": "Seismic Resistant Design",
+                        "description": "Earthquake-resistant installation techniques and flexible paving systems that withstand California's seismic activity."
+                    },
+                    {
+                        "title": "Drought Compliant Solutions",
+                        "description": "Permeable paving options that meet California's strict water conservation requirements and reduce runoff."
+                    },
+                    {
+                        "title": "Coastal Salt Protection",
+                        "description": "Specialized sealants and materials that resist corrosion from coastal salt air in California's beach communities."
+                    }
+                ],
+                "cities": [
+                    {"name": "Los Angeles", "description": "Southern California"},
+                    {"name": "San Francisco", "description": "Bay Area"},
+                    {"name": "San Diego", "description": "Border region"},
+                    {"name": "Sacramento", "description": "Capital valley"},
+                    {"name": "San Jose", "description": "Silicon Valley"},
+                    {"name": "Fresno", "description": "Central Valley"}
+                ]
+            },
+            "colorado": {
+                "name": "Colorado",
+                "abbreviation": "CO",
+                "region": "west",
+                "services": ["Concrete Paving", "Heated Driveways", "Snow Removal", "Altitude Solutions"],
+                "heroTagline": "Mile High Driveway Excellence",
+                "gradient": "linear-gradient(135deg, #2B5797 0%, #5B9BD5 50%, #9013FE 100%)",
+                "unsplashQuery": "concrete+driveway+snow+mountains",
+                "metaDescription": "Colorado driveway specialists. Heated driveways, altitude-rated concrete, and snow removal for Denver, Colorado Springs, Boulder, and all mountain communities.",
+                "benefits": [
+                    {
+                        "title": "High Altitude Performance",
+                        "description": "Concrete formulations specifically designed for Colorado's high elevation and intense UV exposure at altitude."
+                    },
+                    {
+                        "title": "Heavy Snow Load Design",
+                        "description": "Reinforced driveway structures engineered to handle Colorado's heavy snow loads and frequent freeze-thaw cycles."
+                    },
+                    {
+                        "title": "Heated System Efficiency",
+                        "description": "Energy-efficient heated driveway systems perfect for Colorado's snowy winters and rapid snowmelt needs."
+                    }
+                ],
+                "cities": [
+                    {"name": "Denver", "description": "Front Range hub"},
+                    {"name": "Colorado Springs", "description": "Pikes Peak region"},
+                    {"name": "Boulder", "description": "Foothills"},
+                    {"name": "Fort Collins", "description": "Northern Colorado"},
+                    {"name": "Aspen", "description": "Resort community"},
+                    {"name": "Vail", "description": "Mountain resort"}
+                ]
+            },
+            "connecticut": {
+                "name": "Connecticut",
+                "abbreviation": "CT",
+                "region": "northeast",
+                "services": ["Asphalt Paving", "Sealcoating", "Snow Removal"],
+                "heroTagline": "Constitution State Quality Craftsmanship",
+                "gradient": "linear-gradient(135deg, #2B5797 0%, #5B9BD5 50%, #4A90E2 100%)",
+                "unsplashQuery": "asphalt+driveway+suburban+new+england",
+                "metaDescription": "Connecticut driveway experts. Asphalt paving, sealcoating, and snow removal for Bridgeport, New Haven, Hartford, and all CT communities.",
+                "benefits": [
+                    {
+                        "title": "Freeze-Thaw Protection",
+                        "description": "Advanced asphalt mixes and sealcoating that withstand Connecticut's harsh winters and frequent freeze-thaw cycles."
+                    },
+                    {
+                        "title": "Coastal Weather Resistance",
+                        "description": "Salt-resistant materials and sealants perfect for Connecticut's shoreline communities and harsh coastal weather."
+                    },
+                    {
+                        "title": "Historic Home Integration",
+                        "description": "Driveway designs that complement Connecticut's historic homes and meet preservation district requirements."
+                    }
+                ],
+                "cities": [
+                    {"name": "Bridgeport", "description": "Coastal city"},
+                    {"name": "New Haven", "description": "Educational hub"},
+                    {"name": "Hartford", "description": "Capital region"},
+                    {"name": "Stamford", "description": "Gold Coast"},
+                    {"name": "Waterbury", "description": "Naugatuck Valley"},
+                    {"name": "Norwalk", "description": "Coastal Fairfield"}
+                ]
+            },
+            "delaware": {
+                "name": "Delaware",
+                "abbreviation": "DE",
+                "region": "northeast",
+                "services": ["Asphalt Paving", "Concrete", "Beach Property Specialists"],
+                "heroTagline": "First State Driveway Excellence",
+                "gradient": "linear-gradient(135deg, #2B5797 0%, #5B9BD5 50%, #4A90E2 100%)",
+                "unsplashQuery": "asphalt+driveway+beach+house+coast",
+                "metaDescription": "Delaware driveway specialists. Beach property expertise, asphalt and concrete for Wilmington, Dover, Rehoboth Beach, and all First State locations.",
+                "benefits": [
+                    {
+                        "title": "Beach Property Expertise",
+                        "description": "Specialized sand stabilization and drainage for Delaware's beachfront and coastal properties."
+                    },
+                    {
+                        "title": "Salt Air Protection",
+                        "description": "Corrosion-resistant materials and coatings that protect driveways from Delaware's coastal salt air."
+                    },
+                    {
+                        "title": "Flood Zone Compliance",
+                        "description": "Driveway designs that meet Delaware's flood zone requirements and manage stormwater effectively."
+                    }
+                ],
+                "cities": [
+                    {"name": "Wilmington", "description": "Northern Delaware"},
+                    {"name": "Dover", "description": "Capital region"},
+                    {"name": "Newark", "description": "University area"},
+                    {"name": "Rehoboth Beach", "description": "Coastal resort"},
+                    {"name": "Middletown", "description": "Growing community"},
+                    {"name": "Lewes", "description": "Historic coastal"}
+                ]
+            },
+            "florida": {
+                "name": "Florida",
+                "abbreviation": "FL",
+                "region": "southeast",
+                "services": ["Concrete Paving", "Pavers", "Hurricane Resistant", "Permeable Paving"],
+                "heroTagline": "Sunshine State Driveway Solutions",
+                "gradient": "linear-gradient(135deg, #2B5797 0%, #5B9BD5 50%, #50C878 100%)",
+                "unsplashQuery": "concrete+driveway+palm+trees+tropical",
+                "metaDescription": "Florida's trusted driveway contractor. Hurricane-resistant concrete, pavers, and permeable paving for Miami, Tampa, Orlando, and all FL cities.",
+                "benefits": [
+                    {
+                        "title": "Hurricane Resistant Design",
+                        "description": "Reinforced driveway systems engineered to withstand Florida's hurricane-force winds and flooding."
+                    },
+                    {
+                        "title": "Limestone Base Expertise",
+                        "description": "Proper limestone base preparation for Florida's sandy soils to prevent settling and cracking."
+                    },
+                    {
+                        "title": "Tropical Climate Sealing",
+                        "description": "UV-resistant sealants that protect against Florida's intense sun and heavy rainfall patterns."
+                    }
+                ],
+                "cities": [
+                    {"name": "Jacksonville", "description": "Northeast Florida"},
+                    {"name": "Miami", "description": "South Florida"},
+                    {"name": "Tampa", "description": "Gulf Coast"},
+                    {"name": "Orlando", "description": "Central Florida"},
+                    {"name": "Tallahassee", "description": "Panhandle capital"},
+                    {"name": "Fort Lauderdale", "description": "Broward County"}
+                ]
+            },
+            "georgia": {
+                "name": "Georgia",
+                "abbreviation": "GA",
+                "region": "southeast",
+                "services": ["Asphalt Paving", "Concrete", "Clay Soil Solutions"],
+                "heroTagline": "Peach State Driveway Perfection",
+                "gradient": "linear-gradient(135deg, #2B5797 0%, #5B9BD5 50%, #50C878 100%)",
+                "unsplashQuery": "asphalt+driveway+georgia+suburban",
+                "metaDescription": "Georgia driveway experts. Asphalt paving, concrete, and red clay soil solutions for Atlanta, Augusta, Savannah, and all Peach State communities.",
+                "benefits": [
+                    {
+                        "title": "Red Clay Expertise",
+                        "description": "Specialized base preparation and drainage for Georgia's notorious red clay soil to prevent shifting and cracking."
+                    },
+                    {
+                        "title": "Heat Resistant Materials",
+                        "description": "Asphalt and concrete formulations that withstand Georgia's hot, humid summers without softening or degradation."
+                    },
+                    {
+                        "title": "Piedmont Terrain Mastery",
+                        "description": "Expert grading and installation for Georgia's rolling Piedmont terrain and sloped properties."
+                    }
+                ],
+                "cities": [
+                    {"name": "Atlanta", "description": "Metro hub"},
+                    {"name": "Augusta", "description": "Garden City"},
+                    {"name": "Columbus", "description": "Western Georgia"},
+                    {"name": "Savannah", "description": "Coastal historic"},
+                    {"name": "Athens", "description": "Classic City"},
+                    {"name": "Macon", "description": "Central Georgia"}
+                ]
+            },
+            "hawaii": {
+                "name": "Hawaii",
+                "abbreviation": "HI",
+                "region": "west",
+                "services": ["Concrete Installation", "Tropical Weather Sealing", "Volcanic Rock Integration"],
+                "heroTagline": "Island-Style Driveway Excellence",
+                "gradient": "linear-gradient(135deg, #2B5797 0%, #5B9BD5 50%, #9013FE 100%)",
+                "unsplashQuery": "tropical+concrete+driveway+palm+trees",
+                "metaDescription": "Hawaii's premier driveway contractor. Volcanic rock integration, tropical weather sealing for Honolulu, Hilo, Kona, and all islands.",
+                "benefits": [
+                    {
+                        "title": "Volcanic Soil Adaptation",
+                        "description": "Specialized techniques for Hawaii's volcanic rock and cinder soils, ensuring stable, long-lasting driveways."
+                    },
+                    {
+                        "title": "Salt Air & Humidity Defense",
+                        "description": "Marine-grade sealants and materials that resist Hawaii's corrosive salt air and high humidity."
+                    },
+                    {
+                        "title": "Tropical Aesthetic Integration",
+                        "description": "Driveway designs that complement Hawaii's natural beauty with integrated lava rock and tropical landscaping."
+                    }
+                ],
+                "cities": [
+                    {"name": "Honolulu", "description": "Oahu capital"},
+                    {"name": "Hilo", "description": "Big Island"},
+                    {"name": "Kailua-Kona", "description": "West Hawaii"},
+                    {"name": "Kahului", "description": "Maui central"},
+                    {"name": "Lihue", "description": "Kauai hub"},
+                    {"name": "Pearl City", "description": "Oahu leeward"}
+                ]
+            },
+            "idaho": {
+                "name": "Idaho",
+                "abbreviation": "ID",
+                "region": "west",
+                "services": ["Concrete Paving", "Gravel", "Snow Removal", "Rural Solutions"],
+                "heroTagline": "Gem State Driveway Durability",
+                "gradient": "linear-gradient(135deg, #2B5797 0%, #5B9BD5 50%, #9013FE 100%)",
+                "unsplashQuery": "gravel+driveway+rural+mountains",
+                "metaDescription": "Idaho driveway specialists. Concrete, gravel, and snow removal for Boise, Idaho Falls, Nampa, and all Gem State communities.",
+                "benefits": [
+                    {
+                        "title": "Mountain Climate Resilience",
+                        "description": "Driveway materials engineered for Idaho's extreme temperature swings and heavy snow loads."
+                    },
+                    {
+                        "title": "Rural Long Driveway Expertise",
+                        "description": "Cost-effective gravel and asphalt solutions for Idaho's long rural driveways and large properties."
+                    },
+                    {
+                        "title": "Basalt Rock Integration",
+                        "description": "Utilization of Idaho's abundant basalt rock for durable, attractive driveway bases and accents."
+                    }
+                ],
+                "cities": [
+                    {"name": "Boise", "description": "Capital region"},
+                    {"name": "Idaho Falls", "description": "Eastern Idaho"},
+                    {"name": "Nampa", "description": "Canyon County"},
+                    {"name": "Meridian", "description": "Fastest growing"},
+                    {"name": "Pocatello", "description": "Southeast Idaho"},
+                    {"name": "Coeur d'Alene", "description": "North Idaho"}
+                ]
+            },
+            "illinois": {
+                "name": "Illinois",
+                "abbreviation": "IL",
+                "region": "midwest",
+                "services": ["Asphalt Paving", "Concrete", "Freeze-Thaw Protection"],
+                "heroTagline": "Prairie State Driveway Strength",
+                "gradient": "linear-gradient(135deg, #2B5797 0%, #5B9BD5 50%, #F5A623 100%)",
+                "unsplashQuery": "asphalt+driveway+illinois+suburban",
+                "metaDescription": "Illinois driveway experts. Freeze-thaw protection, asphalt and concrete for Chicago, Springfield, Peoria, and all Prairie State locations.",
+                "benefits": [
+                    {
+                        "title": "Freeze-Thaw Engineering",
+                        "description": "Advanced concrete and asphalt formulations that withstand Illinois's brutal freeze-thaw cycles."
+                    },
+                    {
+                        "title": "Black Clay Solutions",
+                        "description": "Expert drainage and base preparation for Illinois's dense black clay soils."
+                    },
+                    {
+                        "title": "Heavy Load Design",
+                        "description": "Reinforced driveways built to handle Illinois's agricultural equipment and harsh winters."
+                    }
+                ],
+                "cities": [
+                    {"name": "Chicago", "description": "Metro area"},
+                    {"name": "Springfield", "description": "Capital region"},
+                    {"name": "Peoria", "description": "Central Illinois"},
+                    {"name": "Rockford", "description": "Northern Illinois"},
+                    {"name": "Champaign", "description": "University area"},
+                    {"name": "Naperville", "description": "Western suburb"}
+                ]
+            },
+            "indiana": {
+                "name": "Indiana",
+                "abbreviation": "IN",
+                "region": "midwest",
+                "services": ["Asphalt Paving", "Concrete", "Sealcoating"],
+                "heroTagline": "Hoosier State Driveway Quality",
+                "gradient": "linear-gradient(135deg, #2B5797 0%, #5B9BD5 50%, #F5A623 100%)",
+                "unsplashQuery": "asphalt+driveway+indiana+suburban",
+                "metaDescription": "Indiana driveway professionals. Asphalt paving, concrete, and sealcoating for Indianapolis, Fort Wayne, Evansville, and all Hoosier State areas.",
+                "benefits": [
+                    {
+                        "title": "Midwest Weather Durability",
+                        "description": "Driveway materials formulated to handle Indiana's hot summers and cold, snowy winters."
+                    },
+                    {
+                        "title": "Agricultural Access Solutions",
+                        "description": "Heavy-duty driveways designed for Indiana's rural properties and farm equipment access."
+                    },
+                    {
+                        "title": "Racing Surface Technology",
+                        "description": "High-performance sealcoating techniques adapted from Indiana's motorsports industry for ultra-smooth finishes."
+                    }
+                ],
+                "cities": [
+                    {"name": "Indianapolis", "description": "Capital region"},
+                    {"name": "Fort Wayne", "description": "Northeast Indiana"},
+                    {"name": "Evansville", "description": "Southwest corner"},
+                    {"name": "South Bend", "description": "Northern Indiana"},
+                    {"name": "Bloomington", "description": "University town"},
+                    {"name": "Carmel", "description": "Indianapolis suburb"}
+                ]
+            },
+            "iowa": {
+                "name": "Iowa",
+                "abbreviation": "IA",
+                "region": "midwest",
+                "services": ["Concrete Paving", "Asphalt", "Rural Driveway Specialists"],
+                "heroTagline": "Hawkeye State Driveway Reliability",
+                "gradient": "linear-gradient(135deg, #2B5797 0%, #5B9BD5 50%, #F5A623 100%)",
+                "unsplashQuery": "concrete+driveway+iowa+rural+farm",
+                "metaDescription": "Iowa driveway specialists. Concrete, asphalt, and rural driveway solutions for Des Moines, Cedar Rapids, Davenport, and all Hawkeye State communities.",
+                "benefits": [
+                    {
+                        "title": "Loess Soil Expertise",
+                        "description": "Specialized base preparation for Iowa's unique wind-deposited loess soil to ensure driveway stability."
+                    },
+                    {
+                        "title": "Farm Equipment Ready",
+                        "description": "Heavy-duty concrete and asphalt designed to withstand Iowa's agricultural machinery and grain trucks."
+                    },
+                    {
+                        "title": "Tornado Alley Durability",
+                        "description": "Reinforced driveway edges and storm-resistant designs for Iowa's severe weather conditions."
+                    }
+                ],
+                "cities": [
+                    {"name": "Des Moines", "description": "Capital region"},
+                    {"name": "Cedar Rapids", "description": "Eastern Iowa"},
+                    {"name": "Davenport", "description": "Quad Cities"},
+                    {"name": "Sioux City", "description": "Western Iowa"},
+                    {"name": "Iowa City", "description": "University town"},
+                    {"name": "Waterloo", "description": "Northeast Iowa"}
+                ]
+            },
+            "kansas": {
+                "name": "Kansas",
+                "abbreviation": "KS",
+                "region": "midwest",
+                "services": ["Concrete Paving", "Asphalt", "Tornado Resistant Design"],
+                "heroTagline": "Sunflower State Driveway Strength",
+                "gradient": "linear-gradient(135deg, #2B5797 0%, #5B9BD5 50%, #F5A623 100%)",
+                "unsplashQuery": "concrete+driveway+kansas+rural",
+                "metaDescription": "Kansas driveway experts. Tornado-resistant concrete, asphalt paving for Wichita, Overland Park, Topeka, and all Sunflower State locations.",
+                "benefits": [
+                    {
+                        "title": "Tornado Resistant Construction",
+                        "description": "Reinforced driveway systems designed to withstand Kansas's severe winds and flying debris."
+                    },
+                    {
+                        "title": "Extreme Temperature Performance",
+                        "description": "Materials engineered for Kansas's 100+ degree summers and sub-zero winters."
+                    },
+                    {
+                        "title": "Rural Long Driveway Value",
+                        "description": "Cost-effective solutions for Kansas's characteristic long country driveways and large rural properties."
+                    }
+                ],
+                "cities": [
+                    {"name": "Wichita", "description": "Southcentral hub"},
+                    {"name": "Overland Park", "description": "Kansas City metro"},
+                    {"name": "Kansas City", "description": "Northeast Kansas"},
+                    {"name": "Topeka", "description": "Capital region"},
+                    {"name": "Olathe", "description": "KC suburb"},
+                    {"name": "Lawrence", "description": "University town"}
+                ]
+            },
+            "kentucky": {
+                "name": "Kentucky",
+                "abbreviation": "KY",
+                "region": "southeast",
+                "services": ["Asphalt Paving", "Concrete", "Hill Country Solutions"],
+                "heroTagline": "Bluegrass State Driveway Excellence",
+                "gradient": "linear-gradient(135deg, #2B5797 0%, #5B9BD5 50%, #50C878 100%)",
+                "unsplashQuery": "asphalt+driveway+kentucky+bluegrass+hills",
+                "metaDescription": "Kentucky driveway professionals. Asphalt, concrete, and hill country solutions for Louisville, Lexington, Bowling Green, and all Bluegrass State areas.",
+                "benefits": [
+                    {
+                        "title": "Appalachian Terrain Mastery",
+                        "description": "Expert grading and drainage for Kentucky's rolling hills and Appalachian mountain driveways."
+                    },
+                    {
+                        "title": "Karst Landscape Solutions",
+                        "description": "Specialized foundation work for Kentucky's limestone karst regions to prevent sinkhole issues."
+                    },
+                    {
+                        "title": "Horse Farm Specialists",
+                        "description": "Heavy-duty driveways designed for Kentucky's horse farms and agricultural properties."
+                    }
+                ],
+                "cities": [
+                    {"name": "Louisville", "description": "Derby City"},
+                    {"name": "Lexington", "description": "Horse Country"},
+                    {"name": "Bowling Green", "description": "Southcentral"},
+                    {"name": "Owensboro", "description": "Western Kentucky"},
+                    {"name": "Covington", "description": "Northern Kentucky"},
+                    {"name": "Richmond", "description": "Eastern Kentucky"}
+                ]
+            },
+            "louisiana": {
+                "name": "Louisiana",
+                "abbreviation": "LA",
+                "region": "southeast",
+                "services": ["Concrete Paving", "Asphalt", "Flood Resistant Design", "French Drainage"],
+                "heroTagline": "Bayou State Driveway Resilience",
+                "gradient": "linear-gradient(135deg, #2B5797 0%, #5B9BD5 50%, #50C878 100%)",
+                "unsplashQuery": "concrete+driveway+louisiana+suburban",
+                "metaDescription": "Louisiana driveway specialists. Flood-resistant concrete, French drainage for New Orleans, Baton Rouge, Shreveport, and all Bayou State communities.",
+                "benefits": [
+                    {
+                        "title": "Flood Zone Engineering",
+                        "description": "Elevated driveway designs and superior drainage for Louisiana's flood-prone areas and high water tables."
+                    },
+                    {
+                        "title": "French Drainage Expertise",
+                        "description": "Advanced French drainage systems to manage Louisiana's heavy rainfall and prevent driveway washout."
+                    },
+                    {
+                        "title": "Gumbo Soil Solutions",
+                        "description": "Specialized base preparation for Louisiana's heavy clay 'gumbo' soil to prevent cracking and shifting."
+                    }
+                ],
+                "cities": [
+                    {"name": "New Orleans", "description": "Crescent City"},
+                    {"name": "Baton Rouge", "description": "Capital region"},
+                    {"name": "Shreveport", "description": "Northwest Louisiana"},
+                    {"name": "Lafayette", "description": "Acadiana"},
+                    {"name": "Lake Charles", "description": "Southwest"},
+                    {"name": "Kenner", "description": "Jefferson Parish"}
+                ]
+            },
+            "maine": {
+                "name": "Maine",
+                "abbreviation": "ME",
+                "region": "northeast",
+                "services": ["Asphalt Paving", "Heated Driveways", "Snow Removal", "Coastal Solutions"],
+                "heroTagline": "Pine Tree State Driveway Durability",
+                "gradient": "linear-gradient(135deg, #2B5797 0%, #5B9BD5 50%, #4A90E2 100%)",
+                "unsplashQuery": "asphalt+driveway+maine+coastal+winter",
+                "metaDescription": "Maine driveway experts. Heated driveways, coastal solutions, and snow removal for Portland, Bangor, Lewiston, and all Pine Tree State locations.",
+                "benefits": [
+                    {
+                        "title": "Coastal Salt Protection",
+                        "description": "Marine-grade materials and sealants that resist Maine's harsh coastal salt air and storm exposure."
+                    },
+                    {
+                        "title": "Deep Winter Performance",
+                        "description": "Heated driveway systems and snow removal designed for Maine's heavy snowfalls and extreme cold."
+                    },
+                    {
+                        "title": "Granite State Bedrock",
+                        "description": "Expert bedrock preparation and drainage for Maine's rocky terrain and granite substrates."
+                    }
+                ],
+                "cities": [
+                    {"name": "Portland", "description": "Coastal hub"},
+                    {"name": "Lewiston", "description": "Androscoggin County"},
+                    {"name": "Bangor", "description": "Northern Maine"},
+                    {"name": "South Portland", "description": "Coastal city"},
+                    {"name": "Auburn", "description": "Twin cities"},
+                    {"name": "Biddeford", "description": "York County"}
+                ]
+            },
+            "maryland": {
+                "name": "Maryland",
+                "abbreviation": "MD",
+                "region": "northeast",
+                "services": ["Asphalt Paving", "Concrete", "Sealcoating", "Historic District Compliance"],
+                "heroTagline": "Old Line State Driveway Quality",
+                "gradient": "linear-gradient(135deg, #2B5797 0%, #5B9BD5 50%, #4A90E2 100%)",
+                "unsplashQuery": "asphalt+driveway+maryland+suburban+historic",
+                "metaDescription": "Maryland driveway professionals. Historic compliance, asphalt and concrete for Baltimore, Frederick, Rockville, and all Old Line State areas.",
+                "benefits": [
+                    {
+                        "title": "Historic District Compliance",
+                        "description": "Driveway designs that meet Maryland's strict historic preservation requirements in Annapolis and Frederick."
+                    },
+                    {
+                        "title": "Chesapeake Climate Adaptation",
+                        "description": "Materials selected for Maryland's humid subtropical climate and Chesapeake Bay weather patterns."
+                    },
+                    {
+                        "title": "DC Metro Expertise",
+                        "description": "Urban driveway solutions for Maryland's dense DC suburbs with limited access and tight spaces."
+                    }
+                ],
+                "cities": [
+                    {"name": "Baltimore", "description": "Charm City"},
+                    {"name": "Frederick", "description": "Historic hub"},
+                    {"name": "Rockville", "description": "DC suburb"},
+                    {"name": "Gaithersburg", "description": "Montgomery County"},
+                    {"name": "Annapolis", "description": "Capital"},
+                    {"name": "Columbia", "description": "Planned community"}
+                ]
+            },
+            "massachusetts": {
+                "name": "Massachusetts",
+                "abbreviation": "MA",
+                "region": "northeast",
+                "services": ["Asphalt Paving", "Concrete", "Heated Driveways", "Snow Removal"],
+                "heroTagline": "Bay State Driveway Excellence",
+                "gradient": "linear-gradient(135deg, #2B5797 0%, #5B9BD5 50%, #4A90E2 100%)",
+                "unsplashQuery": "asphalt+driveway+massachusetts+colonial",
+                "metaDescription": "Massachusetts driveway specialists. Heated driveways, snow removal, and historic designs for Boston, Worcester, Springfield, and all Bay State communities.",
+                "benefits": [
+                    {
+                        "title": "Colonial Architecture Integration",
+                        "description": "Driveway designs that complement Massachusetts's historic Colonial and Cape Cod architecture."
+                    },
+                    {
+                        "title": "Nor'easter Resilience",
+                        "description": "Heavy-duty snow removal and heated systems built for Massachusetts's severe winter storms."
+                    },
+                    {
+                        "title": "Coastal Storm Protection",
+                        "description": "Reinforced edges and drainage for Cape Cod and coastal properties facing harsh Atlantic weather."
+                    }
+                ],
+                "cities": [
+                    {"name": "Boston", "description": "Capital region"},
+                    {"name": "Worcester", "description": "Central Mass"},
+                    {"name": "Springfield", "description": "Western Mass"},
+                    {"name": "Cambridge", "description": "Greater Boston"},
+                    {"name": "Lowell", "description": "Merrimack Valley"},
+                    {"name": "Brockton", "description": "Southeastern Mass"}
+                ]
+            },
+            "michigan": {
+                "name": "Michigan",
+                "abbreviation": "MI",
+                "region": "midwest",
+                "services": ["Concrete Paving", "Asphalt", "Freeze-Thaw Protection", "Snow Removal"],
+                "heroTagline": "Great Lakes State Driveway Strength",
+                "gradient": "linear-gradient(135deg, #2B5797 0%, #5B9BD5 50%, #F5A623 100%)",
+                "unsplashQuery": "concrete+driveway+michigan+winter+snow",
+                "metaDescription": "Michigan driveway experts. Freeze-thaw protection, snow removal for Detroit, Grand Rapids, Ann Arbor, and all Great Lakes State locations.",
+                "benefits": [
+                    {
+                        "title": "Extreme Freeze-Thaw Engineering",
+                        "description": "Specialized concrete formulations that withstand Michigan's brutal freeze-thaw cycles and lake effect snow."
+                    },
+                    {
+                        "title": "Salt Resistance Technology",
+                        "description": "Advanced sealants that protect against Michigan's heavy road salt usage and lake effect corrosion."
+                    },
+                    {
+                        "title": "Sandy Soil Solutions",
+                        "description": "Proper base stabilization for Michigan's sandy soils, particularly in coastal and lakefront areas."
+                    }
+                ],
+                "cities": [
+                    {"name": "Detroit", "description": "Motor City"},
+                    {"name": "Grand Rapids", "description": "Western Michigan"},
+                    {"name": "Ann Arbor", "description": "University town"},
+                    {"name": "Lansing", "description": "Capital region"},
+                    {"name": "Flint", "description": "Eastern Michigan"},
+                    {"name": "Traverse City", "description": "Northern Michigan"}
+                ]
+            },
+            "minnesota": {
+                "name": "Minnesota",
+                "abbreviation": "MN",
+                "region": "midwest",
+                "services": ["Concrete Paving", "Heated Driveways", "Snow Removal", "Extreme Cold Solutions"],
+                "heroTagline": "North Star State Driveway Endurance",
+                "gradient": "linear-gradient(135deg, #2B5797 0%, #5B9BD5 50%, #F5A623 100%)",
+                "unsplashQuery": "concrete+driveway+minnesota+winter+snow+heated",
+                "metaDescription": "Minnesota driveway specialists. Extreme cold solutions, heated driveways for Minneapolis, St. Paul, Duluth, and all North Star State areas.",
+                "benefits": [
+                    {
+                        "title": "Sub-Zero Performance",
+                        "description": "Concrete and asphalt engineered for Minnesota's extreme cold, maintaining integrity at -30°F and below."
+                    },
+                    {
+                        "title": "Heated Driveway Efficiency",
+                        "description": "High-efficiency heated systems designed for Minnesota's long, harsh winters and heavy snow loads."
+                    },
+                    {
+                        "title": "Lake Country Expertise",
+                        "description": "Specialized installation for Minnesota's lake properties with proper drainage and erosion control."
+                    }
+                ],
+                "cities": [
+                    {"name": "Minneapolis", "description": "Twin Cities"},
+                    {"name": "St. Paul", "description": "Capital"},
+                    {"name": "Rochester", "description": "Medical hub"},
+                    {"name": "Duluth", "description": "Lake Superior"},
+                    {"name": "Bloomington", "description": "Twin Cities suburb"},
+                    {"name": "Brooklyn Park", "description": "NW suburb"}
+                ]
+            },
+            "mississippi": {
+                "name": "Mississippi",
+                "abbreviation": "MS",
+                "region": "southeast",
+                "services": ["Asphalt Paving", "Concrete", "Humidity Resistant Sealing"],
+                "heroTagline": "Magnolia State Driveway Quality",
+                "gradient": "linear-gradient(135deg, #2B5797 0%, #5B9BD5 50%, #50C878 100%)",
+                "unsplashQuery": "asphalt+driveway+mississippi+suburban",
+                "metaDescription": "Mississippi driveway professionals. Humidity-resistant asphalt and concrete for Jackson, Gulfport, Hattiesburg, and all Magnolia State communities.",
+                "benefits": [
+                    {
+                        "title": "Gulf Coast Humidity Defense",
+                        "description": "Moisture-resistant sealants and materials that withstand Mississippi's extreme humidity and Gulf Coast salt air."
+                    },
+                    {
+                        "title": "Delta Soil Solutions",
+                        "description": "Specialized base preparation for Mississippi's rich alluvial delta soils to prevent settling."
+                    },
+                    {
+                        "title": "Hurricane Preparation",
+                        "description": "Reinforced driveway edges and drainage systems designed for Mississippi's tropical storm season."
+                    }
+                ],
+                "cities": [
+                    {"name": "Jackson", "description": "Capital region"},
+                    {"name": "Gulfport", "description": "Coastal city"},
+                    {"name": "Southaven", "description": "Memphis suburb"},
+                    {"name": "Hattiesburg", "description": "Hub City"},
+                    {"name": "Biloxi", "description": "Mississippi Gulf Coast"},
+                    {"name": "Meridian", "description": "East Mississippi"}
+                ]
+            },
+            "missouri": {
+                "name": "Missouri",
+                "abbreviation": "MO",
+                "region": "midwest",
+                "services": ["Concrete Paving", "Asphalt", "Storm Resistant Design"],
+                "heroTagline": "Show-Me State Driveway Reliability",
+                "gradient": "linear-gradient(135deg, #2B5797 0%, #5B9BD5 50%, #F5A623 100%)",
+                "unsplashQuery": "concrete+driveway+missouri+suburban+storm",
+                "metaDescription": "Missouri driveway experts. Storm-resistant concrete and asphalt for Kansas City, St. Louis, Springfield, and all Show-Me State locations.",
+                "benefits": [
+                    {
+                        "title": "Tornado Alley Construction",
+                        "description": "Reinforced driveway systems with storm-resistant features for Missouri's tornado-prone regions."
+                    },
+                    {
+                        "title": "Karst Topography Expertise",
+                        "description": "Specialized foundation work for Missouri's limestone karst regions, including Springfield and Ozark areas."
+                    },
+                    {
+                        "title": "River Flood Management",
+                        "description": "Advanced drainage and elevation for properties near Missouri's major rivers and flood plains."
+                    }
+                ],
+                "cities": [
+                    {"name": "Kansas City", "description": "Western hub"},
+                    {"name": "St. Louis", "description": "Eastern gateway"},
+                    {"name": "Springfield", "description": "Queen City"},
+                    {"name": "Columbia", "description": "University town"},
+                    {"name": "Independence", "description": "KC suburb"},
+                    {"name": "Lee's Summit", "description": "KC metro"}
+                ]
+            },
+            "montana": {
+                "name": "Montana",
+                "abbreviation": "MT",
+                "region": "west",
+                "services": ["Concrete Paving", "Gravel", "Snow Removal", "Ranch Driveway Specialists"],
+                "heroTagline": "Big Sky Country Driveway Durability",
+                "gradient": "linear-gradient(135deg, #2B5797 0%, #5B9BD5 50%, #9013FE 100%)",
+                "unsplashQuery": "gravel+driveway+montana+ranch+mountains",
+                "metaDescription": "Montana driveway specialists. Ranch driveways, gravel, and snow removal for Billings, Missoula, Great Falls, and all Big Sky Country areas.",
+                "benefits": [
+                    {
+                        "title": "Ranch Driveway Expertise",
+                        "description": "Long-distance gravel and asphalt solutions for Montana's expansive ranch properties and rural access roads."
+                    },
+                    {
+                        "title": "Extreme Weather Resilience",
+                        "description": "Materials engineered for Montana's temperature extremes, from 100°F summers to -40°F winters."
+                    },
+                    {
+                        "title": "Mountain Terrain Mastery",
+                        "description": "Expert grading and drainage for Montana's Rocky Mountain foothills and steep terrain."
+                    }
+                ],
+                "cities": [
+                    {"name": "Billings", "description": "Largest city"},
+                    {"name": "Missoula", "description": "Western Montana"},
+                    {"name": "Great Falls", "description": "Central Montana"},
+                    {"name": "Bozeman", "description": "Gallatin Valley"},
+                    {"name": "Butte", "description": "Mining heritage"},
+                    {"name": "Helena", "description": "Capital region"}
+                ]
+            },
+            "nebraska": {
+                "name": "Nebraska",
+                "abbreviation": "NE",
+                "region": "midwest",
+                "services": ["Concrete Paving", "Asphalt", "Rural Long Driveway Experts"],
+                "heroTagline": "Cornhusker State Driveway Strength",
+                "gradient": "linear-gradient(135deg, #2B5797 0%, #5B9BD5 50%, #F5A623 100%)",
+                "unsplashQuery": "concrete+driveway+nebraska+rural+farm",
+                "metaDescription": "Nebraska driveway experts. Rural long driveways, concrete and asphalt for Omaha, Lincoln, Grand Island, and all Cornhusker State communities.",
+                "benefits": [
+                    {
+                        "title": "Rural Long Driveway Value",
+                        "description": "Cost-effective solutions for Nebraska's characteristic long farm driveways and rural access roads."
+                    },
+                    {
+                        "title": "Wind Load Engineering",
+                        "description": "Driveway designs that withstand Nebraska's extreme winds and prevent erosion in open prairie."
+                    },
+                    {
+                        "title": "Agricultural Heavy Loads",
+                        "description": "Reinforced concrete and asphalt built to handle Nebraska's farm equipment and grain trucks."
+                    }
+                ],
+                "cities": [
+                    {"name": "Omaha", "description": "Metro hub"},
+                    {"name": "Lincoln", "description": "Capital region"},
+                    {"name": "Bellevue", "description": "Omaha suburb"},
+                    {"name": "Grand Island", "description": "Central Nebraska"},
+                    {"name": "Kearney", "description": "Heartland"},
+                    {"name": "Fremont", "description": "Eastern Nebraska"}
+                ]
+            },
+            "nevada": {
+                "name": "Nevada",
+                "abbreviation": "NV",
+                "region": "west",
+                "services": ["Concrete Paving", "Desert Heat Solutions", "Decorative Concrete"],
+                "heroTagline": "Silver State Driveway Innovation",
+                "gradient": "linear-gradient(135deg, #2B5797 0%, #5B9BD5 50%, #D0021B 100%)",
+                "unsplashQuery": "decorative+concrete+driveway+nevada+desert",
+                "metaDescription": "Nevada driveway specialists. Desert heat solutions, decorative concrete for Las Vegas, Reno, Henderson, and all Silver State locations.",
+                "benefits": [
+                    {
+                        "title": "Extreme Heat Performance",
+                        "description": "Specialized concrete mixes that withstand Nevada's 110°F+ temperatures without cracking or spalling."
+                    },
+                    {
+                        "title": "Desert Aesthetic Design",
+                        "description": "Decorative concrete and pavers that complement Nevada's desert landscape and architectural styles."
+                    },
+                    {
+                        "title": "Flash Flood Management",
+                        "description": "Advanced drainage systems designed for Nevada's sudden desert downpours and wash prevention."
+                    }
+                ],
+                "cities": [
+                    {"name": "Las Vegas", "description": "Entertainment capital"},
+                    {"name": "Henderson", "description": "Vegas suburb"},
+                    {"name": "Reno", "description": "Biggest Little City"},
+                    {"name": "North Las Vegas", "description": "Vegas metro"},
+                    {"name": "Sparks", "description": "Reno suburb"},
+                    {"name": "Carson City", "description": "Capital region"}
+                ]
+            },
+            "new-hampshire": {
+                "name": "New Hampshire",
+                "abbreviation": "NH",
+                "region": "northeast",
+                "services": ["Asphalt Paving", "Heated Driveways", "Snow Removal"],
+                "heroTagline": "Granite State Driveway Excellence",
+                "gradient": "linear-gradient(135deg, #2B5797 0%, #5B9BD5 50%, #4A90E2 100%)",
+                "unsplashQuery": "asphalt+driveway+new+hampshire+winter+snow",
+                "metaDescription": "New Hampshire driveway experts. Heated driveways, snow removal for Manchester, Nashua, Concord, and all Granite State communities.",
+                "benefits": [
+                    {
+                        "title": "Granite Bedrock Preparation",
+                        "description": "Expert blasting and preparation techniques for New Hampshire's solid granite bedrock foundations."
+                    },
+                    {
+                        "title": "White Mountain Winterization",
+                        "description": "Heated driveway systems and heavy-duty snow removal for New Hampshire's harsh northern winters."
+                    },
+                    {
+                        "title": "Lakefront Property Expertise",
+                        "description": "Specialized drainage and erosion control for New Hampshire's numerous lakefront and waterfront properties."
+                    }
+                ],
+                "cities": [
+                    {"name": "Manchester", "description": "Queen City"},
+                    {"name": "Nashua", "description": "Southern NH"},
+                    {"name": "Concord", "description": "Capital"},
+                    {"name": "Dover", "description": "Seacoast"},
+                    {"name": "Rochester", "description": "Strafford County"},
+                    {"name": "Keene", "description": "Southwest NH"}
+                ]
+            },
+            "new-jersey": {
+                "name": "New Jersey",
+                "abbreviation": "NJ",
+                "region": "northeast",
+                "services": ["Asphalt Paving", "Concrete", "Sealcoating", "High-Density Solutions"],
+                "heroTagline": "Garden State Driveway Precision",
+                "gradient": "linear-gradient(135deg, #2B5797 0%, #5B9BD5 50%, #4A90E2 100%)",
+                "unsplashQuery": "asphalt+driveway+new+jersey+suburban",
+                "metaDescription": "New Jersey driveway professionals. High-density solutions, asphalt and concrete for Newark, Jersey City, Paterson, and all Garden State areas.",
+                "benefits": [
+                    {
+                        "title": "High-Density Installation",
+                        "description": "Compact equipment and techniques for New Jersey's tight suburban lots and limited access areas."
+                    },
+                    {
+                        "title": "Shore Point Protection",
+                        "description": "Salt-resistant materials and storm-resistant designs for New Jersey's coastal barrier island properties."
+                    },
+                    {
+                        "title": "Freeze-Thaw Durability",
+                        "description": "Advanced sealcoating and materials that withstand New Jersey's freeze-thaw cycles and road salt."
+                    }
+                ],
+                "cities": [
+                    {"name": "Newark", "description": "Largest city"},
+                    {"name": "Jersey City", "description": "Gold Coast"},
+                    {"name": "Paterson", "description": "Silk City"},
+                    {"name": "Elizabeth", "description": "Union County"},
+                    {"name": "Edison", "description": "Middlesex County"},
+                    {"name": "Toms River", "description": "Jersey Shore"}
+                ]
+            },
+            "new-mexico": {
+                "name": "New Mexico",
+                "abbreviation": "NM",
+                "region": "southwest",
+                "services": ["Concrete Paving", "Adobe Style", "Desert Landscaping Integration"],
+                "heroTagline": "Land of Enchantment Driveway Artistry",
+                "gradient": "linear-gradient(135deg, #2B5797 0%, #5B9BD5 50%, #D0021B 100%)",
+                "unsplashQuery": "adobe+style+concrete+driveway+new+mexico+desert",
+                "metaDescription": "New Mexico driveway specialists. Adobe style, desert landscaping integration for Albuquerque, Santa Fe, Las Cruces, and all Land of Enchantment locations.",
+                "benefits": [
+                    {
+                        "title": "Adobe Style Integration",
+                        "description": "Decorative concrete and pavers that complement New Mexico's distinctive Pueblo and Spanish Colonial architecture."
+                    },
+                    {
+                        "title": "High Desert Durability",
+                        "description": "Materials formulated for New Mexico's intense UV, low humidity, and dramatic temperature swings."
+                    },
+                    {
+                        "title": "Xeriscape Compatibility",
+                        "description": "Driveway designs that integrate seamlessly with New Mexico's water-wise xeriscaping and native plants."
+                    }
+                ],
+                "cities": [
+                    {"name": "Albuquerque", "description": "Duke City"},
+                    {"name": "Las Cruces", "description": "Southern NM"},
+                    {"name": "Rio Rancho", "description": "ABQ suburb"},
+                    {"name": "Santa Fe", "description": "Capital"},
+                    {"name": "Roswell", "description": "Southeast NM"},
+                    {"name": "Farmington", "description": "Four Corners"}
+                ]
+            },
+            "new-york": {
+                "name": "New York",
+                "abbreviation": "NY",
+                "region": "northeast",
+                "services": ["Asphalt Paving", "Concrete", "Heated Driveways", "Urban Solutions"],
+                "heroTagline": "Empire State Driveway Mastery",
+                "gradient": "linear-gradient(135deg, #2B5797 0%, #5B9BD5 50%, #4A90E2 100%)",
+                "unsplashQuery": "asphalt+driveway+new+york+urban+suburban",
+                "metaDescription": "New York driveway experts. Urban solutions, heated driveways for NYC, Buffalo, Rochester, and all Empire State communities.",
+                "benefits": [
+                    {
+                        "title": "Urban Space Optimization",
+                        "description": "Innovative driveway solutions for New York's tight urban spaces, including permeable options for stormwater management."
+                    },
+                    {
+                        "title": "Upstate Winter Resilience",
+                        "description": "Heated driveways and heavy-duty snow removal systems for New York's lake effect snow regions."
+                    },
+                    {
+                        "title": "Historic District Compliance",
+                        "description": "Driveway designs that meet New York City's and upstate historic district preservation requirements."
+                    }
+                ],
+                "cities": [
+                    {"name": "New York City", "description": "Five boroughs"},
+                    {"name": "Buffalo", "description": "Western NY"},
+                    {"name": "Rochester", "description": "Finger Lakes"},
+                    {"name": "Yonkers", "description": "Westchester"},
+                    {"name": "Syracuse", "description": "Central NY"},
+                    {"name": "Albany", "description": "Capital region"}
+                ]
+            },
+            "north-carolina": {
+                "name": "North Carolina",
+                "abbreviation": "NC",
+                "region": "southeast",
+                "services": ["Asphalt Paving", "Concrete", "Hurricane Preparation"],
+                "heroTagline": "Tar Heel State Driveway Resilience",
+                "gradient": "linear-gradient(135deg, #2B5797 0%, #5B9BD5 50%, #50C878 100%)",
+                "unsplashQuery": "asphalt+driveway+north+carolina+suburban",
+                "metaDescription": "North Carolina driveway specialists. Hurricane preparation, asphalt and concrete for Charlotte, Raleigh, Greensboro, and all Tar Heel State areas.",
+                "benefits": [
+                    {
+                        "title": "Hurricane Resistant Design",
+                        "description": "Reinforced driveways with superior drainage to withstand North Carolina's hurricane season and heavy rains."
+                    },
+                    {
+                        "title": "Piedmont Clay Solutions",
+                        "description": "Expert base preparation for North Carolina's expansive Piedmont clay soils to prevent cracking."
+                    },
+                    {
+                        "title": "Mountain to Coast Expertise",
+                        "description": "From Asheville's mountains to Wilmington's coast, we understand North Carolina's diverse terrain."
+                    }
+                ],
+                "cities": [
+                    {"name": "Charlotte", "description": "Queen City"},
+                    {"name": "Raleigh", "description": "Capital region"},
+                    {"name": "Greensboro", "description": "Piedmont Triad"},
+                    {"name": "Durham", "description": "Research Triangle"},
+                    {"name": "Winston-Salem", "description": "Twin City"},
+                    {"name": "Fayetteville", "description": "Cumberland County"}
+                ]
+            },
+            "north-dakota": {
+                "name": "North Dakota",
+                "abbreviation": "ND",
+                "region": "midwest",
+                "services": ["Concrete Paving", "Asphalt", "Extreme Cold Solutions", "Snow Removal"],
+                "heroTagline": "Peace Garden State Driveway Endurance",
+                "gradient": "linear-gradient(135deg, #2B5797 0%, #5B9BD5 50%, #F5A623 100%)",
+                "unsplashQuery": "concrete+driveway+north+dakota+winter+snow",
+                "metaDescription": "North Dakota driveway experts. Extreme cold solutions, snow removal for Fargo, Bismarck, Grand Forks, and all Peace Garden State locations.",
+                "benefits": [
+                    {
+                        "title": "Sub-Zero Engineering",
+                        "description": "Concrete and asphalt specifically formulated for North Dakota's extreme cold, performing reliably at -40°F."
+                    },
+                    {
+                        "title": "Agricultural Heavy Loads",
+                        "description": "Reinforced driveways built to withstand North Dakota's farm equipment, grain trucks, and oil field traffic."
+                    },
+                    {
+                        "title": "Prairie Wind Resistance",
+                        "description": "Designs that resist erosion from North Dakota's relentless prairie winds and blowing snow."
+                    }
+                ],
+                "cities": [
+                    {"name": "Fargo", "description": "Eastern hub"},
+                    {"name": "Bismarck", "description": "Capital"},
+                    {"name": "Grand Forks", "description": "Red River Valley"},
+                    {"name": "Minot", "description": "North central"},
+                    {"name": "West Fargo", "description": "Fargo suburb"},
+                    {"name": "Williston", "description": "Oil patch"}
+                ]
+            },
+            "ohio": {
+                "name": "Ohio",
+                "abbreviation": "OH",
+                "region": "midwest",
+                "services": ["Asphalt Paving", "Concrete", "Sealcoating"],
+                "heroTagline": "Buckeye State Driveway Quality",
+                "gradient": "linear-gradient(135deg, #2B5797 0%, #5B9BD5 50%, #F5A623 100%)",
+                "unsplashQuery": "asphalt+driveway+ohio+suburban",
+                "metaDescription": "Ohio driveway professionals. Asphalt paving, sealcoating for Columbus, Cleveland, Cincinnati, and all Buckeye State communities.",
+                "benefits": [
+                    {
+                        "title": "Freeze-Thaw Protection",
+                        "description": "Advanced materials and sealcoating that withstand Ohio's harsh winters and frequent freeze-thaw cycles."
+                    },
+                    {
+                        "title": "Clay Soil Management",
+                        "description": "Proper drainage and base preparation for Ohio's heavy clay soils to prevent driveway heaving."
+                    },
+                    {
+                        "title": "Industrial Strength",
+                        "description": "Heavy-duty driveways designed for Ohio's manufacturing heritage and equipment loads."
+                    }
+                ],
+                "cities": [
+                    {"name": "Columbus", "description": "Capital region"},
+                    {"name": "Cleveland", "description": "Lake Erie"},
+                    {"name": "Cincinnati", "description": "Queen City"},
+                    {"name": "Toledo", "description": "Glass City"},
+                    {"name": "Akron", "description": "Rubber City"},
+                    {"name": "Dayton", "description": "Gem City"}
+                ]
+            },
+            "oklahoma": {
+                "name": "Oklahoma",
+                "abbreviation": "OK",
+                "region": "southwest",
+                "services": ["Concrete Paving", "Asphalt", "Tornado Resistant", "Red Clay Solutions"],
+                "heroTagline": "Sooner State Driveway Strength",
+                "gradient": "linear-gradient(135deg, #2B5797 0%, #5B9BD5 50%, #D0021B 100%)",
+                "unsplashQuery": "concrete+driveway+oklahoma+red+clay",
+                "metaDescription": "Oklahoma driveway experts. Tornado-resistant concrete, red clay solutions for Oklahoma City, Tulsa, Norman, and all Sooner State areas.",
+                "benefits": [
+                    {
+                        "title": "Tornado Resistant Design",
+                        "description": "Reinforced driveway systems with wind-resistant features for Oklahoma's tornado-prone areas."
+                    },
+                    {
+                        "title": "Red Clay Expertise",
+                        "description": "Specialized base preparation and drainage for Oklahoma's expansive red clay soils."
+                    },
+                    {
+                        "title": "Extreme Temperature Performance",
+                        "description": "Materials engineered for Oklahoma's 110°F summers and ice storm winters."
+                    }
+                ],
+                "cities": [
+                    {"name": "Oklahoma City", "description": "Capital region"},
+                    {"name": "Tulsa", "description": "Green Country"},
+                    {"name": "Norman", "description": "University town"},
+                    {"name": "Broken Arrow", "description": "Tulsa suburb"},
+                    {"name": "Lawton", "description": "Southwest Oklahoma"},
+                    {"name": "Edmond", "description": "OKC suburb"}
+                ]
+            },
+            "oregon": {
+                "name": "Oregon",
+                "abbreviation": "OR",
+                "region": "west",
+                "services": ["Concrete Paving", "Permeable Paving", "Rain Resistant Design"],
+                "heroTagline": "Beaver State Driveway Sustainability",
+                "gradient": "linear-gradient(135deg, #2B5797 0%, #5B9BD5 50%, #9013FE 100%)",
+                "unsplashQuery": "permeable+paving+driveway+oregon+rain+sustainable",
+                "metaDescription": "Oregon driveway specialists. Permeable paving, rain-resistant design for Portland, Eugene, Salem, and all Beaver State locations.",
+                "benefits": [
+                    {
+                        "title": "Rain Management Excellence",
+                        "description": "Permeable paving and advanced drainage designed for Oregon's wet climate and heavy rainfall."
+                    },
+                    {
+                        "title": "Eco-Friendly Solutions",
+                        "description": "Sustainable driveway options that reduce runoff and meet Oregon's strict environmental standards."
+                    },
+                    {
+                        "title": "Moss & Algae Resistance",
+                        "description": "Specialized sealants that prevent moss and algae growth common in Oregon's damp conditions."
+                    }
+                ],
+                "cities": [
+                    {"name": "Portland", "description": "Rose City"},
+                    {"name": "Eugene", "description": "Track Town"},
+                    {"name": "Salem", "description": "Capital"},
+                    {"name": "Gresham", "description": "Portland suburb"},
+                    {"name": "Hillsboro", "description": "Silicon Forest"},
+                    {"name": "Bend", "description": "Central Oregon"}
+                ]
+            },
+            "pennsylvania": {
+                "name": "Pennsylvania",
+                "abbreviation": "PA",
+                "region": "northeast",
+                "services": ["Asphalt Paving", "Concrete", "Sealcoating", "Historic Preservation"],
+                "heroTagline": "Keystone State Driveway Heritage",
+                "gradient": "linear-gradient(135deg, #2B5797 0%, #5B9BD5 50%, #4A90E2 100%)",
+                "unsplashQuery": "asphalt+driveway+pennsylvania+historic",
+                "metaDescription": "Pennsylvania driveway experts. Historic preservation, asphalt and concrete for Philadelphia, Pittsburgh, Allentown, and all Keystone State communities.",
+                "benefits": [
+                    {
+                        "title": "Historic Preservation Compliance",
+                        "description": "Driveway designs that meet Pennsylvania's strict historic district requirements in Philadelphia and Lancaster."
+                    },
+                    {
+                        "title": "Freeze-Thaw Engineering",
+                        "description": "Materials specifically formulated for Pennsylvania's harsh winters and frequent freeze-thaw cycles."
+                    },
+                    {
+                        "title": "Coal Region Expertise",
+                        "description": "Specialized foundation work for Pennsylvania's coal region subsidence and unstable ground."
+                    }
+                ],
+                "cities": [
+                    {"name": "Philadelphia", "description": "City of Brotherly Love"},
+                    {"name": "Pittsburgh", "description": "Steel City"},
+                    {"name": "Allentown", "description": "Lehigh Valley"},
+                    {"name": "Erie", "description": "Lake Erie"},
+                    {"name": "Reading", "description": "Berks County"},
+                    {"name": "Scranton", "description": "Northeast PA"}
+                ]
+            },
+            "rhode-island": {
+                "name": "Rhode Island",
+                "abbreviation": "RI",
+                "region": "northeast",
+                "services": ["Asphalt Paving", "Concrete", "Coastal Property Specialists"],
+                "heroTagline": "Ocean State Driveway Excellence",
+                "gradient": "linear-gradient(135deg, #2B5797 0%, #5B9BD5 50%, #4A90E2 100%)",
+                "unsplashQuery": "asphalt+driveway+rhode+island+coastal",
+                "metaDescription": "Rhode Island driveway specialists. Coastal property expertise for Providence, Warwick, Cranston, and all Ocean State locations.",
+                "benefits": [
+                    {
+                        "title": "Coastal Salt Protection",
+                        "description": "Marine-grade materials and sealants that resist Rhode Island's harsh coastal salt air and storms."
+                    },
+                    {
+                        "title": "Historic Newport Integration",
+                        "description": "Driveway designs that complement Rhode Island's historic Gilded Age mansions and colonial homes."
+                    },
+                    {
+                        "title": "Compact Space Solutions",
+                        "description": "Innovative designs for Rhode Island's compact lots and tight coastal property constraints."
+                    }
+                ],
+                "cities": [
+                    {"name": "Providence", "description": "Capital region"},
+                    {"name": "Warwick", "description": "Central RI"},
+                    {"name": "Cranston", "description": "Providence suburb"},
+                    {"name": "Pawtucket", "description": "Blackstone Valley"},
+                    {"name": "East Providence", "description": "East Bay"},
+                    {"name": "Woonsocket", "description": "Northern RI"}
+                ]
+            },
+            "south-carolina": {
+                "name": "South Carolina",
+                "abbreviation": "SC",
+                "region": "southeast",
+                "services": ["Asphalt Paving", "Concrete", "Coastal Solutions"],
+                "heroTagline": "Palmetto State Driveway Quality",
+                "gradient": "linear-gradient(135deg, #2B5797 0%, #5B9BD5 50%, #50C878 100%)",
+                "unsplashQuery": "asphalt+driveway+south+carolina+coastal",
+                "metaDescription": "South Carolina driveway professionals. Coastal solutions, asphalt and concrete for Charleston, Columbia, Greenville, and all Palmetto State areas.",
+                "benefits": [
+                    {
+                        "title": "Lowcountry Expertise",
+                        "description": "Specialized drainage and elevation for South Carolina's Lowcountry flood-prone areas."
+                    },
+                    {
+                        "title": "Coastal Hurricane Resistance",
+                        "description": "Reinforced driveways designed to withstand South Carolina's hurricane season and storm surge."
+                    },
+                    {
+                        "title": "Sandhill Soil Solutions",
+                        "description": "Proper base stabilization for South Carolina's sandy coastal plains and inland sandhills."
+                    }
+                ],
+                "cities": [
+                    {"name": "Charleston", "description": "Holy City"},
+                    {"name": "Columbia", "description": "Capital region"},
+                    {"name": "North Charleston", "description": "Lowcountry"},
+                    {"name": "Mount Pleasant", "description": "Charleston suburb"},
+                    {"name": "Rock Hill", "description": "Northern SC"},
+                    {"name": "Greenville", "description": "Upstate"}
+                ]
+            },
+            "south-dakota": {
+                "name": "South Dakota",
+                "abbreviation": "SD",
+                "region": "midwest",
+                "services": ["Concrete Paving", "Asphalt", "Rural Solutions", "Extreme Weather"],
+                "heroTagline": "Mount Rushmore State Driveway Durability",
+                "gradient": "linear-gradient(135deg, #2B5797 0%, #5B9BD5 50%, #F5A623 100%)",
+                "unsplashQuery": "concrete+driveway+south+dakota+rural+prairie",
+                "metaDescription": "South Dakota driveway experts. Extreme weather concrete, rural solutions for Sioux Falls, Rapid City, Aberdeen, and all Mount Rushmore State locations.",
+                "benefits": [
+                    {
+                        "title": "Extreme Weather Resilience",
+                        "description": "Materials engineered for South Dakota's temperature extremes, from 120°F summers to -30°F winters."
+                    },
+                    {
+                        "title": "Ranch Driveway Specialists",
+                        "description": "Long-distance gravel and asphalt solutions for South Dakota's expansive ranch properties."
+                    },
+                    {
+                        "title": "Prairie Wind Resistance",
+                        "description": "Designs that withstand South Dakota's relentless prairie winds and prevent material erosion."
+                    }
+                ],
+                "cities": [
+                    {"name": "Sioux Falls", "description": "Largest city"},
+                    {"name": "Rapid City", "description": "Western hub"},
+                    {"name": "Aberdeen", "description": "Northeast SD"},
+                    {"name": "Brookings", "description": "University town"},
+                    {"name": "Watertown", "description": "Glacial Lakes"},
+                    {"name": "Pierre", "description": "Capital"}
+                ]
+            },
+            "tennessee": {
+                "name": "Tennessee",
+                "abbreviation": "TN",
+                "region": "southeast",
+                "services": ["Asphalt Paving", "Concrete", "Hill Country Solutions"],
+                "heroTagline": "Volunteer State Driveway Craftsmanship",
+                "gradient": "linear-gradient(135deg, #2B5797 0%, #5B9BD5 50%, #50C878 100%)",
+                "unsplashQuery": "asphalt+driveway+tennessee+hills+nashville",
+                "metaDescription": "Tennessee driveway specialists. Hill country solutions, asphalt and concrete for Nashville, Memphis, Knoxville, and all Volunteer State communities.",
+                "benefits": [
+                    {
+                        "title": "Appalachian Terrain Mastery",
+                        "description": "Expert grading and drainage for Tennessee's mountainous eastern regions and steep driveways."
+                    },
+                    {
+                        "title": "Music City Style",
+                        "description": "Decorative concrete and pavers that complement Tennessee's diverse architectural styles from Nashville to Memphis."
+                    },
+                    {
+                        "title": "Limestone Bedrock Expertise",
+                        "description": "Specialized foundation work for Tennessee's limestone karst regions and cave-prone areas."
+                    }
+                ],
+                "cities": [
+                    {"name": "Nashville", "description": "Music City"},
+                    {"name": "Memphis", "description": "Blues City"},
+                    {"name": "Knoxville", "description": "Gateway to Smokies"},
+                    {"name": "Chattanooga", "description": "Scenic City"},
+                    {"name": "Clarksville", "description": "Gateway to South"},
+                    {"name": "Murfreesboro", "description": "Central Tennessee"}
+                ]
+            },
+            "texas": {
+                "name": "Texas",
+                "abbreviation": "TX",
+                "region": "southwest",
+                "services": ["Concrete Paving", "Asphalt", "Heat Resistant", "Large Property Specialists"],
+                "heroTagline": "Lone Star State Driveway Scale",
+                "gradient": "linear-gradient(135deg, #2B5797 0%, #5B9BD5 50%, #D0021B 100%)",
+                "unsplashQuery": "concrete+driveway+texas+large+property+ranch",
+                "metaDescription": "Texas driveway experts. Heat-resistant concrete, large property specialists for Houston, Dallas, Austin, San Antonio, and all Lone Star State areas.",
+                "benefits": [
+                    {
+                        "title": "Extreme Heat Engineering",
+                        "description": "Concrete and asphalt formulations that withstand Texas's 110°F+ temperatures without degradation."
+                    },
+                    {
+                        "title": "Ranch & Acreage Experts",
+                        "description": "Large-scale driveway and road solutions for Texas's expansive ranch properties and rural estates."
+                    },
+                    {
+                        "title": "Clay Soil Mastery",
+                        "description": "Expert base preparation for Texas's expansive black clay soils (gumbo) to prevent cracking."
+                    }
+                ],
+                "cities": [
+                    {"name": "Houston", "description": "Space City"},
+                    {"name": "San Antonio", "description": "Alamo City"},
+                    {"name": "Dallas", "description": "Metroplex hub"},
+                    {"name": "Austin", "description": "Capital"},
+                    {"name": "Fort Worth", "description": "Cowtown"},
+                    {"name": "El Paso", "description": "Borderland"}
+                ]
+            },
+            "utah": {
+                "name": "Utah",
+                "abbreviation": "UT",
+                "region": "west",
+                "services": ["Concrete Paving", "Asphalt", "Mountain Climate Solutions"],
+                "heroTagline": "Beehive State Driveway Precision",
+                "gradient": "linear-gradient(135deg, #2B5797 0%, #5B9BD5 50%, #9013FE 100%)",
+                "unsplashQuery": "concrete+driveway+utah+mountains+salt+lake",
+                "metaDescription": "Utah driveway specialists. Mountain climate solutions for Salt Lake City, Provo, West Valley City, and all Beehive State locations.",
+                "benefits": [
+                    {
+                        "title": "High Altitude Performance",
+                        "description": "Concrete formulations optimized for Utah's high elevation and intense UV radiation."
+                    },
+                    {
+                        "title": "Mountain Snow Load Design",
+                        "description": "Reinforced driveways built to handle Utah's heavy mountain snowfalls and ski resort traffic."
+                    },
+                    {
+                        "title": "Desert to Alpine Expertise",
+                        "description": "From St. George's heat to Park City's snow, we understand Utah's diverse climate zones."
+                    }
+                ],
+                "cities": [
+                    {"name": "Salt Lake City", "description": "Capital"},
+                    {"name": "West Valley City", "description": "SLC suburb"},
+                    {"name": "Provo", "description": "University town"},
+                    {"name": "West Jordan", "description": "Salt Lake Valley"},
+                    {"name": "Orem", "description": "Utah Valley"},
+                    {"name": "Sandy", "description": "SLC suburb"}
+                ]
+            },
+            "vermont": {
+                "name": "Vermont",
+                "abbreviation": "VT",
+                "region": "northeast",
+                "services": ["Asphalt Paving", "Heated Driveways", "Snow Removal", "Rural Solutions"],
+                "heroTagline": "Green Mountain State Driveway Heritage",
+                "gradient": "linear-gradient(135deg, #2B5797 0%, #5B9BD5 50%, #4A90E2 100%)",
+                "unsplashQuery": "asphalt+driveway+vermont+rural+winter+snow",
+                "metaDescription": "Vermont driveway experts. Heated driveways, rural solutions for Burlington, Rutland, Montpelier, and all Green Mountain State communities.",
+                "benefits": [
+                    {
+                        "title": "Maple Sugar Season Access",
+                        "description": "Driveway designs that withstand Vermont's heavy spring mud season and freeze-thaw cycles."
+                    },
+                    {
+                        "title": "Rural Road Expertise",
+                        "description": "Long gravel and asphalt driveways for Vermont's rural properties and farm access."
+                    },
+                    {
+                        "title": "Historic Farm Integration",
+                        "description": "Driveway solutions that complement Vermont's historic farmsteads and covered bridge country."
+                    }
+                ],
+                "cities": [
+                    {"name": "Burlington", "description": "Queen City"},
+                    {"name": "South Burlington", "description": "Chittenden County"},
+                    {"name": "Rutland", "description": "Central Vermont"},
+                    {"name": "Barre", "description": "Granite City"},
+                    {"name": "Montpelier", "description": "Capital"},
+                    {"name": "Winooski", "description": "Chittenden County"}
+                ]
+            },
+            "virginia": {
+                "name": "Virginia",
+                "abbreviation": "VA",
+                "region": "southeast",
+                "services": ["Asphalt Paving", "Concrete", "Historic District Compliance"],
+                "heroTagline": "Old Dominion Driveway Tradition",
+                "gradient": "linear-gradient(135deg, #2B5797 0%, #5B9BD5 50%, #50C878 100%)",
+                "unsplashQuery": "asphalt+driveway+virginia+historic+colonial",
+                "metaDescription": "Virginia driveway specialists. Historic compliance, asphalt and concrete for Virginia Beach, Richmond, Norfolk, and all Old Dominion areas.",
+                "benefits": [
+                    {
+                        "title": "Colonial Heritage Integration",
+                        "description": "Driveway designs that complement Virginia's Colonial, Federal, and Antebellum architecture."
+                    },
+                    {
+                        "title": "Blue Ridge Terrain Mastery",
+                        "description": "Expert grading and drainage for Virginia's mountainous western regions and Piedmont hills."
+                    },
+                    {
+                        "title": "Chesapeake Climate Adaptation",
+                        "description": "Materials selected for Virginia's humid subtropical climate and coastal weather patterns."
+                    }
+                ],
+                "cities": [
+                    {"name": "Virginia Beach", "description": "Coastal city"},
+                    {"name": "Norfolk", "description": "Hampton Roads"},
+                    {"name": "Chesapeake", "description": "Southside"},
+                    {"name": "Richmond", "description": "Capital region"},
+                    {"name": "Newport News", "description": "Peninsula"},
+                    {"name": "Alexandria", "description": "DC suburb"}
+                ]
+            },
+            "washington": {
+                "name": "Washington",
+                "abbreviation": "WA",
+                "region": "west",
+                "services": ["Concrete Paving", "Permeable Paving", "Rain Management", "Earthquake Resistant"],
+                "heroTagline": "Evergreen State Driveway Innovation",
+                "gradient": "linear-gradient(135deg, #2B5797 0%, #5B9BD5 50%, #9013FE 100%)",
+                "unsplashQuery": "permeable+paving+driveway+washington+rain+seattle",
+                "metaDescription": "Washington driveway experts. Rain management, permeable paving for Seattle, Spokane, Tacoma, and all Evergreen State locations.",
+                "benefits": [
+                    {
+                        "title": "Rain Management Excellence",
+                        "description": "Permeable paving and advanced drainage designed for Washington's wet climate and heavy rainfall."
+                    },
+                    {
+                        "title": "Seismic Resistant Design",
+                        "description": "Earthquake-resistant installation techniques for Washington's seismically active regions."
+                    },
+                    {
+                        "title": "Eco-Friendly Solutions",
+                        "description": "Sustainable driveway options that reduce runoff and protect Washington's salmon streams."
+                    }
+                ],
+                "cities": [
+                    {"name": "Seattle", "description": "Emerald City"},
+                    {"name": "Spokane", "description": "Eastern Washington"},
+                    {"name": "Tacoma", "description": "South Sound"},
+                    {"name": "Vancouver", "description": "Columbia River"},
+                    {"name": "Bellevue", "description": "Eastside"},
+                    {"name": "Kent", "description": "South King County"}
+                ]
+            },
+            "west-virginia": {
+                "name": "West Virginia",
+                "abbreviation": "WV",
+                "region": "southeast",
+                "services": ["Asphalt Paving", "Concrete", "Mountain Terrain Solutions"],
+                "heroTagline": "Mountain State Driveway Resilience",
+                "gradient": "linear-gradient(135deg, #2B5797 0%, #5B9BD5 50%, #50C878 100%)",
+                "unsplashQuery": "asphalt+driveway+west+virginia+mountains",
+                "metaDescription": "West Virginia driveway specialists. Mountain terrain solutions for Charleston, Huntington, Morgantown, and all Mountain State communities.",
+                "benefits": [
+                    {
+                        "title": "Appalachian Terrain Mastery",
+                        "description": "Expert grading and retaining walls for West Virginia's steep mountain driveways and hollers."
+                    },
+                    {
+                        "title": "Coal Country Access",
+                        "description": "Heavy-duty driveways built to withstand West Virginia's industrial heritage and equipment loads."
+                    },
+                    {
+                        "title": "Flash Flood Protection",
+                        "description": "Advanced drainage systems designed for West Virginia's sudden mountain downpours and runoff."
+                    }
+                ],
+                "cities": [
+                    {"name": "Charleston", "description": "Capital region"},
+                    {"name": "Huntington", "description": "Western hub"},
+                    {"name": "Morgantown", "description": "University town"},
+                    {"name": "Parkersburg", "description": "Ohio Valley"},
+                    {"name": "Wheeling", "description": "Northern panhandle"},
+                    {"name": "Beckley", "description": "Southern WV"}
+                ]
+            },
+            "wisconsin": {
+                "name": "Wisconsin",
+                "abbreviation": "WI",
+                "region": "midwest",
+                "services": ["Concrete Paving", "Asphalt", "Heated Driveways", "Snow Removal"],
+                "heroTagline": "Badger State Driveway Endurance",
+                "gradient": "linear-gradient(135deg, #2B5797 0%, #5B9BD5 50%, #F5A623 100%)",
+                "unsplashQuery": "concrete+driveway+wisconsin+winter+snow+heated",
+                "metaDescription": "Wisconsin driveway experts. Heated driveways, snow removal for Milwaukee, Madison, Green Bay, and all Badger State areas.",
+                "benefits": [
+                    {
+                        "title": "Lake Effect Snow Mastery",
+                        "description": "Heated driveways and heavy-duty snow removal designed for Wisconsin's brutal lake effect snow."
+                    },
+                    {
+                        "title": "Freeze-Thaw Engineering",
+                        "description": "Materials specifically formulated for Wisconsin's extreme freeze-thaw cycles and frost heave."
+                    },
+                    {
+                        "title": "Dairy Farm Heavy Loads",
+                        "description": "Reinforced driveways built to handle Wisconsin's agricultural equipment and dairy farm traffic."
+                    }
+                ],
+                "cities": [
+                    {"name": "Milwaukee", "description": "Lake Michigan"},
+                    {"name": "Madison", "description": "Capital region"},
+                    {"name": "Green Bay", "description": "Titletown"},
+                    {"name": "Kenosha", "description": "Chicago suburb"},
+                    {"name": "Racine", "description": "Lakefront"},
+                    {"name": "Appleton", "description": "Fox Valley"}
+                ]
+            },
+            "wyoming": {
+                "name": "Wyoming",
+                "abbreviation": "WY",
+                "region": "west",
+                "services": ["Concrete Paving", "Gravel", "Ranch Driveways", "Extreme Weather"],
+                "heroTagline": "Equality State Driveway Strength",
+                "gradient": "linear-gradient(135deg, #2B5797 0%, #5B9BD5 50%, #9013FE 100%)",
+                "unsplashQuery": "gravel+driveway+wyoming+ranch+mountains",
+                "metaDescription": "Wyoming driveway specialists. Ranch driveways, extreme weather solutions for Cheyenne, Casper, Laramie, and all Equality State locations.",
+                "benefits": [
+                    {
+                        "title": "Ranch Driveway Specialists",
+                        "description": "Long-distance gravel and concrete solutions for Wyoming's expansive ranch properties and rural access."
+                    },
+                    {
+                        "title": "Extreme Weather Resilience",
+                        "description": "Materials engineered for Wyoming's temperature swings from 100°F to -40°F and high winds."
+                    },
+                    {
+                        "title": "High Plains Wind Resistance",
+                        "description": "Designs that withstand Wyoming's relentless prairie winds and prevent material erosion."
+                    }
+                ],
+                "cities": [
+                    {"name": "Cheyenne", "description": "Capital region"},
+                    {"name": "Casper", "description": "Central Wyoming"},
+                    {"name": "Laramie", "description": "University town"},
+                    {"name": "Gillette", "description": "Energy capital"},
+                    {"name": "Rock Springs", "description": "Southwest Wyoming"},
+                    {"name": "Sheridan", "description": "Northern Wyoming"}
+                ]
+            },
+            "washington-dc": {
+                "name": "Washington D.C.",
+                "abbreviation": "DC",
+                "region": "northeast",
+                "services": ["Concrete Paving", "Historic Preservation", "Urban Solutions"],
+                "heroTagline": "Capital Driveway Excellence",
+                "gradient": "linear-gradient(135deg, #2B5797 0%, #5B9BD5 50%, #4A90E2 100%)",
+                "unsplashQuery": "brick+paver+driveway+washington+dc+historic",
+                "metaDescription": "Washington DC driveway specialists. Historic preservation, urban concrete solutions for Georgetown, Capitol Hill, Dupont Circle, and all DC neighborhoods.",
+                "benefits": [
+                    {
+                        "title": "Historic District Compliance",
+                        "description": "Driveway designs that meet DC's strict historic preservation requirements in Georgetown and Capitol Hill."
+                    },
+                    {
+                        "title": "Urban Space Optimization",
+                        "description": "Innovative solutions for DC's compact row houses and limited parking areas."
+                    },
+                    {
+                        "title": "Federal Security Standards",
+                        "description": "Driveway construction meeting federal security requirements for government-adjacent properties."
+                    }
+                ],
+                "cities": [
+                    {"name": "Georgetown", "description": "Historic district"},
+                    {"name": "Capitol Hill", "description": "Government quarter"},
+                    {"name": "Dupont Circle", "description": "Embassy row"},
+                    {"name": "Adams Morgan", "description": "Cultural district"},
+                    {"name": "Foggy Bottom", "description": "Downtown"},
+                    {"name": "Navy Yard", "description": "Waterfront"}
+                ]
+            },
+            "puerto-rico": {
+                "name": "Puerto Rico",
+                "abbreviation": "PR",
+                "region": "territory",
+                "services": ["Concrete Paving", "Hurricane Resistant", "Tropical Sealing"],
+                "heroTagline": "Island Paradise Driveway Resilience",
+                "gradient": "linear-gradient(135deg, #2B5797 0%, #5B9BD5 50%, #00BCD4 100%)",
+                "unsplashQuery": "concrete+driveway+puerto+rico+tropical",
+                "metaDescription": "Puerto Rico driveway specialists. Hurricane-resistant concrete and tropical sealing for San Juan, Ponce, Bayamón, and all island communities.",
+                "benefits": [
+                    {
+                        "title": "Hurricane Force Durability",
+                        "description": "Reinforced concrete designed to withstand Puerto Rico's Category 5 hurricane winds and flooding."
+                    },
+                    {
+                        "title": "Tropical Climate Protection",
+                        "description": "UV-resistant sealants and materials formulated for Puerto Rico's intense sun and humidity."
+                    },
+                    {
+                        "title": "Mountain to Coast Expertise",
+                        "description": "From San Juan's coast to Jayuya's mountains, we understand Puerto Rico's diverse terrain."
+                    }
+                ],
+                "cities": [
+                    {"name": "San Juan", "description": "Capital region"},
+                    {"name": "Bayamón", "description": "Metro area"},
+                    {"name": "Carolina", "description": "East coast"},
+                    {"name": "Ponce", "description": "South coast"},
+                    {"name": "Caguas", "description": "Central valley"},
+                    {"name": "Arecibo", "description": "North coast"}
+                ]
+            },
+            "us-virgin-islands": {
+                "name": "U.S. Virgin Islands",
+                "abbreviation": "VI",
+                "region": "territory",
+                "services": ["Concrete Installation", "Tropical Sealing", "Coastal Erosion Prevention"],
+                "heroTagline": "Caribbean Driveway Excellence",
+                "gradient": "linear-gradient(135deg, #2B5797 0%, #5B9BD5 50%, #00BCD4 100%)",
+                "unsplashQuery": "tropical+concrete+driveway+virgin+islands+caribbean",
+                "metaDescription": "U.S. Virgin Islands driveway experts. Coastal erosion prevention, tropical sealing for St. Thomas, St. Croix, St. John, and all Caribbean territories.",
+                "benefits": [
+                    {
+                        "title": "Coastal Erosion Prevention",
+                        "description": "Specialized foundations and drainage to prevent coastal erosion on island properties."
+                    },
+                    {
+                        "title": "Salt Air Immunity",
+                        "description": "Marine-grade concrete and sealants that resist the corrosive Caribbean salt air."
+                    },
+                    {
+                        "title": "Hurricane Resistant Design",
+                        "description": "Reinforced driveways engineered to withstand Caribbean hurricane season and storm surge."
+                    }
+                ],
+                "cities": [
+                    {"name": "Charlotte Amalie", "description": "St. Thomas capital"},
+                    {"name": "Christiansted", "description": "St. Croix historic"},
+                    {"name": "Frederiksted", "description": "St. Croix west"},
+                    {"name": "Cruz Bay", "description": "St. John hub"},
+                    {"name": "Red Hook", "description": "St. Thomas east"},
+                    {"name": "Frenchtown", "description": "St. Thomas"}
+                ]
+            },
+            "guam": {
+                "name": "Guam",
+                "abbreviation": "GU",
+                "region": "territory",
+                "services": ["Concrete Paving", "Typhoon Resistant", "Tropical Solutions"],
+                "heroTagline": "Pacific Driveway Resilience",
+                "gradient": "linear-gradient(135deg, #2B5797 0%, #5B9BD5 50%, #00BCD4 100%)",
+                "unsplashQuery": "concrete+driveway+guam+tropical+pacific",
+                "metaDescription": "Guam driveway specialists. Typhoon-resistant concrete and tropical solutions for Hagåtña, Dededo, Tamuning, and all Pacific island communities.",
+                "benefits": [
+                    {
+                        "title": "Typhoon Force Construction",
+                        "description": "Reinforced concrete designed to withstand Guam's super typhoon winds up to 200+ mph."
+                    },
+                    {
+                        "title": "Coral Soil Adaptation",
+                        "description": "Specialized base preparation for Guam's coral-based soils and limestone bedrock."
+                    },
+                    {
+                        "title": "Salt Spray Protection",
+                        "description": "Marine-grade materials that resist Guam's constant salt spray and tropical humidity."
+                    }
+                ],
+                "cities": [
+                    {"name": "Hagåtña", "description": "Capital"},
+                    {"name": "Dededo", "description": "Northern village"},
+                    {"name": "Tamuning", "description": "Central district"},
+                    {"name": "Mangilao", "description": "University area"},
+                    {"name": "Barrigada", "description": "Central village"},
+                    {"name": "Yigo", "description": "Northernmost village"}
+                ]
+            },
+            "american-samoa": {
+                "name": "American Samoa",
+                "abbreviation": "AS",
+                "region": "territory",
+                "services": ["Concrete Installation", "Tropical Weather Protection"],
+                "heroTagline": "South Pacific Driveway Quality",
+                "gradient": "linear-gradient(135deg, #2B5797 0%, #5B9BD5 50%, #00BCD4 100%)",
+                "unsplashQuery": "tropical+concrete+driveway+american+samoa+pacific",
+                "metaDescription": "American Samoa driveway experts. Tropical weather protection for Pago Pago, Tafuna, and all South Pacific territory locations.",
+                "benefits": [
+                    {
+                        "title": "Volcanic Rock Integration",
+                        "description": "Utilization of American Samoa's volcanic basalt for durable, locally-sourced driveway bases."
+                    },
+                    {
+                        "title": "Tropical Storm Resistance",
+                        "description": "Reinforced concrete designed for American Samoa's tropical cyclone season and heavy rainfall."
+                    },
+                    {
+                        "title": "Island Terrain Mastery",
+                        "description": "Expert grading for American Samoa's steep volcanic terrain and coastal plains."
+                    }
+                ],
+                "cities": [
+                    {"name": "Pago Pago", "description": "Capital harbor"},
+                    {"name": "Tafuna", "description": "International airport"},
+                    {"name": "Leone", "description": "Western district"},
+                    {"name": "Fagatogo", "description": "Downtown"},
+                    {"name": "Utulei", "description": "Government offices"},
+                    {"name": "Nu'uuli", "description": "Eastern village"}
+                ]
+            },
+            "northern-mariana-islands": {
+                "name": "Northern Mariana Islands",
+                "abbreviation": "MP",
+                "region": "territory",
+                "services": ["Concrete Paving", "Typhoon Resistant Design"],
+                "heroTagline": "Pacific Paradise Driveway Strength",
+                "gradient": "linear-gradient(135deg, #2B5797 0%, #5B9BD5 50%, #00BCD4 100%)",
+                "unsplashQuery": "concrete+driveway+northern+mariana+islands+tropical",
+                "metaDescription": "Northern Mariana Islands driveway specialists. Typhoon-resistant design for Saipan, Tinian, Rota, and all Pacific territory communities.",
+                "benefits": [
+                    {
+                        "title": "Super Typhoon Engineering",
+                        "description": "Concrete and reinforcement designed to withstand the Northern Mariana Islands' most powerful typhoons."
+                    },
+                    {
+                        "title": "Volcanic Island Expertise",
+                        "description": "Foundation solutions for Saipan, Tinian, and Rota's volcanic terrain and coral limestone."
+                    },
+                    {
+                        "title": "Tropical Salt Protection",
+                        "description": "Marine-grade materials that resist the constant salt air of Pacific island living."
+                    }
+                ],
+                "cities": [
+                    {"name": "Saipan", "description": "Capital island"},
+                    {"name": "Tinian", "description": "Historic island"},
+                    {"name": "Rota", "description": "Peaceful island"},
+                    {"name": "Garapan", "description": "Saipan tourist district"},
+                    {"name": "Capital Hill", "description": "Saipan government"},
+                    {"name": "San Jose", "description": "Tinian village"}
+                ]
+            }
+        };
+
+        // Service icons mapping
+        const serviceIcons = {
+            "Asphalt Paving": "🛣️",
+            "Concrete Installation": "🏗️",
+            "Concrete Paving": "🏗️",
+            "Pavers": "🧱",
+            "Permeable Paving": "💧",
+            "Sealcoating": "🛡️",
+            "Repairs": "🔧",
+            "Gravel": "⛰️",
+            "Gravel Driveways": "⛰️",
+            "Heated Driveways": "❄️",
+            "Snow Removal": "🌨️",
+            "Drainage Solutions": "🌊",
+            "Decorative Concrete": "🎨",
+            "Heat Resistant Coatings": "☀️",
+            "Earthquake Resistant": "🌍",
+            "Altitude Solutions": "⛰️",
+            "Beach Property Specialists": "🏖️",
+            "Hurricane Resistant": "🌀",
+            "Clay Soil Solutions": "🏔️",
+            "Tropical Weather Sealing": "🌴",
+            "Volcanic Rock Integration": "🌋",
+            "Rural Solutions": "🚜",
+            "Freeze-Thaw Protection": "❄️",
+            "Tornado Resistant Design": "🌪️",
+            "Hill Country Solutions": "⛰️",
+            "Flood Resistant Design": "🌊",
+            "French Drainage": "💧",
+            "Coastal Solutions": "🏖️",
+            "Historic District Compliance": "🏛️",
+            "Urban Solutions": "🏙️",
+            "High-Density Solutions": "🏢",
+            "Adobe Style": "🏜️",
+            "Desert Landscaping Integration": "🌵",
+            "Desert Heat Solutions": "☀️",
+            "Rain Resistant Design": "🌧️",
+            "Historic Preservation": "🏛️",
+            "Storm Resistant Design": "⛈️",
+            "Extreme Cold Solutions": "🥶",
+            "Extreme Weather": "🌡️",
+            "Rural Long Driveway Experts": "🛤️",
+            "Ranch Driveway Specialists": "🐄",
+            "Ranch Driveways": "🐄",
+            "Mountain Climate Solutions": "🏔️",
+            "Mountain Terrain Solutions": "⛰️",
+            "Typhoon Resistant": "🌀",
+            "Tropical Solutions": "🌺",
+            "Tropical Weather Protection": "🌴",
+            "Tropical Sealing": "☀️",
+            "Coastal Erosion Prevention": "🏖️",
+            "Typhoon Resistant Design": "🌀"
+        };
+
+        // Function to get state from URL hash
+        function getStateFromHash() {
+            const hash = window.location.hash.slice(1); // Remove the # symbol
+            return hash || null;
+        }
+
+        // Function to render the page
+        function renderPage() {
+            const stateKey = getStateFromHash();
+            
+            // If no hash or invalid state, redirect to locations page
+            if (!stateKey || !statesData[stateKey]) {
+                window.location.href = '../locations.html';
+                return;
+            }
+
+            const state = statesData[stateKey];
+            
+            // Update page title and meta
+            document.title = `${state.name} Driveway Services | Drivewayz USA`;
+            const metaDesc = document.querySelector('meta[name="description"]');
+            if (metaDesc) {
+                metaDesc.content = state.metaDescription;
+            }
+
+            // Generate services HTML
+            const servicesHTML = state.services.map((service, index) => `
+                <div class="service-card">
+                    <div class="service-icon">${serviceIcons[service] || '🛠️'}</div>
+                    <h3>${service}</h3>
+                    <p>Professional ${service.toLowerCase()} services designed specifically for ${state.name}'s unique conditions and requirements.</p>
+                </div>
+            `).join('');
+
+            // Generate benefits HTML
+            const benefitsHTML = state.benefits.map((benefit, index) => `
+                <div class="benefit-card">
+                    <div class="benefit-number">${index + 1}</div>
+                    <div class="benefit-content">
+                        <h3>${benefit.title}</h3>
+                        <p>${benefit.description}</p>
+                    </div>
+                </div>
+            `).join('');
+
+            // Generate cities HTML
+            const citiesHTML = state.cities.map(city => `
+                <div class="city-card">
+                    <h4>${city.name}</h4>
+                    <p>${city.description}</p>
+                </div>
+            `).join('');
+
+            // Set hero background style
+            const heroStyle = `background: ${state.gradient};`;
+            const heroImageStyle = `background-image: url('https://source.unsplash.com/1920x1080/?${encodeURIComponent(state.unsplashQuery)}');`;
+
+            // Generate full page content
+            const contentHTML = `
+                <!-- Hero Section -->
+                <section class="state-hero" style="${heroStyle}">
+                    <div style="${heroImageStyle}; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-size: cover; background-position: center; opacity: 0.3; z-index: 1;"></div>
+                    <div class="state-hero-content">
+                        <span class="state-badge">${state.abbreviation}</span>
+                        <h1>${state.name}</h1>
+                        <p class="tagline">${state.heroTagline}</p>
+                        <a href="../index.html#contact" class="btn-primary">Get Your Free Estimate</a>
+                    </div>
+                </section>
+
+                <!-- Services Section -->
+                <section class="services-section">
+                    <div class="container">
+                        <div class="section-header">
+                            <h2>Driveway Services in ${state.name}</h2>
+                            <p>Professional solutions tailored for ${state.name}'s unique climate and terrain</p>
+                        </div>
+                        <div class="services-grid">
+                            ${servicesHTML}
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Why Choose Section -->
+                <section class="why-section">
+                    <div class="container">
+                        <div class="section-header">
+                            <h2>Why Choose Drivewayz in ${state.name}</h2>
+                            <p>Local expertise meets professional excellence</p>
+                        </div>
+                        <div class="benefits-grid">
+                            ${benefitsHTML}
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Service Areas -->
+                <section class="areas-section">
+                    <div class="container">
+                        <div class="section-header">
+                            <h2>Service Areas</h2>
+                            <p>Serving communities across ${state.name}</p>
+                        </div>
+                        <div class="cities-grid">
+                            ${citiesHTML}
+                        </div>
+                    </div>
+                </section>
+
+                <!-- CTA Section -->
+                <section class="cta-section">
+                    <div class="cta-box">
+                        <h2>Ready to Transform Your Driveway?</h2>
+                        <p>Join thousands of satisfied homeowners in ${state.name}. Get your free, no-obligation estimate today.</p>
+                        <a href="../index.html#contact" class="btn-primary">Schedule Free Estimate</a>
+                    </div>
+                </section>
+            `;
+
+            // Update content
+            document.getElementById('content').innerHTML = contentHTML;
+            
+            // Update footer text
+            const footerText = document.querySelector('.footer-bottom p');
+            if (footerText) {
+                footerText.innerHTML = `&copy; 2024 Drivewayz USA. All rights reserved. | ${state.name} Driveway Services`;
+            }
+        }
+
+        // Render on page load
+        document.addEventListener('DOMContentLoaded', renderPage);
+
+        // Handle hash changes without page reload
+        window.addEventListener('hashchange', renderPage);
+    </script>
+</body>
+</html>
