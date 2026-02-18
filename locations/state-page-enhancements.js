@@ -31,6 +31,7 @@
     addTestimonials(state);
     makeCityCardsClickable(state);
     addFAQSchema(state);
+        initScrollSpy();
   }
 
   // ===== 1. INJECT ENHANCEMENT STYLES =====
@@ -280,6 +281,37 @@
     script.type = 'application/ld+json';
     script.textContent = JSON.stringify(faqSchema);
     document.head.appendChild(script);
+  }
+
+    // ===== SCROLL SPY FOR SIDEBAR NAV =====
+  function initScrollSpy() {
+    const navLinks = document.querySelectorAll('.section-nav a');
+    if (!navLinks.length) return;
+    const sections = [];
+    navLinks.forEach(link => {
+      const id = link.getAttribute('href');
+      if (id && id.startsWith('#')) {
+        const el = document.getElementById(id.substring(1));
+        if (el) sections.push({ el: el, link: link });
+      }
+    });
+    if (!sections.length) return;
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrollPos = window.scrollY + 200;
+          let current = sections[0];
+          sections.forEach(s => {
+            if (s.el.offsetTop <= scrollPos) current = s;
+          });
+          navLinks.forEach(l => l.classList.remove('active'));
+          if (current) current.link.classList.add('active');
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
   }
 
   // ===== INITIALIZATION =====
