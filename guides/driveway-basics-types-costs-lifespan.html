@@ -7,81 +7,132 @@
     <meta name="description" content="Complete guide to driveway materials including concrete, asphalt, pavers, and gravel. Compare costs, lifespans, pros and cons for your home.">
     <link rel="stylesheet" href="../main.css">
     <style>
-        :root{--guide-primary:#78350f;--guide-primary-light:#a16207;--guide-primary-dark:#713f12;--guide-accent:#ca8a04;--guide-bg:linear-gradient(135deg,#fefce8 0%,#fef9c3 50%,#fef08a 100%)}body{background:var(--guide-bg);background-attachment:fixed}.guide-hero{position:relative;min-height:500px;display:flex;align-items:center;margin-top:100px;background-image:linear-gradient(135deg,rgba(120,53,15,.85) 0%,rgba(113,63,18,.85) 100%),url('../images/pexels-curtis-adams-1694007-3958961.webp');background-size:cover;background-position:center;overflow:hidden}.guide-hero::before{content:"";position:absolute;top:0;left:0;right:0;bottom:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");opacity:.3}
-        .guide-content{max-width:800px;margin:0 auto;padding:3rem 1.5rem}.guide-content h2{color:var(--guide-primary);margin-top:2.5rem;margin-bottom:1rem;font-size:1.75rem}.guide-content h3{color:var(--guide-primary-light);margin-top:2rem;margin-bottom:0.75rem;font-size:1.35rem}.guide-content p{line-height:1.8;margin-bottom:1.25rem;color:#374151}.guide-content ul{margin-bottom:1.25rem;padding-left:1.5rem}.guide-content li{margin-bottom:0.5rem;line-height:1.7;color:#374151}.guide-content strong{color:#1f2937}.comparison-table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:0.95rem}.comparison-table th,.comparison-table td{padding:0.75rem;text-align:left;border:1px solid #e5e7eb}.comparison-table th{background:var(--guide-primary);color:white;font-weight:600}.comparison-table tr:nth-child(even){background:#fef9c3}.comparison-table tr:hover{background:#fef08a}
+        /* Guide Page Styles — Warm Earth Theme */
+        :root {
+            --guide-primary: #78350f;
+            --guide-primary-light: #a16207;
+            --guide-primary-dark: #713f12;
+            --guide-accent: #ca8a04;
+            --guide-bg: linear-gradient(135deg, #fefce8 0%, #fef9c3 50%, #fef08a 100%);
+        }
+        body { background: var(--guide-bg); background-attachment: fixed; }
+
+        /* Hero */
+        .guide-hero {
+            position: relative; min-height: 500px; display: flex; align-items: center;
+            margin-top: 100px; background-image: linear-gradient(135deg, rgba(120,53,15,.85) 0%, rgba(113,63,18,.85) 100%),
+            url('../images/pexels-curtis-adams-1694007-3958961.webp');
+            background-size: cover; background-position: center; overflow: hidden;
+        }
+        .guide-hero::before {
+            content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: .3;
+        }
+        .guide-hero-content { position: relative; z-index: 10; padding: 4rem 0; color: white; }
+        .guide-breadcrumb { display: flex; gap: .5rem; margin-bottom: 1.5rem; font-size: .9rem; }
+        .guide-breadcrumb a { color: rgba(255,255,255,.8); text-decoration: none; }
+        .guide-breadcrumb a:hover { color: white; }
+        .guide-hero h1 { font-size: 3rem; font-weight: 800; margin-bottom: 1rem; max-width: 800px; }
+        .guide-hero-subtitle { font-size: 1.3rem; opacity: .95; max-width: 600px; margin-bottom: 2rem; }
+        .guide-meta-bar { display: flex; gap: 2rem; flex-wrap: wrap; }
+        .guide-meta-item { display: flex; align-items: center; gap: .5rem; background: rgba(255,255,255,.15); padding: .5rem 1rem; border-radius: 25px; backdrop-filter: blur(10px); }
+        .guide-actions { display: flex; gap: 1rem; margin-top: 2rem; }
+        .action-btn { display: flex; align-items: center; gap: .5rem; padding: .75rem 1.5rem; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all .3s ease; border: none; font-size: 1rem; }
+        .action-btn-primary { background: white; color: var(--guide-primary-dark); }
+        .action-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,0,0,.2); }
+        .action-btn-secondary { background: rgba(255,255,255,.2); color: white; border: 2px solid rgba(255,255,255,.3); }
+        .action-btn-secondary:hover { background: rgba(255,255,255,.3); }
+
+        /* Tab Navigation */
+        .guide-tabs { background: var(--bg-white); border-bottom: 1px solid var(--border-color); position: sticky; top: 100px; z-index: 100; }
+        .tabs-container { display: flex; gap: 0; overflow-x: auto; }
+        .tab-btn { padding: 1rem 1.5rem; background: none; border: none; border-bottom: 3px solid transparent; cursor: pointer; font-size: 1rem; font-weight: 600; color: var(--text-light); white-space: nowrap; transition: all .3s ease; }
+        .tab-btn:hover { color: var(--guide-primary); }
+        .tab-btn.active { color: var(--guide-primary); border-bottom-color: var(--guide-primary); }
+        .tab-content { display: none; padding: 3rem 0; animation: fadeIn .3s ease; }
+        .tab-content.active { display: block; }
+
+        /* Content Layout */
+        .guide-content-wrapper { display: grid; grid-template-columns: 1fr 350px; gap: 3rem; }
+        .guide-main { background: var(--bg-white); border-radius: 16px; padding: 2.5rem; box-shadow: var(--shadow); }
+        .guide-sidebar { position: sticky; top: 180px; height: fit-content; }
+        .guide-main h2 { font-size: 2rem; color: var(--text-dark); margin-bottom: 1.5rem; padding-bottom: .75rem; border-bottom: 2px solid var(--guide-accent); }
+        .guide-main h3 { font-size: 1.4rem; color: var(--text-dark); margin: 2rem 0 1rem; }
+        .guide-main p { color: var(--text-light); line-height: 1.8; margin-bottom: 1.5rem; }
+        .guide-main ul, .guide-main ol { margin-bottom: 1.5rem; padding-left: 1.5rem; }
+        .guide-main li { color: var(--text-light); line-height: 1.8; margin-bottom: .5rem; }
+
+        /* Info Boxes */
+        .info-box { padding: 1.5rem; border-radius: 12px; margin: 2rem 0; }
+        .info-box-tip { background: #fefce8; border-left: 4px solid var(--guide-accent); }
+        .info-box-warning { background: #fffbeb; border-left: 4px solid #f59e0b; }
+        .info-box-title { font-weight: 700; margin-bottom: .5rem; display: flex; align-items: center; gap: .5rem; }
+
+        /* Material Cards */
+        .material-card { background: #fffbeb; border-radius: 12px; padding: 2rem; margin: 2rem 0; border: 1px solid #fde68a; }
+        .material-card h3 { margin-top: 0 !important; color: var(--guide-primary) !important; font-size: 1.5rem !important; }
+        .material-card .material-img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem; }
+        .material-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1rem 0; }
+        .material-stat { text-align: center; padding: .75rem; background: white; border-radius: 8px; }
+        .material-stat-label { font-size: .8rem; color: var(--text-light); }
+        .material-stat-value { font-size: 1.1rem; font-weight: 700; color: var(--guide-primary); }
+        .pros-cons { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem; }
+        .pros, .cons { padding: 1rem; border-radius: 8px; }
+        .pros { background: #d1fae5; }
+        .cons { background: #fee2e2; }
+        .pros h4, .cons h4 { margin: 0 0 .5rem; font-size: .95rem; }
+        .pros li, .cons li { font-size: .9rem; color: #374151; }
+
+        /* Comparison Table */
+        .comparison-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: .95rem; }
+        .comparison-table th, .comparison-table td { padding: .75rem; text-align: left; border: 1px solid #e5e7eb; }
+        .comparison-table th { background: var(--guide-primary); color: white; font-weight: 600; }
+        .comparison-table tr:nth-child(even) { background: #fef9c3; }
+        .comparison-table tr:hover { background: #fef08a; }
+
+        /* Sidebar */
+        .sidebar-card { background: var(--bg-white); border-radius: 16px; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: var(--shadow); }
+        .sidebar-card h4 { font-size: 1.1rem; margin-bottom: 1rem; color: var(--text-dark); }
+        .quick-stat { display: flex; justify-content: space-between; padding: .75rem 0; border-bottom: 1px solid var(--border-color); }
+        .quick-stat:last-child { border-bottom: none; }
+        .quick-stat-label { color: var(--text-light); }
+        .quick-stat-value { font-weight: 700; color: var(--guide-primary); }
+        .sidebar-cta { background: linear-gradient(135deg, var(--guide-primary) 0%, var(--guide-primary-light) 100%); color: white; }
+        .sidebar-cta h4 { color: white; }
+        .sidebar-cta p { font-size: .9rem; margin-bottom: 1rem; opacity: .9; }
+        .sidebar-cta input, .sidebar-cta textarea { width: 100%; padding: .75rem; border: none; border-radius: 8px; margin-bottom: .75rem; font-size: .95rem; }
+        .sidebar-cta button { width: 100%; padding: .75rem; background: white; color: var(--guide-primary-dark); border: none; border-radius: 8px; font-weight: 700; cursor: pointer; transition: all .3s ease; }
+        .sidebar-cta button:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,.2); }
+        .related-guide { display: flex; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--border-color); text-decoration: none; }
+        .related-guide:last-child { border-bottom: none; }
+        .related-guide-icon { width: 50px; height: 50px; border-radius: 8px; background: linear-gradient(135deg, var(--guide-primary) 0%, var(--guide-accent) 100%); flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
+        .related-guide-content h5 { font-size: .95rem; color: var(--text-dark); margin-bottom: .25rem; }
+        .related-guide-content span { font-size: .8rem; color: var(--text-light); }
+
+        /* Section Image */
+        .section-img { width: 100%; height: 220px; object-fit: cover; border-radius: 12px; margin: 1.5rem 0; }
+
+        /* FAQ */
+        .faq-item { border: 1px solid #e5e7eb; border-radius: 10px; margin-bottom: 1rem; overflow: hidden; }
+        .faq-q { width: 100%; padding: 1.25rem 1.5rem; background: #fffbeb; border: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 1.05rem; font-weight: 600; color: var(--guide-primary-dark); text-align: left; }
+        .faq-q:hover { background: #fef9c3; }
+        .faq-a { padding: 0 1.5rem 1.25rem; color: var(--text-light); line-height: 1.8; display: none; }
+        .faq-item.open .faq-a { display: block; }
+        .faq-toggle { font-size: 1.3rem; transition: transform .3s; }
+        .faq-item.open .faq-toggle { transform: rotate(45deg); }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        @media (max-width: 1024px) { .guide-content-wrapper { grid-template-columns: 1fr; } .guide-sidebar { position: static; order: -1; } }
+        @media (max-width: 768px) { .guide-hero h1 { font-size: 2rem; } .guide-main { padding: 1.5rem; } .guide-actions { flex-direction: column; } .tabs-container { padding: 0 1rem; } .material-stats { grid-template-columns: 1fr; } .pros-cons { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
 <nav class="navbar" id="navbar"><div class="container nav-container"><div class="logo"><a href="../index.html"><img src="../logov3.jpg" alt="Drivewayz USA" onerror="this.style.display='none'"></a></div><ul class="nav-links"><li><a href="../index.html#home">Home</a></li><li><a href="../index.html#services">Services</a></li><li><a href="../index.html#why-choose">Why Us</a></li><li><a href="../locations.html">Locations</a></li><li><a href="../guides-hub.html">Guides</a></li><li><a href="../index.html#contact">Contact</a></li></ul><button class="cta-button-small" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Free Estimate</button></div></nav>
-<section class="guide-hero"><div class="container"><div class="guide-hero-content"><div class="guide-breadcrumb"><a href="../index.html">Home</a> / <a href="../guides-hub.html">Guides</a> / <span>Driveway Basics</span></div><h1>Driveway Basics: Types, Costs, and Lifespan Explained</h1><p class="guide-hero-subtitle">Your complete guide to choosing the right driveway material—compare concrete, asphalt, pavers, gravel, and more.</p><div class="guide-meta-bar"><div class="guide-meta-item">⏱️ 20 min read</div><div class="guide-meta-item">💰 Cost comparison</div><div class="guide-meta-item">📊 Expert analysis</div></div></div></div></section>
-<div class="guide-content">
-<p>Your driveway is more than just a place to park your car—it's a significant investment that affects your home's curb appeal, functionality, and value. Choosing the right driveway material requires careful consideration of costs, durability, climate suitability, and maintenance requirements.</p>
-<h2>Introduction to Driveway Materials</h2>
-<p>Selecting the right driveway material is one of the most important decisions homeowners make when building or renovating their property. Several key factors should influence your material selection:</p>
-<ul>
-<li><strong>Climate conditions</strong> in your region, including freeze-thaw cycles, extreme heat, or heavy rainfall</li>
-<li><strong>Budget constraints</strong>, including both initial installation costs and long-term maintenance expenses</li>
-<li><strong>Aesthetic preferences</strong> that complement your home's architectural style</li>
-<li><strong>Usage patterns</strong>, including vehicle weight and traffic frequency</li>
-<li><strong>Local building codes</strong> and homeowners association requirements</li>
-</ul>
-<h2>Concrete Driveways</h2>
-<h3>Costs ($4-$15 per sq ft)</h3>
-<p>Concrete driveways typically cost between $4 and $15 per square foot installed. Basic gray concrete sits at the lower end, while decorative options like stamped, colored, or exposed aggregate concrete push costs higher. For a standard two-car driveway (approximately 600 square feet), expect to pay between $2,400 and $9,000.</p>
-<h3>Lifespan (25-30 years)</h3>
-<p>When properly installed and maintained, concrete driveways last 25 to 30 years on average. Regular sealing every 2-5 years and prompt crack repair can extend this lifespan even further.</p>
-<h3>Pros and Cons</h3>
-<p><strong>Pros:</strong> Exceptional durability and strength, low maintenance requirements, versatile design options, excellent performance in hot climates, increases property value significantly.</p>
-<p><strong>Cons:</strong> Higher upfront cost than asphalt or gravel, prone to cracking in freeze-thaw climates, difficult and expensive to repair.</p>
-<h2>Asphalt Driveways</h2>
-<h3>Costs ($3-$7 per sq ft)</h3>
-<p>Asphalt is one of the most budget-friendly driveway options, costing between $3 and $7 per square foot installed. A standard two-car driveway typically runs $1,800 to $4,200.</p>
-<h3>Lifespan (15-20 years)</h3>
-<p>Asphalt driveways generally last 15 to 20 years with proper maintenance. Regular sealing every 1-3 years is crucial for maximizing longevity.</p>
-<h3>Pros and Cons</h3>
-<p><strong>Pros:</strong> Lower upfront cost than concrete, flexibility resists cracking from freeze-thaw cycles, quick installation, easy and inexpensive to repair.</p>
-<p><strong>Cons:</strong> Shorter lifespan than concrete, requires more frequent maintenance, softens in extreme heat, limited aesthetic options.</p>
-<h2>Paver Driveways</h2>
-<h3>Costs ($10-$30 per sq ft)</h3>
-<p>Paver driveways represent a premium option, ranging from $10 to $30 per square foot installed. A standard two-car driveway costs between $6,000 and $18,000.</p>
-<h3>Lifespan (25-50 years)</h3>
-<p>With proper installation and maintenance, paver driveways can last 25 to 50 years or more. Individual pavers can be replaced if damaged, making repairs virtually invisible.</p>
-<h2>Gravel Driveways</h2>
-<h3>Costs ($1-$3 per sq ft)</h3>
-<p>Gravel is the most economical driveway option, costing just $1 to $3 per square foot installed. A standard two-car driveway ranges from $600 to $1,800.</p>
-<h3>Lifespan (100+ years with maintenance)</h3>
-<p>While the gravel surface requires periodic replenishment, a properly installed gravel driveway base can last indefinitely.</p>
-<h2>Comparison Chart</h2>
-<table class="comparison-table">
-<tr><th>Material</th><th>Cost/Sq Ft</th><th>Lifespan</th><th>Maintenance</th><th>Best For</th></tr>
-<tr><td>Concrete</td><td>$4-$15</td><td>25-30 years</td><td>Low</td><td>Hot climates, high value</td></tr>
-<tr><td>Asphalt</td><td>$3-$7</td><td>15-20 years</td><td>Moderate</td><td>Cold climates, budgets</td></tr>
-<tr><td>Pavers</td><td>$10-$30</td><td>25-50 years</td><td>Moderate</td><td>Design flexibility</td></tr>
-<tr><td>Gravel</td><td>$1-$3</td><td>100+ years*</td><td>High</td><td>Low budgets, drainage</td></tr>
-</table>
-<p><em>*With ongoing gravel replenishment</em></p>
-<h2>How to Choose the Right Driveway</h2>
-<h3>Budget Considerations</h3>
-<ul>
-<li><strong>Limited budget ($1-3K):</strong> Gravel offers the most affordable option</li>
-<li><strong>Moderate budget ($3-9K):</strong> Asphalt or basic concrete work well</li>
-<li><strong>Higher budget ($6-18K+):</strong> Pavers, decorative concrete, or resin-bound surfaces</li>
-</ul>
-<h3>Climate Factors</h3>
-<ul>
-<li><strong>Cold climates with freeze-thaw cycles:</strong> Asphalt or pavers handle temperature fluctuations better</li>
-<li><strong>Hot climates:</strong> Concrete, light-colored pavers, or gravel stay cooler</li>
-<li><strong>Heavy rainfall:</strong> Permeable pavers, gravel, or resin-bound surfaces provide excellent drainage</li>
-</ul>
-<h2>Frequently Asked Questions</h2>
-<h3>What is the cheapest type of driveway?</h3>
-<p>Gravel is the most affordable driveway material, costing $1-$3 per square foot installed. However, it requires the most ongoing maintenance.</p>
-<h3>Which driveway material lasts the longest?</h3>
-<p>Paver driveways have the longest potential lifespan at 25-50+ years. A properly maintained gravel driveway base can last 100+ years.</p>
-<h3>Which driveway adds the most value to a home?</h3>
-<p>Paver driveways typically add the most value due to their premium appearance, durability, and curb appeal. A new driveway can increase home value by 5-10%.</p>
-<p style="text-align:center;margin-top:3rem;padding:2rem;background:#fef9c3;border-radius:8px;"><strong>Ready to get started on your driveway project?</strong><br>Get free quotes from qualified local contractors.</p>
-</div>
-<script src="../main.js"></script>
-</body>
-</html>
+
+<!-- Hero -->
+<section class="guide-hero">
+    <div class="container">
+        <div class="guide-hero-content">
+            <div class="guide-breadcrumb">
+                <a href="../index.html">Home</a> / <a href="../guides-hub.html">Guides</a> /
