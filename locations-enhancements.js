@@ -245,3 +245,254 @@ function injectStyles() {
   `;
   document.head.appendChild(s);
 }
+  
+// ===== DOM BUILDERS =====
+
+function buildBreadcrumb() {
+  const hero = document.querySelector('.hero');
+  if (!hero) return;
+  const bc = document.createElement('div');
+  bc.className = 'loc-breadcrumb';
+  bc.innerHTML = '<a href="index.html">Home</a> <span>›</span> <span>Service Locations</span>';
+  hero.insertBefore(bc, hero.firstChild);
+}
+
+function buildHeroSearch() {
+  const heroContent = document.querySelector('.hero-content');
+  if (!heroContent) return;
+  const statsContainer = heroContent.querySelector('.stats-container');
+
+  // Create search wrap
+  const wrap = document.createElement('div');
+  wrap.className = 'hero-search-wrap';
+  wrap.innerHTML = `
+    <span class="search-icon">🔍</span>
+    <input type="text" placeholder="Find your state..." id="heroStateSearch" autocomplete="off">
+    <div class="hero-search-results" id="heroSearchResults"></div>
+  `;
+
+  if (statsContainer) {
+    heroContent.insertBefore(wrap, statsContainer);
+  } else {
+    heroContent.appendChild(wrap);
+  }
+
+  // Wire up search
+  const input = wrap.querySelector('#heroStateSearch');
+  const results = wrap.querySelector('#heroSearchResults');
+  const statesData = window._statesData || [];
+
+  input.addEventListener('input', function() {
+    const q = this.value.trim().toLowerCase();
+    results.innerHTML = '';
+    if (!q) { results.classList.remove('open'); return; }
+    const matches = statesData.filter(s =>
+      s.name.toLowerCase().includes(q) || s.abbr.toLowerCase().includes(q)
+    ).slice(0, 8);
+    if (!matches.length) { results.classList.remove('open'); return; }
+    matches.forEach(s => {
+      const a = document.createElement('a');
+      a.href = `locations/state-page.html#${s.name.toLowerCase().replace(/\./g,'').replace(/ /g,'-')}`;
+      a.innerHTML = `<span class="res-abbr">${s.abbr}</span>${s.name}`;
+      results.appendChild(a);
+    });
+    results.classList.add('open');
+  });
+
+  document.addEventListener('click', function(e) {
+    if (!wrap.contains(e.target)) results.classList.remove('open');
+  });
+}
+
+function buildTrustBar() {
+  const heroContent = document.querySelector('.hero-content');
+  if (!heroContent) return;
+  const bar = document.createElement('div');
+  bar.className = 'loc-trust-bar';
+  bar.innerHTML = [
+    '⚡ Fast Response','🌡️ Climate Experts','📋 Local Permits','🤝 Community Focus'
+  ].map(t => `<span class="loc-trust-pill">${t}</span>`).join('');
+  heroContent.appendChild(bar);
+}
+
+function buildNewLayout() {
+  // Find the territories section and CTA section
+  const territoriesSection = document.querySelector('.territories-section');
+  const ctaSection = document.querySelector('.cta-section');
+  if (!territoriesSection || !ctaSection) return;
+
+  // State data
+  const statesData = window._statesData || [];
+
+  // Create main layout
+  const pageBody = document.createElement('div');
+  pageBody.className = 'loc-page-body';
+
+  // --- MAIN column ---
+  const main = document.createElement('div');
+  main.className = 'loc-main';
+
+  // Region header + tabs
+  const regionHeader = document.createElement('div');
+  regionHeader.className = 'loc-region-header';
+  const regions = [
+    {key:'all',label:'All States'},
+    {key:'northeast',label:'Northeast'},
+    {key:'southeast',label:'Southeast'},
+    {key:'midwest',label:'Midwest'},
+    {key:'southwest',label:'Southwest'},
+    {key:'west',label:'West'}
+  ];
+  const tabsDiv = document.createElement('div');
+  tabsDiv.className = 'loc-region-tabs';
+  regions.forEach(r => {
+    const btn = document.createElement('button');
+    btn.className = 'loc-tab' + (r.key === 'all' ? ' active' : '');
+    btn.textContent = r.label;
+    btn.dataset.region = r.key;
+    tabsDiv.appendChild(btn);
+  });
+  const countSpan = document.createElement('span');
+  countSpan.className = 'loc-result-count';
+  countSpan.textContent = `${statesData.length} states`;
+  regionHeader.appendChild(tabsDiv);
+  regionHeader.appendChild(countSpan);
+  main.appendChild(regionHeader);
+
+  // States grid
+  const grid = document.createElement('div');
+  grid.className = 'loc-states-grid';
+  grid.id = 'locStatesGrid';
+  main.appendChild(grid);
+
+  // Territories strip
+  const territories = document.querySelector('.territories-section');
+  const terrData = [
+    {flag:'🇵🇷', name:'Puerto Rico', href:'puerto-rico'},
+    {flag:'🏝️', name:'U.S. Virgin Islands', href:'us-virgin-islands'},
+    {flag:'🌺', name:'Guam', href:'guam'},
+    {flag:'🌴', name:'American Samoa', href:'american-samoa'},
+    {flag:'🏛️', name:'N. Mariana Islands', href:'northern-mariana-islands'},
+    {flag:'🇺🇸', name:'Washington D.C.', href:'washington-dc'}
+  ];
+  const terrDiv = document.createElement('div');
+  terrDiv.className = 'loc-territories';
+  terrDiv.innerHTML = '<h3>U.S. Territories & Special Jurisdictions</h3>';
+  const terrList = document.createElement('div');
+  terrList.className = 'loc-territories-list';
+  terrData.forEach(t => {
+    const a = document.createElement('a');
+    a.href = `locations/state-page.html#${t.href}`;
+    a.className = 'loc-territory-pill';
+    a.textContent = `${t.flag} ${t.name}`;
+    terrList.appendChild(a);
+  });
+  terrDiv.appendChild(terrList);
+  main.appendChild(terrDiv);
+
+  // --- SIDEBAR column ---
+  const sidebar = document.createElement('div');
+  sidebar.className = 'loc-sidebar';
+  const sidebarInner = document.createElement('div');
+  sidebarInner.className = 'loc-sidebar-inner';
+
+  // Popular states card
+  const popularCard = document.createElement('div');
+  popularCard.className = 'sidebar-card sidebar-popular';
+  const popularStates = ['CA','TX','FL','NY','IL','PA','OH','GA','NC','WA'];
+  popularCard.innerHTML = '<h3>Popular States</h3>' +
+    popularStates.map(abbr => {
+      const s = statesData.find(x => x.abbr === abbr);
+      if (!s) return '';
+      return `<a href="locations/state-page.html#${s.name.toLowerCase().replace(/\./g,'').replace(/ /g,'-')}">
+        <span>${s.name}</span>
+        <span class="pop-abbr">${s.abbr}</span>
+      </a>`;
+    }).join('');
+  sidebarInner.appendChild(popularCard);
+
+  // CTA form card
+  const formCard = document.createElement('div');
+  formCard.className = 'sidebar-form-card';
+  formCard.innerHTML = `
+    <h3>Get a Free Estimate</h3>
+    <p>Connect with a local driveway expert in your area today.</p>
+    <input type="text" placeholder="Your ZIP code">
+    <input type="text" placeholder="Your name">
+    <button onclick="window.location='index.html#contact'">Get My Free Quote →</button>
+  `;
+  sidebarInner.appendChild(formCard);
+  sidebar.appendChild(sidebarInner);
+
+  pageBody.appendChild(main);
+  pageBody.appendChild(sidebar);
+
+  // Insert before CTA
+  ctaSection.parentNode.insertBefore(pageBody, ctaSection);
+
+  // Render pills
+  renderPills(statesData, 'all', grid, countSpan);
+
+  // Wire tabs
+  tabsDiv.addEventListener('click', function(e) {
+    const btn = e.target.closest('.loc-tab');
+    if (!btn) return;
+    tabsDiv.querySelectorAll('.loc-tab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderPills(statesData, btn.dataset.region, grid, countSpan);
+  });
+}
+
+function renderPills(statesData, region, grid, countSpan) {
+  grid.innerHTML = '';
+  const filtered = region === 'all' ? statesData : statesData.filter(s => s.region === region);
+  if (!filtered.length) {
+    grid.innerHTML = '<p class="loc-no-results">No states found.</p>';
+    return;
+  }
+
+  if (region === 'all') {
+    const regionOrder = ['northeast','southeast','midwest','southwest','west'];
+    const regionLabels = {northeast:'Northeast',southeast:'Southeast',midwest:'Midwest',southwest:'Southwest',west:'West'};
+    regionOrder.forEach(r => {
+      const states = statesData.filter(s => s.region === r);
+      if (!states.length) return;
+      const label = document.createElement('div');
+      label.className = 'loc-region-label';
+      label.textContent = regionLabels[r];
+      grid.appendChild(label);
+      states.forEach(s => grid.appendChild(makePill(s)));
+    });
+  } else {
+    filtered.forEach(s => grid.appendChild(makePill(s)));
+  }
+
+  countSpan.textContent = `${filtered.length} state${filtered.length !== 1 ? 's' : ''}`;
+}
+
+function makePill(s) {
+  const a = document.createElement('a');
+  a.className = 'loc-state-pill';
+  a.href = `locations/state-page.html#${s.name.toLowerCase().replace(/\./g,'').replace(/ /g,'-')}`;
+  a.innerHTML = `<span class="pill-abbr">${s.abbr}</span><span class="pill-name">${s.name}</span>`;
+  return a;
+}
+
+// ===== INIT =====
+function init() {
+  // Store state data globally for hero search
+  if (typeof statesData !== 'undefined') window._statesData = statesData;
+  injectStyles();
+  buildBreadcrumb();
+  buildHeroSearch();
+  buildTrustBar();
+  buildNewLayout();
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', init);
+} else {
+  init();
+}
+
+})();
