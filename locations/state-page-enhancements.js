@@ -31,6 +31,7 @@
     addTestimonials(state);
     makeCityCardsClickable(state);
     addFAQSchema(state);
+        addSectionImages(state);
         initScrollSpy();
   }
 
@@ -64,10 +65,10 @@
       .sidebar-inner { position: sticky; top: 160px; display: flex; flex-direction: column; gap: 1.5rem; }
       .quick-facts-card { background: white; border-radius: 16px; padding: 1.5rem; box-shadow: var(--shadow); border: 1px solid #e5e7eb; }
       .quick-facts-card h3 { font-size: 1.1rem; color: var(--primary-dark); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
-      .quick-facts-card .fact-row { display: flex; justify-content: space-between; padding: 0.6rem 0; border-bottom: 1px solid #f3f4f6; }
+      .quick-facts-card .fact-row { display: flex; justify-content: space-between;align-items: baseline; gap: 0.5rem;  padding: 0.6rem 0; border-bottom: 1px solid #f3f4f6; }
       .quick-facts-card .fact-row:last-child { border-bottom: none; }
-      .quick-facts-card .fact-label { color: var(--text-light); font-size: 0.9rem; }
-      .quick-facts-card .fact-value { color: var(--primary-dark); font-weight: 600; font-size: 0.9rem; }
+      .quick-facts-card .fact-label { color: var(--text-light); font-size: 0.9rem; flex-shrink: 0; white-space: nowrap; }
+      .quick-facts-card .fact-value { color: var(--primary-dark); font-weight: 600; font-size: 0.9rem; text-align: right; }
       .sidebar-form { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); border-radius: 16px; padding: 1.5rem; color: white; }
       .sidebar-form h3 { font-size: 1.1rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; }
       .sidebar-form p { font-size: 0.85rem; opacity: 0.9; margin-bottom: 1rem; }
@@ -114,6 +115,8 @@
       /* Responsive sidebar */
       @media (max-width: 968px) {
         .content-with-sidebar { grid-template-columns: 1fr; }
+              /* Section images */
+      .section-img { width: 100%; height: 220px; object-fit: cover; border-radius: 12px; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
         .content-sidebar { position: static; }
         .sidebar-inner { position: static; }
         .breadcrumb-nav { margin-top: 90px; padding: 0.5rem 1rem; }
@@ -318,8 +321,38 @@
   // Override the original renderPage to add enhancements after render
   const checkAndApply = () => {
     setTimeout(() => {
+
+        // ===== SECTION IMAGES =====
+  function addSectionImages(state) {
+    if (document.querySelector('.section-img')) return;
+    var stKey = window.location.hash ? window.location.hash.substring(1).toLowerCase() : '';
+    var imgMap = {
+      california: [
+        {src:'https://images.unsplash.com/photo-1449034446853-66c86144b0ad?w=800&q=80',alt:'California suburban neighborhood with driveways',after:'.intro-section'},
+        {src:'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80',alt:'Modern California home with paved driveway',after:'.services-section'},
+        {src:'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80',alt:'Beautiful California home exterior',after:'.driveway-types-section'}
+      ]
+    };
+    var defImgs = [
+      {src:'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80',alt:'Modern home with driveway',after:'.intro-section'},
+      {src:'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80',alt:'Residential home exterior',after:'.services-section'},
+      {src:'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80',alt:'Luxury home with driveway',after:'.driveway-types-section'}
+    ];
+    var imgs = imgMap[stKey] || defImgs;
+    imgs.forEach(function(item) {
+      var sec = document.querySelector(item.after);
+      if (!sec) return;
+      var el = document.createElement('img');
+      el.className = 'section-img';
+      el.src = item.src;
+      el.alt = item.alt;
+      el.loading = 'lazy';
+            el.style.cssText = 'width:100%;height:220px;object-fit:cover;border-radius:12px;margin:1.5rem 0;box-shadow:0 4px 12px rgba(0,0,0,0.1)';
+      sec.parentNode.insertBefore(el, sec.nextSibling);
+    });
+  }
       if (document.querySelector('.state-hero') && !document.querySelector('.breadcrumb-nav')) {
-        applyEnhancements();
+              nhancements();
       }
     }, 100);
   };
