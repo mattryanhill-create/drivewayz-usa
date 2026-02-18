@@ -343,18 +343,39 @@
   }
 
   // ===== INITIALIZATION =====
-  const checkAndApply = () => {
-    setTimeout(() => {
-      if (document.querySelector('.state-hero') && !document.querySelector('.breadcrumb-nav')) {
-        applyEnhancements();
-      }
-    }, 100);
-  };
+  // Use MutationObserver to wait for base renderPage() to populate #content
+  function waitForRenderThenApply() {
+    if (document.querySelector('.state-hero') && !document.querySelector('.breadcrumb-nav')) {
+      applyEnhancements();
+      return;
+    }
+    // Watch for #content to be populated by renderPage()
+    const contentEl = document.getElementById('content');
+    if (contentEl) {
+      const observer = new MutationObserver(() => {
+        if (document.querySelector('.state-hero') && !document.querySelector('.breadcrumb-nav')) {
+          observer.disconnect();
+          applyEnhancements();
+        }
+      });
+      observer.observe(contentEl, { childList: true, subtree: true });
+      // Fallback: if still not applied after 3s, try once more
+      setTimeout(() => {
+        observer.disconnect();
+        if (document.querySelector('.state-hero') && !document.querySelector('.breadcrumb-nav')) {
+          applyEnhancements();
+        }
+      }, 3000);
+    } else {
+      // No #content yet, retry after short delay
+      setTimeout(waitForRenderThenApply, 50);
+    }
+  }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', checkAndApply);
+    document.addEventListener('DOMContentLoaded', waitForRenderThenApply);
   } else {
-    checkAndApply();
+    waitForRenderThenApply();
   }
 
   window.addEventListener('hashchange', () => {
@@ -369,7 +390,7 @@
     const oldSchema = document.querySelector('script[type="application/ld+json"]');
     if (oldSchema) oldSchema.remove();
     document.querySelectorAll('.section-img').forEach(img => img.remove());
-    setTimeout(checkAndApply, 200);
+    setTimeout(waitForRenderThenApply, 300);
   });
 
 })();
