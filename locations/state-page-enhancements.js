@@ -2,9 +2,9 @@
  * State Page Quick Win Enhancements
  * Adds: breadcrumbs, sticky nav, quick facts sidebar, lead form,
  * styled icons, FAQ schema, city links, testimonials, mid-page CTA
- * 
+ *
  * Include AFTER the base state-page.html renders:
- * <script src="state-page-enhancements.js" defer><\/script>
+ * <script src="state-page-enhancements.js" defer></script>
  */
 
 (function() {
@@ -31,8 +31,8 @@
     addTestimonials(state);
     makeCityCardsClickable(state);
     addFAQSchema(state);
-        addSectionImages(state);
-        initScrollSpy();
+    addSectionImages(state);
+    initScrollSpy();
   }
 
   // ===== 1. INJECT ENHANCEMENT STYLES =====
@@ -50,7 +50,6 @@
       .breadcrumb-nav a:hover { text-decoration: underline; }
       .breadcrumb-nav span { color: var(--text-light); }
       .state-hero { margin-top: 0 !important; }
-
       /* Quick Win 2: Hero photo overlay */
       .state-hero { background-size: cover !important; background-position: center !important; position: relative; }
       .state-hero .hero-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to bottom, rgba(43,87,151,0.85), rgba(91,155,213,0.75)); z-index: 2; }
@@ -63,19 +62,21 @@
       .content-main { min-width: 0; }
       .content-sidebar { position: relative; }
       .sidebar-inner { position: sticky; top: 160px; display: flex; flex-direction: column; gap: 1.5rem; }
+      /* Quick Facts card */
       .quick-facts-card { background: white; border-radius: 16px; padding: 1.5rem; box-shadow: var(--shadow); border: 1px solid #e5e7eb; }
       .quick-facts-card h3 { font-size: 1.1rem; color: var(--primary-dark); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
-      .quick-facts-card .fact-row { display: flex; justify-content: space-between;align-items: baseline; gap: 0.5rem;  padding: 0.6rem 0; border-bottom: 1px solid #f3f4f6; }
+      .quick-facts-card .fact-row { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding: 0.6rem 0; border-bottom: 1px solid #f3f4f6; }
       .quick-facts-card .fact-row:last-child { border-bottom: none; }
-      .quick-facts-card .fact-label { color: var(--text-light); font-size: 0.9rem; flex-shrink: 0; white-space: nowrap; }
-      .quick-facts-card .fact-value { color: var(--primary-dark); font-weight: 600; font-size: 0.9rem; text-align: right; }
+      .quick-facts-card .fact-label { color: var(--text-light); font-size: 0.85rem; flex-shrink: 0; white-space: nowrap; min-width: 90px; }
+      .quick-facts-card .fact-value { color: var(--primary-dark); font-weight: 600; font-size: 0.85rem; text-align: right; word-break: break-word; }
+
+      /* Sidebar form */
       .sidebar-form { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); border-radius: 16px; padding: 1.5rem; color: white; }
       .sidebar-form h3 { font-size: 1.1rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; }
       .sidebar-form p { font-size: 0.85rem; opacity: 0.9; margin-bottom: 1rem; }
       .sidebar-form input { width: 100%; padding: 0.65rem 0.75rem; border: 1px solid rgba(255,255,255,0.3); border-radius: 8px; background: rgba(255,255,255,0.95); font-size: 0.9rem; margin-bottom: 0.6rem; box-sizing: border-box; }
       .sidebar-form button { width: 100%; padding: 0.7rem; background: white; color: var(--primary-dark); border: none; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 0.95rem; transition: all 0.3s; }
       .sidebar-form button:hover { background: var(--bg-light); transform: translateY(-1px); }
-
       /* Quick Win 5: Sticky section nav */
       .section-nav { background: white; border-radius: 16px; padding: 1.25rem; box-shadow: var(--shadow); border: 1px solid #e5e7eb; }
       .section-nav h4 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-light); margin-bottom: 0.75rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--primary); }
@@ -87,11 +88,14 @@
       /* Quick Win 6: Styled icons */
       .styled-icon { width: 56px; height: 56px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: white; margin-bottom: 1rem; box-shadow: 0 4px 12px rgba(91,155,213,0.3); }
 
+      /* Section images */
+      .section-img { width: 100%; height: 280px; object-fit: cover; border-radius: 16px; margin: 2rem 0; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+
       /* Quick Win 9: Testimonials */
       .testimonials-section { padding: 4rem 2rem; background: var(--bg-light); }
       .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
       .testimonial-card { background: white; border-radius: 16px; padding: 2rem; box-shadow: var(--shadow); border: 1px solid #e5e7eb; position: relative; }
-      .testimonial-card::before { content: '\\201C'; font-size: 4rem; color: var(--primary); opacity: 0.15; position: absolute; top: 0.5rem; left: 1rem; line-height: 1; font-family: Georgia, serif; }
+      .testimonial-card::before { content: '\201C'; font-size: 4rem; color: var(--primary); opacity: 0.15; position: absolute; top: 0.5rem; left: 1rem; line-height: 1; font-family: Georgia, serif; }
       .testimonial-stars { color: #f59e0b; font-size: 1rem; margin-bottom: 0.75rem; }
       .testimonial-text { color: var(--text-light); line-height: 1.7; font-style: italic; margin-bottom: 1rem; }
       .testimonial-author { display: flex; align-items: center; gap: 0.75rem; }
@@ -110,13 +114,12 @@
       /* Quick Win 8: City card links */
       .city-card a { text-decoration: none; color: inherit; display: block; }
       .city-card.clickable { cursor: pointer; }
-      .city-card.clickable:hover h4::after { content: ' \\2192'; }
+      .city-card.clickable:hover h4::after { content: ' \2192'; }
 
       /* Responsive sidebar */
       @media (max-width: 968px) {
         .content-with-sidebar { grid-template-columns: 1fr; }
-              /* Section images */
-      .section-img { width: 100%; height: 220px; object-fit: cover; border-radius: 12px; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .section-img { height: 180px; }
         .content-sidebar { position: static; }
         .sidebar-inner { position: static; }
         .breadcrumb-nav { margin-top: 90px; padding: 0.5rem 1rem; }
@@ -136,8 +139,7 @@
     nav.setAttribute('aria-label', 'Breadcrumb');
     nav.innerHTML = `<ol><li><a href="../index.html">Home</a></li><li><a href="../locations.html">Locations</a></li><li><span>${state.name}</span></li></ol>`;
     hero.parentNode.insertBefore(nav, hero);
-
-    // Quick Win 2: Add trust pills to hero
+    // Add trust pills to hero
     const heroContent = hero.querySelector('.state-hero-content');
     if (heroContent) {
       const pills = document.createElement('div');
@@ -154,14 +156,12 @@
 
   // ===== Quick Wins 3,4,5: SIDEBAR =====
   function wrapContentWithSidebar(state) {
-    // Find the intro section to start wrapping
     const introSection = document.querySelector('.intro-section');
     const servicesSection = document.querySelector('.services-section');
     const typesSection = document.querySelector('.driveway-types-section');
     const whySection = document.querySelector('.why-section');
     if (!introSection) return;
 
-    // Create wrapper
     const wrapper = document.createElement('div');
     wrapper.className = 'content-with-sidebar';
     const mainCol = document.createElement('div');
@@ -171,7 +171,6 @@
     const sidebarInner = document.createElement('div');
     sidebarInner.className = 'sidebar-inner';
 
-    // Section nav
     sidebarInner.innerHTML = `
       <div class="section-nav">
         <h4>On This Page</h4>
@@ -201,7 +200,6 @@
     `;
     sidebarCol.appendChild(sidebarInner);
 
-    // Add IDs for scroll nav
     if (introSection) introSection.id = 'intro';
     if (servicesSection) servicesSection.id = 'services';
     if (typesSection) typesSection.id = 'types';
@@ -211,7 +209,6 @@
     const areasSection = document.querySelector('.areas-section');
     if (areasSection) areasSection.id = 'areas';
 
-    // Move sections into main column
     const sectionsToWrap = [introSection, servicesSection, typesSection, whySection].filter(Boolean);
     const parent = introSection.parentNode;
     parent.insertBefore(wrapper, introSection);
@@ -219,7 +216,6 @@
     wrapper.appendChild(sidebarCol);
     sectionsToWrap.forEach(s => {
       mainCol.appendChild(s);
-      // Reset padding since now inside grid
       s.style.padding = '2rem 0';
     });
   }
@@ -286,7 +282,36 @@
     document.head.appendChild(script);
   }
 
-    // ===== SCROLL SPY FOR SIDEBAR NAV =====
+  // ===== SECTION IMAGES =====
+  function addSectionImages(state) {
+    if (document.querySelector('.section-img')) return;
+    var stKey = window.location.hash ? window.location.hash.substring(1).toLowerCase() : '';
+    var imgMap = {
+      california: [
+        {src:'https://images.unsplash.com/photo-1449034446853-66c86144b0ad?w=900&q=80', alt:'California suburban neighborhood with driveways', after:'.intro-section'},
+        {src:'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=900&q=80', alt:'Modern California home with paved driveway', after:'.services-section'},
+        {src:'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=900&q=80', alt:'Beautiful California home exterior', after:'.driveway-types-section'}
+      ]
+    };
+    var defImgs = [
+      {src:'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&q=80', alt:'Modern home with driveway', after:'.intro-section'},
+      {src:'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=900&q=80', alt:'Residential home exterior', after:'.services-section'},
+      {src:'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=900&q=80', alt:'Luxury home with driveway', after:'.driveway-types-section'}
+    ];
+    var imgs = imgMap[stKey] || defImgs;
+    imgs.forEach(function(item) {
+      var sec = document.querySelector(item.after);
+      if (!sec) return;
+      var el = document.createElement('img');
+      el.className = 'section-img';
+      el.src = item.src;
+      el.alt = item.alt;
+      el.loading = 'lazy';
+      sec.parentNode.insertBefore(el, sec.nextSibling);
+    });
+  }
+
+  // ===== SCROLL SPY FOR SIDEBAR NAV =====
   function initScrollSpy() {
     const navLinks = document.querySelectorAll('.section-nav a');
     if (!navLinks.length) return;
@@ -318,53 +343,21 @@
   }
 
   // ===== INITIALIZATION =====
-  // Override the original renderPage to add enhancements after render
   const checkAndApply = () => {
     setTimeout(() => {
-
-        // ===== SECTION IMAGES =====
-  function addSectionImages(state) {
-    if (document.querySelector('.section-img')) return;
-    var stKey = window.location.hash ? window.location.hash.substring(1).toLowerCase() : '';
-    var imgMap = {
-      california: [
-        {src:'https://images.unsplash.com/photo-1449034446853-66c86144b0ad?w=800&q=80',alt:'California suburban neighborhood with driveways',after:'.intro-section'},
-        {src:'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80',alt:'Modern California home with paved driveway',after:'.services-section'},
-        {src:'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80',alt:'Beautiful California home exterior',after:'.driveway-types-section'}
-      ]
-    };
-    var defImgs = [
-      {src:'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80',alt:'Modern home with driveway',after:'.intro-section'},
-      {src:'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80',alt:'Residential home exterior',after:'.services-section'},
-      {src:'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80',alt:'Luxury home with driveway',after:'.driveway-types-section'}
-    ];
-    var imgs = imgMap[stKey] || defImgs;
-    imgs.forEach(function(item) {
-      var sec = document.querySelector(item.after);
-      if (!sec) return;
-      var el = document.createElement('img');
-      el.className = 'section-img';
-      el.src = item.src;
-      el.alt = item.alt;
-      el.loading = 'lazy';
-            el.style.cssText = 'width:100%;height:220px;object-fit:cover;border-radius:12px;margin:1.5rem 0;box-shadow:0 4px 12px rgba(0,0,0,0.1)';
-      sec.parentNode.insertBefore(el, sec.nextSibling);
-    });
-  }
       if (document.querySelector('.state-hero') && !document.querySelector('.breadcrumb-nav')) {
-              nhancements();
+        applyEnhancements();
       }
     }, 100);
   };
 
-  // Run after DOM content loaded and after hash changes
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', checkAndApply);
   } else {
     checkAndApply();
   }
+
   window.addEventListener('hashchange', () => {
-    // Remove previous enhancements
     const oldBreadcrumb = document.querySelector('.breadcrumb-nav');
     if (oldBreadcrumb) oldBreadcrumb.remove();
     const oldWrapper = document.querySelector('.content-with-sidebar');
@@ -375,6 +368,7 @@
     if (oldTestimonials) oldTestimonials.remove();
     const oldSchema = document.querySelector('script[type="application/ld+json"]');
     if (oldSchema) oldSchema.remove();
+    document.querySelectorAll('.section-img').forEach(img => img.remove());
     setTimeout(checkAndApply, 200);
   });
 
