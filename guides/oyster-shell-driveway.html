@@ -3,17 +3,337 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maintaining Oyster Shell Driveways | Coastal Driveway Guide | Drivewayz USA</title>
-    <meta name="description" content="Expert tips for maintaining oyster shell driveways - coastal charm with natural beauty for American properties.">
+    <title>Oyster Shell Driveway Guide | Drivewayz USA</title>
+    <meta name="description" content="Complete guide to oyster shell driveways. Eco-friendly coastal charm, installation steps, costs, maintenance, and climate considerations.">
     <link rel="stylesheet" href="../main.css">
     <style>
-        :root{--guide-primary:#0891b2;--guide-primary-light:#06b6d4;--guide-primary-dark:#0e7490;--guide-accent:#22d3ee;--guide-bg:linear-gradient(135deg,#ecfeff 0%,#cffafe 50%,#a5f3fc 100%)}body{background:var(--guide-bg);background-attachment:fixed}.guide-hero{position:relative;min-height:500px;display:flex;align-items:center;margin-top:100px;background-image:linear-gradient(135deg,rgba(8,145,178,.85) 0%,rgba(14,116,144,.85) 100%),url('../oyster-shell-driveway.jpg');background-size:cover;background-position:center;overflow:hidden}.guide-hero::before{content:"";position:absolute;top:0;left:0;right:0;bottom:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");opacity:.3}
+        :root { --guide-primary: #f0f0e8; --guide-primary-light: #d4c5a9; --guide-primary-dark: #a89968; --guide-accent: #0891b2; --guide-bg: linear-gradient(135deg, #fdfcfa 0%, #f5f3ed 50%, #ebe6dc 100%); }
+        body { background: var(--guide-bg); background-attachment: fixed; }
+        .guide-hero { position: relative; min-height: 500px; display: flex; align-items: center; margin-top: 100px; background: linear-gradient(135deg, #a89968 0%, #d4c5a9 50%, #c4b896 100%); overflow: hidden; }
+        .guide-hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E"); }
+        .guide-hero-content { position: relative; z-index: 10; padding: 4rem 0; color: white; }
+        .guide-breadcrumb { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; font-size: 0.9rem; }
+        .guide-breadcrumb a { color: rgba(255,255,255,0.8); text-decoration: none; }
+        .guide-breadcrumb a:hover { color: white; }
+        .guide-hero h1 { font-size: 3rem; font-weight: 800; margin-bottom: 1rem; max-width: 800px; }
+        .guide-hero-subtitle { font-size: 1.3rem; opacity: 0.95; max-width: 600px; margin-bottom: 2rem; }
+        .guide-meta-bar { display: flex; gap: 2rem; flex-wrap: wrap; }
+        .guide-meta-item { display: flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.15); padding: 0.5rem 1rem; border-radius: 25px; backdrop-filter: blur(10px); }
+        .guide-actions { display: flex; gap: 1rem; margin-top: 2rem; }
+        .action-btn { display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; border: none; font-size: 1rem; }
+        .action-btn-primary { background-color: white; color: #5c4d2e; }
+        .action-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+        .action-btn-secondary { background-color: rgba(255,255,255,0.2); color: white; border: 2px solid rgba(255,255,255,0.3); }
+        .action-btn-secondary:hover { background-color: rgba(255,255,255,0.3); }
+        .guide-tabs { background-color: var(--bg-white); border-bottom: 1px solid var(--border-color); position: sticky; top: 100px; z-index: 100; }
+        .tabs-container { display: flex; gap: 0; overflow-x: auto; }
+        .tab-btn { padding: 1rem 1.5rem; background: none; border: none; border-bottom: 3px solid transparent; cursor: pointer; font-size: 1rem; font-weight: 600; color: var(--text-light); white-space: nowrap; transition: all 0.3s ease; }
+        .tab-btn:hover { color: var(--guide-accent); }
+        .tab-btn.active { color: var(--guide-accent); border-bottom-color: var(--guide-accent); }
+        .tab-content { display: none; padding: 3rem 0; animation: fadeIn 0.3s ease; }
+        .tab-content.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .guide-content-wrapper { display: grid; grid-template-columns: 1fr 350px; gap: 3rem; }
+        .guide-main { background-color: var(--bg-white); border-radius: 16px; padding: 2.5rem; box-shadow: var(--shadow); }
+        .guide-sidebar { position: sticky; top: 180px; height: fit-content; }
+        .guide-main h2 { font-size: 2rem; color: var(--text-dark); margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: 2px solid var(--guide-accent); }
+        .guide-main h3 { font-size: 1.4rem; color: var(--text-dark); margin: 2rem 0 1rem; }
+        .guide-main p { color: var(--text-light); line-height: 1.8; margin-bottom: 1.5rem; }
+        .guide-main ul, .guide-main ol { margin-bottom: 1.5rem; padding-left: 1.5rem; }
+        .guide-main li { color: var(--text-light); line-height: 1.8; margin-bottom: 0.5rem; }
+        .info-box { padding: 1.5rem; border-radius: 12px; margin: 2rem 0; }
+        .info-box-tip { background-color: #f0fdfa; border-left: 4px solid var(--guide-accent); }
+        .info-box-warning { background-color: #fef2f2; border-left: 4px solid #ef4444; }
+        .info-box-title { font-weight: 700; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; }
+        .sidebar-card { background-color: var(--bg-white); border-radius: 16px; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: var(--shadow); }
+        .sidebar-card h4 { font-size: 1.1rem; margin-bottom: 1rem; color: var(--text-dark); }
+        .quick-stat { display: flex; justify-content: space-between; padding: 0.75rem 0; border-bottom: 1px solid var(--border-color); }
+        .quick-stat:last-child { border-bottom: none; }
+        .quick-stat-label { color: var(--text-light); }
+        .quick-stat-value { font-weight: 700; color: var(--guide-accent); }
+        .sidebar-cta { background: linear-gradient(135deg, #a89968 0%, #d4c5a9 100%); color: white; }
+        .sidebar-cta h4 { color: white; }
+        .sidebar-cta p { font-size: 0.9rem; margin-bottom: 1rem; opacity: 0.9; }
+        .sidebar-cta input, .sidebar-cta textarea { width: 100%; padding: 0.75rem; border: none; border-radius: 8px; margin-bottom: 0.75rem; font-size: 0.95rem; }
+        .sidebar-cta button { width: 100%; padding: 0.75rem; background-color: white; color: #5c4d2e; border: none; border-radius: 8px; font-weight: 700; cursor: pointer; transition: all 0.3s ease; }
+        .sidebar-cta button:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+        .related-guide { display: flex; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--border-color); text-decoration: none; }
+        .related-guide:last-child { border-bottom: none; }
+        .related-guide-image { width: 60px; height: 60px; border-radius: 8px; flex-shrink: 0; }
+        .related-guide-content h5 { font-size: 0.95rem; color: var(--text-dark); margin-bottom: 0.25rem; }
+        .related-guide-content span { font-size: 0.8rem; color: var(--text-light); }
+        .faq-item { border: 1px solid #e5e7eb; border-radius: 10px; margin-bottom: 1rem; overflow: hidden; }
+        .faq-q { width: 100%; padding: 1.25rem 1.5rem; background: #f0fdfa; border: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 1.05rem; font-weight: 600; color: #5c4d2e; text-align: left; }
+        .faq-q:hover { background: #ccfbf1; }
+        .faq-a { padding: 0 1.5rem 1.25rem; color: var(--text-light); line-height: 1.8; display: none; }
+        .faq-item.open .faq-a { display: block; }
+        .faq-toggle { font-size: 1.3rem; transition: transform .3s; }
+        .faq-item.open .faq-toggle { transform: rotate(45deg); }
+        @media (max-width: 1024px) { .guide-content-wrapper { grid-template-columns: 1fr; } .guide-sidebar { position: static; order: -1; } }
+        @media (max-width: 768px) { .guide-hero h1 { font-size: 2rem; } .guide-main { padding: 1.5rem; } .guide-actions { flex-direction: column; } .tabs-container { padding: 0 1rem; } }
     </style>
 </head>
 <body>
-<nav class="navbar" id="navbar"><div class="container nav-container"><div class="logo"><a href="../index.html"><img src="../logov3.jpg" alt="Drivewayz USA" onerror="this.style.display='none'"></a></div><ul class="nav-links"><li><a href="../index.html#home">Home</a></li><li><a href="../index.html#services">Services</a></li><li><a href="../index.html#why-choose">Why Us</a></li><li><a href="../locations.html">Locations</a></li><li><a href="../guides-hub.html">Guides</a></li><li><a href="../index.html#contact">Contact</a></li></ul><button class="cta-button-small" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Free Estimate</button></div></nav>
-<section class="guide-hero"><div class="container"><div class="guide-hero-content"><div class="guide-breadcrumb"><a href="../index.html">Home</a> / <a href="../guides-hub.html">Guides</a> / <span>Coastal</span></div><h1>Maintaining Oyster Shell Driveways</h1><p class="guide-hero-subtitle">Expert tips for preserving the natural charm of oyster shell surfaces - perfect for coastal American properties seeking authentic beachside appeal.</p><div class="guide-meta-bar"><div class="guide-meta-item">⏱️ 12 min read</div><div class="guide-meta-item">🏖️ Coastal charm</div><div class="guide-meta-item">🐚 Natural material</div></div></div></div></section>
-<div class="container" style="padding:3rem 0"><p style="text-align:center;color:#6b7280;font-size:1.1rem;max-width:800px;margin:0 auto">✅ Oyster Shell Driveway guide created with hero image from oyster-shell-driveway.jpg. Complete coastal maintenance guide included.</p></div>
-<script src="../main.js"></script>
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <div class="logo"><a href="../index.html"><img src="../logov3.jpg?v=2" alt="Drivewayz USA" onerror="this.style.display='none'"></a></div>
+            <ul class="nav-links">
+                <li><a href="../index.html#home">Home</a></li>
+                <li><a href="../index.html#services">Services</a></li>
+                <li><a href="../index.html#why-choose">Why Us</a></li>
+                <li><a href="../locations.html">Locations</a></li>
+                <li><a href="../guides-hub.html" style="color: var(--primary-color);">Guides</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+            <button class="cta-button-small" onclick="window.location.href='../index.html#contact'">Free Estimate</button>
+        </div>
+    </nav>
+
+    <section class="guide-hero">
+        <div class="container guide-hero-content">
+            <div class="guide-breadcrumb">
+                <a href="../index.html">Home</a><span>/</span><a href="../guides-hub.html">Guides</a><span>/</span><span>Oyster Shell</span>
+            </div>
+            <h1>Oyster Shell Driveway Guide</h1>
+            <p class="guide-hero-subtitle">Eco-friendly driveway option with coastal charm. Recycled oyster shells create a unique, sustainable surface perfect for coastal and Southern homes.</p>
+            <div class="guide-meta-bar">
+                <div class="guide-meta-item"><span>⏱️</span><span>11 min</span></div>
+                <div class="guide-meta-item"><span>🌿</span><span>Eco-friendly</span></div>
+                <div class="guide-meta-item"><span>🏖️</span><span>Coastal charm</span></div>
+            </div>
+            <div class="guide-actions">
+                <button class="action-btn action-btn-primary" onclick="scrollToTab('faq')">View FAQ</button>
+                <button class="action-btn action-btn-secondary" onclick="saveGuide()"><span id="saveIcon">🔖</span> <span id="saveText">Save Guide</span></button>
+            </div>
+        </div>
+    </section>
+
+    <section class="guide-tabs">
+        <div class="container">
+            <div class="tabs-container">
+                <button class="tab-btn active" data-tab="overview" onclick="switchTab('overview')">Overview</button>
+                <button class="tab-btn" data-tab="benefits" onclick="switchTab('benefits')">Benefits</button>
+                <button class="tab-btn" data-tab="installation" onclick="switchTab('installation')">Installation</button>
+                <button class="tab-btn" data-tab="cost" onclick="switchTab('cost')">Cost</button>
+                <button class="tab-btn" data-tab="maintenance" onclick="switchTab('maintenance')">Maintenance</button>
+                <button class="tab-btn" data-tab="climate" onclick="switchTab('climate')">Climate</button>
+                <button class="tab-btn" data-tab="faq" onclick="switchTab('faq')">FAQ</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="tab-content active" id="overview">
+        <div class="container">
+            <div class="guide-content-wrapper">
+                <div class="guide-main">
+                    <h2>What Is an Oyster Shell Driveway?</h2>
+                    <p>Oyster shell driveways use crushed or whole oyster shells—a byproduct of the seafood industry—as the surface material. Popular in coastal regions from the Southeast to New England, they offer a distinctive, natural aesthetic and excellent drainage.</p>
+                    <p>The shells compact over time to form a firm, permeable surface. They're typically installed over a gravel base, similar to traditional gravel driveways but with a unique pearlescent appearance.</p>
+                    <div class="info-box info-box-tip">
+                        <div class="info-box-title"><span>💡</span> Pro Tip</div>
+                        <p>Oyster shells are often locally sourced in coastal areas, reducing transportation costs. Check with seafood processors and restaurants for shell availability.</p>
+                    </div>
+                </div>
+                <aside class="guide-sidebar">
+                    <div class="sidebar-card">
+                        <h4>📊 Quick Facts</h4>
+                        <div class="quick-stat"><span class="quick-stat-label">Cost</span><span class="quick-stat-value">$2-5/sqft</span></div>
+                        <div class="quick-stat"><span class="quick-stat-label">Lifespan</span><span class="quick-stat-value">10-15 yrs</span></div>
+                        <div class="quick-stat"><span class="quick-stat-label">Eco Rating</span><span class="quick-stat-value">Excellent</span></div>
+                    </div>
+                    <div class="sidebar-card sidebar-cta">
+                        <h4>🚀 Get Started Today</h4>
+                        <p>Interested in an oyster shell driveway? Get a free estimate for your project.</p>
+                        <form onsubmit="handleSidebarSubmit(event)">
+                            <input type="text" placeholder="Your Name" required>
+                            <input type="tel" placeholder="Phone Number" required>
+                            <textarea placeholder="Tell us about your project" rows="3"></textarea>
+                            <button type="submit">Request Free Estimate</button>
+                        </form>
+                    </div>
+                    <div class="sidebar-card">
+                        <h4>📚 Related Guides</h4>
+                        <a href="./gravel-pothole-repair.html" class="related-guide">
+                            <div class="related-guide-image" style="background: linear-gradient(135deg, #78716c 0%, #a8a29e 100%);"></div>
+                            <div class="related-guide-content"><h5>Gravel Pothole Repair</h5><span>12 min read</span></div>
+                        </a>
+                        <a href="./permeable-vs-traditional.html" class="related-guide">
+                            <div class="related-guide-image" style="background: linear-gradient(135deg, #065f46 0%, #10b981 100%);"></div>
+                            <div class="related-guide-content"><h5>Permeable vs Traditional</h5><span>16 min read</span></div>
+                        </a>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <section class="tab-content" id="benefits">
+        <div class="container">
+            <div class="guide-content-wrapper">
+                <div class="guide-main">
+                    <h2>Benefits of Oyster Shell Driveways</h2>
+                    <ul>
+                        <li><strong>Eco-friendly:</strong> Repurposes waste from seafood industry; reduces landfill use</li>
+                        <li><strong>Permeable:</strong> Allows water drainage; reduces runoff</li>
+                        <li><strong>Cost-effective:</strong> Often cheaper than paved options</li>
+                        <li><strong>Unique appearance:</strong> Pearlescent, coastal aesthetic</li>
+                        <li><strong>Good traction:</strong> Textured surface provides grip</li>
+                        <li><strong>Local sourcing:</strong> Readily available in coastal regions</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="tab-content" id="installation">
+        <div class="container">
+            <div class="guide-content-wrapper">
+                <div class="guide-main">
+                    <h2>Installation Steps</h2>
+                    <ol>
+                        <li>Excavate to proper depth (6-8 inches for base plus shell layer)</li>
+                        <li>Install geotextile fabric to prevent soil migration</li>
+                        <li>Add and compact 4-6 inches of gravel base</li>
+                        <li>Spread crushed oyster shells 2-3 inches thick</li>
+                        <li>Compact and grade for drainage</li>
+                        <li>Add edging if desired</li>
+                    </ol>
+                    <p>Similar to gravel installation but shells compact differently. Professional installation recommended for best results.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="tab-content" id="cost">
+        <div class="container">
+            <div class="guide-content-wrapper">
+                <div class="guide-main">
+                    <h2>Cost Breakdown</h2>
+                    <p>Oyster shell driveways typically cost <strong>$2-5 per square foot</strong> installed—often less than concrete or asphalt. Material costs vary by region; coastal areas with shell availability are most affordable.</p>
+                    <p>Factors affecting cost: shell availability, base preparation needs, driveway size, and labor rates in your area.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="tab-content" id="maintenance">
+        <div class="container">
+            <div class="guide-content-wrapper">
+                <div class="guide-main">
+                    <h2>Maintenance</h2>
+                    <p>Like gravel driveways, oyster shell surfaces need periodic replenishment. Add fresh shells every 2-4 years as they compact and wear. Grade to maintain drainage. Remove weeds as needed.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="tab-content" id="climate">
+        <div class="container">
+            <div class="guide-content-wrapper">
+                <div class="guide-main">
+                    <h2>Climate Considerations</h2>
+                    <p><strong>Best for:</strong> Coastal, warm, and moderate climates. Popular in the Southeast, Gulf Coast, and mid-Atlantic.</p>
+                    <p><strong>Freeze-thaw:</strong> Shells can shift in severe freeze-thaw cycles. In cold climates, ensure proper base drainage.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="tab-content" id="faq">
+        <div class="container">
+            <div class="guide-content-wrapper">
+                <div class="guide-main">
+                    <h2>Frequently Asked Questions</h2>
+                    <div class="faq-item">
+                        <button class="faq-q" onclick="toggleFaq(this)">How much does an oyster shell driveway cost? <span class="faq-toggle">+</span></button>
+                        <div class="faq-a"><p>Typically <strong>$2-5 per square foot</strong> installed. Cost depends on shell availability, base prep, and regional labor rates. Often cheaper than paved alternatives.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" onclick="toggleFaq(this)">How long do oyster shell driveways last? <span class="faq-toggle">+</span></button>
+                        <div class="faq-a"><p>With proper maintenance and periodic replenishment, <strong>10-15 years</strong>. Add fresh shells every 2-4 years as they compact.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" onclick="toggleFaq(this)">Are oyster shell driveways eco-friendly? <span class="faq-toggle">+</span></button>
+                        <div class="faq-a"><p><strong>Yes.</strong> Oyster shells are a byproduct of the seafood industry. Using them repurposes waste, reduces landfill use, and creates a permeable surface that allows groundwater recharge.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" onclick="toggleFaq(this)">Where can I get oyster shells? <span class="faq-toggle">+</span></button>
+                        <div class="faq-a"><p>Landscape suppliers, seafood processors, and sometimes restaurants in coastal regions. Availability varies—coastal areas have best access.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" onclick="toggleFaq(this)">Do oyster shells work in cold climates? <span class="faq-toggle">+</span></button>
+                        <div class="faq-a"><p>They can work with proper base drainage. Severe freeze-thaw may cause shifting. Best suited for coastal and moderate climates.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" onclick="toggleFaq(this)">Can I install oyster shells over existing gravel? <span class="faq-toggle">+</span></button>
+                        <div class="faq-a"><p>Yes, if the base is stable. Add 2-3 inches of crushed oyster shells over compacted gravel. Ensure proper drainage.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" onclick="toggleFaq(this)">How do oyster shells compare to gravel? <span class="faq-toggle">+</span></button>
+                        <div class="faq-a"><p>Similar maintenance. Oyster shells offer unique appearance, permeability, and eco-benefits. Gravel may be more readily available inland. Both need periodic replenishment.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" onclick="toggleFaq(this)">Do oyster shells attract pests? <span class="faq-toggle">+</span></button>
+                        <div class="faq-a"><p>Properly cleaned and processed shells generally don't attract pests. Ensure shells are well-rinsed; any organic residue could attract insects. Purchase from reputable suppliers.</p></div>
+                    </div>
+                </div>
+                <aside class="guide-sidebar">
+                    <div class="sidebar-card">
+                        <h4>📚 Related Guides</h4>
+                        <a href="./gravel-pothole-repair.html" class="related-guide">
+                            <div class="related-guide-image" style="background: linear-gradient(135deg, #78716c 0%, #a8a29e 100%);"></div>
+                            <div class="related-guide-content"><h5>Gravel Pothole Repair</h5><span>12 min read</span></div>
+                        </a>
+                        <a href="./permeable-vs-traditional.html" class="related-guide">
+                            <div class="related-guide-image" style="background: linear-gradient(135deg, #065f46 0%, #10b981 100%);"></div>
+                            <div class="related-guide-content"><h5>Permeable vs Traditional</h5><span>16 min read</span></div>
+                        </a>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer" style="margin-top: 4rem;">
+        <div class="container">
+            <p>&copy; 2026 Drivewayz USA. Licensed & Insured. Serving the United States with Pride.</p>
+            <p class="footer-links">
+                <a href="../index.html#services">Services</a> •
+                <a href="../guides-hub.html">Guides</a> •
+                <a href="../index.html#contact">Contact</a> •
+                <a href="#">Privacy Policy</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        function switchTab(tabName) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            const btn = document.querySelector(`.tab-btn[data-tab="${tabName}"]`);
+            if (btn) btn.classList.add('active');
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            const el = document.getElementById(tabName);
+            if (el) el.classList.add('active');
+        }
+        function scrollToTab(tabName) {
+            const btn = document.querySelector(`.tab-btn[data-tab="${tabName}"]`);
+            if (btn) { btn.click(); btn.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+        }
+        function toggleFaq(btn) { btn.parentElement.classList.toggle('open'); }
+        function saveGuide() {
+            let saved = JSON.parse(localStorage.getItem('savedGuides') || '[]');
+            const id = 'oyster-shell';
+            if (saved.includes(id)) { saved = saved.filter(x => x !== id); document.getElementById('saveIcon').textContent = '🔖'; document.getElementById('saveText').textContent = 'Save Guide'; }
+            else { saved.push(id); document.getElementById('saveIcon').textContent = '❤️'; document.getElementById('saveText').textContent = 'Saved!'; }
+            localStorage.setItem('savedGuides', JSON.stringify(saved));
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            if (JSON.parse(localStorage.getItem('savedGuides') || '[]').includes('oyster-shell')) {
+                document.getElementById('saveIcon').textContent = '❤️';
+                document.getElementById('saveText').textContent = 'Saved!';
+            }
+        });
+        function handleSidebarSubmit(event) { event.preventDefault(); alert('Thank you! We will contact you shortly with your free estimate.'); event.target.reset(); }
+    </script>
 </body>
 </html>

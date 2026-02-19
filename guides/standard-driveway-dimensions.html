@@ -3,69 +3,320 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Standard Driveway Dimensions: Width, Length, and Size Guide | Drivewayz USA</title>
-    <meta name="description" content="Complete guide to driveway dimensions - standard widths for single, double, and triple-car driveways. Learn proper sizing for your property.">
+    <title>Standard Driveway Dimensions Guide | Drivewayz USA</title>
+    <meta name="description" content="Complete guide to driveway dimensions: single car, double car, circular, turnaround. Width, length, code requirements, and planning.">
     <link rel="stylesheet" href="../main.css">
     <style>
-        :root{--guide-primary:#78350f;--guide-primary-light:#a16207;--guide-primary-dark:#713f12;--guide-accent:#ca8a04;--guide-bg:linear-gradient(135deg,#fefce8 0%,#fef9c3 50%,#fef08a 100%)}body{background:var(--guide-bg);background-attachment:fixed}.guide-hero{position:relative;min-height:500px;display:flex;align-items:center;margin-top:100px;background-image:linear-gradient(135deg,rgba(120,53,15,.85) 0%,rgba(113,63,18,.85) 100%),url('../images/pexels-curtis-adams-1694007-3990589.webp');background-size:cover;background-position:center;overflow:hidden}.guide-hero::before{content:"";position:absolute;top:0;left:0;right:0;bottom:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");opacity:.3}
-        .guide-content{max-width:800px;margin:0 auto;padding:3rem 1.5rem}.guide-content h2{color:var(--guide-primary);margin-top:2.5rem;margin-bottom:1rem;font-size:1.75rem}.guide-content h3{color:var(--guide-primary-light);margin-top:2rem;margin-bottom:0.75rem;font-size:1.35rem}.guide-content p{line-height:1.8;margin-bottom:1.25rem;color:#374151}.guide-content ul{margin-bottom:1.25rem;padding-left:1.5rem}.guide-content li{margin-bottom:0.5rem;line-height:1.7;color:#374151}.guide-content strong{color:#1f2937}.comparison-table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:0.95rem}.comparison-table th,.comparison-table td{padding:0.75rem;text-align:left;border:1px solid #e5e7eb}.comparison-table th{background:var(--guide-primary);color:white;font-weight:600}.comparison-table tr:nth-child(even){background:#fef9c3}
+        :root { --guide-primary: #1e3a5f; --guide-primary-light: #2563eb; --guide-primary-dark: #172554; --guide-accent: #f59e0b; --guide-bg: linear-gradient(135deg, #eff6ff 0%, #dbeafe 50%, #bfdbfe 100%); }
+        body { background: var(--guide-bg); background-attachment: fixed; }
+        .guide-hero { position: relative; min-height: 500px; display: flex; align-items: center; margin-top: 100px; background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 50%, #3b82f6 100%); overflow: hidden; }
+        .guide-hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E"); }
+        .guide-hero-content { position: relative; z-index: 10; padding: 4rem 0; color: white; }
+        .guide-breadcrumb { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; font-size: 0.9rem; }
+        .guide-breadcrumb a { color: rgba(255,255,255,0.8); text-decoration: none; }
+        .guide-breadcrumb a:hover { color: white; }
+        .guide-hero h1 { font-size: 3rem; font-weight: 800; margin-bottom: 1rem; max-width: 800px; }
+        .guide-hero-subtitle { font-size: 1.3rem; opacity: 0.95; max-width: 600px; margin-bottom: 2rem; }
+        .guide-meta-bar { display: flex; gap: 2rem; flex-wrap: wrap; }
+        .guide-meta-item { display: flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.15); padding: 0.5rem 1rem; border-radius: 25px; backdrop-filter: blur(10px); }
+        .guide-actions { display: flex; gap: 1rem; margin-top: 2rem; }
+        .action-btn { display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; border: none; font-size: 1rem; }
+        .action-btn-primary { background-color: white; color: var(--guide-primary-dark); }
+        .action-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+        .action-btn-secondary { background-color: rgba(255,255,255,0.2); color: white; border: 2px solid rgba(255,255,255,0.3); }
+        .action-btn-secondary:hover { background-color: rgba(255,255,255,0.3); }
+        .guide-tabs { background-color: var(--bg-white); border-bottom: 1px solid var(--border-color); position: sticky; top: 100px; z-index: 100; }
+        .tabs-container { display: flex; gap: 0; overflow-x: auto; }
+        .tab-btn { padding: 1rem 1.5rem; background: none; border: none; border-bottom: 3px solid transparent; cursor: pointer; font-size: 1rem; font-weight: 600; color: var(--text-light); white-space: nowrap; transition: all 0.3s ease; }
+        .tab-btn:hover { color: var(--guide-primary); }
+        .tab-btn.active { color: var(--guide-primary); border-bottom-color: var(--guide-primary); }
+        .tab-content { display: none; padding: 3rem 0; animation: fadeIn 0.3s ease; }
+        .tab-content.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .guide-content-wrapper { display: grid; grid-template-columns: 1fr 350px; gap: 3rem; }
+        .guide-main { background-color: var(--bg-white); border-radius: 16px; padding: 2.5rem; box-shadow: var(--shadow); }
+        .guide-sidebar { position: sticky; top: 180px; height: fit-content; }
+        .guide-main h2 { font-size: 2rem; color: var(--text-dark); margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: 2px solid var(--guide-accent); }
+        .guide-main h3 { font-size: 1.4rem; color: var(--text-dark); margin: 2rem 0 1rem; }
+        .guide-main p { color: var(--text-light); line-height: 1.8; margin-bottom: 1.5rem; }
+        .guide-main ul, .guide-main ol { margin-bottom: 1.5rem; padding-left: 1.5rem; }
+        .guide-main li { color: var(--text-light); line-height: 1.8; margin-bottom: 0.5rem; }
+        .info-box { padding: 1.5rem; border-radius: 12px; margin: 2rem 0; }
+        .info-box-tip { background-color: #eff6ff; border-left: 4px solid var(--guide-primary); }
+        .info-box-warning { background-color: #fef2f2; border-left: 4px solid #ef4444; }
+        .info-box-title { font-weight: 700; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; }
+        .sidebar-card { background-color: var(--bg-white); border-radius: 16px; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: var(--shadow); }
+        .sidebar-card h4 { font-size: 1.1rem; margin-bottom: 1rem; color: var(--text-dark); }
+        .quick-stat { display: flex; justify-content: space-between; padding: 0.75rem 0; border-bottom: 1px solid var(--border-color); }
+        .quick-stat:last-child { border-bottom: none; }
+        .quick-stat-label { color: var(--text-light); }
+        .quick-stat-value { font-weight: 700; color: var(--guide-primary); }
+        .sidebar-cta { background: linear-gradient(135deg, var(--guide-primary) 0%, var(--guide-primary-light) 100%); color: white; }
+        .sidebar-cta h4 { color: white; }
+        .sidebar-cta p { font-size: 0.9rem; margin-bottom: 1rem; opacity: 0.9; }
+        .sidebar-cta input, .sidebar-cta textarea { width: 100%; padding: 0.75rem; border: none; border-radius: 8px; margin-bottom: 0.75rem; font-size: 0.95rem; }
+        .sidebar-cta button { width: 100%; padding: 0.75rem; background-color: white; color: var(--guide-primary-dark); border: none; border-radius: 8px; font-weight: 700; cursor: pointer; transition: all 0.3s ease; }
+        .sidebar-cta button:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+        .related-guide { display: flex; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--border-color); text-decoration: none; }
+        .related-guide:last-child { border-bottom: none; }
+        .related-guide-image { width: 60px; height: 60px; border-radius: 8px; flex-shrink: 0; }
+        .related-guide-content h5 { font-size: 0.95rem; color: var(--text-dark); margin-bottom: 0.25rem; }
+        .related-guide-content span { font-size: 0.8rem; color: var(--text-light); }
+        .faq-item { border: 1px solid #e5e7eb; border-radius: 10px; margin-bottom: 1rem; overflow: hidden; }
+        .faq-q { width: 100%; padding: 1.25rem 1.5rem; background: #eff6ff; border: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 1.05rem; font-weight: 600; color: var(--guide-primary-dark); text-align: left; }
+        .faq-q:hover { background: #dbeafe; }
+        .faq-a { padding: 0 1.5rem 1.25rem; color: var(--text-light); line-height: 1.8; display: none; }
+        .faq-item.open .faq-a { display: block; }
+        .faq-toggle { font-size: 1.3rem; transition: transform .3s; }
+        .faq-item.open .faq-toggle { transform: rotate(45deg); }
+        @media (max-width: 1024px) { .guide-content-wrapper { grid-template-columns: 1fr; } .guide-sidebar { position: static; order: -1; } }
+        @media (max-width: 768px) { .guide-hero h1 { font-size: 2rem; } .guide-main { padding: 1.5rem; } .guide-actions { flex-direction: column; } .tabs-container { padding: 0 1rem; } }
     </style>
 </head>
 <body>
-<nav class="navbar" id="navbar"><div class="container nav-container"><div class="logo"><a href="../index.html"><img src="../logov3.jpg" alt="Drivewayz USA" onerror="this.style.display='none'"></a></div><ul class="nav-links"><li><a href="../index.html#home">Home</a></li><li><a href="../index.html#services">Services</a></li><li><a href="../index.html#why-choose">Why Us</a></li><li><a href="../locations.html">Locations</a></li><li><a href="../guides-hub.html">Guides</a></li><li><a href="../index.html#contact">Contact</a></li></ul><button class="cta-button-small" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Free Estimate</button></div></nav>
-<section class="guide-hero"><div class="container"><div class="guide-hero-content"><div class="guide-breadcrumb"><a href="../index.html">Home</a> / <a href="../guides-hub.html">Guides</a> / <span>Dimensions</span></div><h1>Standard Driveway Dimensions: Width, Length, and Size Guide</h1><p class="guide-hero-subtitle">The complete guide to planning your driveway size for comfortable parking and proper vehicle maneuvering.</p><div class="guide-meta-bar"><div class="guide-meta-item">⏱️ 12 min read</div><div class="guide-meta-item">📏 Size guide</div><div class="guide-meta-item">🚗 Vehicle specs</div></div></div></div></section>
-<div class="guide-content">
-<p>Planning a new driveway requires careful attention to dimensions. The right size ensures comfortable vehicle maneuvering, adequate parking space, and compliance with local building codes.</p>
-<h2>Minimum Driveway Width Requirements</h2>
-<p>The width of your driveway directly impacts how easily you can enter, exit, and park vehicles.</p>
-<h3>Single Car Driveway (9-12 feet)</h3>
-<p>A single-car driveway should be a minimum of <strong>9 feet wide</strong>, though <strong>10-12 feet</strong> is recommended for comfortable use. At 9 feet, drivers must be precise when parking. A 10-foot width allows most vehicles to park with doors opening onto the driveway surface, while 12 feet provides comfortable space for passenger exit.</p>
-<h3>Double Car Driveway (18-24 feet)</h3>
-<p>Double-car driveways should be <strong>18-24 feet wide</strong> to accommodate two vehicles side by side comfortably. Most homeowners prefer <strong>20-22 feet</strong>, striking a balance between space efficiency and practical usability.</p>
-<h3>Three Car Driveway (27-36 feet)</h3>
-<p>Triple-car driveways require <strong>27-36 feet of width</strong>. The minimum 27 feet accommodates three compact cars parked tightly, while 30-32 feet provides comfortable spacing for standard vehicles.</p>
-<h2>Driveway Length Considerations</h2>
-<h3>Minimum Length for Parking</h3>
-<p>The minimum functional length for parking one vehicle is <strong>18-20 feet</strong> from the street or parking area entrance. For comfortable parking, plan for <strong>20-22 feet</strong> per vehicle.</p>
-<h3>Length for Turnaround Space</h3>
-<p>If your driveway doesn't connect to a circular drive, you'll need turnaround space. A <strong>turnaround radius of 15-20 feet</strong> provides adequate space for most vehicles.</p>
-<h2>Driveway Dimensions by Vehicle Type</h2>
-<table class="comparison-table">
-<tr><th>Vehicle Type</th><th>Width Needed</th><th>Length Needed</th><th>Turning Radius</th></tr>
-<tr><td>Standard Cars</td><td>9-10 feet</td><td>18-20 feet</td><td>18-20 feet</td></tr>
-<tr><td>SUVs and Trucks</td><td>10-12 feet</td><td>20-22 feet</td><td>20-22 feet</td></tr>
-<tr><td>RVs and Campers</td><td>12-14 feet</td><td>35-45 feet</td><td>30-40 feet</td></tr>
-<tr><td>Boats and Trailers</td><td>10-14 feet</td><td>25-40 feet</td><td>25-35 feet</td></tr>
-</table>
-<h2>Special Driveway Configurations</h2>
-<h3>Circular Driveway Dimensions</h3>
-<ul>
-<li><strong>Driveway width:</strong> 10-12 feet per direction</li>
-<li><strong>Inner island diameter:</strong> 12-15 feet minimum</li>
-<li><strong>Outer diameter:</strong> 40-50 feet total</li>
-</ul>
-<h3>L-Shaped Driveway Dimensions</h3>
-<ul>
-<li><strong>Leg width:</strong> 10-12 feet</li>
-<li><strong>Turning area:</strong> 15x15 feet minimum at the corner</li>
-</ul>
-<h2>How to Calculate Your Driveway Size</h2>
-<p>Calculate your driveway's square footage by multiplying width by length:</p>
-<ul>
-<li>Single car (10x20): 200 square feet</li>
-<li>Double car (20x20): 400 square feet</li>
-<li>Triple car (30x20): 600 square feet</li>
-<li>Circular drive (50-foot diameter): ~1,960 square feet</li>
-</ul>
-<h2>Frequently Asked Questions</h2>
-<h3>What is the standard width of a residential driveway?</h3>
-<p>The standard width for a single-car residential driveway is 10-12 feet. For double-car driveways, the standard is 20-24 feet.</p>
-<h3>How wide should a driveway be for 2 cars?</h3>
-<p>A driveway for two cars should be <strong>20-24 feet wide</strong> for side-by-side parking. For tandem parking, a 10-12 foot width with 36-40 feet of length is sufficient.</p>
-<h3>What is the minimum driveway length?</h3>
-<p>The minimum functional driveway length is <strong>18-20 feet</strong> for a single vehicle. For comfortable use, plan for 20-22 feet minimum.</p>
-<p style="text-align:center;margin-top:3rem;padding:2rem;background:#fef9c3;border-radius:8px;"><strong>Need help planning your driveway dimensions?</strong><br>Get free quotes from local contractors who can help determine the perfect size.</p>
-</div>
-<script src="../main.js"></script>
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <div class="logo"><a href="../index.html"><img src="../logov3.jpg?v=2" alt="Drivewayz USA" onerror="this.style.display='none'"></a></div>
+            <ul class="nav-links">
+                <li><a href="../index.html#home">Home</a></li>
+                <li><a href="../index.html#services">Services</a></li>
+                <li><a href="../index.html#why-choose">Why Us</a></li>
+                <li><a href="../locations.html">Locations</a></li>
+                <li><a href="../guides-hub.html" style="color: var(--primary-color);">Guides</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+            <button class="cta-button-small" onclick="window.location.href='../index.html#contact'">Free Estimate</button>
+        </div>
+    </nav>
+
+    <section class="guide-hero">
+        <div class="container guide-hero-content">
+            <div class="guide-breadcrumb">
+                <a href="../index.html">Home</a><span>/</span><a href="../guides-hub.html">Guides</a><span>/</span><span>Dimensions</span>
+            </div>
+            <h1>Standard Driveway Dimensions Guide</h1>
+            <p class="guide-hero-subtitle">Planning a new driveway? Get the right width, length, and size for single car, double car, circular drives, and code requirements.</p>
+            <div class="guide-meta-bar">
+                <div class="guide-meta-item"><span>⏱️</span><span>12 min</span></div>
+                <div class="guide-meta-item"><span>📐</span><span>Code requirements</span></div>
+                <div class="guide-meta-item"><span>📋</span><span>Planning</span></div>
+            </div>
+            <div class="guide-actions">
+                <button class="action-btn action-btn-primary" onclick="scrollToTab('faq')">View FAQ</button>
+                <button class="action-btn action-btn-secondary" onclick="saveGuide()"><span id="saveIcon">🔖</span> <span id="saveText">Save Guide</span></button>
+            </div>
+        </div>
+    </section>
+
+    <section class="guide-tabs">
+        <div class="container">
+            <div class="tabs-container">
+                <button class="tab-btn active" data-tab="overview" onclick="switchTab('overview')">Overview</button>
+                <button class="tab-btn" data-tab="single" onclick="switchTab('single')">Single Car</button>
+                <button class="tab-btn" data-tab="double" onclick="switchTab('double')">Double Car</button>
+                <button class="tab-btn" data-tab="circular" onclick="switchTab('circular')">Circular</button>
+                <button class="tab-btn" data-tab="turnaround" onclick="switchTab('turnaround')">Turnaround</button>
+                <button class="tab-btn" data-tab="code" onclick="switchTab('code')">Code Requirements</button>
+                <button class="tab-btn" data-tab="faq" onclick="switchTab('faq')">FAQ</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="tab-content active" id="overview">
+        <div class="container">
+            <div class="guide-content-wrapper">
+                <div class="guide-main">
+                    <h2>Driveway Dimension Basics</h2>
+                    <p>Planning a new driveway requires careful attention to dimensions. The right size ensures comfortable vehicle maneuvering, adequate parking space, and compliance with local building codes.</p>
+                    <p>Industry standards: single car 10-12 ft wide, double car 20-24 ft, minimum length 18-20 ft per vehicle. Local codes may vary—always check with your building department.</p>
+                    <div class="info-box info-box-tip">
+                        <div class="info-box-title"><span>💡</span> Pro Tip</div>
+                        <p>Measure your vehicles and add 2-3 feet on each side for door opening. Consider future needs (larger vehicles, RVs) when planning.</p>
+                    </div>
+                </div>
+                <aside class="guide-sidebar">
+                    <div class="sidebar-card">
+                        <h4>📊 Quick Facts</h4>
+                        <div class="quick-stat"><span class="quick-stat-label">Single Width</span><span class="quick-stat-value">10-12 ft</span></div>
+                        <div class="quick-stat"><span class="quick-stat-label">Double Width</span><span class="quick-stat-value">20-24 ft</span></div>
+                        <div class="quick-stat"><span class="quick-stat-label">Min Length</span><span class="quick-stat-value">18 ft</span></div>
+                    </div>
+                    <div class="sidebar-card sidebar-cta">
+                        <h4>🚀 Get Started Today</h4>
+                        <p>Need help planning your driveway? Get a free estimate.</p>
+                        <form onsubmit="handleSidebarSubmit(event)">
+                            <input type="text" placeholder="Your Name" required>
+                            <input type="tel" placeholder="Phone Number" required>
+                            <textarea placeholder="Tell us about your project" rows="3"></textarea>
+                            <button type="submit">Request Free Estimate</button>
+                        </form>
+                    </div>
+                    <div class="sidebar-card">
+                        <h4>📚 Related Guides</h4>
+                        <a href="./driveway-base-subgrade.html" class="related-guide">
+                            <div class="related-guide-image" style="background: linear-gradient(135deg, #4b5563 0%, #6b7280 100%);"></div>
+                            <div class="related-guide-content"><h5>Driveway Base & Subgrade</h5><span>12 min read</span></div>
+                        </a>
+                        <a href="./driveway-excavation-grading.html" class="related-guide">
+                            <div class="related-guide-image" style="background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 100%);"></div>
+                            <div class="related-guide-content"><h5>Excavation & Grading</h5><span>12 min read</span></div>
+                        </a>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <section class="tab-content" id="single">
+        <div class="container">
+            <div class="guide-content-wrapper">
+                <div class="guide-main">
+                    <h2>Single Car Driveway (9-12 feet)</h2>
+                    <p>Minimum 9 feet wide; <strong>10-12 feet recommended</strong> for comfortable use. At 9 feet, parking is precise. 10-12 ft allows door opening onto the driveway. Average car width 6-7 ft; SUVs 7-8 ft.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="tab-content" id="double">
+        <div class="container">
+            <div class="guide-content-wrapper">
+                <div class="guide-main">
+                    <h2>Double Car Driveway (18-24 feet)</h2>
+                    <p><strong>18-24 feet wide</strong> for two vehicles side by side. Minimum 18 ft for two average cars; 20-22 ft preferred for comfortable spacing and door opening. For tandem parking (one behind another): 10-12 ft width, 36-40 ft length.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="tab-content" id="circular">
+        <div class="container">
+            <div class="guide-content-wrapper">
+                <div class="guide-main">
+                    <h2>Circular Driveway Dimensions</h2>
+                    <p>Width 10-12 ft per direction (20-24 ft total two-way). Inner island 12-15 ft diameter. Outer diameter 40-50 ft minimum; 50-60 ft comfortable. Entry/exit 12-16 ft each.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="tab-content" id="turnaround">
+        <div class="container">
+            <div class="guide-content-wrapper">
+                <div class="guide-main">
+                    <h2>Turnaround Space</h2>
+                    <p>If no circular drive: turnaround radius 15-20 ft. T-turn: 20×20 ft minimum at end. Y-turn: widened area for three-point turns. Hammerhead (T-shaped): 20-24 ft wide and deep.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="tab-content" id="code">
+        <div class="container">
+            <div class="guide-content-wrapper">
+                <div class="guide-main">
+                    <h2>Code Requirements</h2>
+                    <p>Most municipalities: minimum width 9-10 ft; max 24-30 ft or % of frontage; setback 3-5 ft from property lines; 20-30 ft from intersections; max slope 15-20%. Always check local building department before finalizing plans.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="tab-content" id="faq">
+        <div class="container">
+            <div class="guide-content-wrapper">
+                <div class="guide-main">
+                    <h2>Frequently Asked Questions</h2>
+                    <div class="faq-item">
+                        <button class="faq-q" onclick="toggleFaq(this)">What is the standard width of a residential driveway? <span class="faq-toggle">+</span></button>
+                        <div class="faq-a"><p>Single-car: <strong>10-12 feet</strong>. Double-car: <strong>20-24 feet</strong>. These provide comfortable space for parking and vehicle entry/exit.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" onclick="toggleFaq(this)">How wide should a driveway be for 2 cars? <span class="faq-toggle">+</span></button>
+                        <div class="faq-a"><p><strong>20-24 feet wide</strong> for side-by-side parking. For tandem (one behind the other): 10-12 ft width with 36-40 ft length.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" onclick="toggleFaq(this)">What is the minimum driveway length? <span class="faq-toggle">+</span></button>
+                        <div class="faq-a"><p><strong>18-20 feet</strong> for a single vehicle (car length plus walking space). For comfortable use: 20-22 feet. Average car 14-16 ft long.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" onclick="toggleFaq(this)">How do I calculate driveway square footage? <span class="faq-toggle">+</span></button>
+                        <div class="faq-a"><p>Multiply width × length. Example: 20 ft × 25 ft = 500 sq ft. Use for material needs and cost estimates.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" onclick="toggleFaq(this)">What dimensions for an RV? <span class="faq-toggle">+</span></button>
+                        <div class="faq-a"><p>Width 12-14 ft; length 35-45 ft depending on RV. Class A up to 45 ft. Consider dedicated pad with reinforced concrete (6-8 in) and adequate approach.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" onclick="toggleFaq(this)">Do I need a permit for a new driveway? <span class="faq-toggle">+</span></button>
+                        <div class="faq-a"><p>Most areas require permits for new driveways. Check local building department for requirements, setbacks, and connection to street regulations.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" onclick="toggleFaq(this)">What about three-car driveways? <span class="faq-toggle">+</span></button>
+                        <div class="faq-a"><p><strong>27-36 feet wide</strong> for three cars side by side. Minimum 27 ft; 30-32 ft comfortable for standard vehicles.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" onclick="toggleFaq(this)">How much space for turnaround? <span class="faq-toggle">+</span></button>
+                        <div class="faq-a"><p>Turnaround radius 15-20 ft. T-turn: 20×20 ft minimum. Provides space to turn without backing into the street.</p></div>
+                    </div>
+                </div>
+                <aside class="guide-sidebar">
+                    <div class="sidebar-card">
+                        <h4>📚 Related Guides</h4>
+                        <a href="./driveway-base-subgrade.html" class="related-guide">
+                            <div class="related-guide-image" style="background: linear-gradient(135deg, #4b5563 0%, #6b7280 100%);"></div>
+                            <div class="related-guide-content"><h5>Driveway Base & Subgrade</h5><span>12 min read</span></div>
+                        </a>
+                        <a href="./driveway-excavation-grading.html" class="related-guide">
+                            <div class="related-guide-image" style="background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 100%);"></div>
+                            <div class="related-guide-content"><h5>Excavation & Grading</h5><span>12 min read</span></div>
+                        </a>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer" style="margin-top: 4rem;">
+        <div class="container">
+            <p>&copy; 2026 Drivewayz USA. Licensed & Insured. Serving the United States with Pride.</p>
+            <p class="footer-links">
+                <a href="../index.html#services">Services</a> •
+                <a href="../guides-hub.html">Guides</a> •
+                <a href="../index.html#contact">Contact</a> •
+                <a href="#">Privacy Policy</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        function switchTab(tabName) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            const btn = document.querySelector(`.tab-btn[data-tab="${tabName}"]`);
+            if (btn) btn.classList.add('active');
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            const el = document.getElementById(tabName);
+            if (el) el.classList.add('active');
+        }
+        function scrollToTab(tabName) {
+            const btn = document.querySelector(`.tab-btn[data-tab="${tabName}"]`);
+            if (btn) { btn.click(); btn.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+        }
+        function toggleFaq(btn) { btn.parentElement.classList.toggle('open'); }
+        function saveGuide() {
+            let saved = JSON.parse(localStorage.getItem('savedGuides') || '[]');
+            const id = 'standard-dimensions';
+            if (saved.includes(id)) { saved = saved.filter(x => x !== id); document.getElementById('saveIcon').textContent = '🔖'; document.getElementById('saveText').textContent = 'Save Guide'; }
+            else { saved.push(id); document.getElementById('saveIcon').textContent = '❤️'; document.getElementById('saveText').textContent = 'Saved!'; }
+            localStorage.setItem('savedGuides', JSON.stringify(saved));
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            if (JSON.parse(localStorage.getItem('savedGuides') || '[]').includes('standard-dimensions')) {
+                document.getElementById('saveIcon').textContent = '❤️';
+                document.getElementById('saveText').textContent = 'Saved!';
+            }
+        });
+        function handleSidebarSubmit(event) { event.preventDefault(); alert('Thank you! We will contact you shortly with your free estimate.'); event.target.reset(); }
+    </script>
 </body>
 </html>

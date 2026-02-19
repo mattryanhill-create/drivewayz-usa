@@ -348,7 +348,7 @@
     <script>
         function switchTab(tabName) {
             document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-            const btn = document.querySelector(`.tab-btn[data-tab="${tabName}"]`) || event.target;
+            const btn = document.querySelector(`.tab-btn[data-tab="${tabName}"]`);
             if (btn) btn.classList.add('active');
             document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
             const el = document.getElementById(tabName);

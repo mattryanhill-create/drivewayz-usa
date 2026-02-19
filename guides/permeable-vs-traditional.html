@@ -1,201 +1,337 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Permeable vs Traditional Driveways: Pros, Cons, and Costs | Drivewayz USA</title>
-  <meta name="description" content="Compare permeable and traditional driveways. Learn about types, costs, pros, cons, and which option is best for your property and stormwater needs.">
-  <link rel="stylesheet" href="../styles.css">
-  <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Permeable vs Traditional Driveways | Drivewayz USA</title>
+    <meta name="description" content="Compare permeable and traditional driveways. Environmental benefits, cost comparison, regulations, and which option is best for your property.">
+    <link rel="stylesheet" href="../main.css">
+    <style>
+        :root { --guide-primary: #065f46; --guide-primary-light: #10b981; --guide-primary-dark: #064e3b; --guide-accent: #7c3aed; --guide-bg: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 50%, #a7f3d0 100%); }
+        body { background: var(--guide-bg); background-attachment: fixed; }
+        .guide-hero { position: relative; min-height: 500px; display: flex; align-items: center; margin-top: 100px; background: linear-gradient(135deg, #065f46 0%, #10b981 50%, #059669 100%); overflow: hidden; }
+        .guide-hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E"); }
+        .guide-hero-content { position: relative; z-index: 10; padding: 4rem 0; color: white; }
+        .guide-breadcrumb { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; font-size: 0.9rem; }
+        .guide-breadcrumb a { color: rgba(255,255,255,0.8); text-decoration: none; }
+        .guide-breadcrumb a:hover { color: white; }
+        .guide-hero h1 { font-size: 3rem; font-weight: 800; margin-bottom: 1rem; max-width: 800px; }
+        .guide-hero-subtitle { font-size: 1.3rem; opacity: 0.95; max-width: 600px; margin-bottom: 2rem; }
+        .guide-meta-bar { display: flex; gap: 2rem; flex-wrap: wrap; }
+        .guide-meta-item { display: flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.15); padding: 0.5rem 1rem; border-radius: 25px; backdrop-filter: blur(10px); }
+        .guide-actions { display: flex; gap: 1rem; margin-top: 2rem; }
+        .action-btn { display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; border: none; font-size: 1rem; }
+        .action-btn-primary { background-color: white; color: var(--guide-primary-dark); }
+        .action-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+        .action-btn-secondary { background-color: rgba(255,255,255,0.2); color: white; border: 2px solid rgba(255,255,255,0.3); }
+        .action-btn-secondary:hover { background-color: rgba(255,255,255,0.3); }
+        .guide-tabs { background-color: var(--bg-white); border-bottom: 1px solid var(--border-color); position: sticky; top: 100px; z-index: 100; }
+        .tabs-container { display: flex; gap: 0; overflow-x: auto; }
+        .tab-btn { padding: 1rem 1.5rem; background: none; border: none; border-bottom: 3px solid transparent; cursor: pointer; font-size: 1rem; font-weight: 600; color: var(--text-light); white-space: nowrap; transition: all 0.3s ease; }
+        .tab-btn:hover { color: var(--guide-primary); }
+        .tab-btn.active { color: var(--guide-primary); border-bottom-color: var(--guide-primary); }
+        .tab-content { display: none; padding: 3rem 0; animation: fadeIn 0.3s ease; }
+        .tab-content.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .guide-content-wrapper { display: grid; grid-template-columns: 1fr 350px; gap: 3rem; }
+        .guide-main { background-color: var(--bg-white); border-radius: 16px; padding: 2.5rem; box-shadow: var(--shadow); }
+        .guide-sidebar { position: sticky; top: 180px; height: fit-content; }
+        .guide-main h2 { font-size: 2rem; color: var(--text-dark); margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: 2px solid var(--guide-accent); }
+        .guide-main h3 { font-size: 1.4rem; color: var(--text-dark); margin: 2rem 0 1rem; }
+        .guide-main p { color: var(--text-light); line-height: 1.8; margin-bottom: 1.5rem; }
+        .guide-main ul, .guide-main ol { margin-bottom: 1.5rem; padding-left: 1.5rem; }
+        .guide-main li { color: var(--text-light); line-height: 1.8; margin-bottom: 0.5rem; }
+        .info-box { padding: 1.5rem; border-radius: 12px; margin: 2rem 0; }
+        .info-box-tip { background-color: #ecfdf5; border-left: 4px solid var(--guide-primary); }
+        .info-box-warning { background-color: #fef2f2; border-left: 4px solid #ef4444; }
+        .info-box-title { font-weight: 700; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; }
+        .sidebar-card { background-color: var(--bg-white); border-radius: 16px; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: var(--shadow); }
+        .sidebar-card h4 { font-size: 1.1rem; margin-bottom: 1rem; color: var(--text-dark); }
+        .quick-stat { display: flex; justify-content: space-between; padding: 0.75rem 0; border-bottom: 1px solid var(--border-color); }
+        .quick-stat:last-child { border-bottom: none; }
+        .quick-stat-label { color: var(--text-light); }
+        .quick-stat-value { font-weight: 700; color: var(--guide-primary); }
+        .sidebar-cta { background: linear-gradient(135deg, var(--guide-primary) 0%, var(--guide-primary-light) 100%); color: white; }
+        .sidebar-cta h4 { color: white; }
+        .sidebar-cta p { font-size: 0.9rem; margin-bottom: 1rem; opacity: 0.9; }
+        .sidebar-cta input, .sidebar-cta textarea { width: 100%; padding: 0.75rem; border: none; border-radius: 8px; margin-bottom: 0.75rem; font-size: 0.95rem; }
+        .sidebar-cta button { width: 100%; padding: 0.75rem; background-color: white; color: var(--guide-primary-dark); border: none; border-radius: 8px; font-weight: 700; cursor: pointer; transition: all 0.3s ease; }
+        .sidebar-cta button:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+        .related-guide { display: flex; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--border-color); text-decoration: none; }
+        .related-guide:last-child { border-bottom: none; }
+        .related-guide-image { width: 60px; height: 60px; border-radius: 8px; flex-shrink: 0; }
+        .related-guide-content h5 { font-size: 0.95rem; color: var(--text-dark); margin-bottom: 0.25rem; }
+        .related-guide-content span { font-size: 0.8rem; color: var(--text-light); }
+        .faq-item { border: 1px solid #e5e7eb; border-radius: 10px; margin-bottom: 1rem; overflow: hidden; }
+        .faq-q { width: 100%; padding: 1.25rem 1.5rem; background: #ecfdf5; border: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 1.05rem; font-weight: 600; color: var(--guide-primary-dark); text-align: left; }
+        .faq-q:hover { background: #d1fae5; }
+        .faq-a { padding: 0 1.5rem 1.25rem; color: var(--text-light); line-height: 1.8; display: none; }
+        .faq-item.open .faq-a { display: block; }
+        .faq-toggle { font-size: 1.3rem; transition: transform .3s; }
+        .faq-item.open .faq-toggle { transform: rotate(45deg); }
+        @media (max-width: 1024px) { .guide-content-wrapper { grid-template-columns: 1fr; } .guide-sidebar { position: static; order: -1; } }
+        @media (max-width: 768px) { .guide-hero h1 { font-size: 2rem; } .guide-main { padding: 1.5rem; } .guide-actions { flex-direction: column; } .tabs-container { padding: 0 1rem; } }
+    </style>
 </head>
 <body>
-  <header>
-    <nav class="main-nav">
-      <div class="nav-container">
-        <a href="../index.html" class="logo">
-          <img src="../images/drivewayz-logo.svg" alt="Drivewayz USA Logo" width="200" height="50">
-        </a>
-        <ul class="nav-links">
-          <li><a href="../index.html">Home</a></li>
-          <li><a href="../index.html#services">Services</a></li>
-          <li><a href="../locations.html">Locations</a></li>
-          <li><a href="../guides.html" class="active">Guides</a></li>
-          <li><a href="../index.html#contact">Contact</a></li>
-        </ul>
-      </div>
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <div class="logo"><a href="../index.html"><img src="../logov3.jpg?v=2" alt="Drivewayz USA" onerror="this.style.display='none'"></a></div>
+            <ul class="nav-links">
+                <li><a href="../index.html#home">Home</a></li>
+                <li><a href="../index.html#services">Services</a></li>
+                <li><a href="../index.html#why-choose">Why Us</a></li>
+                <li><a href="../locations.html">Locations</a></li>
+                <li><a href="../guides-hub.html" style="color: var(--primary-color);">Guides</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+            <button class="cta-button-small" onclick="window.location.href='../index.html#contact'">Free Estimate</button>
+        </div>
     </nav>
-  </header>
 
-  <main class="guide-content">
-    <article>
-      <h1>Permeable vs Traditional Driveways: Pros, Cons, and Costs</h1>
+    <section class="guide-hero">
+        <div class="container guide-hero-content">
+            <div class="guide-breadcrumb">
+                <a href="../index.html">Home</a><span>/</span><a href="../guides-hub.html">Guides</a><span>/</span><span>Permeable vs Traditional</span>
+            </div>
+            <h1>Permeable vs Traditional Driveways</h1>
+            <p class="guide-hero-subtitle">As environmental concerns and stormwater regulations increase, permeable driveways offer an eco-friendly alternative. Compare options to make the right choice.</p>
+            <div class="guide-meta-bar">
+                <div class="guide-meta-item"><span>⏱️</span><span>16 min</span></div>
+                <div class="guide-meta-item"><span>🌍</span><span>Environmental</span></div>
+                <div class="guide-meta-item"><span>⚖️</span><span>Comparison</span></div>
+            </div>
+            <div class="guide-actions">
+                <button class="action-btn action-btn-primary" onclick="scrollToTab('faq')">View FAQ</button>
+                <button class="action-btn action-btn-secondary" onclick="saveGuide()"><span id="saveIcon">🔖</span> <span id="saveText">Save Guide</span></button>
+            </div>
+        </div>
+    </section>
 
-      <p>As environmental concerns and stormwater regulations increase, permeable driveways have gained popularity as an eco-friendly alternative to traditional surfaces. But are they right for your property? This comprehensive comparison examines the differences between permeable and traditional driveways to help you make an informed decision.</p>
+    <section class="guide-tabs">
+        <div class="container">
+            <div class="tabs-container">
+                <button class="tab-btn active" data-tab="overview" onclick="switchTab('overview')">Overview</button>
+                <button class="tab-btn" data-tab="permeable" onclick="switchTab('permeable')">How Permeable Works</button>
+                <button class="tab-btn" data-tab="cost" onclick="switchTab('cost')">Cost Comparison</button>
+                <button class="tab-btn" data-tab="environmental" onclick="switchTab('environmental')">Environmental</button>
+                <button class="tab-btn" data-tab="regulations" onclick="switchTab('regulations')">Regulations</button>
+                <button class="tab-btn" data-tab="best" onclick="switchTab('best')">Best For</button>
+                <button class="tab-btn" data-tab="faq" onclick="switchTab('faq')">FAQ</button>
+            </div>
+        </div>
+    </section>
 
-      <h2>What is a Permeable Driveway?</h2>
-      <p>A permeable driveway allows water to pass through its surface rather than running off into storm drains. This natural filtration process reduces runoff, recharges groundwater, and helps manage stormwater on-site.</p>
+    <section class="tab-content active" id="overview">
+        <div class="container">
+            <div class="guide-content-wrapper">
+                <div class="guide-main">
+                    <h2>What Is a Permeable Driveway?</h2>
+                    <p>A permeable driveway allows water to pass through its surface rather than running off into storm drains. Rain filters through voids in the material, recharges groundwater, and reduces runoff by 70-90%.</p>
+                    <p>Types include permeable pavers, pervious concrete, porous asphalt, grass pavers, and gravel with grid systems. Each offers different costs, appearances, and maintenance requirements.</p>
+                    <div class="info-box info-box-tip">
+                        <div class="info-box-title"><span>💡</span> Pro Tip</div>
+                        <p>Many municipalities offer stormwater fee reductions, tax credits, and rebates for permeable surfaces. Check with your local stormwater department for available programs.</p>
+                    </div>
+                </div>
+                <aside class="guide-sidebar">
+                    <div class="sidebar-card">
+                        <h4>📊 Quick Facts</h4>
+                        <div class="quick-stat"><span class="quick-stat-label">Water Absorption</span><span class="quick-stat-value">80%+</span></div>
+                        <div class="quick-stat"><span class="quick-stat-label">Cost Premium</span><span class="quick-stat-value">20-30%</span></div>
+                        <div class="quick-stat"><span class="quick-stat-label">Tax Credits</span><span class="quick-stat-value">Available</span></div>
+                    </div>
+                    <div class="sidebar-card sidebar-cta">
+                        <h4>🚀 Get Started Today</h4>
+                        <p>Considering permeable? Get a free estimate for your driveway project.</p>
+                        <form onsubmit="handleSidebarSubmit(event)">
+                            <input type="text" placeholder="Your Name" required>
+                            <input type="tel" placeholder="Phone Number" required>
+                            <textarea placeholder="Tell us about your project" rows="3"></textarea>
+                            <button type="submit">Request Free Estimate</button>
+                        </form>
+                    </div>
+                    <div class="sidebar-card">
+                        <h4>📚 Related Guides</h4>
+                        <a href="./oyster-shell-driveway.html" class="related-guide">
+                            <div class="related-guide-image" style="background: linear-gradient(135deg, #a89968 0%, #d4c5a9 100%);"></div>
+                            <div class="related-guide-content"><h5>Oyster Shell Driveway</h5><span>11 min read</span></div>
+                        </a>
+                        <a href="./recycled-glass-driveway.html" class="related-guide">
+                            <div class="related-guide-image" style="background: linear-gradient(135deg, #0f766e 0%, #2dd4bf 100%);"></div>
+                            <div class="related-guide-content"><h5>Recycled Glass Driveway</h5><span>10 min read</span></div>
+                        </a>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
 
-      <h3>How It Works</h3>
-      <p>Permeable driveways use specially designed materials with void spaces that allow water infiltration:</p>
-      <ol>
-        <li>Rain falls on the driveway surface</li>
-        <li>Water passes through voids in the material</li>
-        <li>Water filters through aggregate base layers</li>
-        <li>Clean water recharges groundwater table</li>
-        <li>Contaminants are trapped in the base material</li>
-      </ol>
+    <section class="tab-content" id="permeable">
+        <div class="container">
+            <div class="guide-content-wrapper">
+                <div class="guide-main">
+                    <h2>How Permeable Driveways Work</h2>
+                    <p>Water passes through specially designed materials with void spaces: rain filters through the surface, aggregates, and into the soil. Contaminants are trapped in the base. This mimics natural ground conditions.</p>
+                    <h3>Types</h3>
+                    <ul>
+                        <li><strong>Permeable pavers:</strong> Gaps filled with aggregate; $15-30/sq ft</li>
+                        <li><strong>Pervious concrete:</strong> Special mix, 15-25% voids; $12-20/sq ft</li>
+                        <li><strong>Porous asphalt:</strong> Similar to standard; $10-18/sq ft</li>
+                        <li><strong>Grass pavers:</strong> 40-60% open for grass; $8-15/sq ft</li>
+                        <li><strong>Gravel with grid:</strong> Lowest cost; $6-12/sq ft</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
-      <h3>Environmental Benefits</h3>
-      <p><strong>Stormwater management:</strong></p>
-      <ul>
-        <li>Reduces runoff volume by 70-90%</li>
-        <li>Decreases flooding risk</li>
-        <li>Filters pollutants before they reach waterways</li>
-        <li>Reduces burden on municipal storm systems</li>
-      </ul>
-      <p><strong>Environmental protection:</strong></p>
-      <ul>
-        <li>Recharges groundwater aquifers</li>
-        <li>Reduces heat island effect</li>
-        <li>Supports local hydrology</li>
-        <li>May qualify for environmental incentives</li>
-      </ul>
+    <section class="tab-content" id="cost">
+        <div class="container">
+            <div class="guide-content-wrapper">
+                <div class="guide-main">
+                    <h2>Cost Comparison</h2>
+                    <p>Permeable driveways cost approximately <strong>20-100% more</strong> than traditional options. Standard asphalt: $3-7/sq ft; porous asphalt: $10-18/sq ft. Stormwater credits and incentives can offset the difference.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-      <h2>Types of Permeable Driveways</h2>
+    <section class="tab-content" id="environmental">
+        <div class="container">
+            <div class="guide-content-wrapper">
+                <div class="guide-main">
+                    <h2>Environmental Benefits</h2>
+                    <ul>
+                        <li>Reduces runoff volume 70-90%</li>
+                        <li>Filters pollutants before waterways</li>
+                        <li>Recharges groundwater</li>
+                        <li>Reduces heat island effect</li>
+                        <li>May qualify for environmental incentives</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
-      <h3>Permeable Pavers</h3>
-      <p>Concrete units with spacer bars that create gaps between units. Gaps filled with small aggregate, 8-15% surface void space, various colors and patterns.</p>
-      <p><strong>Cost:</strong> $15-30 per square foot</p>
+    <section class="tab-content" id="regulations">
+        <div class="container">
+            <div class="guide-content-wrapper">
+                <div class="guide-main">
+                    <h2>Regulations & Incentives</h2>
+                    <p>Some areas require stormwater management or limit impervious surfaces. Permeable may meet these requirements. Check local stormwater department for fee reductions, tax credits, and rebates.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-      <h3>Pervious Concrete</h3>
-      <p>A special mix with minimal fine aggregate, creating void spaces. 15-25% void content, single-layer installation, requires specialized placement.</p>
-      <p><strong>Cost:</strong> $12-20 per square foot</p>
+    <section class="tab-content" id="best">
+        <div class="container">
+            <div class="guide-content-wrapper">
+                <div class="guide-main">
+                    <h2>Best For</h2>
+                    <p><strong>Choose permeable when:</strong> Local regulations require stormwater management, you want to minimize environmental impact, property has drainage issues, or incentives offset costs.</p>
+                    <p><strong>Choose traditional when:</strong> Budget is primary concern, heavy vehicle traffic expected, maintenance time limited, or experienced permeable contractors aren't available.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-      <h3>Porous Asphalt</h3>
-      <p>Uses larger aggregate with reduced fines to create permeability. Similar appearance to standard asphalt, 16-25% void content.</p>
-      <p><strong>Cost:</strong> $10-18 per square foot</p>
+    <section class="tab-content" id="faq">
+        <div class="container">
+            <div class="guide-content-wrapper">
+                <div class="guide-main">
+                    <h2>Frequently Asked Questions</h2>
+                    <div class="faq-item">
+                        <button class="faq-q" onclick="toggleFaq(this)">Is a permeable driveway worth it? <span class="faq-toggle">+</span></button>
+                        <div class="faq-a"><p>Worth it if you value environmental benefits, need to meet stormwater requirements, or qualify for incentives. Typically 20-100% more than traditional but provides long-term environmental and regulatory benefits.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" onclick="toggleFaq(this)">How much more expensive is permeable? <span class="faq-toggle">+</span></button>
+                        <div class="faq-a"><p>Approximately <strong>20-100% more</strong>. Standard asphalt $3-7/sq ft vs porous asphalt $10-18/sq ft. Stormwater credits and incentives can offset some difference.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" onclick="toggleFaq(this)">Do permeable driveways require more maintenance? <span class="faq-toggle">+</span></button>
+                        <div class="faq-a"><p><strong>Yes.</strong> Annual vacuuming to prevent clogging, joint replenishment every few years, occasional surface restoration. Neglect causes loss of permeability.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" onclick="toggleFaq(this)">Can I install permeable driveway myself? <span class="faq-toggle">+</span></button>
+                        <div class="faq-a"><p>DIY possible for simpler systems (gravel with grid). <strong>Professional installation strongly recommended</strong> for pervious concrete, porous asphalt, and permeable pavers. Base preparation is critical.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" onclick="toggleFaq(this)">What happens if permeable driveway clogs? <span class="faq-toggle">+</span></button>
+                        <div class="faq-a"><p>Annual vacuuming helps prevent clogging. If clogged, professional cleaning or surface restoration may be needed. Prevention through regular maintenance is key.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" onclick="toggleFaq(this)">Do permeable driveways work in cold climates? <span class="faq-toggle">+</span></button>
+                        <div class="faq-a"><p>Yes, but snow clearing can be harder. Some systems not suitable for heavy plows. Discuss with contractor for cold-climate options.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" onclick="toggleFaq(this)">Which permeable option is cheapest? <span class="faq-toggle">+</span></button>
+                        <div class="faq-a"><p><strong>Gravel with grid systems</strong> at $6-12/sq ft. Grass pavers $8-15/sq ft. Porous asphalt $10-18/sq ft. Permeable pavers are highest at $15-30/sq ft.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" onclick="toggleFaq(this)">Can I convert existing driveway to permeable? <span class="faq-toggle">+</span></button>
+                        <div class="faq-a"><p>Usually requires removal and new installation. Permeable systems need deep aggregate bases. Overlay on existing impervious surface won't provide permeability.</p></div>
+                    </div>
+                </div>
+                <aside class="guide-sidebar">
+                    <div class="sidebar-card">
+                        <h4>📚 Related Guides</h4>
+                        <a href="./oyster-shell-driveway.html" class="related-guide">
+                            <div class="related-guide-image" style="background: linear-gradient(135deg, #a89968 0%, #d4c5a9 100%);"></div>
+                            <div class="related-guide-content"><h5>Oyster Shell Driveway</h5><span>11 min read</span></div>
+                        </a>
+                        <a href="./recycled-glass-driveway.html" class="related-guide">
+                            <div class="related-guide-image" style="background: linear-gradient(135deg, #0f766e 0%, #2dd4bf 100%);"></div>
+                            <div class="related-guide-content"><h5>Recycled Glass Driveway</h5><span>10 min read</span></div>
+                        </a>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
 
-      <h3>Grass Pavers</h3>
-      <p>Plastic or concrete grids that support vegetation. 40-60% open area for grass growth, natural appearance, best for light traffic areas.</p>
-      <p><strong>Cost:</strong> $8-15 per square foot (plus ongoing maintenance)</p>
+    <footer class="footer" style="margin-top: 4rem;">
+        <div class="container">
+            <p>&copy; 2026 Drivewayz USA. Licensed & Insured. Serving the United States with Pride.</p>
+            <p class="footer-links">
+                <a href="../index.html#services">Services</a> •
+                <a href="../guides-hub.html">Guides</a> •
+                <a href="../index.html#contact">Contact</a> •
+                <a href="#">Privacy Policy</a>
+            </p>
+        </div>
+    </footer>
 
-      <h3>Gravel with Grid Systems</h3>
-      <p>Stabilizing grids hold gravel in place while maintaining permeability. Excellent drainage, lower cost than other permeable options.</p>
-      <p><strong>Cost:</strong> $6-12 per square foot</p>
-
-      <h2>Traditional Driveway Options</h2>
-
-      <h3>Standard Concrete</h3>
-      <p>25-30 year lifespan, low maintenance, various decorative options, strong and durable.</p>
-      <p><strong>Cost:</strong> $4-15 per square foot</p>
-
-      <h3>Standard Asphalt</h3>
-      <p>15-20 year lifespan, flexible in freeze-thaw cycles, easy repairs, requires regular sealing.</p>
-      <p><strong>Cost:</strong> $3-7 per square foot</p>
-
-      <h3>Solid Pavers</h3>
-      <p>25-50 year lifespan, individual paver replacement, many design options.</p>
-      <p><strong>Cost:</strong> $10-30 per square foot</p>
-
-      <h2>Cost Comparison</h2>
-      <table class="comparison-table">
-        <tr><th>Material</th><th>Cost per Sq Ft</th><th>600 Sq Ft Driveway</th></tr>
-        <tr><td>Standard Asphalt</td><td>$3-7</td><td>$1,800-4,200</td></tr>
-        <tr><td>Standard Concrete</td><td>$4-15</td><td>$2,400-9,000</td></tr>
-        <tr><td>Solid Pavers</td><td>$10-30</td><td>$6,000-18,000</td></tr>
-        <tr><td>Gravel with Grid</td><td>$6-12</td><td>$3,600-7,200</td></tr>
-        <tr><td>Porous Asphalt</td><td>$10-18</td><td>$6,000-10,800</td></tr>
-        <tr><td>Pervious Concrete</td><td>$12-20</td><td>$7,200-12,000</td></tr>
-        <tr><td>Permeable Pavers</td><td>$15-30</td><td>$9,000-18,000</td></tr>
-        <tr><td>Grass Pavers</td><td>$8-15</td><td>$4,800-9,000</td></tr>
-      </table>
-
-      <h2>Pros and Cons Comparison</h2>
-
-      <h3>Permeable Driveways: Pros</h3>
-      <ul>
-        <li><strong>Environmental benefits:</strong> Reduces runoff, filters pollutants</li>
-        <li><strong>Stormwater compliance:</strong> May meet local requirements</li>
-        <li><strong>Groundwater recharge:</strong> Supports local hydrology</li>
-        <li><strong>Heat reduction:</strong> Less heat absorption than dark surfaces</li>
-        <li><strong>Potential incentives:</strong> Credits, rebates, fee reductions</li>
-        <li><strong>No puddling:</strong> Water drains through surface</li>
-      </ul>
-
-      <h3>Permeable Driveways: Cons</h3>
-      <ul>
-        <li><strong>Higher cost:</strong> 20-100% more than traditional options</li>
-        <li><strong>Maintenance requirements:</strong> Regular vacuuming and joint care</li>
-        <li><strong>Clogging risk:</strong> Can lose permeability if not maintained</li>
-        <li><strong>Limited contractors:</strong> Fewer experienced installers</li>
-        <li><strong>Winter challenges:</strong> Can be harder to clear snow</li>
-        <li><strong>Weight limitations:</strong> Some systems not suitable for heavy vehicles</li>
-      </ul>
-
-      <h3>Traditional Driveways: Pros</h3>
-      <ul>
-        <li><strong>Lower cost:</strong> Less expensive installation</li>
-        <li><strong>Proven performance:</strong> Decades of use and refinement</li>
-        <li><strong>Wide availability:</strong> Many qualified contractors</li>
-        <li><strong>Lower maintenance:</strong> Less frequent care required</li>
-        <li><strong>Familiar repairs:</strong> Standard repair methods available</li>
-        <li><strong>All-weather use:</strong> No special winter considerations</li>
-      </ul>
-
-      <h3>Traditional Driveways: Cons</h3>
-      <ul>
-        <li><strong>Runoff generation:</strong> Contributes to stormwater problems</li>
-        <li><strong>Heat absorption:</strong> Dark surfaces increase heat island effect</li>
-        <li><strong>Impervious surface limits:</strong> May conflict with local regulations</li>
-        <li><strong>No environmental benefits:</strong> Standard environmental impact</li>
-        <li><strong>Potential flooding:</strong> Contributes to local flooding risk</li>
-      </ul>
-
-      <h2>When to Choose Permeable</h2>
-      <p>Permeable driveways are ideal when:</p>
-      <ul>
-        <li>Local regulations require stormwater management</li>
-        <li>You want to minimize environmental impact</li>
-        <li>Property has drainage or flooding issues</li>
-        <li>Impervious surface limits restrict traditional options</li>
-        <li>Stormwater credits offset higher costs</li>
-        <li>You value sustainability and green building</li>
-      </ul>
-
-      <h2>When Traditional is Better</h2>
-      <p>Traditional driveways may be preferable when:</p>
-      <ul>
-        <li>Budget is the primary concern</li>
-        <li>Heavy vehicle traffic is expected</li>
-        <li>Maintenance time is limited</li>
-        <li>Experienced permeable contractors aren't available</li>
-        <li>Climate has extreme freeze-thaw cycles</li>
-        <li>Property has steep slopes</li>
-      </ul>
-
-      <h2>Frequently Asked Questions</h2>
-
-      <h3>Is a permeable driveway worth it?</h3>
-      <p>Permeable driveways are worth the investment if you value environmental benefits, need to meet stormwater requirements, or qualify for incentives that offset costs. They typically cost 20-100% more than traditional options but provide long-term environmental and regulatory benefits.</p>
-
-      <h3>How much more expensive is permeable?</h3>
-      <p>Permeable driveways cost approximately <strong>20-100% more</strong> than traditional options. For example, where standard asphalt costs $3-7 per square foot, porous asphalt runs $10-18 per square foot. However, stormwater credits and incentives can offset some of this difference.</p>
-
-      <h3>Do permeable driveways require more maintenance?</h3>
-      <p>Yes, permeable driveways require <strong>more frequent maintenance</strong> than traditional surfaces. They need annual vacuuming to prevent clogging, joint material replenishment every few years, and occasional surface restoration.</p>
-
-      <h3>Can I install permeable driveway myself?</h3>
-      <p>DIY installation is possible for simpler systems like gravel with grid pavers, but <strong>professional installation is strongly recommended</strong> for pervious concrete, porous asphalt, and permeable pavers. Proper base preparation and material placement are critical for performance.</p>
-
-      <p style="text-align:center;margin-top:3rem;padding:2rem;background:#fef9c3;border-radius:8px;"><strong>Interested in a permeable driveway?</strong><br>Get quotes from contractors experienced with permeable installations and learn about available incentives in your area.</p>
-    </article>
-  </main>
-
-  <footer>
-    <div class="footer-content">
-      <p>&copy; 2025 Drivewayz USA. All rights reserved.</p>
-    </div>
-  </footer>
-  <script src="../main.js"></script>
+    <script>
+        function switchTab(tabName) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            const btn = document.querySelector(`.tab-btn[data-tab="${tabName}"]`);
+            if (btn) btn.classList.add('active');
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            const el = document.getElementById(tabName);
+            if (el) el.classList.add('active');
+        }
+        function scrollToTab(tabName) {
+            const btn = document.querySelector(`.tab-btn[data-tab="${tabName}"]`);
+            if (btn) { btn.click(); btn.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+        }
+        function toggleFaq(btn) { btn.parentElement.classList.toggle('open'); }
+        function saveGuide() {
+            let saved = JSON.parse(localStorage.getItem('savedGuides') || '[]');
+            const id = 'permeable-vs-traditional';
+            if (saved.includes(id)) { saved = saved.filter(x => x !== id); document.getElementById('saveIcon').textContent = '🔖'; document.getElementById('saveText').textContent = 'Save Guide'; }
+            else { saved.push(id); document.getElementById('saveIcon').textContent = '❤️'; document.getElementById('saveText').textContent = 'Saved!'; }
+            localStorage.setItem('savedGuides', JSON.stringify(saved));
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            if (JSON.parse(localStorage.getItem('savedGuides') || '[]').includes('permeable-vs-traditional')) {
+                document.getElementById('saveIcon').textContent = '❤️';
+                document.getElementById('saveText').textContent = 'Saved!';
+            }
+        });
+        function handleSidebarSubmit(event) { event.preventDefault(); alert('Thank you! We will contact you shortly with your free estimate.'); event.target.reset(); }
+    </script>
 </body>
 </html>
