@@ -90,9 +90,9 @@
 </head>
 <body>
 
-<nav class="navbar">
-  <div class="container">
-    <a href="../index.html" class="logo">Drivewayz USA Logo</a>
+<nav class="navbar" id="navbar">
+  <div class="container nav-container">
+    <div class="logo"><img src="../logov3.jpg?v=2" alt="Drivewayz USA" onerror="this.style.display='none'"></div>
     <ul class="nav-links">
       <li><a href="../index.html">Home</a></li>
       <li><a href="../index.html#services">Services</a></li>
@@ -101,7 +101,7 @@
       <li><a href="../guides-hub.html">Guides</a></li>
       <li><a href="../index.html#contact">Contact</a></li>
     </ul>
-    <a href="../index.html#contact" class="btn-primary">Free Estimate</a>
+    <button class="cta-button-small" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Free Estimate</button>
   </div>
 </nav>
 
