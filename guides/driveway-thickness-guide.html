@@ -112,9 +112,8 @@
         <div class="container">
             <div class="tabs-container">
                 <button class="tab-btn active" onclick="switchTab('overview')">Overview</button>
-                <button class="tab-btn" onclick="switchTab('layers')">Layers</button>
-                <button class="tab-btn" onclick="switchTab('materials')">Base Materials</button>
-                <button class="tab-btn" onclick="switchTab('installation')">Installation</button>
+                <button class="tab-btn" onclick="switchTab('concrete')">Concrete</button>
+                <button class="tab-btn" onclick="switchTab('asphalt')">Asphalt</button>
                 <button class="tab-btn" onclick="switchTab('faq')">FAQ</button>
             </div>
         </div>
@@ -142,10 +141,10 @@
                 <aside class="guide-sidebar">
                     <div class="sidebar-card">
                         <h4>📊 Quick Facts</h4>
-                        <div class="quick-stat"><span class="quick-stat-label">Subgrade compaction</span><span class="quick-stat-value">90% min</span></div>
-                        <div class="quick-stat"><span class="quick-stat-label">Base compaction</span><span class="quick-stat-value">95% min</span></div>
-                        <div class="quick-stat"><span class="quick-stat-label">Base depth (residential)</span><span class="quick-stat-value">6-8 inches</span></div>
-                        <div class="quick-stat"><span class="quick-stat-label">Best base material</span><span class="quick-stat-value">Crushed stone</span></div>
+                        <div class="quick-stat"><span class="quick-stat-label">Concrete (cars)</span><span class="quick-stat-value">4 in min</span></div>
+                        <div class="quick-stat"><span class="quick-stat-label">Concrete (RVs)</span><span class="quick-stat-value">6-8 in</span></div>
+                        <div class="quick-stat"><span class="quick-stat-label">Asphalt total</span><span class="quick-stat-value">6-18 in</span></div>
+                        <div class="quick-stat"><span class="quick-stat-label">Base depth</span><span class="quick-stat-value">6-8 in std</span></div>
                     </div>
                     <div class="sidebar-card sidebar-cta">
                         <h4>🚀 Get Started Today</h4>
@@ -177,71 +176,23 @@
         </div>
     </section>
 
-    <section class="tab-content" id="layers">
+    <section class="tab-content" id="concrete">
         <div class="container">
             <div class="guide-content-wrapper">
                 <div class="guide-main">
-                    <h2>Understanding Driveway Layers</h2>
-                    <h3>Subgrade (Native Soil)</h3>
-                    <p>The subgrade is the natural soil beneath your driveway. Proper preparation involves removing organic material, excavating to depth, compacting to 90% density, and ensuring drainage away from the area.</p>
-                    <h3>Sub-base Layer</h3>
-                    <p>4-6 inches of larger aggregate (2-4 inch stone) used when native soil has poor load-bearing capacity or frost heave potential.</p>
-                    <h3>Base Layer</h3>
-                    <p>The critical structural component: 4-8 inches of well-graded crushed stone or gravel, compacted to 95% density. Bears vehicle weight and transfers load to the subgrade.</p>
-                    <h3>Surface Layer</h3>
-                    <p>Concrete (4-8 in), asphalt (2-6 in), pavers (2-4 in bedding), or gravel (4-6 in). Cannot compensate for poor base.</p>
+                    <h2>Concrete Thickness</h2>
+                    <p>Cars: 4 in minimum (5 in recommended). Heavy trucks: 5-6 in. RVs: 6-8 in with rebar. Over 6 in base compacted.</p>
                 </div>
-                <aside class="guide-sidebar">
-                    <div class="sidebar-card">
-                        <h4>📐 Depth by Use</h4>
-                        <div class="quick-stat"><span class="quick-stat-label">Light residential</span><span class="quick-stat-value">4-6 in base</span></div>
-                        <div class="quick-stat"><span class="quick-stat-label">Standard residential</span><span class="quick-stat-value">6-8 in base</span></div>
-                        <div class="quick-stat"><span class="quick-stat-label">Heavy vehicles</span><span class="quick-stat-value">8-12 in base</span></div>
-                    </div>
-                </aside>
             </div>
         </div>
     </section>
 
-    <section class="tab-content" id="materials">
+    <section class="tab-content" id="asphalt">
         <div class="container">
             <div class="guide-content-wrapper">
                 <div class="guide-main">
-                    <h2>Base Material Options</h2>
-                    <h3>Crushed Stone</h3>
-                    <p>3/4 inch to 1-1/2 inch crushed stone is the premium base: excellent load-bearing, superior drainage, long-lasting. Best for all driveway types.</p>
-                    <h3>Crushed Concrete</h3>
-                    <p>Eco-friendly recycled option. Lower cost, good performance when properly processed. Quality varies by source.</p>
-                    <h3>Road Base (Class 5)</h3>
-                    <p>Blend of stone and fines for maximum compaction. Excellent for asphalt, cost-effective, proven performance.</p>
-                    <h3>Gravel</h3>
-                    <p>Washed gravel: good drainage, lower cost, but less load-bearing. Can shift and rut under heavy loads.</p>
-                </div>
-                <aside class="guide-sidebar">
-                    <div class="sidebar-card">
-                        <h4>🛒 Material Checklist</h4>
-                        <div class="quick-stat"><span class="quick-stat-label">Best overall</span><span class="quick-stat-value">Crushed stone</span></div>
-                        <div class="quick-stat"><span class="quick-stat-label">Asphalt base</span><span class="quick-stat-value">Road base</span></div>
-                        <div class="quick-stat"><span class="quick-stat-label">Eco option</span><span class="quick-stat-value">Crushed concrete</span></div>
-                    </div>
-                </aside>
-            </div>
-        </div>
-    </section>
-
-    <section class="tab-content" id="installation">
-        <div class="container">
-            <div class="guide-content-wrapper">
-                <div class="guide-main">
-                    <h2>Proper Base Installation</h2>
-                    <h3>Depth Requirements</h3>
-                    <p>Light residential: 4-6 inches. Standard: 6-8 inches. Heavy vehicles/RVs: 8-12+ inches.</p>
-                    <h3>Compaction</h3>
-                    <p>Compact in 2-4 inch lifts. Plate compactor for small areas, vibratory roller for large. Subgrade: 90% density. Base: 95% density.</p>
-                    <h3>Grade and Slope</h3>
-                    <p>Minimum 1% slope (1/8 in per ft), recommended 2% (1/4 in per ft). Direction: away from structures.</p>
-                    <h3>Signs of Base Failure</h3>
-                    <p>Alligator cracking, settlement, potholes, edge crumbling. Professional assessment recommended.</p>
+                    <h2>Asphalt Thickness</h2>
+                    <p>Base 4-12 in + surface 2-6 in. Cars/SUVs: 6-9 in total. Light trucks: 9 in. Delivery trucks: 9-12 in. RVs: 12-18 in. Class 2 aggregate base, 95% compaction.</p>
                 </div>
             </div>
         </div>
@@ -253,36 +204,36 @@
                 <div class="guide-main">
                     <h2>Frequently Asked Questions</h2>
                     <div class="faq-item">
-                        <button class="faq-q" onclick="toggleFaq(this)">What is the best base for a driveway? <span class="faq-toggle">+</span></button>
-                        <div class="faq-a"><p><strong>Crushed stone (3/4 inch)</strong> is generally considered the best driveway base material due to its excellent load-bearing capacity, drainage properties, and long-term stability. Road base (Class 5) is also excellent, particularly for asphalt driveways.</p></div>
+                        <button class="faq-q" onclick="toggleFaq(this)">How thick should a concrete driveway be? <span class="faq-toggle">+</span></button>
+                        <div class="faq-a"><p><strong>4 inches minimum</strong> for cars. 6-8 in for heavy trucks/RVs with reinforcement.</p></div>
                     </div>
                     <div class="faq-item">
-                        <button class="faq-q" onclick="toggleFaq(this)">How deep should driveway base be? <span class="faq-toggle">+</span></button>
-                        <div class="faq-a"><p>For standard residential use, the base should be <strong>6-8 inches deep</strong>. Heavy vehicles require 8-12 inches, while RVs and heavy equipment need 10-12+ inches of properly compacted base material.</p></div>
+                        <button class="faq-q" onclick="toggleFaq(this)">How thick should asphalt driveway be? <span class="faq-toggle">+</span></button>
+                        <div class="faq-a"><p><strong>6-9 inches total</strong> for cars (4-6 in base + 2-3 in surface). Heavy vehicles: 9-12 in.</p></div>
                     </div>
                     <div class="faq-item">
-                        <button class="faq-q" onclick="toggleFaq(this)">Do I need gravel under my driveway? <span class="faq-toggle">+</span></button>
-                        <div class="faq-a"><p><strong>Yes</strong>, virtually all driveways require a gravel or stone base beneath the surface material. The base provides essential load distribution, drainage, and frost protection. Only some specialized installations on bedrock are exceptions.</p></div>
+                        <button class="faq-q" onclick="toggleFaq(this)">What thickness for RVs? <span class="faq-toggle">+</span></button>
+                        <div class="faq-a"><p><strong>6-8 in concrete</strong> with rebar, or 12-18 in asphalt total.</p></div>
                     </div>
                     <div class="faq-item">
-                        <button class="faq-q" onclick="toggleFaq(this)">What happens if base is not compacted? <span class="faq-toggle">+</span></button>
-                        <div class="faq-a"><p>An uncompacted base will settle over time, causing the driveway surface to crack, sink, and deteriorate prematurely. Settlement can begin within months and lead to complete driveway failure within 2-5 years, requiring costly replacement.</p></div>
+                        <button class="faq-q" onclick="toggleFaq(this)">Does thicker driveway last longer? <span class="faq-toggle">+</span></button>
+                        <div class="faq-a"><p>Yes. 6-in concrete can last 30+ yrs vs 15-20 for 4-in under same conditions.</p></div>
                     </div>
                     <div class="faq-item">
-                        <button class="faq-q" onclick="toggleFaq(this)">What compaction density is required? <span class="faq-toggle">+</span></button>
-                        <div class="faq-a"><p><strong>Subgrade:</strong> 90% of maximum dry density. <strong>Base layers:</strong> 95% of maximum dry density. Use a plate compactor or vibratory roller. Each lift must be compacted before adding the next.</p></div>
+                        <button class="faq-q" onclick="toggleFaq(this)">What about base depth? <span class="faq-toggle">+</span></button>
+                        <div class="faq-a"><p>4-6 in light use, 6-8 in standard, 8-12 in heavy. Base as important as surface thickness.</p></div>
                     </div>
                     <div class="faq-item">
-                        <button class="faq-q" onclick="toggleFaq(this)">How do I handle clay or problem soils? <span class="faq-toggle">+</span></button>
-                        <div class="faq-a"><p>Expansive clay: remove and replace with 12+ inches of suitable fill, install geotextile fabric. Organic soils must be completely removed. High water table: install subsurface drainage or consider permeable materials.</p></div>
+                        <button class="faq-q" onclick="toggleFaq(this)">When to use 5 vs 4 inch concrete? <span class="faq-toggle">+</span></button>
+                        <div class="faq-a"><p>5 in adds 20-25% material cost, significantly improves strength. Consider for moderate climates or future resale.</p></div>
                     </div>
                     <div class="faq-item">
-                        <button class="faq-q" onclick="toggleFaq(this)">When is a sub-base layer needed? <span class="faq-toggle">+</span></button>
-                        <div class="faq-a"><p>When native soil has poor load-bearing capacity, frost heave potential, or wet conditions. Not all driveways need a separate sub-base—requirements depend on soil conditions and expected loads.</p></div>
+                        <button class="faq-q" onclick="toggleFaq(this)">What for delivery trucks? <span class="faq-toggle">+</span></button>
+                        <div class="faq-a"><p><strong>5-6 in concrete</strong> or 9-12 in asphalt total. Reinforcement essential for concrete.</p></div>
                     </div>
                     <div class="faq-item">
-                        <button class="faq-q" onclick="toggleFaq(this)">Can I use recycled materials for base? <span class="faq-toggle">+</span></button>
-                        <div class="faq-a"><p><strong>Crushed concrete</strong> is a viable eco-friendly option when properly processed. Quality varies by source—ensure it's free of contaminants. Generally good performance at lower cost than virgin stone.</p></div>
+                        <button class="faq-q" onclick="toggleFaq(this)">Base compaction required? <span class="faq-toggle">+</span></button>
+                        <div class="faq-a"><p>95% density. Compact in 2-4 in lifts. Critical for longevity.</p></div>
                     </div>
                 </div>
                 <aside class="guide-sidebar">
