@@ -3,6 +3,9 @@ import os, re
 # Read the basalt template as our base
 with open("guides/basalt-driveway.html", "r") as f:
     TEMPLATE = f.read()
+# Extract inline script (avoids f-string brace escaping issues)
+_script_match = re.search(r'<script>\s*(document\.addEventListener.*?)</script>', TEMPLATE, re.DOTALL)
+SCRIPT = _script_match.group(1).strip() if _script_match else ""
 
 def make_page(filename, title, meta_desc, breadcrumb, h1, subtitle, meta1, meta2, meta3, primary, primary_light, primary_dark, accent, bg1, bg2, bg3, hg1, hg2, hero_img, hover_bg, active_bg, toc_items, main_content, quick_facts, related_guides):
     css = TEMPLATE.split("<style>")[1].split("</style>")[0]
@@ -55,11 +58,7 @@ def make_page(filename, title, meta_desc, breadcrumb, h1, subtitle, meta1, meta2
 
     <script src="../main.js"></script>
     <script>
-document.addEventListener('DOMContentLoaded',function(){{var sections=document.querySelectorAll('main section[id]');var tocLinks=document.querySelectorAll('.toc-link');var progressBar=document.getElementById('tocProgress');window.addEventListener('scroll',function(){{var winH=document.documentElement.scrollHeight-window.innerHeight;var scrolled=(window.scrollY/winH)*100;if(progressBar)progressBar.style.width=scrolled+'%'}});var observer=new IntersectionObserver(function(entries){{entries.forEach(function(entry){{if(entry.isIntersecting){{tocLinks.forEach(function(link){{link.classList.remove('active')}});var activeLink=document.querySelector('.toc-link[data-section="'+entry.target.id+'"]');if(activeLink)activeLink.classList.add('active')}}})}},{{rootMargin:'-20% 0px -60% 0px',threshold:0}});sections.forEach(function(section){{observer.observe(section)}});tocLinks.forEach(function(link){{link.addEventListener('click',function(e){{e.preventDefault();var target=document.getElementById(this.getAttribute('data-section'));if(target){{target.scrollIntoView({{behavior:'smooth',block:'start'}});var mobileToc=document.querySelector('.toc-sidebar-col');var toggle=document.querySelector('.toc-mobile-toggle');if(mobileToc)mobileToc.classList.remove('mobile-open');if(toggle)toggle.classList.remove('open')}}}})}})}});
-function toggleMobileToc(){{var tocCol=document.querySelector('.toc-sidebar-col');var toggle=document.querySelector('.toc-mobile-toggle');tocCol.classList.toggle('mobile-open');toggle.classList.toggle('open')}}
-function toggleFaq(btn){{btn.parentElement.classList.toggle('open')}}
-function saveGuide(){{var si=document.getElementById('saveIcon'),st=document.getElementById('saveText');if(st.textContent==='Save Guide'){{si.innerHTML='&#10084;&#65039;';st.textContent='Saved!'}}else{{si.innerHTML='&#128278;';st.textContent='Save Guide'}}}}
-function handleSidebarSubmit(e){{e.preventDefault();alert('Thank you! We will contact you shortly with your free estimate.');e.target.reset()}}
+{SCRIPT}
     </script>
 </body>
 </html>'''
