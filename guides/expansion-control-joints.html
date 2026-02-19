@@ -1,245 +1,378 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Driveway Expansion Joints and Control Joints Explained | Drivewayz USA</title>
-  <meta name="description" content="Learn about driveway expansion joints and control joints. Understand their purposes, proper spacing, materials, maintenance, and repair for long-lasting concrete driveways.">
-  <link rel="stylesheet" href="../styles.css">
-  <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expansion & Control Joints Guide | Drivewayz USA</title>
+    <meta name="description" content="Complete guide to expansion and control joints for concrete driveways. Learn spacing, depth, installation, and repair to prevent cracking.">
+    <link rel="stylesheet" href="../main.css">
+    <style>
+        :root { --guide-primary: #6b21a8; --guide-primary-light: #a855f7; --guide-primary-dark: #581c87; --guide-accent: #06b6d4; --guide-bg: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 50%, #e9d5ff 100%); }
+        body { background: var(--guide-bg); background-attachment: fixed; }
+        .guide-hero { position: relative; min-height: 500px; display: flex; align-items: center; margin-top: 100px; background: linear-gradient(135deg, #6b21a8 0%, #a855f7 50%, #7c3aed 100%); overflow: hidden; }
+        .guide-hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E"); }
+        .guide-hero-content { position: relative; z-index: 10; padding: 4rem 0; color: white; }
+        .guide-breadcrumb { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; font-size: 0.9rem; }
+        .guide-breadcrumb a { color: rgba(255,255,255,0.8); text-decoration: none; }
+        .guide-breadcrumb a:hover { color: white; }
+        .guide-hero h1 { font-size: 3rem; font-weight: 800; margin-bottom: 1rem; max-width: 800px; }
+        .guide-hero-subtitle { font-size: 1.3rem; opacity: 0.95; max-width: 600px; margin-bottom: 2rem; }
+        .guide-meta-bar { display: flex; gap: 2rem; flex-wrap: wrap; }
+        .guide-meta-item { display: flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.15); padding: 0.5rem 1rem; border-radius: 25px; backdrop-filter: blur(10px); }
+        .guide-actions { display: flex; gap: 1rem; margin-top: 2rem; }
+        .action-btn { display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; border: none; font-size: 1rem; }
+        .action-btn-primary { background-color: white; color: var(--guide-primary-dark); }
+        .action-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+        .action-btn-secondary { background-color: rgba(255,255,255,0.2); color: white; border: 2px solid rgba(255,255,255,0.3); }
+        .action-btn-secondary:hover { background-color: rgba(255,255,255,0.3); }
+        .guide-tabs { background-color: var(--bg-white); border-bottom: 1px solid var(--border-color); position: sticky; top: 100px; z-index: 100; }
+        .tabs-container { display: flex; gap: 0; overflow-x: auto; }
+        .tab-btn { padding: 1rem 1.5rem; background: none; border: none; border-bottom: 3px solid transparent; cursor: pointer; font-size: 1rem; font-weight: 600; color: var(--text-light); white-space: nowrap; transition: all 0.3s ease; }
+        .tab-btn:hover { color: var(--guide-primary); }
+        .tab-btn.active { color: var(--guide-primary); border-bottom-color: var(--guide-primary); }
+        .tab-content { display: none; padding: 3rem 0; animation: fadeIn 0.3s ease; }
+        .tab-content.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .guide-content-wrapper { display: grid; grid-template-columns: 1fr 350px; gap: 3rem; }
+        .guide-main { background-color: var(--bg-white); border-radius: 16px; padding: 2.5rem; box-shadow: var(--shadow); }
+        .guide-sidebar { position: sticky; top: 180px; height: fit-content; }
+        .guide-main h2 { font-size: 2rem; color: var(--text-dark); margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: 2px solid var(--guide-accent); }
+        .guide-main h3 { font-size: 1.4rem; color: var(--text-dark); margin: 2rem 0 1rem; }
+        .guide-main p { color: var(--text-light); line-height: 1.8; margin-bottom: 1.5rem; }
+        .guide-main ul, .guide-main ol { margin-bottom: 1.5rem; padding-left: 1.5rem; }
+        .guide-main li { color: var(--text-light); line-height: 1.8; margin-bottom: 0.5rem; }
+        .info-box { padding: 1.5rem; border-radius: 12px; margin: 2rem 0; }
+        .info-box-tip { background-color: #faf5ff; border-left: 4px solid var(--guide-primary); }
+        .info-box-warning { background-color: #fef2f2; border-left: 4px solid #ef4444; }
+        .info-box-title { font-weight: 700; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; }
+        .sidebar-card { background-color: var(--bg-white); border-radius: 16px; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: var(--shadow); }
+        .sidebar-card h4 { font-size: 1.1rem; margin-bottom: 1rem; color: var(--text-dark); }
+        .quick-stat { display: flex; justify-content: space-between; padding: 0.75rem 0; border-bottom: 1px solid var(--border-color); }
+        .quick-stat:last-child { border-bottom: none; }
+        .quick-stat-label { color: var(--text-light); }
+        .quick-stat-value { font-weight: 700; color: var(--guide-primary); }
+        .sidebar-cta { background: linear-gradient(135deg, var(--guide-primary) 0%, var(--guide-primary-light) 100%); color: white; }
+        .sidebar-cta h4 { color: white; }
+        .sidebar-cta p { font-size: 0.9rem; margin-bottom: 1rem; opacity: 0.9; }
+        .sidebar-cta input, .sidebar-cta textarea { width: 100%; padding: 0.75rem; border: none; border-radius: 8px; margin-bottom: 0.75rem; font-size: 0.95rem; }
+        .sidebar-cta button { width: 100%; padding: 0.75rem; background-color: white; color: var(--guide-primary-dark); border: none; border-radius: 8px; font-weight: 700; cursor: pointer; transition: all 0.3s ease; }
+        .sidebar-cta button:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+        .related-guide { display: flex; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--border-color); text-decoration: none; }
+        .related-guide:last-child { border-bottom: none; }
+        .related-guide-image { width: 60px; height: 60px; border-radius: 8px; flex-shrink: 0; }
+        .related-guide-content h5 { font-size: 0.95rem; color: var(--text-dark); margin-bottom: 0.25rem; }
+        .related-guide-content span { font-size: 0.8rem; color: var(--text-light); }
+        .faq-item { border: 1px solid #e5e7eb; border-radius: 10px; margin-bottom: 1rem; overflow: hidden; }
+        .faq-q { width: 100%; padding: 1.25rem 1.5rem; background: #faf5ff; border: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 1.05rem; font-weight: 600; color: var(--guide-primary-dark); text-align: left; }
+        .faq-q:hover { background: #f3e8ff; }
+        .faq-a { padding: 0 1.5rem 1.25rem; color: var(--text-light); line-height: 1.8; display: none; }
+        .faq-item.open .faq-a { display: block; }
+        .faq-toggle { font-size: 1.3rem; transition: transform .3s; }
+        .faq-item.open .faq-toggle { transform: rotate(45deg); }
+        @media (max-width: 1024px) { .guide-content-wrapper { grid-template-columns: 1fr; } .guide-sidebar { position: static; order: -1; } }
+        @media (max-width: 768px) { .guide-hero h1 { font-size: 2rem; } .guide-main { padding: 1.5rem; } .guide-actions { flex-direction: column; } .tabs-container { padding: 0 1rem; } }
+    </style>
 </head>
 <body>
-  <header>
-    <nav class="main-nav">
-      <div class="nav-container">
-        <a href="../index.html" class="logo">
-          <img src="../images/drivewayz-logo.svg" alt="Drivewayz USA Logo" width="200" height="50">
-        </a>
-        <ul class="nav-links">
-          <li><a href="../index.html">Home</a></li>
-          <li><a href="../index.html#services">Services</a></li>
-          <li><a href="../locations.html">Locations</a></li>
-          <li><a href="../guides.html" class="active">Guides</a></li>
-          <li><a href="../index.html#contact">Contact</a></li>
-        </ul>
-      </div>
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <div class="logo"><a href="../index.html"><img src="../logov3.jpg?v=2" alt="Drivewayz USA" onerror="this.style.display='none'"></a></div>
+            <ul class="nav-links">
+                <li><a href="../index.html#home">Home</a></li>
+                <li><a href="../index.html#services">Services</a></li>
+                <li><a href="../index.html#why-choose">Why Us</a></li>
+                <li><a href="../locations.html">Locations</a></li>
+                <li><a href="../guides-hub.html" style="color: var(--primary-color);">Guides</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+            <button class="cta-button-small" onclick="window.location.href='../index.html#contact'">Free Estimate</button>
+        </div>
     </nav>
-  </header>
 
-  <main class="guide-content">
-    <article>
-      <h1>Driveway Expansion Joints and Control Joints Explained</h1>
+    <section class="guide-hero">
+        <div class="container guide-hero-content">
+            <div class="guide-breadcrumb">
+                <a href="../index.html">Home</a><span>/</span><a href="../guides-hub.html">Guides</a><span>/</span><span>Expansion & Control Joints</span>
+            </div>
+            <h1>Expansion & Control Joints Guide</h1>
+            <p class="guide-hero-subtitle">Concrete driveways require joints to manage expansion and contraction. Proper joint design prevents random cracking and extends driveway life.</p>
+            <div class="guide-meta-bar">
+                <div class="guide-meta-item"><span>⏱️</span><span>12 min</span></div>
+                <div class="guide-meta-item"><span>🛡️</span><span>Prevents cracking</span></div>
+                <div class="guide-meta-item"><span>📐</span><span>Technical</span></div>
+            </div>
+            <div class="guide-actions">
+                <button class="action-btn action-btn-primary" onclick="scrollToTab('faq')">View FAQ</button>
+                <button class="action-btn action-btn-secondary" onclick="saveGuide()"><span id="saveIcon">🔖</span> <span id="saveText">Save Guide</span></button>
+            </div>
+        </div>
+    </section>
 
-      <p>Concrete driveways require joints to manage the natural expansion and contraction that occurs with temperature changes. Without proper joints, concrete will crack randomly as it moves. Understanding the different types of joints, their purposes, and proper maintenance ensures your driveway remains functional and attractive for decades.</p>
+    <section class="guide-tabs">
+        <div class="container">
+            <div class="tabs-container">
+                <button class="tab-btn active" data-tab="overview" onclick="switchTab('overview')">Overview</button>
+                <button class="tab-btn" data-tab="control" onclick="switchTab('control')">Control Joints</button>
+                <button class="tab-btn" data-tab="expansion" onclick="switchTab('expansion')">Expansion Joints</button>
+                <button class="tab-btn" data-tab="spacing" onclick="switchTab('spacing')">Spacing</button>
+                <button class="tab-btn" data-tab="installation" onclick="switchTab('installation')">Installation</button>
+                <button class="tab-btn" data-tab="repair" onclick="switchTab('repair')">Repair</button>
+                <button class="tab-btn" data-tab="faq" onclick="switchTab('faq')">FAQ</button>
+            </div>
+        </div>
+    </section>
 
-      <h2>What Are Expansion Joints?</h2>
+    <section class="tab-content active" id="overview">
+        <div class="container">
+            <div class="guide-content-wrapper">
+                <div class="guide-main">
+                    <h2>Why Joints Matter for Concrete Driveways</h2>
+                    <p>Concrete driveways require joints to manage the natural expansion and contraction that occurs with temperature changes. Without proper joints, concrete will crack randomly as it moves. Understanding the different types of joints, their purposes, and proper maintenance ensures your driveway remains functional and attractive for decades.</p>
+                    <p>Expansion joints allow slabs to expand during hot weather without pushing against adjacent structures. Control joints create planned weak points that direct cracking to straight lines rather than random patterns.</p>
+                    <div class="info-box info-box-tip">
+                        <div class="info-box-title"><span>💡</span> Pro Tip</div>
+                        <p>80-90% of cracking occurs at control joints when they're properly spaced and deep enough. Straight lines at joints look better and are easier to seal than random cracks.</p>
+                    </div>
+                    <h3>Key Differences at a Glance</h3>
+                    <ul>
+                        <li><strong>Expansion joints:</strong> Full-depth separations; allow expansion; needed at structures</li>
+                        <li><strong>Control joints:</strong> 1/4–1/3 depth grooves; control cracking; every 8–12 feet</li>
+                    </ul>
+                </div>
+                <aside class="guide-sidebar">
+                    <div class="sidebar-card">
+                        <h4>📊 Quick Facts</h4>
+                        <div class="quick-stat"><span class="quick-stat-label">Spacing</span><span class="quick-stat-value">8-12 ft</span></div>
+                        <div class="quick-stat"><span class="quick-stat-label">Depth</span><span class="quick-stat-value">1/4 slab</span></div>
+                        <div class="quick-stat"><span class="quick-stat-label">Width</span><span class="quick-stat-value">1/4-1/2 in</span></div>
+                    </div>
+                    <div class="sidebar-card sidebar-cta">
+                        <h4>🚀 Get Started Today</h4>
+                        <p>Need joint repair or installation? Get a free estimate for your concrete driveway.</p>
+                        <form onsubmit="handleSidebarSubmit(event)">
+                            <input type="text" placeholder="Your Name" required>
+                            <input type="tel" placeholder="Phone Number" required>
+                            <textarea placeholder="Tell us about your project" rows="3"></textarea>
+                            <button type="submit">Request Free Estimate</button>
+                        </form>
+                    </div>
+                    <div class="sidebar-card">
+                        <h4>📚 Related Guides</h4>
+                        <a href="./curing-concrete-driveway.html" class="related-guide">
+                            <div class="related-guide-image" style="background: linear-gradient(135deg, #6b21a8 0%, #a855f7 100%);"></div>
+                            <div class="related-guide-content"><h5>Curing Concrete Driveway</h5><span>10 min read</span></div>
+                        </a>
+                        <a href="./concrete-repair.html" class="related-guide">
+                            <div class="related-guide-image" style="background: linear-gradient(135deg, #4b5563 0%, #6b7280 100%);"></div>
+                            <div class="related-guide-content"><h5>Concrete Repair</h5><span>12 min read</span></div>
+                        </a>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
 
-      <h3>Purpose and Function</h3>
-      <p>Expansion joints are full-depth separations in the concrete that allow the slab to expand during hot weather without pushing against adjacent structures. They:</p>
-      <ul>
-        <li><strong>Absorb expansion:</strong> Create space for concrete to grow when heated</li>
-        <li><strong>Prevent buckling:</strong> Stop pressure buildup that causes upward movement</li>
-        <li><strong>Isolate structures:</strong> Separate driveway from house, garage, and other fixed objects</li>
-        <li><strong>Control movement:</strong> Direct expansion to predetermined locations</li>
-      </ul>
+    <section class="tab-content" id="control">
+        <div class="container">
+            <div class="guide-content-wrapper">
+                <div class="guide-main">
+                    <h2>Control Joints (Contraction Joints)</h2>
+                    <p>Control joints are planned weak points that encourage concrete to crack in straight lines rather than randomly. They reduce random cracks by 80-90%, improve appearance, and simplify maintenance.</p>
+                    <h3>Spacing Requirements</h3>
+                    <p>Control joint spacing follows the "2-3 rule": 2-3 times the slab thickness in feet. A 4-inch slab needs joints every 8-12 feet; 5-inch every 10-15 feet; 6-inch every 12-18 feet. Never exceed 15 feet between control joints.</p>
+                    <h3>Depth Requirements</h3>
+                    <ul>
+                        <li><strong>Minimum depth:</strong> 1/4 of slab thickness (4-inch slab = 1-inch joints)</li>
+                        <li><strong>Preferred:</strong> 1/3 of slab thickness for best crack control</li>
+                        <li><strong>Methods:</strong> Saw cutting (4-12 hours after finishing), tooled joints, or insert strips</li>
+                    </ul>
+                </div>
+                <aside class="guide-sidebar">
+                    <div class="sidebar-card">
+                        <h4>📐 Control Joint Rules</h4>
+                        <div class="quick-stat"><span class="quick-stat-label">Max spacing</span><span class="quick-stat-value">15 ft</span></div>
+                        <div class="quick-stat"><span class="quick-stat-label">Min depth</span><span class="quick-stat-value">1/4 slab</span></div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
 
-      <h3>Where They're Needed</h3>
-      <p>Expansion joints are essential at:</p>
-      <ul>
-        <li><strong>House foundation:</strong> Where driveway meets the home</li>
-        <li><strong>Garage slabs:</strong> At the junction with garage floor</li>
-        <li><strong>Sidewalks and curbs:</strong> Where driveway intersects other concrete</li>
-        <li><strong>Long driveways:</strong> Every 50-100 feet on very long slabs</li>
-        <li><strong>Fixed objects:</strong> Around light posts, utility boxes, etc.</li>
-      </ul>
+    <section class="tab-content" id="expansion">
+        <div class="container">
+            <div class="guide-content-wrapper">
+                <div class="guide-main">
+                    <h2>Expansion Joints</h2>
+                    <p>Expansion joints are full-depth separations that allow the slab to expand during hot weather without pushing against adjacent structures. They prevent buckling and isolate the driveway from fixed objects.</p>
+                    <h3>Where They're Needed</h3>
+                    <ul>
+                        <li>House foundation (where driveway meets home)</li>
+                        <li>Garage slabs at junction with garage floor</li>
+                        <li>Sidewalks and curbs</li>
+                        <li>Long driveways: every 50-100 feet</li>
+                        <li>Fixed objects (light posts, utility boxes)</li>
+                    </ul>
+                    <h3>Materials Used</h3>
+                    <ul>
+                        <li><strong>Fibre expansion joint:</strong> Asphalt-impregnated fiber board (most common)</li>
+                        <li><strong>Rubber:</strong> Neoprene or similar, very durable</li>
+                        <li><strong>Foam:</strong> Closed-cell polyethylene, easy to install</li>
+                    </ul>
+                </div>
+                <aside class="guide-sidebar">
+                    <div class="sidebar-card">
+                        <h4>📍 Required Locations</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-light);">At all structure interfaces; every 50-100 ft on long driveways.</p>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
 
-      <h3>Materials Used</h3>
-      <p>Common expansion joint materials:</p>
-      <ul>
-        <li><strong>Fibre expansion joint:</strong> Asphalt-impregnated fiber board, most common</li>
-        <li><strong>Rubber expansion joint:</strong> Neoprene or similar, very durable</li>
-        <li><strong>Cork expansion joint:</strong> Traditional material, less common today</li>
-        <li><strong>Foam expansion joint:</strong> Closed-cell polyethylene, easy to install</li>
-      </ul>
-      <p>These materials compress as concrete expands and recover when it contracts.</p>
+    <section class="tab-content" id="spacing">
+        <div class="container">
+            <div class="guide-content-wrapper">
+                <div class="guide-main">
+                    <h2>Proper Joint Spacing</h2>
+                    <p><strong>Standard residential:</strong> Control joints every 8-12 feet; expansion joints at all structures; no section larger than 150 sq ft without joints.</p>
+                    <h3>Climate Considerations</h3>
+                    <ul>
+                        <li><strong>Hot climates:</strong> Closer control joint spacing (8-10 ft); consider reflective coatings</li>
+                        <li><strong>Cold climates:</strong> Standard spacing; ensure joints are sealed to prevent water infiltration</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
-      <h2>What Are Control Joints?</h2>
+    <section class="tab-content" id="installation">
+        <div class="container">
+            <div class="guide-content-wrapper">
+                <div class="guide-main">
+                    <h2>Installation Best Practices</h2>
+                    <p>Joints can be created by saw cutting within 4-12 hours after finishing, tooling with a grooving tool during finishing, or placing plastic/metal strips before pouring.</p>
+                    <p>For expansion joints: install compressible filler at all structure interfaces. For control joints: cut or tool to proper depth at planned spacing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-      <h3>Purpose and Function</h3>
-      <p>Control joints (contraction joints) are planned weak points that encourage concrete to crack in straight lines rather than randomly. They:</p>
-      <ul>
-        <li><strong>Control cracking:</strong> Direct cracks to predetermined locations</li>
-        <li><strong>Reduce random cracks:</strong> 80-90% of cracking occurs at control joints</li>
-        <li><strong>Improve appearance:</strong> Straight lines look better than random cracks</li>
-        <li><strong>Simplify maintenance:</strong> Joints are easier to seal than random cracks</li>
-      </ul>
+    <section class="tab-content" id="repair">
+        <div class="container">
+            <div class="guide-content-wrapper">
+                <div class="guide-main">
+                    <h2>Joint Maintenance and Repair</h2>
+                    <p>Inspect joints annually and reseal every 3-5 years or when damaged. Signs of needed attention: cracked/missing sealant, water pooling, weed growth, protruding or sunken filler.</p>
+                    <h3>Sealant Options</h3>
+                    <ul>
+                        <li><strong>Polyurethane:</strong> Flexible, durable, UV resistant</li>
+                        <li><strong>Silicone:</strong> Excellent flexibility, higher cost</li>
+                        <li><strong>For expansion:</strong> Backer rod + sealant or preformed filler</li>
+                    </ul>
+                    <div class="info-box info-box-warning">
+                        <div class="info-box-title"><span>⚠️</span> Replacement Steps</div>
+                        <p>Remove old filler completely, clean joint thoroughly, install backer rod, apply new sealant. Allow to cure before traffic.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-      <h3>Spacing Requirements</h3>
-      <p>Control joint spacing follows the "2-3 rule":</p>
-      <ul>
-        <li><strong>Spacing:</strong> 2-3 times the slab thickness in feet</li>
-        <li><strong>4-inch slab:</strong> Joints every 8-12 feet</li>
-        <li><strong>5-inch slab:</strong> Joints every 10-15 feet</li>
-        <li><strong>6-inch slab:</strong> Joints every 12-18 feet</li>
-      </ul>
-      <p><strong>Maximum spacing:</strong> Never exceed 15 feet between control joints regardless of thickness.</p>
+    <section class="tab-content" id="faq">
+        <div class="container">
+            <div class="guide-content-wrapper">
+                <div class="guide-main">
+                    <h2>Frequently Asked Questions</h2>
+                    <div class="faq-item">
+                        <button class="faq-q" onclick="toggleFaq(this)">How far apart should driveway joints be? <span class="faq-toggle">+</span></button>
+                        <div class="faq-a"><p>Control joints should be spaced <strong>2-3 times the slab thickness in feet</strong>. For a 4-inch thick driveway, place joints every 8-12 feet. Never exceed 15 feet between joints.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" onclick="toggleFaq(this)">What's the difference between expansion and control joints? <span class="faq-toggle">+</span></button>
+                        <div class="faq-a"><p><strong>Expansion joints</strong> are full-depth separations that allow concrete to expand against fixed structures. <strong>Control joints</strong> are partial-depth grooves that weaken the slab to direct cracking to predetermined locations.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" onclick="toggleFaq(this)">How do I fill driveway expansion joints? <span class="faq-toggle">+</span></button>
+                        <div class="faq-a"><p>Remove old filler and debris, install backer rod to proper depth, apply polyurethane or silicone sealant, tool smooth for proper adhesion. Allow to cure before traffic.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" onclick="toggleFaq(this)">How deep should control joints be? <span class="faq-toggle">+</span></button>
+                        <div class="faq-a"><p><strong>Minimum 1/4 of slab thickness</strong>—1 inch for a 4-inch slab, 1.5 inches for 6-inch. Preferred depth is 1/3 of slab thickness for best crack control.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" onclick="toggleFaq(this)">When should I saw cut control joints? <span class="faq-toggle">+</span></button>
+                        <div class="faq-a"><p>Within <strong>4-12 hours after finishing</strong>. Cut too early and edges may ravel; too late and concrete may crack before the joint is placed.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" onclick="toggleFaq(this)">What causes joint spalling? <span class="faq-toggle">+</span></button>
+                        <div class="faq-a"><p>Inadequate joint depth, water infiltration and freeze-thaw, heavy loads near joints, poor concrete consolidation. Repair by removing loose material, patching with repair mortar, and resealing.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" onclick="toggleFaq(this)">How often should I reseal joints? <span class="faq-toggle">+</span></button>
+                        <div class="faq-a"><p>Inspect annually and reseal every <strong>3-5 years</strong> or when damaged. Reseal immediately if water infiltration occurs.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" onclick="toggleFaq(this)">Why am I getting random cracks away from joints? <span class="faq-toggle">+</span></button>
+                        <div class="faq-a"><p>Indicates joint spacing too wide, inadequate joint depth, early loading before sufficient strength, or base problems. May require professional assessment.</p></div>
+                    </div>
+                </div>
+                <aside class="guide-sidebar">
+                    <div class="sidebar-card">
+                        <h4>📚 Related Guides</h4>
+                        <a href="./curing-concrete-driveway.html" class="related-guide">
+                            <div class="related-guide-image" style="background: linear-gradient(135deg, #6b21a8 0%, #a855f7 100%);"></div>
+                            <div class="related-guide-content"><h5>Curing Concrete Driveway</h5><span>10 min read</span></div>
+                        </a>
+                        <a href="./concrete-repair.html" class="related-guide">
+                            <div class="related-guide-image" style="background: linear-gradient(135deg, #4b5563 0%, #6b7280 100%);"></div>
+                            <div class="related-guide-content"><h5>Concrete Repair</h5><span>12 min read</span></div>
+                        </a>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
 
-      <h3>Depth Requirements</h3>
-      <p>Control joints must be deep enough to create a weak point:</p>
-      <ul>
-        <li><strong>Minimum depth:</strong> 1/4 of slab thickness</li>
-        <li><strong>4-inch slab:</strong> 1-inch deep joints</li>
-        <li><strong>6-inch slab:</strong> 1.5-inch deep joints</li>
-        <li><strong>Preferred depth:</strong> 1/3 of slab thickness for best crack control</li>
-      </ul>
-      <p>Joints can be created by:</p>
-      <ul>
-        <li><strong>Saw cutting:</strong> Within 4-12 hours after finishing</li>
-        <li><strong>Tooled joints:</strong> Created during finishing with grooving tool</li>
-        <li><strong>Insert strips:</strong> Plastic or metal strips placed before pouring</li>
-      </ul>
+    <footer class="footer" style="margin-top: 4rem;">
+        <div class="container">
+            <p>&copy; 2026 Drivewayz USA. Licensed & Insured. Serving the United States with Pride.</p>
+            <p class="footer-links">
+                <a href="../index.html#services">Services</a> •
+                <a href="../guides-hub.html">Guides</a> •
+                <a href="../index.html#contact">Contact</a> •
+                <a href="#">Privacy Policy</a>
+            </p>
+        </div>
+    </footer>
 
-      <h2>Expansion vs Control Joints: Key Differences</h2>
-
-      <table>
-        <tr><th>Feature</th><th>Expansion Joints</th><th>Control Joints</th></tr>
-        <tr><td>Purpose</td><td>Allow expansion</td><td>Control cracking</td></tr>
-        <tr><td>Depth</td><td>Full depth</td><td>1/4 to 1/3 depth</td></tr>
-        <tr><td>Material</td><td>Compressible filler</td><td>Cut or tooled groove</td></tr>
-        <tr><td>Spacing</td><td>As needed at structures</td><td>Every 8-15 feet</td></tr>
-        <tr><td>Function</td><td>Separates sections</td><td>Weakens slab to direct cracks</td></tr>
-      </table>
-
-      <h2>Proper Joint Spacing</h2>
-
-      <h3>Industry Standards</h3>
-      <p><strong>Standard residential driveways:</strong></p>
-      <ul>
-        <li>Control joints every 8-12 feet</li>
-        <li>Expansion joints at all structures</li>
-        <li>No section larger than 150 square feet without joints</li>
-      </ul>
-      <p><strong>Large driveways:</strong></p>
-      <ul>
-        <li>Additional expansion joints every 50-100 feet</li>
-        <li>Grid pattern of control joints</li>
-        <li>Consider post-tensioning for very large areas</li>
-      </ul>
-
-      <h3>Climate Considerations</h3>
-      <p><strong>Hot climates:</strong></p>
-      <ul>
-        <li>More expansion joints may be needed</li>
-        <li>Closer control joint spacing (8-10 feet)</li>
-        <li>Consider reflective coatings to reduce heat absorption</li>
-      </ul>
-      <p><strong>Cold climates:</strong></p>
-      <ul>
-        <li>Standard joint spacing usually adequate</li>
-        <li>Ensure joints are sealed to prevent water infiltration</li>
-        <li>De-icer chemicals can deteriorate joint filler</li>
-      </ul>
-
-      <h2>Joint Maintenance and Repair</h2>
-
-      <h3>When to Reseal</h3>
-      <p>Joint sealant should be maintained:</p>
-      <ul>
-        <li><strong>Inspect annually:</strong> Check for deterioration</li>
-        <li><strong>Reseal every 3-5 years:</strong> Or when damaged</li>
-        <li><strong>Immediate repair:</strong> If water infiltration occurs</li>
-      </ul>
-      <p>Signs joint needs attention:</p>
-      <ul>
-        <li>Cracked or missing sealant</li>
-        <li>Water pooling in joints</li>
-        <li>Weed growth in joints</li>
-        <li>Joint filler protruding or sunken</li>
-      </ul>
-
-      <h3>Filler Options</h3>
-      <p><strong>For control joints:</strong></p>
-      <ul>
-        <li><strong>Polyurethane sealant:</strong> Flexible, durable, UV resistant</li>
-        <li><strong>Silicone sealant:</strong> Excellent flexibility, higher cost</li>
-        <li><strong>Asphalt-based:</strong> Lower cost, shorter lifespan</li>
-      </ul>
-      <p><strong>For expansion joints:</strong></p>
-      <ul>
-        <li><strong>Backer rod + sealant:</strong> Backer rod provides depth, sealant protects</li>
-        <li><strong>Preformed joint filler:</strong> Replace when deteriorated</li>
-      </ul>
-
-      <h2>Common Joint Problems</h2>
-
-      <h3>Joint Spalling</h3>
-      <p>Spalling is chipping or breaking along joint edges:</p>
-      <p><strong>Causes:</strong></p>
-      <ul>
-        <li>Inadequate joint depth</li>
-        <li>Water infiltration and freeze-thaw</li>
-        <li>Heavy loads near joints</li>
-        <li>Poor concrete consolidation</li>
-      </ul>
-      <p><strong>Repair:</strong></p>
-      <ul>
-        <li>Remove loose material</li>
-        <li>Patch with repair mortar</li>
-        <li>Reseal joint properly</li>
-      </ul>
-
-      <h3>Joint Filler Failure</h3>
-      <p>Filler may fail due to:</p>
-      <ul>
-        <li><strong>Age and UV exposure:</strong> Normal deterioration</li>
-        <li><strong>Movement beyond capacity:</strong> Joint too wide</li>
-        <li><strong>Improper installation:</strong> Inadequate bonding</li>
-        <li><strong>Chemical exposure:</strong> De-icers, oil, gasoline</li>
-      </ul>
-      <p><strong>Replacement:</strong></p>
-      <ul>
-        <li>Remove old filler completely</li>
-        <li>Clean joint thoroughly</li>
-        <li>Install appropriate backer rod</li>
-        <li>Apply new sealant</li>
-      </ul>
-
-      <h3>Random Cracking</h3>
-      <p>Cracks away from control joints indicate:</p>
-      <ul>
-        <li><strong>Joint spacing too wide:</strong> Exceeds 2-3 times thickness</li>
-        <li><strong>Joint depth inadequate:</strong> Less than 1/4 thickness</li>
-        <li><strong>Early loading:</strong> Concrete stressed before sufficient strength</li>
-        <li><strong>Base problems:</strong> Inadequate support</li>
-      </ul>
-
-      <h2>Frequently Asked Questions</h2>
-
-      <h3>How far apart should driveway joints be?</h3>
-      <p>Control joints should be spaced <strong>2-3 times the slab thickness in feet</strong>. For a 4-inch thick driveway, place joints every 8-12 feet. Never exceed 15 feet between joints.</p>
-
-      <h3>What's the difference between expansion and control joints?</h3>
-      <p><strong>Expansion joints</strong> are full-depth separations that allow concrete to expand against fixed structures. <strong>Control joints</strong> are partial-depth grooves that weaken the slab to direct cracking to predetermined locations.</p>
-
-      <h3>How do I fill driveway expansion joints?</h3>
-      <p>To fill expansion joints:</p>
-      <ol>
-        <li>Remove old filler and debris</li>
-        <li>Install backer rod to proper depth</li>
-        <li>Apply polyurethane or silicone sealant</li>
-        <li>Tool smooth for proper adhesion</li>
-        <li>Allow to cure before traffic</li>
-      </ol>
-
-      <p style="text-align:center;margin-top:3rem;padding:2rem;background:#fef9c3;border-radius:8px;"><strong>Proper joint maintenance extends driveway life significantly.</strong><br>Need professional joint repair? Connect with local concrete specialists.</p>
-    </article>
-  </main>
-
-  <footer>
-    <div class="footer-content">
-      <p>&copy; 2025 Drivewayz USA. All rights reserved.</p>
-    </div>
-  </footer>
-  <script src="../main.js"></script>
+    <script>
+        function switchTab(tabName) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            const btn = document.querySelector(`.tab-btn[data-tab="${tabName}"]`) || event.target;
+            if (btn) btn.classList.add('active');
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            const el = document.getElementById(tabName);
+            if (el) el.classList.add('active');
+        }
+        function scrollToTab(tabName) {
+            const btn = document.querySelector(`.tab-btn[data-tab="${tabName}"]`);
+            if (btn) { btn.click(); btn.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+        }
+        function toggleFaq(btn) { btn.parentElement.classList.toggle('open'); }
+        function saveGuide() {
+            let saved = JSON.parse(localStorage.getItem('savedGuides') || '[]');
+            const id = 'expansion-control-joints';
+            if (saved.includes(id)) { saved = saved.filter(x => x !== id); document.getElementById('saveIcon').textContent = '🔖'; document.getElementById('saveText').textContent = 'Save Guide'; }
+            else { saved.push(id); document.getElementById('saveIcon').textContent = '❤️'; document.getElementById('saveText').textContent = 'Saved!'; }
+            localStorage.setItem('savedGuides', JSON.stringify(saved));
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            if (JSON.parse(localStorage.getItem('savedGuides') || '[]').includes('expansion-control-joints')) {
+                document.getElementById('saveIcon').textContent = '❤️';
+                document.getElementById('saveText').textContent = 'Saved!';
+            }
+        });
+        function handleSidebarSubmit(event) { event.preventDefault(); alert('Thank you! We will contact you shortly with your free estimate.'); event.target.reset(); }
+    </script>
 </body>
 </html>
