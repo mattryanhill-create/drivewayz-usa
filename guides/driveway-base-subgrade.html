@@ -1,259 +1,346 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Driveway Base and Subgrade: Why They Matter More Than the Surface | Drivewayz USA</title>
-  <meta name="description" content="Learn why driveway base and subgrade preparation is critical for long-term performance. Guide to soil types, compaction, base materials, and proper installation.">
-  <link rel="stylesheet" href="../styles.css">
-  <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driveway Base and Subgrade: Why They Matter More Than the Surface | Drivewayz USA</title>
+    <meta name="description" content="Learn why driveway base and subgrade preparation is critical for long-term performance. Guide to soil types, compaction, base materials, and proper installation.">
+    <link rel="stylesheet" href="../main.css">
+    <style>
+        :root { --guide-primary: #8B4513; --guide-primary-light: #A0522D; --guide-primary-dark: #654321; --guide-accent: #CD853F; --guide-bg: linear-gradient(135deg, #FAF0E6 0%, #F5E6D3 50%, #EDE0D0 100%); }
+        body { background: var(--guide-bg); background-attachment: fixed; }
+        .guide-hero { position: relative; min-height: 500px; display: flex; align-items: center; margin-top: 100px; background: linear-gradient(135deg, #8B4513 0%, #A0522D 50%, #CD853F 100%); overflow: hidden; }
+        .guide-hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E"); }
+        .guide-hero-content { position: relative; z-index: 10; padding: 4rem 0; color: white; }
+        .guide-breadcrumb { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; font-size: 0.9rem; }
+        .guide-breadcrumb a { color: rgba(255,255,255,0.8); text-decoration: none; }
+        .guide-breadcrumb a:hover { color: white; }
+        .guide-hero h1 { font-size: 3rem; font-weight: 800; margin-bottom: 1rem; max-width: 800px; }
+        .guide-hero-subtitle { font-size: 1.3rem; opacity: 0.95; max-width: 600px; margin-bottom: 2rem; }
+        .guide-meta-bar { display: flex; gap: 2rem; flex-wrap: wrap; }
+        .guide-meta-item { display: flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.15); padding: 0.5rem 1rem; border-radius: 25px; backdrop-filter: blur(10px); }
+        .guide-actions { display: flex; gap: 1rem; margin-top: 2rem; }
+        .action-btn { display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; border: none; font-size: 1rem; }
+        .action-btn-primary { background-color: white; color: var(--guide-primary-dark); }
+        .action-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+        .action-btn-secondary { background-color: rgba(255,255,255,0.2); color: white; border: 2px solid rgba(255,255,255,0.3); }
+        .action-btn-secondary:hover { background-color: rgba(255,255,255,0.3); }
+        .guide-tabs { background-color: var(--bg-white); border-bottom: 1px solid var(--border-color); position: sticky; top: 100px; z-index: 100; }
+        .tabs-container { display: flex; gap: 0; overflow-x: auto; }
+        .tab-btn { padding: 1rem 1.5rem; background: none; border: none; border-bottom: 3px solid transparent; cursor: pointer; font-size: 1rem; font-weight: 600; color: var(--text-light); white-space: nowrap; transition: all 0.3s ease; }
+        .tab-btn:hover { color: var(--guide-primary); }
+        .tab-btn.active { color: var(--guide-primary); border-bottom-color: var(--guide-primary); }
+        .tab-content { display: none; padding: 3rem 0; animation: fadeIn 0.3s ease; }
+        .tab-content.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .guide-content-wrapper { display: grid; grid-template-columns: 1fr 350px; gap: 3rem; }
+        .guide-main { background-color: var(--bg-white); border-radius: 16px; padding: 2.5rem; box-shadow: var(--shadow); }
+        .guide-sidebar { position: sticky; top: 180px; height: fit-content; }
+        .guide-main h2 { font-size: 2rem; color: var(--text-dark); margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: 2px solid var(--guide-accent); }
+        .guide-main h3 { font-size: 1.4rem; color: var(--text-dark); margin: 2rem 0 1rem; }
+        .guide-main p { color: var(--text-light); line-height: 1.8; margin-bottom: 1.5rem; }
+        .guide-main ul, .guide-main ol { margin-bottom: 1.5rem; padding-left: 1.5rem; }
+        .guide-main li { color: var(--text-light); line-height: 1.8; margin-bottom: 0.5rem; }
+        .info-box { padding: 1.5rem; border-radius: 12px; margin: 2rem 0; }
+        .info-box-tip { background-color: #FAF0E6; border-left: 4px solid var(--guide-primary); }
+        .info-box-warning { background-color: #fef2f2; border-left: 4px solid #ef4444; }
+        .info-box-title { font-weight: 700; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; }
+        .sidebar-card { background-color: var(--bg-white); border-radius: 16px; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: var(--shadow); }
+        .sidebar-card h4 { font-size: 1.1rem; margin-bottom: 1rem; color: var(--text-dark); }
+        .quick-stat { display: flex; justify-content: space-between; padding: 0.75rem 0; border-bottom: 1px solid var(--border-color); }
+        .quick-stat:last-child { border-bottom: none; }
+        .quick-stat-label { color: var(--text-light); }
+        .quick-stat-value { font-weight: 700; color: var(--guide-primary); }
+        .sidebar-cta { background: linear-gradient(135deg, var(--guide-primary) 0%, var(--guide-primary-light) 100%); color: white; }
+        .sidebar-cta h4 { color: white; }
+        .sidebar-cta p { font-size: 0.9rem; margin-bottom: 1rem; opacity: 0.9; }
+        .sidebar-cta input, .sidebar-cta textarea { width: 100%; padding: 0.75rem; border: none; border-radius: 8px; margin-bottom: 0.75rem; font-size: 0.95rem; }
+        .sidebar-cta button { width: 100%; padding: 0.75rem; background-color: white; color: var(--guide-primary-dark); border: none; border-radius: 8px; font-weight: 700; cursor: pointer; transition: all 0.3s ease; }
+        .sidebar-cta button:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+        .related-guide { display: flex; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--border-color); text-decoration: none; }
+        .related-guide:last-child { border-bottom: none; }
+        .related-guide-image { width: 60px; height: 60px; border-radius: 8px; background: linear-gradient(135deg, var(--guide-primary) 0%, var(--guide-primary-light) 100%); flex-shrink: 0; }
+        .related-guide-content h5 { font-size: 0.95rem; color: var(--text-dark); margin-bottom: 0.25rem; }
+        .related-guide-content span { font-size: 0.8rem; color: var(--text-light); }
+        .faq-item { border: 1px solid #e5e7eb; border-radius: 10px; margin-bottom: 1rem; overflow: hidden; }
+        .faq-q { width: 100%; padding: 1.25rem 1.5rem; background: #FAF0E6; border: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 1.05rem; font-weight: 600; color: var(--guide-primary-dark); text-align: left; }
+        .faq-q:hover { background: #F5E6D3; }
+        .faq-a { padding: 0 1.5rem 1.25rem; color: var(--text-light); line-height: 1.8; display: none; }
+        .faq-item.open .faq-a { display: block; }
+        .faq-toggle { font-size: 1.3rem; transition: transform .3s; }
+        .faq-item.open .faq-toggle { transform: rotate(45deg); }
+        @media (max-width: 1024px) { .guide-content-wrapper { grid-template-columns: 1fr; } .guide-sidebar { position: static; order: -1; } }
+        @media (max-width: 768px) { .guide-hero h1 { font-size: 2rem; } .guide-main { padding: 1.5rem; } .guide-actions { flex-direction: column; } .tabs-container { padding: 0 1rem; } }
+    </style>
 </head>
 <body>
-  <header>
-    <nav class="main-nav">
-      <div class="nav-container">
-        <a href="../index.html" class="logo">
-          <img src="../images/drivewayz-logo.svg" alt="Drivewayz USA Logo" width="200" height="50">
-        </a>
-        <ul class="nav-links">
-          <li><a href="../index.html">Home</a></li>
-          <li><a href="../index.html#services">Services</a></li>
-          <li><a href="../locations.html">Locations</a></li>
-          <li><a href="../guides.html" class="active">Guides</a></li>
-          <li><a href="../index.html#contact">Contact</a></li>
-        </ul>
-      </div>
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <div class="logo"><a href="../index.html"><img src="../logov3.jpg?v=2" alt="Drivewayz USA" onerror="this.style.display='none'"></a></div>
+            <ul class="nav-links">
+                <li><a href="../index.html#home">Home</a></li>
+                <li><a href="../index.html#services">Services</a></li>
+                <li><a href="../index.html#why-choose">Why Us</a></li>
+                <li><a href="../locations.html">Locations</a></li>
+                <li><a href="../guides-hub.html" style="color: var(--primary-color);">Guides</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+            <button class="cta-button-small" onclick="window.location.href='../index.html#contact'">Free Estimate</button>
+        </div>
     </nav>
-  </header>
 
-  <main class="guide-content">
-    <article>
-      <h1>Driveway Base and Subgrade: Why They Matter More Than the Surface</h1>
+    <section class="guide-hero">
+        <div class="container guide-hero-content">
+            <div class="guide-breadcrumb">
+                <a href="../index.html">Home</a><span>/</span><a href="../guides-hub.html">Guides</a><span>/</span><span>Base & Subgrade</span>
+            </div>
+            <h1>Driveway Base and Subgrade: Why They Matter More Than the Surface</h1>
+            <p class="guide-hero-subtitle">While homeowners focus on the visible surface, the hidden layers beneath—subgrade and base—are more critical to long-term performance. A driveway is only as good as what lies beneath.</p>
+            <div class="guide-meta-bar">
+                <div class="guide-meta-item"><span>⏱️</span><span>14 min read</span></div>
+                <div class="guide-meta-item"><span>🏗️</span><span>Foundation guide</span></div>
+                <div class="guide-meta-item"><span>📊</span><span>Soil & compaction</span></div>
+            </div>
+            <div class="guide-actions">
+                <button class="action-btn action-btn-primary" onclick="scrollToTab('faq')">View FAQ</button>
+                <button class="action-btn action-btn-secondary" onclick="saveGuide()"><span id="saveIcon">🔖</span> <span id="saveText">Save Guide</span></button>
+            </div>
+        </div>
+    </section>
 
-      <p>While homeowners often focus on the visible surface of their driveway, the hidden layers beneath—the subgrade and base—are actually more critical to long-term performance. A driveway is only as good as what lies beneath it. This guide explains why proper base and subgrade preparation is essential and how to ensure your driveway has the foundation it needs for decades of reliable service.</p>
+    <section class="guide-tabs">
+        <div class="container">
+            <div class="tabs-container">
+                <button class="tab-btn active" onclick="switchTab('overview')">Overview</button>
+                <button class="tab-btn" onclick="switchTab('layers')">Layers</button>
+                <button class="tab-btn" onclick="switchTab('materials')">Base Materials</button>
+                <button class="tab-btn" onclick="switchTab('installation')">Installation</button>
+                <button class="tab-btn" onclick="switchTab('faq')">FAQ</button>
+            </div>
+        </div>
+    </section>
 
-      <h2>Understanding Driveway Layers</h2>
-      <p>A typical driveway consists of four distinct layers, each serving a specific purpose:</p>
+    <section class="tab-content active" id="overview">
+        <div class="container">
+            <div class="guide-content-wrapper">
+                <div class="guide-main">
+                    <h2>Why Base and Subgrade Matter</h2>
+                    <p>While homeowners often focus on the visible surface of their driveway, the hidden layers beneath—the subgrade and base—are actually more critical to long-term performance. A driveway is only as good as what lies beneath it.</p>
+                    <p>Inadequate base preparation is the leading cause of driveway failure. Proper subgrade and base construction ensures decades of reliable service.</p>
+                    <div class="info-box info-box-tip">
+                        <div class="info-box-title"><span>💡</span> Pro Tip</div>
+                        <p>The surface layer cannot compensate for poor base preparation. Investing in proper subgrade and base installation pays dividends throughout your driveway's lifespan.</p>
+                    </div>
+                    <h3>Key Layers at a Glance</h3>
+                    <ul>
+                        <li><strong>Subgrade:</strong> Native soil, compacted to 90% density</li>
+                        <li><strong>Sub-base:</strong> 4-6 inches larger aggregate (when needed)</li>
+                        <li><strong>Base:</strong> 4-8 inches crushed stone, compacted to 95%</li>
+                        <li><strong>Surface:</strong> Concrete, asphalt, pavers, or gravel</li>
+                    </ul>
+                </div>
+                <aside class="guide-sidebar">
+                    <div class="sidebar-card">
+                        <h4>📊 Quick Facts</h4>
+                        <div class="quick-stat"><span class="quick-stat-label">Subgrade compaction</span><span class="quick-stat-value">90% min</span></div>
+                        <div class="quick-stat"><span class="quick-stat-label">Base compaction</span><span class="quick-stat-value">95% min</span></div>
+                        <div class="quick-stat"><span class="quick-stat-label">Base depth (residential)</span><span class="quick-stat-value">6-8 inches</span></div>
+                        <div class="quick-stat"><span class="quick-stat-label">Best base material</span><span class="quick-stat-value">Crushed stone</span></div>
+                    </div>
+                    <div class="sidebar-card sidebar-cta">
+                        <h4>🚀 Get Started Today</h4>
+                        <p>Ready for a professional base assessment? Get a free estimate for your driveway project.</p>
+                        <form onsubmit="handleSidebarSubmit(event)">
+                            <input type="text" placeholder="Your Name" required>
+                            <input type="tel" placeholder="Phone Number" required>
+                            <textarea placeholder="Tell us about your project" rows="3"></textarea>
+                            <button type="submit">Request Free Estimate</button>
+                        </form>
+                    </div>
+                    <div class="sidebar-card">
+                        <h4>📚 Related Guides</h4>
+                        <a href="driveway-excavation-grading.html" class="related-guide">
+                            <div class="related-guide-image"></div>
+                            <div class="related-guide-content"><h5>Excavation & Grading</h5><span>12 min read</span></div>
+                        </a>
+                        <a href="driveway-thickness-guide.html" class="related-guide">
+                            <div class="related-guide-image"></div>
+                            <div class="related-guide-content"><h5>Thickness Guide</h5><span>10 min read</span></div>
+                        </a>
+                        <a href="driveway-slope-drainage.html" class="related-guide">
+                            <div class="related-guide-image"></div>
+                            <div class="related-guide-content"><h5>Slope & Drainage</h5><span>11 min read</span></div>
+                        </a>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
 
-      <h3>Subgrade (Native Soil)</h3>
-      <p>The subgrade is the natural soil or prepared ground beneath your driveway. It provides the ultimate foundation for everything above. Proper subgrade preparation involves:</p>
-      <ul>
-        <li>Removing organic material, topsoil, and debris</li>
-        <li>Excavating to proper depth (varies by material and load)</li>
-        <li>Compacting soil to 90% density minimum</li>
-        <li>Ensuring proper drainage away from the driveway area</li>
-      </ul>
-      <p>Problem soils like expansive clay or poorly draining silt may require removal and replacement with suitable fill material.</p>
+    <section class="tab-content" id="layers">
+        <div class="container">
+            <div class="guide-content-wrapper">
+                <div class="guide-main">
+                    <h2>Understanding Driveway Layers</h2>
+                    <h3>Subgrade (Native Soil)</h3>
+                    <p>The subgrade is the natural soil beneath your driveway. Proper preparation involves removing organic material, excavating to depth, compacting to 90% density, and ensuring drainage away from the area.</p>
+                    <h3>Sub-base Layer</h3>
+                    <p>4-6 inches of larger aggregate (2-4 inch stone) used when native soil has poor load-bearing capacity or frost heave potential.</p>
+                    <h3>Base Layer</h3>
+                    <p>The critical structural component: 4-8 inches of well-graded crushed stone or gravel, compacted to 95% density. Bears vehicle weight and transfers load to the subgrade.</p>
+                    <h3>Surface Layer</h3>
+                    <p>Concrete (4-8 in), asphalt (2-6 in), pavers (2-4 in bedding), or gravel (4-6 in). Cannot compensate for poor base.</p>
+                </div>
+                <aside class="guide-sidebar">
+                    <div class="sidebar-card">
+                        <h4>📐 Depth by Use</h4>
+                        <div class="quick-stat"><span class="quick-stat-label">Light residential</span><span class="quick-stat-value">4-6 in base</span></div>
+                        <div class="quick-stat"><span class="quick-stat-label">Standard residential</span><span class="quick-stat-value">6-8 in base</span></div>
+                        <div class="quick-stat"><span class="quick-stat-label">Heavy vehicles</span><span class="quick-stat-value">8-12 in base</span></div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
 
-      <h3>Sub-base Layer</h3>
-      <p>The sub-base layer provides additional support and drainage, particularly in areas with problematic soils:</p>
-      <ul>
-        <li>Typically 4-6 inches of larger aggregate (2-4 inch stone)</li>
-        <li>Used when native soil has poor load-bearing capacity</li>
-        <li>Essential in areas with frost heave potential</li>
-        <li>Improves drainage in wet conditions</li>
-      </ul>
-      <p>Not all driveways require a separate sub-base layer—requirements depend on soil conditions and expected loads.</p>
+    <section class="tab-content" id="materials">
+        <div class="container">
+            <div class="guide-content-wrapper">
+                <div class="guide-main">
+                    <h2>Base Material Options</h2>
+                    <h3>Crushed Stone</h3>
+                    <p>3/4 inch to 1-1/2 inch crushed stone is the premium base: excellent load-bearing, superior drainage, long-lasting. Best for all driveway types.</p>
+                    <h3>Crushed Concrete</h3>
+                    <p>Eco-friendly recycled option. Lower cost, good performance when properly processed. Quality varies by source.</p>
+                    <h3>Road Base (Class 5)</h3>
+                    <p>Blend of stone and fines for maximum compaction. Excellent for asphalt, cost-effective, proven performance.</p>
+                    <h3>Gravel</h3>
+                    <p>Washed gravel: good drainage, lower cost, but less load-bearing. Can shift and rut under heavy loads.</p>
+                </div>
+                <aside class="guide-sidebar">
+                    <div class="sidebar-card">
+                        <h4>🛒 Material Checklist</h4>
+                        <div class="quick-stat"><span class="quick-stat-label">Best overall</span><span class="quick-stat-value">Crushed stone</span></div>
+                        <div class="quick-stat"><span class="quick-stat-label">Asphalt base</span><span class="quick-stat-value">Road base</span></div>
+                        <div class="quick-stat"><span class="quick-stat-label">Eco option</span><span class="quick-stat-value">Crushed concrete</span></div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
 
-      <h3>Base Layer</h3>
-      <p>The base layer is the critical structural component directly beneath your driveway surface:</p>
-      <ul>
-        <li>4-8 inches of well-graded crushed stone or gravel</li>
-        <li>Compacted to 95% density</li>
-        <li>Provides load distribution and drainage</li>
-        <li>Prevents settlement and frost heave</li>
-      </ul>
-      <p>The base layer bears the weight of vehicles and transfers that load to the subgrade below. Inadequate base preparation is the leading cause of driveway failure.</p>
+    <section class="tab-content" id="installation">
+        <div class="container">
+            <div class="guide-content-wrapper">
+                <div class="guide-main">
+                    <h2>Proper Base Installation</h2>
+                    <h3>Depth Requirements</h3>
+                    <p>Light residential: 4-6 inches. Standard: 6-8 inches. Heavy vehicles/RVs: 8-12+ inches.</p>
+                    <h3>Compaction</h3>
+                    <p>Compact in 2-4 inch lifts. Plate compactor for small areas, vibratory roller for large. Subgrade: 90% density. Base: 95% density.</p>
+                    <h3>Grade and Slope</h3>
+                    <p>Minimum 1% slope (1/8 in per ft), recommended 2% (1/4 in per ft). Direction: away from structures.</p>
+                    <h3>Signs of Base Failure</h3>
+                    <p>Alligator cracking, settlement, potholes, edge crumbling. Professional assessment recommended.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-      <h3>Surface Layer</h3>
-      <p>The surface layer provides the visible, drivable surface:</p>
-      <ul>
-        <li>Concrete: 4-8 inches thick</li>
-        <li>Asphalt: 2-6 inches thick</li>
-        <li>Pavers: 2-4 inches of bedding sand</li>
-        <li>Gravel: 4-6 inches of compacted stone</li>
-      </ul>
-      <p>While important for appearance and wear resistance, the surface layer cannot compensate for poor base preparation.</p>
+    <section class="tab-content" id="faq">
+        <div class="container">
+            <div class="guide-content-wrapper">
+                <div class="guide-main">
+                    <h2>Frequently Asked Questions</h2>
+                    <div class="faq-item">
+                        <button class="faq-q" onclick="toggleFaq(this)">What is the best base for a driveway? <span class="faq-toggle">+</span></button>
+                        <div class="faq-a"><p><strong>Crushed stone (3/4 inch)</strong> is generally considered the best driveway base material due to its excellent load-bearing capacity, drainage properties, and long-term stability. Road base (Class 5) is also excellent, particularly for asphalt driveways.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" onclick="toggleFaq(this)">How deep should driveway base be? <span class="faq-toggle">+</span></button>
+                        <div class="faq-a"><p>For standard residential use, the base should be <strong>6-8 inches deep</strong>. Heavy vehicles require 8-12 inches, while RVs and heavy equipment need 10-12+ inches of properly compacted base material.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" onclick="toggleFaq(this)">Do I need gravel under my driveway? <span class="faq-toggle">+</span></button>
+                        <div class="faq-a"><p><strong>Yes</strong>, virtually all driveways require a gravel or stone base beneath the surface material. The base provides essential load distribution, drainage, and frost protection. Only some specialized installations on bedrock are exceptions.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" onclick="toggleFaq(this)">What happens if base is not compacted? <span class="faq-toggle">+</span></button>
+                        <div class="faq-a"><p>An uncompacted base will settle over time, causing the driveway surface to crack, sink, and deteriorate prematurely. Settlement can begin within months and lead to complete driveway failure within 2-5 years, requiring costly replacement.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" onclick="toggleFaq(this)">What compaction density is required? <span class="faq-toggle">+</span></button>
+                        <div class="faq-a"><p><strong>Subgrade:</strong> 90% of maximum dry density. <strong>Base layers:</strong> 95% of maximum dry density. Use a plate compactor or vibratory roller. Each lift must be compacted before adding the next.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" onclick="toggleFaq(this)">How do I handle clay or problem soils? <span class="faq-toggle">+</span></button>
+                        <div class="faq-a"><p>Expansive clay: remove and replace with 12+ inches of suitable fill, install geotextile fabric. Organic soils must be completely removed. High water table: install subsurface drainage or consider permeable materials.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" onclick="toggleFaq(this)">When is a sub-base layer needed? <span class="faq-toggle">+</span></button>
+                        <div class="faq-a"><p>When native soil has poor load-bearing capacity, frost heave potential, or wet conditions. Not all driveways need a separate sub-base—requirements depend on soil conditions and expected loads.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" onclick="toggleFaq(this)">Can I use recycled materials for base? <span class="faq-toggle">+</span></button>
+                        <div class="faq-a"><p><strong>Crushed concrete</strong> is a viable eco-friendly option when properly processed. Quality varies by source—ensure it's free of contaminants. Generally good performance at lower cost than virgin stone.</p></div>
+                    </div>
+                </div>
+                <aside class="guide-sidebar">
+                    <div class="sidebar-card">
+                        <h4>📚 More Resources</h4>
+                        <a href="driveway-excavation-grading.html" class="related-guide">
+                            <div class="related-guide-image"></div>
+                            <div class="related-guide-content"><h5>Excavation & Grading</h5><span>12 min read</span></div>
+                        </a>
+                        <a href="driveway-thickness-guide.html" class="related-guide">
+                            <div class="related-guide-image"></div>
+                            <div class="related-guide-content"><h5>Thickness Guide</h5><span>10 min read</span></div>
+                        </a>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
 
-      <h2>Subgrade Preparation</h2>
+    <footer class="footer" style="margin-top: 4rem;">
+        <div class="container">
+            <p>&copy; 2026 Drivewayz USA. Licensed & Insured. Serving the United States with Pride.</p>
+            <p class="footer-links">
+                <a href="../index.html#services">Services</a> •
+                <a href="../guides-hub.html">Guides</a> •
+                <a href="../index.html#contact">Contact</a> •
+                <a href="#">Privacy Policy</a>
+            </p>
+        </div>
+    </footer>
 
-      <h3>Soil Testing and Assessment</h3>
-      <p>Before construction, assess your soil conditions:</p>
-      <p><strong>Visual inspection:</strong> Look for signs of problem soils:</p>
-      <ul>
-        <li>Organic matter or vegetation (must be removed)</li>
-        <li>Excessive moisture or standing water</li>
-        <li>Cracking patterns indicating expansive clay</li>
-      </ul>
-      <p><strong>Simple tests:</strong></p>
-      <ul>
-        <li>Squeeze test: Clay soil forms a ribbon; sandy soil falls apart</li>
-        <li>Percolation test: Dig a hole, fill with water, observe drainage</li>
-      </ul>
-      <p><strong>Professional testing:</strong> For large projects or suspect soils, consider geotechnical testing to determine soil classification, load-bearing capacity, drainage characteristics, and frost susceptibility.</p>
-
-      <h3>Compaction Requirements</h3>
-      <p>Proper compaction is essential for driveway longevity:</p>
-      <p><strong>Subgrade compaction:</strong></p>
-      <ul>
-        <li>Target: 90% of maximum dry density</li>
-        <li>Method: Plate compactor or vibratory roller</li>
-        <li>Test: Nuclear density gauge or sand cone test</li>
-      </ul>
-      <p><strong>Base compaction:</strong></p>
-      <ul>
-        <li>Target: 95% of maximum dry density</li>
-        <li>Method: Vibratory roller in 2-4 inch lifts</li>
-        <li>Critical: Each lift must be compacted before adding next</li>
-      </ul>
-
-      <h3>Dealing with Problem Soils</h3>
-      <p><strong>Expansive clay soils:</strong></p>
-      <ul>
-        <li>Remove and replace with 12+ inches of suitable fill</li>
-        <li>Install geotextile fabric to prevent mixing</li>
-        <li>Consider post-tensioned concrete for severe conditions</li>
-      </ul>
-      <p><strong>Sandy soils:</strong></p>
-      <ul>
-        <li>Generally good for drainage</li>
-        <li>May require stabilization with cement or lime</li>
-        <li>Ensure adequate compaction (can be challenging)</li>
-      </ul>
-      <p><strong>Organic soils:</strong></p>
-      <ul>
-        <li>Must be completely removed</li>
-        <li>Replace with compacted structural fill</li>
-        <li>Never build on peat, muck, or uncompacted fill</li>
-      </ul>
-      <p><strong>High water table:</strong></p>
-      <ul>
-        <li>Install subsurface drainage system</li>
-        <li>Raise driveway grade if possible</li>
-        <li>Consider permeable surface materials</li>
-      </ul>
-
-      <h2>Base Material Options</h2>
-
-      <h3>Crushed Stone</h3>
-      <p>Crushed stone (typically 3/4 inch to 1-1/2 inch) is the premium base material:</p>
-      <p><strong>Advantages:</strong></p>
-      <ul>
-        <li>Excellent load-bearing capacity</li>
-        <li>Superior drainage</li>
-        <li>Long-lasting performance</li>
-        <li>Widely available</li>
-      </ul>
-      <p><strong>Best for:</strong> All driveway types, especially heavy loads</p>
-
-      <h3>Crushed Concrete</h3>
-      <p>Recycled concrete aggregate offers an eco-friendly alternative:</p>
-      <p><strong>Advantages:</strong></p>
-      <ul>
-        <li>Lower cost than virgin stone</li>
-        <li>Good performance when properly processed</li>
-        <li>Environmentally sustainable</li>
-        <li>Often locally available</li>
-      </ul>
-      <p><strong>Considerations:</strong> May contain contaminants, quality varies by source, can be dusty during installation.</p>
-
-      <h3>Road Base (Class 5)</h3>
-      <p>Road base is a blend of stone and fines designed for maximum compaction:</p>
-      <p><strong>Advantages:</strong></p>
-      <ul>
-        <li>Compacts to near-solid density</li>
-        <li>Excellent for asphalt base</li>
-        <li>Cost-effective</li>
-        <li>Proven performance</li>
-      </ul>
-      <p><strong>Best for:</strong> Asphalt driveways and heavy-use areas</p>
-
-      <h3>Gravel</h3>
-      <p>Washed gravel provides good drainage but less load-bearing capacity:</p>
-      <p><strong>Advantages:</strong></p>
-      <ul>
-        <li>Excellent drainage</li>
-        <li>Lower cost</li>
-        <li>Easy to work with</li>
-        <li>Good for permeable installations</li>
-      </ul>
-      <p><strong>Limitations:</strong> Less stable under heavy loads, can shift and rut, requires thicker layers.</p>
-
-      <h2>Proper Base Installation</h2>
-
-      <h3>Depth Requirements</h3>
-      <p>Base depth varies by expected loads:</p>
-      <table class="comparison-table">
-        <tr><th>Use Type</th><th>Minimum Base Depth</th><th>Recommended Depth</th></tr>
-        <tr><td>Light residential</td><td>4 inches</td><td>6 inches</td></tr>
-        <tr><td>Standard residential</td><td>6 inches</td><td>8 inches</td></tr>
-        <tr><td>Heavy vehicles</td><td>8 inches</td><td>10-12 inches</td></tr>
-        <tr><td>RVs/heavy equipment</td><td>10 inches</td><td>12+ inches</td></tr>
-      </table>
-
-      <h3>Compaction Methods</h3>
-      <p><strong>Plate compactor:</strong> Best for small driveways and tight spaces. Capacity: 1,500-3,000 sq ft/day.</p>
-      <p><strong>Vibratory roller:</strong> Best for large driveways and commercial projects. Capacity: 5,000+ sq ft/day.</p>
-      <p><strong>Jumping jack tamper:</strong> Best for edges, corners, and small areas.</p>
-
-      <h3>Grade and Slope</h3>
-      <p>Proper base grading ensures drainage:</p>
-      <ul>
-        <li><strong>Minimum slope:</strong> 1% (1/8 inch per foot)</li>
-        <li><strong>Recommended slope:</strong> 2% (1/4 inch per foot)</li>
-        <li><strong>Maximum slope:</strong> 5% for accessibility</li>
-        <li><strong>Direction:</strong> Away from structures, toward drainage</li>
-      </ul>
-      <p>Use a laser level or string line to establish and maintain proper grade during installation.</p>
-
-      <h2>Signs of Base Failure</h2>
-      <p>Recognize these warning signs of inadequate base preparation:</p>
-
-      <h3>Surface Cracks</h3>
-      <ul>
-        <li>Alligator cracking (interconnected pattern)</li>
-        <li>Longitudinal cracks along driving path</li>
-        <li>Edge cracking where base support is inadequate</li>
-      </ul>
-
-      <h3>Settlement and Depressions</h3>
-      <ul>
-        <li>Low spots that collect water</li>
-        <li>Uneven surface with visible dips</li>
-        <li>Doors that scrape on settled areas</li>
-      </ul>
-
-      <h3>Potholes and Breakup</h3>
-      <ul>
-        <li>Holes that expose base material</li>
-        <li>Surface breaking into chunks</li>
-        <li>Rapid deterioration in specific areas</li>
-      </ul>
-      <p>If you observe these signs, professional assessment is recommended to determine if repairs or replacement are needed.</p>
-
-      <h2>Frequently Asked Questions</h2>
-
-      <h3>What is the best base for a driveway?</h3>
-      <p><strong>Crushed stone (3/4 inch)</strong> is generally considered the best driveway base material due to its excellent load-bearing capacity, drainage properties, and long-term stability. Road base (Class 5) is also excellent, particularly for asphalt driveways.</p>
-
-      <h3>How deep should driveway base be?</h3>
-      <p>For standard residential use with cars and light trucks, the base should be <strong>6-8 inches deep</strong>. Heavy vehicles require <strong>8-12 inches</strong>, while RVs and heavy equipment need <strong>10-12+ inches</strong> of properly compacted base material.</p>
-
-      <h3>Do I need gravel under my driveway?</h3>
-      <p>Yes, virtually all driveways require a gravel or stone base beneath the surface material. The base provides essential load distribution, drainage, and frost protection. The only exceptions are some specialized installations on bedrock or engineered fill.</p>
-
-      <h3>What happens if base is not compacted?</h3>
-      <p>An uncompacted base will settle over time, causing the driveway surface to crack, sink, and deteriorate prematurely. Settlement can begin within months and lead to complete driveway failure within 2-5 years, requiring costly replacement.</p>
-
-      <p style="text-align:center;margin-top:3rem;padding:2rem;background:#fef9c3;border-radius:8px;"><strong>Need help planning your driveway base?</strong><br>Get a professional base assessment and connect with experienced contractors who understand proper subgrade preparation.</p>
-    </article>
-  </main>
-
-  <footer>
-    <div class="footer-content">
-      <p>&copy; 2025 Drivewayz USA. All rights reserved.</p>
-    </div>
-  </footer>
-  <script src="../main.js"></script>
+    <script>
+        function switchTab(tabName) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            document.getElementById(tabName).classList.add('active');
+        }
+        function scrollToTab(tabName) {
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                if (btn.textContent.toLowerCase().includes(tabName.replace('faq','faq'))) { btn.click(); btn.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+            });
+        }
+        function toggleFaq(btn) { btn.parentElement.classList.toggle('open'); }
+        function saveGuide() {
+            let saved = JSON.parse(localStorage.getItem('savedGuides') || '[]');
+            const id = 'base-subgrade';
+            if (saved.includes(id)) { saved = saved.filter(x => x !== id); document.getElementById('saveIcon').textContent = '🔖'; document.getElementById('saveText').textContent = 'Save Guide'; }
+            else { saved.push(id); document.getElementById('saveIcon').textContent = '❤️'; document.getElementById('saveText').textContent = 'Saved!'; }
+            localStorage.setItem('savedGuides', JSON.stringify(saved));
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            if (JSON.parse(localStorage.getItem('savedGuides') || '[]').includes('base-subgrade')) {
+                document.getElementById('saveIcon').textContent = '❤️';
+                document.getElementById('saveText').textContent = 'Saved!';
+            }
+        });
+        function handleSidebarSubmit(event) { event.preventDefault(); alert('Thank you! We will contact you shortly with your free estimate.'); event.target.reset(); }
+    </script>
 </body>
 </html>
