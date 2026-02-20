@@ -231,10 +231,17 @@
                             </select>
                         </div>
                     </div>
+
+                                    <div class="form-row">
+                    <div class="form-group">
+                        <label for="zip">ZIP Code *</label>
+                        <input type="text" id="zip" name="zip" required>
+                    </div>
+                </div>
                     
                     <div class="form-group">
-                        <label for="message">Tell us about your project *</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
+                                            <label for="message">Tell us about your project</label>
+                                            <textarea id="message" name="message" rows="5"></textarea>
                     </div>
                     
                     <button type="submit" class="cta-button">Request Free Estimate</button>
@@ -291,7 +298,8 @@
             email: document.getElementById("email").value.trim(),
             phone: document.getElementById("phone").value.trim(),
             drivewayType: document.getElementById("driveway-type").value,
-            message: document.getElementById("message").value.trim()
+            message: document.getElementById("message").value.trim(),
+                        zip: document.getElementById("zip").value.trim()
         };
 
         submitBtn.disabled = true;
