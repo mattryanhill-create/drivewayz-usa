@@ -492,6 +492,35 @@ function init() {
   buildHeroSearch();
   buildTrustBar();
   buildNewLayout();
+
+      // === DOM-based overrides (bypass CSS specificity issues) ===
+    var hero = document.querySelector('.hero');
+    if (hero) {
+      hero.style.setProperty('height', 'auto', 'important');
+      hero.style.setProperty('min-height', '0', 'important');
+      hero.style.setProperty('padding', '3.5rem 2rem 3rem', 'important');
+    }
+
+    // Hide old territories section
+    var terrSec = document.querySelector('.territories-section');
+    if (terrSec) terrSec.style.setProperty('display', 'none', 'important');
+
+    // Hide old benefits section
+    var benSec = document.querySelector('.benefits-section');
+    if (benSec) benSec.style.setProperty('display', 'none', 'important');
+
+    // Hide old map section
+    var mapSec = document.querySelector('.map-section');
+    if (mapSec) mapSec.style.setProperty('display', 'none', 'important');
+
+    // Hide old regions section
+    var regSec = document.querySelector('.regions-section');
+    if (regSec) regSec.style.setProperty('display', 'none', 'important');
+
+    // Hide lead capture section (inline-styled section after benefits)
+    if (benSec && benSec.nextElementSibling && !benSec.nextElementSibling.classList.contains('cta-section')) {
+      benSec.nextElementSibling.style.setProperty('display', 'none', 'important');
+    }
 }
 
 if (document.readyState === 'loading') {
