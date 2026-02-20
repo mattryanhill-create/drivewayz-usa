@@ -8,10 +8,10 @@ function injectStyles() {
   s.id = 'loc-enhancements';
   s.textContent = `
     /* ---- Hero: compact ---- */
-    .hero { padding: 3.5rem 2rem 3rem !important; min-height: 0 !important; }
+          .hero { padding: 3.5rem 2rem 3rem !important; height: auto !important; min-height: 0 !important; }
     .hero h1 { font-size: clamp(1.8rem,4vw,2.8rem) !important; margin-bottom: 0.5rem !important; }
     .hero-subtitle { margin-bottom: 1.5rem !important; font-size: 1.05rem !important; }
-    .loc-breadcrumb { font-size: 0.85rem; opacity: 0.8; margin-bottom: 0.75rem; }
+    .loc-breadcrumb { font-size: 0.85rem; opacity: 0.8; margin-bottom: 0.75rem; text-align: center; }
     .loc-breadcrumb a { color: rgba(255,255,255,0.85); text-decoration: none; }
     .loc-breadcrumb a:hover { text-decoration: underline; }
     .loc-breadcrumb span { color: white; }
@@ -62,6 +62,8 @@ function injectStyles() {
     .map-section { display: none !important; }
     .regions-section { display: none !important; }
     .benefits-section { display: none !important; }
+                .territories-section { display: none !important; }
+      .benefits-section + section { display: none !important; }
 
     /* ---- New layout wrapper ---- */
     .loc-page-body {
@@ -254,7 +256,12 @@ function buildBreadcrumb() {
   const bc = document.createElement('div');
   bc.className = 'loc-breadcrumb';
   bc.innerHTML = '<a href="index.html">Home</a> <span>›</span> <span>Service Locations</span>';
-  hero.insertBefore(bc, hero.firstChild);
+    var heroContent = hero.querySelector('.hero-content');
+    if (heroContent) {
+      heroContent.insertBefore(bc, heroContent.firstChild);
+    } else {
+      hero.insertBefore(bc, hero.firstChild);
+    }
 }
 
 function buildHeroSearch() {
@@ -490,6 +497,35 @@ function init() {
   buildHeroSearch();
   buildTrustBar();
   buildNewLayout();
+
+      // === DOM-based overrides (bypass CSS specificity issues) ===
+    var hero = document.querySelector('.hero');
+    if (hero) {
+      hero.style.setProperty('height', 'auto', 'important');
+      hero.style.setProperty('min-height', '0', 'important');
+      hero.style.setProperty('padding', '3.5rem 2rem 3rem', 'important');
+    }
+
+    // Hide old territories section
+    var terrSec = document.querySelector('.territories-section');
+    if (terrSec) terrSec.style.setProperty('display', 'none', 'important');
+
+    // Hide old benefits section
+    var benSec = document.querySelector('.benefits-section');
+    if (benSec) benSec.style.setProperty('display', 'none', 'important');
+
+    // Hide old map section
+    var mapSec = document.querySelector('.map-section');
+    if (mapSec) mapSec.style.setProperty('display', 'none', 'important');
+
+    // Hide old regions section
+    var regSec = document.querySelector('.regions-section');
+    if (regSec) regSec.style.setProperty('display', 'none', 'important');
+
+    // Hide lead capture section (inline-styled section after benefits)
+    if (benSec && benSec.nextElementSibling && !benSec.nextElementSibling.classList.contains('cta-section')) {
+      benSec.nextElementSibling.style.setProperty('display', 'none', 'important');
+    }
 }
 
 if (document.readyState === 'loading') {
