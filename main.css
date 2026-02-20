@@ -983,6 +983,10 @@ section {
     .form-row {
         grid-template-columns: 1fr;
     }
+
+     .cta-button-small {
+      display: none;
+  }
 }
 
 @media (max-width: 640px) {
