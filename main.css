@@ -447,7 +447,7 @@ body {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.cta-button:hover {
+ {
   transform: translateY(-3px);
   box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
@@ -663,6 +663,21 @@ rgba(0,0,0,0.3) 100%);
 
 section {
     padding: 5rem 0;
+}
+
+.cta-button.submitted {
+  background-color: #28a745 !important;
+  color: white !important;
+  cursor: default !important;
+  transform: none !important;
+  box-shadow: none !important;
+  animation: none;
+}
+
+.cta-button.submitted:hover {
+  background-color: #28a745 !important;
+  transform: none !important;
+  box-shadow: none !important;
 }
 
 .section-title {
