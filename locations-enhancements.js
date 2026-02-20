@@ -8,7 +8,7 @@ function injectStyles() {
   s.id = 'loc-enhancements';
   s.textContent = `
     /* ---- Hero: compact ---- */
-    .hero { padding: 3.5rem 2rem 3rem !important; min-height: 0 !important; }
+          .hero { padding: 3.5rem 2rem 3rem !important; height: auto !important; min-height: 0 !important; }
     .hero h1 { font-size: clamp(1.8rem,4vw,2.8rem) !important; margin-bottom: 0.5rem !important; }
     .hero-subtitle { margin-bottom: 1.5rem !important; font-size: 1.05rem !important; }
     .loc-breadcrumb { font-size: 0.85rem; opacity: 0.8; margin-bottom: 0.75rem; }
