@@ -312,6 +312,7 @@
                 body: JSON.stringify(data)
             });
             if (res.ok) {
+<<<<<<< Updated upstream
                     msgDiv.textContent = "Thank you! We will be in touch shortly.";
                     msgDiv.style.color = "green";
                     form.reset();
@@ -321,6 +322,16 @@
                     submitBtn.style.cursor = "default";
                     submitBtn.disabled = true;
                     submitBtn.classList.add("submitted");
+=======
+                gtag('event', 'generate_lead', {
+                    'event_category': 'form',
+                    'event_label': 'free_estimate',
+                    'value': 1
+                });
+                msgDiv.textContent = "Thank you! We will be in touch shortly.";
+                msgDiv.style.color = "green";
+                form.reset();
+>>>>>>> Stashed changes
             } else {
                 msgDiv.textContent = "Something went wrong. Please try again.";
                 msgDiv.style.color = "red";

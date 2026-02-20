@@ -6,11 +6,13 @@ Reads content_briefs.csv (column: Article Topic) and outputs full HTML pages to 
 Dependencies: pip install openai python-dotenv
 """
 
+import concurrent.futures
 import csv
 import html
 import json
 import os
 import re
+import threading
 import time
 from pathlib import Path
 from typing import Optional
@@ -26,7 +28,7 @@ OUTPUT_DIR = PROJECT_ROOT / "guides"
 FAILED_JSON = PROJECT_ROOT / "failed.json"
 API_BASE_URL = "https://api.moonshot.ai/v1"
 MODEL = "kimi-k2-0905-preview"
-DELAY_SECONDS = 2
+DELAY_SECONDS = 0.5
 
 # System prompt for Kimi API
 SYSTEM_PROMPT = """You are an expert SEO content writer for Drivewayz USA, a driveway services company. Write detailed, helpful, original articles. Use H2 and H3 subheadings. Include practical advice homeowners can use. Write in a friendly, authoritative tone. Use short paragraphs. Include a FAQ section at the end with 3-4 common questions. Output only the article body HTML — no full page structure, just the content that goes inside the main article area."""
@@ -152,7 +154,6 @@ def build_page_from_template(
         f'<p class="guide-hero-subtitle">{html.escape(subtitle)}</p>',
         result,
         count=1,
-        flags=re.DOTALL,
     )
 
     # Replace breadcrumb span (last segment)
@@ -174,6 +175,42 @@ def build_page_from_template(
     return result
 
 
+def process_single_row(
+    client: OpenAI, template_html: str, row: dict, index: int
+) -> dict:
+    """Process one row: skip if file exists, else generate and save. Returns status dict."""
+    topic = row.get("Article Topic", row.get("article_topic", "Untitled")).strip()
+    if not topic:
+        return {"status": "skipped", "topic": "", "error": None, "row": index + 1}
+
+    slug = slugify(topic)
+    filename = f"{slug}.html"
+    filepath = OUTPUT_DIR / filename
+
+    if filepath.exists():
+        return {"status": "skipped", "topic": topic, "error": None, "row": index + 1}
+
+    try:
+        article_body = generate_article_body(client, topic)
+        time.sleep(DELAY_SECONDS)  # Per-thread delay to avoid rate limits
+
+        if article_body:
+            full_page = build_page_from_template(
+                template_html, topic, article_body
+            )
+            filepath.write_text(full_page, encoding="utf-8")
+            return {"status": "success", "topic": topic, "error": None, "row": index + 1}
+        else:
+            return {
+                "status": "failed",
+                "topic": topic,
+                "error": "Empty response",
+                "row": index + 1,
+            }
+    except Exception as e:
+        return {"status": "failed", "topic": topic, "error": str(e), "row": index + 1}
+
+
 def main():
     api_key = os.environ.get("MOONSHOT_API_KEY")
     if not api_key:
@@ -193,9 +230,6 @@ def main():
 
     client = OpenAI(api_key=api_key, base_url=API_BASE_URL)
 
-    failed = []
-    total = 0
-
     with open(CSV_PATH, newline="", encoding="utf-8") as f:
         reader = csv.DictReader(f)
         rows = list(reader)
@@ -204,47 +238,53 @@ def main():
     if "Article Topic" not in fieldnames:
         print("WARNING: CSV should have column 'Article Topic'")
 
-    for i, row in enumerate(rows):
-        topic = row.get("Article Topic", row.get("article_topic", "Untitled")).strip()
-        if not topic:
-            continue
+    # Build list of (index, row) for rows with non-empty topic
+    work_items = [
+        (i, row)
+        for i, row in enumerate(rows)
+        if row.get("Article Topic", row.get("article_topic", "")).strip()
+    ]
+    total = len(work_items)
 
-        slug = slugify(topic)
-        filename = f"{slug}.html"
-        filepath = OUTPUT_DIR / filename
+    failed = []
+    completed_count = 0
+    skipped_count = 0
+    print_lock = threading.Lock()
 
-        if filepath.exists():
-            print(f"[{i + 1}/{len(rows)}] Skipping existing: {topic} -> {filename}")
-            continue
+    with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
+        futures = {
+            executor.submit(
+                process_single_row, client, template_html, row, index
+            ): (index, row)
+            for index, row in work_items
+        }
 
-        total += 1
-        print(f"[{i + 1}/{len(rows)}] Generating: {topic} -> {filename}")
-
-        try:
-            article_body = generate_article_body(client, topic)
-            if article_body:
-                full_page = build_page_from_template(
-                    template_html, topic, article_body
-                )
-                filepath.write_text(full_page, encoding="utf-8")
-                print(f"  ✓ Saved to {filepath}")
-            else:
-                failed.append(
-                    {"row": i + 1, "topic": topic, "error": "Empty response"}
-                )
-                print("  ✗ Empty response")
-        except Exception as e:
-            failed.append({"row": i + 1, "topic": topic, "error": str(e)})
-            print(f"  ✗ Failed: {e}")
-
-        time.sleep(DELAY_SECONDS)
+        for future in concurrent.futures.as_completed(futures):
+            result = future.result()
+            with print_lock:
+                completed_count += 1
+                if result["status"] == "success":
+                    print(f"[{completed_count}/{total}] Generated: {result['topic']}")
+                elif result["status"] == "skipped" and result["topic"]:
+                    skipped_count += 1
+                    print(f"[{completed_count}/{total}] Skipped: {result['topic']}")
+                elif result["status"] == "failed":
+                    failed.append(
+                        {
+                            "row": result["row"],
+                            "topic": result["topic"],
+                            "error": result["error"],
+                        }
+                    )
+                    print(f"[{completed_count}/{total}] Failed: {result['topic']}")
 
     if failed:
         with open(FAILED_JSON, "w", encoding="utf-8") as f:
             json.dump(failed, f, indent=2)
         print(f"\n{len(failed)} failure(s) saved to {FAILED_JSON}")
 
-    print(f"\nDone. Generated {total - len(failed)}/{total} articles.")
+    attempted = total - skipped_count
+    print(f"\nDone. Generated {attempted - len(failed)}/{attempted} articles.")
     return 0 if not failed else 1
 
 
