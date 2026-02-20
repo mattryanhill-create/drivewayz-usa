@@ -1,25 +1,15 @@
 /**
- * Guides Hub Page Enhancements
- * Applies Kimi UX mockup design to guides-hub.html
- * Adds: breadcrumb, search bar, category filters, popular guides section, improved layout
+ * Guides Hub Page Enhancements v2
+ * Sidebar layout: Popular Guides + CTA in sidebar, filters connect directly to results
+ * Fixes: Enter key search, result count, search/filter coordination
  */
-
 document.addEventListener('DOMContentLoaded', function() {
-  // Inject enhanced CSS
   injectCSS();
-  // Build breadcrumb in hero
   buildBreadcrumb();
-  // Enhance hero subtitle
   enhanceHeroSubtitle();
-  // Build search bar
   buildSearchBar();
-  // Build category filter pills
   buildCategoryFilters();
-  // Create Popular Guides section
-  buildPopularGuides();
-  // Rename and restructure All Guides section
-  restructureAllGuides();
-  // Enhance footer
+  restructureToSidebarLayout();
   enhanceFooter();
 });
 
@@ -43,7 +33,6 @@ function injectCSS() {
     .guides-breadcrumb .separator {
       margin: 0 0.5rem;
     }
-
     /* Search bar area */
     .guides-search-wrapper {
       max-width: 800px;
@@ -83,7 +72,6 @@ function injectCSS() {
     .guides-search-inner button:hover {
       background: var(--primary-dark, #3570B0);
     }
-
     /* Category filter pills */
     .guides-filter-wrapper {
       text-align: center;
@@ -123,108 +111,162 @@ function injectCSS() {
       color: #fff;
       border-color: var(--primary-color, #4A90D9);
     }
-
-    /* Popular Guides section */
-    .popular-guides-section {
-      padding: 3rem 0 2rem;
-      background: var(--bg-light, #f8f9fa);
-    }
-    .popular-guides-header {
+    /* Result count bar */
+    .guides-result-bar {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    .guides-result-count {
+      font-size: 0.95rem;
+      color: #666;
+    }
+    .guides-result-count strong {
+      color: var(--text-dark, #1a1a2e);
+    }
+    .guides-no-results {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: #888;
+      font-size: 1.1rem;
+    }
+    .guides-no-results p {
+      margin-bottom: 0.5rem;
+    }
+    /* Sidebar layout wrapper */
+    .guides-content-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 2rem;
       max-width: 1200px;
-      margin: 0 auto 1.5rem;
+      margin: 0 auto;
       padding: 0 2rem;
     }
-    .popular-guides-header h2 {
+    .guides-main-content {
+      min-width: 0;
+    }
+    .guides-main-content .guides-grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+    }
+    /* Sidebar */
+    .guides-sidebar {
+      position: sticky;
+      top: 120px;
+      align-self: start;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .sidebar-widget {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      overflow: hidden;
+    }
+    .sidebar-widget-header {
+      padding: 1rem 1.25rem;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-dark, #1a1a2e);
+      border-bottom: 1px solid #f0f0f0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .sidebar-widget-header .icon {
+      font-size: 1.1rem;
+    }
+    /* Popular Guides sidebar cards */
+    .sidebar-popular-item {
+      display: flex;
+      gap: 0.75rem;
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid #f5f5f5;
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.2s;
+    }
+    .sidebar-popular-item:last-child {
+      border-bottom: none;
+    }
+    .sidebar-popular-item:hover {
+      background: #f8f9fa;
+    }
+    .sidebar-popular-thumb {
+      width: 64px;
+      height: 64px;
+      border-radius: 8px;
+      background-size: cover;
+      background-position: center;
+      flex-shrink: 0;
+    }
+    .sidebar-popular-info h4 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-dark, #1a1a2e);
+      margin: 0 0 0.25rem;
+      line-height: 1.3;
+    }
+    .sidebar-popular-info .meta {
+      font-size: 0.75rem;
+      color: #888;
+    }
+    .sidebar-popular-info .badge-sm {
+      display: inline-block;
+      padding: 0.15rem 0.5rem;
+      border-radius: 10px;
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 0.25rem;
+    }
+    /* Sidebar CTA widget */
+    .sidebar-cta {
+      background: linear-gradient(135deg, var(--primary-dark, #1a1a2e) 0%, var(--primary-color, #4A90D9) 100%);
+      color: #fff;
+      padding: 1.5rem 1.25rem;
+      text-align: center;
+    }
+    .sidebar-cta h3 {
+      font-size: 1.1rem;
+      margin: 0 0 0.5rem;
+      font-weight: 700;
+    }
+    .sidebar-cta p {
+      font-size: 0.85rem;
+      opacity: 0.9;
+      margin: 0 0 1rem;
+      line-height: 1.5;
+    }
+    .sidebar-cta-btn {
+      display: inline-block;
+      background: #fff;
+      color: var(--primary-color, #4A90D9);
+      padding: 0.7rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    .sidebar-cta-btn:hover {
+      background: #f0f0f0;
+      transform: translateY(-2px);
+    }
+    /* Section header */
+    .guides-section-header {
+      margin-bottom: 1.5rem;
+    }
+    .guides-section-header h2 {
       font-size: 1.8rem;
       font-weight: 700;
       color: var(--text-dark, #1a1a2e);
       margin: 0;
     }
-    .popular-guides-header a {
-      color: var(--primary-color, #4A90D9);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.95rem;
-    }
-    .popular-guides-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-    .popular-card {
-      background: #fff;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-      transition: all 0.3s;
-      text-decoration: none;
-      color: inherit;
-      display: block;
-    }
-    .popular-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-    }
-    .popular-card-image {
-      height: 180px;
-      background-size: cover;
-      background-position: center;
-      position: relative;
-    }
-    .popular-card-badge {
-      position: absolute;
-      top: 0.75rem;
-      left: 0.75rem;
-      padding: 0.35rem 0.75rem;
-      border-radius: 20px;
-      font-size: 0.7rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      color: #fff;
-      letter-spacing: 0.5px;
-    }
-    .popular-card-content {
-      padding: 1.25rem;
-    }
-    .popular-card-content h3 {
-      font-size: 1.15rem;
-      margin: 0 0 0.6rem;
-      color: var(--text-dark, #1a1a2e);
-    }
-    .popular-card-content p {
-      color: #666;
-      font-size: 0.9rem;
-      line-height: 1.5;
-      margin: 0 0 0.75rem;
-    }
-    .popular-card-meta {
-      display: flex;
-      gap: 1rem;
-      font-size: 0.8rem;
-      color: #888;
-      margin-bottom: 0.6rem;
-    }
-    .popular-card-link {
-      color: var(--primary-color, #4A90D9);
-      font-weight: 600;
-      font-size: 0.9rem;
-    }
-
-    /* All Guides section overrides */
-    .guides-section .section-header-row h2 {
-      font-size: 1.8rem;
-      font-weight: 700;
-    }
-    .guides-section .guides-grid {
-      grid-template-columns: repeat(2, 1fr) !important;
-    }
-
     /* Enhanced footer */
     .enhanced-footer {
       background: var(--primary-dark, #1a1a2e);
@@ -280,26 +322,28 @@ function injectCSS() {
     .footer-bottom a:hover {
       color: #fff;
     }
-
     /* Hide old footer */
     footer.site-footer {
       display: none !important;
     }
-
-    @media (max-width: 768px) {
-      .guides-section .guides-grid {
-        grid-template-columns: 1fr !important;
-      }
-      .popular-guides-grid {
+    /* Hide old popular guides section if it exists */
+    .popular-guides-section {
+      display: none !important;
+    }
+    /* Responsive */
+    @media (max-width: 900px) {
+      .guides-content-wrapper {
         grid-template-columns: 1fr;
+      }
+      .guides-sidebar {
+        position: static;
+        order: -1;
+      }
+      .guides-main-content .guides-grid {
+        grid-template-columns: 1fr !important;
       }
       .footer-grid {
         grid-template-columns: 1fr;
-      }
-      .popular-guides-header {
-        flex-direction: column;
-        gap: 0.5rem;
-        align-items: flex-start;
       }
     }
   `;
@@ -331,6 +375,18 @@ function buildSearchBar() {
   wrapper.className = 'guides-search-wrapper';
   wrapper.innerHTML = '<div class="guides-search-inner"><input type="text" id="guideSearch" placeholder="Search guides (e.g., \'concrete repair\', \'cost calculator\')..." aria-label="Search guides"><button type="button" onclick="filterGuides()">Search</button></div>';
   hero.parentNode.insertBefore(wrapper, hero.nextSibling);
+  // Add Enter key support
+  setTimeout(function() {
+    var input = document.getElementById('guideSearch');
+    if (input) {
+      input.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          filterGuides();
+        }
+      });
+    }
+  }, 100);
 }
 
 function buildCategoryFilters() {
@@ -348,79 +404,129 @@ function buildCategoryFilters() {
   searchWrapper.parentNode.insertBefore(filterDiv, searchWrapper.nextSibling);
 }
 
-function buildPopularGuides() {
-  var filterWrapper = document.querySelector('.guides-filter-wrapper');
-  if (!filterWrapper) return;
-  var popularData = [
-    {
-      title: 'Driveway Basics: Types, Costs & Lifespan',
-      desc: 'Your complete guide to choosing the right driveway material \u2014 compare concrete, asphalt, pavers, gravel, and more.',
-      badge: 'BEGINNER GUIDE',
-      badgeColor: '#dc2626',
-      meta1: '20 min read',
-      meta2: 'Cost comparison',
-      href: 'guides/driveway-basics-types-costs-lifespan.html',
-      img: 'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&h=400&fit=crop'
-    },
-    {
-      title: 'Concrete Driveway Repair Guide',
-      desc: 'Expert guide to concrete driveway repair \u2014 crack filling, resurfacing, and restoration techniques to restore your driveway.',
-      badge: 'REPAIR',
-      badgeColor: '#dc2626',
-      meta1: '15 min read',
-      meta2: 'DIY friendly',
-      href: 'guides/concrete-repair.html',
-      img: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&h=400&fit=crop'
-    },
-    {
-      title: 'Driveway Cost Calculator & Pricing Guide',
-      desc: 'Calculate your driveway project cost by material, size, and location. Get accurate estimates for your budget planning.',
-      badge: 'PLANNING',
-      badgeColor: '#10b981',
-      meta1: '18 min read',
-      meta2: 'Interactive calculator',
-      href: 'guides/driveway-costs.html',
-      img: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&h=400&fit=crop'
-    }
-  ];
-
-  var section = document.createElement('section');
-  section.className = 'popular-guides-section';
-  var headerHTML = '<div class="popular-guides-header"><h2>Popular Guides</h2><a href="#all-guides">View All \u2192</a></div>';
-  var cardsHTML = '<div class="popular-guides-grid">';
-  popularData.forEach(function(g) {
-    cardsHTML += '<a class="popular-card" href="' + g.href + '">';
-    cardsHTML += '<div class="popular-card-image" style="background-image:url(' + g.img + ')">';
-    cardsHTML += '<span class="popular-card-badge" style="background:' + g.badgeColor + '">' + g.badge + '</span></div>';
-    cardsHTML += '<div class="popular-card-content"><h3>' + g.title + '</h3>';
-    cardsHTML += '<p>' + g.desc + '</p>';
-    cardsHTML += '<div class="popular-card-meta"><span>\u23F1 ' + g.meta1 + '</span><span>\uD83D\uDCB0 ' + g.meta2 + '</span></div>';
-    cardsHTML += '<span class="popular-card-link">Read Full Guide \u2192</span></div></a>';
-  });
-  cardsHTML += '</div>';
-  section.innerHTML = headerHTML + cardsHTML;
-  filterWrapper.parentNode.insertBefore(section, filterWrapper.nextSibling);
-}
-
-function restructureAllGuides() {
+function restructureToSidebarLayout() {
   var section = document.querySelector('.guides-section');
   if (!section) return;
-  // Add an id for anchor linking
   section.id = 'all-guides';
-  // Change the section heading from 'Our Expert Guides' to 'All Guides'
+  // Change section heading
   var sectionH2 = section.querySelector('h2');
-  if (sectionH2) {
-    sectionH2.textContent = 'All Guides';
-  }
-  // Remove the subtitle paragraph
+  if (sectionH2) sectionH2.textContent = 'All Guides';
+  // Hide old subtitle
   var sectionP = section.querySelector('.container > p');
   if (sectionP && sectionP.textContent.indexOf('Comprehensive tutorials') > -1) {
     sectionP.style.display = 'none';
   }
-  // Make the grid 2 columns
+  // Get the container and grid
+  var container = section.querySelector('.container');
+  if (!container) return;
   var grid = section.querySelector('.guides-grid');
-  if (grid) {
-    grid.style.setProperty('grid-template-columns', 'repeat(2, 1fr)', 'important');
+  if (!grid) return;
+  // Create the sidebar layout wrapper
+  var wrapper = document.createElement('div');
+  wrapper.className = 'guides-content-wrapper';
+  // Create main content area
+  var mainContent = document.createElement('div');
+  mainContent.className = 'guides-main-content';
+  // Add section header with result count
+  var headerDiv = document.createElement('div');
+  headerDiv.className = 'guides-section-header';
+  headerDiv.innerHTML = '<h2>All Guides</h2>';
+  mainContent.appendChild(headerDiv);
+  // Add result count bar
+  var resultBar = document.createElement('div');
+  resultBar.className = 'guides-result-bar';
+  resultBar.id = 'guidesResultBar';
+  var totalCards = grid.querySelectorAll('.guide-card').length;
+  resultBar.innerHTML = '<span class="guides-result-count">Showing <strong>' + totalCards + '</strong> of <strong>' + totalCards + '</strong> guides</span>';
+  mainContent.appendChild(resultBar);
+  // Move the grid into main content
+  mainContent.appendChild(grid);
+  // Create sidebar
+  var sidebar = document.createElement('aside');
+  sidebar.className = 'guides-sidebar';
+  sidebar.innerHTML = buildSidebarPopularHTML() + buildSidebarCTAHTML();
+  // Assemble
+  wrapper.appendChild(mainContent);
+  wrapper.appendChild(sidebar);
+  // Hide old h2 since we have new one in mainContent
+  if (sectionH2) sectionH2.style.display = 'none';
+  container.appendChild(wrapper);
+}
+
+function buildSidebarPopularHTML() {
+  var popularData = [
+    {
+      title: 'Driveway Basics: Types, Costs & Lifespan',
+      badge: 'BEGINNER', badgeColor: '#dc2626',
+      meta: '20 min read',
+      href: 'guides/driveway-basics-types-costs-lifespan.html',
+      img: 'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=150&h=150&fit=crop'
+    },
+    {
+      title: 'Concrete Driveway Repair Guide',
+      badge: 'REPAIR', badgeColor: '#dc2626',
+      meta: '15 min read',
+      href: 'guides/concrete-repair.html',
+      img: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=150&h=150&fit=crop'
+    },
+    {
+      title: 'Driveway Cost Calculator & Pricing Guide',
+      badge: 'PLANNING', badgeColor: '#10b981',
+      meta: '18 min read',
+      href: 'guides/driveway-costs.html',
+      img: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=150&h=150&fit=crop'
+    }
+  ];
+  var html = '<div class="sidebar-widget"><div class="sidebar-widget-header"><span class="icon">\u2B50</span> Popular Guides</div>';
+  popularData.forEach(function(g) {
+    html += '<a class="sidebar-popular-item" href="' + g.href + '">';
+    html += '<div class="sidebar-popular-thumb" style="background-image:url(' + g.img + ')"></div>';
+    html += '<div class="sidebar-popular-info">';
+    html += '<span class="badge-sm" style="background:' + g.badgeColor + '">' + g.badge + '</span>';
+    html += '<h4>' + g.title + '</h4>';
+    html += '<span class="meta">\u23F1 ' + g.meta + '</span>';
+    html += '</div></a>';
+  });
+  html += '</div>';
+  return html;
+}
+
+function buildSidebarCTAHTML() {
+  return '<div class="sidebar-widget sidebar-cta">' +
+    '<h3>Need Professional Help?</h3>' +
+    '<p>Get a free estimate from our driveway experts. Serving all 50 states.</p>' +
+    '<a href="index.html#contact" class="sidebar-cta-btn">Get Free Estimate</a>' +
+    '</div>';
+}
+
+// Update result count display
+function updateResultCount() {
+  var bar = document.getElementById('guidesResultBar');
+  if (!bar) return;
+  var cards = document.querySelectorAll('.guides-grid .guide-card');
+  var total = cards.length;
+  var visible = 0;
+  cards.forEach(function(card) {
+    if (card.style.display !== 'none') visible++;
+  });
+  if (visible === 0) {
+    bar.innerHTML = '<span class="guides-result-count">No guides found</span>';
+    // Show no results message in grid
+    var grid = document.querySelector('.guides-grid');
+    var noResults = grid.querySelector('.guides-no-results');
+    if (!noResults) {
+      noResults = document.createElement('div');
+      noResults.className = 'guides-no-results';
+      noResults.style.gridColumn = '1 / -1';
+      noResults.innerHTML = '<p>No guides match your search.</p><p style="font-size:0.9rem">Try a different keyword or reset filters.</p>';
+      grid.appendChild(noResults);
+    }
+    noResults.style.display = '';
+  } else {
+    bar.innerHTML = '<span class="guides-result-count">Showing <strong>' + visible + '</strong> of <strong>' + total + '</strong> guides</span>';
+    // Hide no results message
+    var noResults = document.querySelector('.guides-no-results');
+    if (noResults) noResults.style.display = 'none';
   }
 }
 
@@ -431,6 +537,9 @@ window.handleFilter = function(btn) {
     p.classList.remove('active');
   });
   btn.classList.add('active');
+  // Clear search input when filtering
+  var searchInput = document.getElementById('guideSearch');
+  if (searchInput) searchInput.value = '';
   var cat = btn.getAttribute('data-category');
   filterByCategory(cat);
 };
@@ -458,6 +567,7 @@ function filterByCategory(category) {
     var match = matchArr.some(function(m) { return badgeText.indexOf(m) > -1; });
     card.style.display = match ? '' : 'none';
   });
+  updateResultCount();
 }
 
 // Global search handler
@@ -476,26 +586,19 @@ window.filterGuides = function() {
     p.classList.remove('active');
     if (p.getAttribute('data-category') === 'All Guides') p.classList.add('active');
   });
+  updateResultCount();
 };
 
 function enhanceFooter() {
-  // Hide the old footer
   var oldFooter = document.querySelector('footer');
-  if (oldFooter) {
-    oldFooter.style.display = 'none';
-  }
-  // Also hide the old simple footer if it exists
+  if (oldFooter) oldFooter.style.display = 'none';
   var oldSimpleFooter = document.querySelector('.simple-footer');
-  if (oldSimpleFooter) {
-    oldSimpleFooter.style.display = 'none';
-  }
-
-  // Build new enhanced footer
+  if (oldSimpleFooter) oldSimpleFooter.style.display = 'none';
   var footer = document.createElement('footer');
   footer.className = 'enhanced-footer';
   footer.innerHTML = '<div class="footer-grid">' +
     '<div class="footer-brand">' +
-    '<strong style="color:#fff;font-size:1.3rem;">D RIVEWAYZ USA</strong>' +
+    '<strong style="color:#fff;font-size:1.3rem;">DRIVEWAYZ USA</strong>' +
     '<p>Your trusted partner for professional driveway services across America. Quality craftsmanship, nationwide coverage, local expertise.</p>' +
     '</div>' +
     '<div class="footer-col"><h4>Quick Links</h4><ul>' +
