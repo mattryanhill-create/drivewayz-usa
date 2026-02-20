@@ -209,11 +209,15 @@ def main():
         if not topic:
             continue
 
-        total += 1
         slug = slugify(topic)
         filename = f"{slug}.html"
         filepath = OUTPUT_DIR / filename
 
+        if filepath.exists():
+            print(f"[{i + 1}/{len(rows)}] Skipping existing: {topic} -> {filename}")
+            continue
+
+        total += 1
         print(f"[{i + 1}/{len(rows)}] Generating: {topic} -> {filename}")
 
         try:
@@ -233,8 +237,7 @@ def main():
             failed.append({"row": i + 1, "topic": topic, "error": str(e)})
             print(f"  ✗ Failed: {e}")
 
-        if i < len(rows) - 1:
-            time.sleep(DELAY_SECONDS)
+        time.sleep(DELAY_SECONDS)
 
     if failed:
         with open(FAILED_JSON, "w", encoding="utf-8") as f:
