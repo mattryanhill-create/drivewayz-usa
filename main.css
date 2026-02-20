@@ -983,12 +983,13 @@ section {
     .form-row {
         grid-template-columns: 1fr;
     }
+}
 
-     .cta-button-small {
+@media (max-width: 900px) {
+  .cta-button-small {
       display: none;
   }
 }
-
 @media (max-width: 640px) {
     .nav-links {
         gap: 0.75rem;
