@@ -417,11 +417,18 @@ function restructureToSidebarLayout() {
     sectionP.style.display = 'none';
   }
   // Get the container and grid
-  var container = section.querySelector('.container');
+  var container = section.querySelector('.container') || section;
   if (!container) return;
-  var grid = section.querySelector('.guides-grid');
-  if (!grid) return;
-  // Create the sidebar layout wrapper
+      var grid = section.querySelector('.guides-grid');
+    if (!grid) {
+      grid = document.createElement('div');
+      grid.className = 'guides-grid';
+      var cards = container.querySelectorAll('.guide-card');
+      if (cards.length === 0) return;
+      cards.forEach(function(card) { grid.appendChild(card); });
+      container.appendChild(grid);
+    }
+// Create the sidebar layout wrapper
   var wrapper = document.createElement('div');
   wrapper.className = 'guides-content-wrapper';
   // Create main content area
