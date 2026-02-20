@@ -62,6 +62,8 @@ function injectStyles() {
     .map-section { display: none !important; }
     .regions-section { display: none !important; }
     .benefits-section { display: none !important; }
+                .territories-section { display: none !important; }
+      .benefits-section + section { display: none !important; }
 
     /* ---- New layout wrapper ---- */
     .loc-page-body {
