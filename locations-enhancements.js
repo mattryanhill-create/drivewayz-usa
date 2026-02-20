@@ -292,7 +292,8 @@ function buildHeroSearch() {
     if (!matches.length) { results.classList.remove('open'); return; }
     matches.forEach(s => {
       const a = document.createElement('a');
-      a.href = `locations/state-page.html#${s.name.toLowerCase().replace(/\./g,'').replace(/ /g,'-')}`;
+      const slug = s.name.toLowerCase().replace(/\./g,'').replace(/ /g,'-');
+      a.href = `locations/${slug}.html`;
       a.innerHTML = `<span class="res-abbr">${s.abbr}</span>${s.name}`;
       results.appendChild(a);
     });
@@ -382,7 +383,7 @@ function buildNewLayout() {
   terrList.className = 'loc-territories-list';
   terrData.forEach(t => {
     const a = document.createElement('a');
-    a.href = `locations/state-page.html#${t.href}`;
+    a.href = `locations/${t.href}.html`;
     a.className = 'loc-territory-pill';
     a.textContent = `${t.flag} ${t.name}`;
     terrList.appendChild(a);
@@ -404,7 +405,8 @@ function buildNewLayout() {
     popularStates.map(abbr => {
       const s = statesData.find(x => x.abbr === abbr);
       if (!s) return '';
-      return `<a href="locations/state-page.html#${s.name.toLowerCase().replace(/\./g,'').replace(/ /g,'-')}">
+      const slug = s.name.toLowerCase().replace(/\./g,'').replace(/ /g,'-');
+      return `<a href="locations/${slug}.html">
         <span>${s.name}</span>
         <span class="pop-abbr">${s.abbr}</span>
       </a>`;
@@ -473,7 +475,8 @@ function renderPills(statesData, region, grid, countSpan) {
 function makePill(s) {
   const a = document.createElement('a');
   a.className = 'loc-state-pill';
-  a.href = `locations/state-page.html#${s.name.toLowerCase().replace(/\./g,'').replace(/ /g,'-')}`;
+  const slug = s.name.toLowerCase().replace(/\./g,'').replace(/ /g,'-');
+  a.href = `locations/${slug}.html`;
   a.innerHTML = `<span class="pill-abbr">${s.abbr}</span><span class="pill-name">${s.name}</span>`;
   return a;
 }
