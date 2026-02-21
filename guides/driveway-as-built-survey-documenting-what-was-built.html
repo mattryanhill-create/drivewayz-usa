@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Driveway As-Built Survey: Documenting What Was Built | Drivewayz USA Guides</title>
+  <meta name="description" content="Learn about driveway as-built survey: documenting what was built. Expert guide from Drivewayz USA.">
+  <link rel="stylesheet" href="../main.css">
+  <style>
+    :root{--guide-primary:#374151;--guide-primary-light:#6b7280;--guide-primary-dark:#1f2937;--guide-accent:#9ca3af;--guide-bg:linear-gradient(135deg,#f9fafb 0%,#f3f4f6 50%,#e5e7eb 100%)}
+    body{background:var(--guide-bg);background-attachment:fixed}
+    .guide-hero{position:relative;min-height:500px;display:flex;align-items:center;margin-top:100px;background-image:linear-gradient(135deg,rgba(55,65,81,.85) 0%,rgba(31,41,55,.85) 100%),url('../images/pexels-pixabay-259588.webp');background-size:cover;background-position:center;overflow:hidden}
+    .guide-hero::before{content:"";position:absolute;top:0;left:0;right:0;bottom:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");opacity:.3}
+    .guide-hero-content{position:relative;z-index:10;padding:4rem 0;color:white}
+    .guide-breadcrumb{display:flex;gap:.5rem;margin-bottom:1.5rem;font-size:.9rem}
+    .guide-breadcrumb a{color:rgba(255,255,255,.8);text-decoration:none}
+    .guide-breadcrumb a:hover{color:white}
+    .guide-hero h1{font-size:3rem;font-weight:800;margin-bottom:1rem;max-width:800px}
+    .guide-hero-subtitle{font-size:1.3rem;opacity:.95;max-width:600px;margin-bottom:2rem}
+    .guide-meta-bar{display:flex;gap:2rem;flex-wrap:wrap}
+    .guide-meta-item{display:flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.15);padding:.5rem 1rem;border-radius:25px;backdrop-filter:blur(10px)}
+    .guide-actions{display:flex;gap:1rem;margin-top:2rem}
+    .action-btn{display:flex;align-items:center;gap:.5rem;padding:.75rem 1.5rem;border-radius:8px;font-weight:600;cursor:pointer;transition:all .3s ease;border:none;font-size:1rem}
+    .action-btn-primary{background:white;color:var(--guide-primary-dark)}
+    .action-btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 20px rgba(0,0,0,.2)}
+    .action-btn-secondary{background:rgba(255,255,255,.2);color:white;border:2px solid rgba(255,255,255,.3)}
+    .action-btn-secondary:hover{background:rgba(255,255,255,.3)}
+    .toc-sidebar{position:sticky;top:120px;height:fit-content;padding:1.5rem;background:var(--bg-white);border-radius:16px;box-shadow:var(--shadow);max-height:calc(100vh - 150px);overflow-y:auto}
+    .toc-sidebar h4{font-size:.85rem;text-transform:uppercase;letter-spacing:.08em;color:var(--text-light);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1px solid var(--border-color)}
+    .toc-sidebar ul{list-style:none;padding:0;margin:0}
+    .toc-sidebar li{margin-bottom:.25rem}
+    .toc-sidebar a{display:block;padding:.5rem .75rem;color:var(--text-light);text-decoration:none;font-size:.9rem;border-radius:6px;border-left:3px solid transparent;transition:all .2s ease;line-height:1.4}
+    .toc-sidebar a:hover{color:var(--guide-primary);background:#f3f4f6}
+    .toc-sidebar a.active{color:var(--guide-primary);background:#e5e7eb;border-left-color:var(--guide-primary);font-weight:600}
+    .toc-progress{width:100%;height:3px;background:#e5e7eb;border-radius:3px;margin-bottom:1rem;overflow:hidden}
+    .toc-progress-bar{height:100%;background:var(--guide-primary);width:0%;transition:width .3s ease;border-radius:3px}
+    .guide-page-layout{display:grid;grid-template-columns:220px 1fr 350px;gap:2rem;max-width:1400px;margin:2rem auto;padding:0 2rem}
+    .guide-main{background:var(--bg-white);border-radius:16px;padding:2.5rem;box-shadow:var(--shadow)}
+    .guide-main h2{font-size:2rem;color:var(--text-dark);margin-bottom:1.5rem;padding-bottom:.75rem;border-bottom:2px solid var(--guide-accent)}
+    .guide-main h3{font-size:1.4rem;color:var(--text-dark);margin:2rem 0 1rem}
+    .guide-main p{color:var(--text-light);line-height:1.8;margin-bottom:1.5rem}
+    .guide-main ul,.guide-main ol{margin-bottom:1.5rem;padding-left:1.5rem}
+    .guide-main li{color:var(--text-light);line-height:1.8;margin-bottom:.5rem}
+    .guide-sidebar{position:sticky;top:120px;height:fit-content}
+    .sidebar-card{background:var(--bg-white);border-radius:16px;padding:1.5rem;margin-bottom:1.5rem;box-shadow:var(--shadow)}
+    .sidebar-card h4{font-size:1.1rem;margin-bottom:1rem;color:var(--text-dark)}
+    .quick-stat{display:flex;justify-content:space-between;padding:.75rem 0;border-bottom:1px solid var(--border-color)}
+    .quick-stat:last-child{border-bottom:none}
+    .quick-stat-label{color:var(--text-light)}
+    .quick-stat-value{font-weight:700;color:var(--guide-primary)}
+    .sidebar-cta{background:linear-gradient(135deg,var(--guide-primary) 0%,var(--guide-primary-light) 100%);color:white}
+    .sidebar-cta h4{color:white}
+    .sidebar-cta p{font-size:.9rem;margin-bottom:1rem;opacity:.9}
+    .sidebar-cta input{width:100%;padding:.75rem;border:none;border-radius:8px;margin-bottom:.75rem;font-size:.95rem}
+    .sidebar-cta button{width:100%;padding:.75rem;background:white;color:var(--guide-primary-dark);border:none;border-radius:8px;font-weight:700;cursor:pointer;transition:all .3s ease}
+    .sidebar-cta button:hover{transform:translateY(-2px);box-shadow:0 5px 15px rgba(0,0,0,.2)}
+    .related-guide{display:flex;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--border-color);text-decoration:none}
+    .related-guide:last-child{border-bottom:none}
+    .related-guide-icon{width:50px;height:50px;border-radius:8px;background:linear-gradient(135deg,var(--guide-primary) 0%,var(--guide-accent) 100%);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.5rem}
+    .related-guide-content h5{font-size:.95rem;color:var(--text-dark);margin-bottom:.25rem}
+    .related-guide-content span{font-size:.8rem;color:var(--text-light)}
+    .info-box{padding:1.5rem;border-radius:12px;margin:2rem 0}
+    .info-box-tip{background:#f3f4f6;border-left:4px solid var(--guide-accent)}
+    .info-box-warning{background:#f3f4f6;border-left:4px solid #f59e0b}
+    .info-box-title{font-weight:700;margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem}
+    .material-card{background:#f3f4f6;border-radius:12px;padding:2rem;margin:2rem 0;border:1px solid #e5e7eb}
+    .material-card h3{margin-top:0!important;color:var(--guide-primary)!important;font-size:1.5rem!important}
+    .material-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1rem 0}
+    .material-stat{text-align:center;padding:.75rem;background:white;border-radius:8px}
+    .material-stat-label{font-size:.8rem;color:var(--text-light)}
+    .material-stat-value{font-size:1.1rem;font-weight:700;color:var(--guide-primary)}
+    .comparison-table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:.95rem}
+    .comparison-table th,.comparison-table td{padding:.75rem;text-align:left;border:1px solid #e5e7eb}
+    .comparison-table th{background:var(--guide-primary);color:white;font-weight:600}
+    .comparison-table tr:nth-child(even){background:#f3f4f6}
+    .comparison-table tr:hover{background:#e5e7eb}
+    .faq-item{border:1px solid #e5e7eb;border-radius:10px;margin-bottom:1rem;overflow:hidden}
+    .faq-q{width:100%;padding:1.25rem 1.5rem;background:#f3f4f6;border:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:1.05rem;font-weight:600;color:var(--guide-primary-dark);text-align:left}
+    .faq-q:hover{background:#e5e7eb}
+    .faq-a{padding:0 1.5rem 1.25rem;color:var(--text-light);line-height:1.8;display:none}
+    .faq-item.open .faq-a{display:block}
+    .faq-toggle{font-size:1.3rem;transition:transform .3s}
+    .faq-item.open .faq-toggle{transform:rotate(45deg)}
+    .toc-mobile-toggle{display:none;position:sticky;top:100px;z-index:100;background:var(--bg-white);border-bottom:1px solid var(--border-color);padding:.75rem 2rem;cursor:pointer;font-weight:600;color:var(--guide-primary);font-size:.95rem}
+    .toc-mobile-toggle span{margin-left:.5rem;transition:transform .3s;display:inline-block}
+    .toc-mobile-toggle.open span{transform:rotate(180deg)}
+    @media(max-width:1200px){.guide-page-layout{grid-template-columns:220px 1fr}.guide-sidebar-col{grid-column:1/-1;order:10}}
+    @media(max-width:768px){.guide-hero h1{font-size:2rem}.guide-main{padding:1.5rem}.guide-actions{flex-direction:column}.guide-page-layout{grid-template-columns:1fr;padding:0 1rem}.toc-sidebar-col{display:none}.toc-mobile-toggle{display:block}.material-stats{grid-template-columns:1fr}}
+  </style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-V08M9YKRR7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-V08M9YKRR7');
+</script>
+</head>
+
+<body>
+
+<nav class="navbar" id="navbar">
+  <div class="container nav-container">
+    <div class="logo"><img src="../images/logov3.png?v=3" alt="Drivewayz USA" onerror="this.style.display='none'"></div>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../index.html#services">Services</a></li>
+      <li><a href="../index.html#why-choose">Why Us</a></li>
+      <li><a href="../locations.html">Locations</a></li>
+      <li><a href="../guides-hub.html">Guides</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+    <button class="cta-button-small" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Free Estimate</button>
+  </div>
+</nav>
+
+<section class="guide-hero">
+  <div class="container guide-hero-content">
+    <div class="guide-breadcrumb">
+      <a href="../index.html">Home</a> / <a href="../guides-hub.html">Guides</a> / <span>Driveway As-Built Survey: Documenting What Was Built</span>
+    </div>
+    <h1>Driveway As-Built Survey: Documenting What Was Built</h1>
+    <p class="guide-hero-subtitle">A complete guide to driveway as-built survey — what homeowners need to know.</p>
+    <div class="guide-meta-bar">
+      <div class="guide-meta-item">&#9201;&#65039; 14 min read</div>
+      <div class="guide-meta-item">&#128176; High-end material</div>
+      <div class="guide-meta-item">&#128142; Premium quality</div>
+    </div>
+    <div class="guide-actions">
+      <a href="../index.html#contact" class="action-btn action-btn-primary">Get Free Estimate</a>
+      <button class="action-btn action-btn-secondary" onclick="saveGuide()"><span id="saveIcon">&#128278;</span> <span id="saveText">Save Guide</span></button>
+    </div>
+  </div>
+</section>
+
+<div class="toc-mobile-toggle" onclick="toggleMobileToc()">&#128203; Table of Contents <span>&#9660;</span></div>
+
+<div class="guide-page-layout">
+  <div class="toc-sidebar-col">
+    <nav class="toc-sidebar">
+      <div class="toc-progress"><div class="toc-progress-bar" id="tocProgress"></div></div>
+      <h4>On This Page</h4>
+      <ul>
+        <li><a href="#overview" class="toc-link" data-section="overview">What is Basalt?</a></li>
+        <li><a href="#costs" class="toc-link" data-section="costs">Cost Breakdown</a></li>
+        <li><a href="#installation" class="toc-link" data-section="installation">Installation Process</a></li>
+        <li><a href="#benefits" class="toc-link" data-section="benefits">Benefits</a></li>
+        <li><a href="#maintenance" class="toc-link" data-section="maintenance">Maintenance</a></li>
+        <li><a href="#comparison" class="toc-link" data-section="comparison">Material Comparison</a></li>
+        <li><a href="#faq" class="toc-link" data-section="faq">FAQ</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <main class="guide-main">
+
+    <section id="overview">
+  <h2>What a Driveway As-Built Survey Really Is (and Why It Matters)</h2>
+  <p>Most homeowners think the project ends when the last square of pavers is tapped into place or the final strip of asphalt is rolled smooth. In reality, the most valuable piece of paper you’ll receive is the driveway as-built survey—a scaled drawing that shows exactly what got built, not what was originally planned.</p>
+  <p>Think of it as the “you-are-here” map for your property. It records precise locations of edges, slopes, drainage structures, utilities, and any variations that popped up during construction. Municipalities often require it before they’ll close your permit, but even when it’s optional, the survey protects your investment and prevents headaches when you refinance, remodel, or resell.</p>
+</section>
+
+<section id="why-homeowners-need">
+  <h2>Why Homeowners Need an As-Built Survey for Their Driveway</h2>
+  <h3>Protect Your Property Value</h3>
+  <p>Buyers and appraisers love certainty. A certified as-built shows the driveway is on your land, meets setback rules, and won’t encroach on an easement. That peace of mind can speed up closing and even boost offers.</p>
+
+  <h3>Avoid Costly Mistakes Later</h3>
+  <p>Planning a fence, retaining wall, or sidewalk expansion? Knowing the exact edge of your driveway keeps you from pouring concrete on a neighbor’s lot or cutting through a hidden water line.</p>
+
+  <h3>Speed Up Future Repairs or Extensions</h3>
+  <p>When you call a contractor to widen the apron or add a turnaround, they’ll quote faster and more accurately if they have a scaled drawing instead of guessing grades and square footage.</p>
+</section>
+
+<section id="whats-included">
+  <h2>What’s Included in a Driveway As-Built Survey</h2>
+  <p>Every surveyor has a slightly different template, but the core elements stay the same. Expect these on the final plan:</p>
+  <ul>
+    <li><strong>Exact perimeter</strong> of the paved area (to 0.1 ft)</li>
+    <li><strong>Edge elevations</strong> and center-line slopes for drainage</li>
+    <li><strong>Location of drains, culverts, and headwalls</strong></li>
+    <li><strong>Utility crossings</strong> (water, gas, electric, cable)</li>
+    <li><strong>Setback dimensions</strong> to buildings, property lines, and easements</li>
+    <li><strong>Surface material notation</strong> (asphalt, concrete, paver, gravel)</li>
+    <li><strong>North arrow, scale, surveyor’s seal, and certification date</strong></li>
+  </ul>
+  <p>A good surveyor will also flag any field changes—like an extra foot of width you added to accommodate a second car—so the plan matches reality down to the inch.</p>
+</section>
+
+<section id="when-order">
+  <h2>When to Order the Survey</h2>
+  <h3>New Construction or Full Replacement</h3>
+  <p>Schedule the survey after the final roll or last paver is compacted but before heavy landscaping equipment can disturb stakes or markers. Most contractors coordinate this for you, but put it in your written agreement so it’s not forgotten.</p>
+
+  <h3>Post-Repair Documentation</h3>
+  <p>Even a simple widening or drain repair can shift critical elevations. If you spent more than a few thousand dollars, updating the as-built keeps your records current.</p>
+
+  <h3>Before Selling or Refinancing</h3>
+  <p>Title companies and lenders sometimes ask for proof that improvements are on-record and compliant. Having an updated survey prevents last-minute surprises at closing.</p>
+</section>
+
+<section id="diy-vs-pro">
+  <h2>DIY vs. Professional Survey: Can You Measure It Yourself?</h2>
+  <p>You can certainly run a tape measure and jot numbers on graph paper, but it won’t carry legal weight. Only a licensed land surveyor can place a certification seal that cities, lenders, and courts accept. The professional also carries insurance if a boundary line is later disputed.</p>
+  <p>That said, you can <em>prepare</em> and save money:</p>
+  <ol>
+    <li>Mark all visible corners with spray paint or flags.</li>
+    <li>Clear leaves and debris so survey points are accessible.</li>
+    <li>Have your original site plan and permit packet ready.</li>
+  </ol>
+  <p>These steps cut field time and keep your quote on the lower end of the fee range.</p>
+</section>
+
+<section id="costs">
+  <h2>Typical Cost and Turnaround</h2>
+  <p>Prices vary by region and driveway size, but national averages in 2024 look like this:</p>
+  <ul>
+    <li><strong>Single-car straight driveway (12 × 40 ft):</strong> $350–$550</li>
+    <li><strong>Two-car with curved apron (20 × 60 ft):</strong> $550–$800</li>
+    <li><strong>Large circular drive with island:</strong> $800–$1,200</li>
+  </ul>
+  <p>Most firms deliver a PDF and two printed copies within 3–5 business days. Expedited 24-hour service usually adds 30–40%. If your lot is on a steep slope or dense tree cover, expect a modest upcharge for extra field time.</p>
+</section>
+
+<section id="how-to-read">
+  <h2>How to Read Your Driveway As-Built Survey</h2>
+  <p>Surveyor plans look intimidating, but they’re just a bird’s-eye view with numbers. Focus on these quick checkpoints:</p>
+  <h3>Scale &amp; North Arrow</h3>
+  <p>Most residential surveys use 1" = 10' or 1" = 20'. Check the scale so you’re not misjudging distances with a ruler.</p>
+
+  <h3>Spot Elevations</h3>
+  <p>Little + marks show exact height above sea level. Subtract any two points along the drive to confirm the slope is at least 1% (1/8" per foot) for proper drainage.</p>
+
+  <h3>Property Lines &amp; Setbacks</h3>
+  <p>Dashed lines mark your boundaries. The dimension written between the pavement edge and the property line should meet local code—often 3–5 ft. If it’s tighter, verify the surveyor noted an existing encroachment waiver.</p>
+
+  <h3>Utility Symbols</h3>
+  <p>Water lines appear as dashed blue, gas as solid yellow, electric as dotted red. Make sure none run directly beneath planned future posts or pillars.</p>
+</section>
+
+<section id="permits-regulations">
+  <h2>Permits, Regulations, and the Driveway As-Built Survey</h2>
+  <p>Almost every city requires a permit for new driveway access because it touches the public right-of-way. The as-built is the closing document that proves you built what you promised. Without it:</p>
+  <ul>
+    <li>Your permit stays open, risking fines.</li>
+    <li>You can’t get a final occupancy certificate on new homes.</li>
+    <li>The municipality may refuse snow-plow or resurfacing services.</li>
+  </ul>
+  <p>Some counties scan as-builts into a public GIS. Future buyers or utility crews can pull up the plan before they dig—another layer of protection for you.</p>
+</section>
+
+<section id="finding-surveyor">
+  <h2>Finding the Right Surveyor</h2>
+  <h3>Check Licensing</h3>
+  <p>Every state has an online license lookup. Confirm the surveyor is current and carries professional liability insurance.</p>
+
+  <h3>Ask for Driveway Experience</h3>
+  <p>Boundary experts aren’t always driveway experts. You want someone who understands pavement thickness callouts, culvert sizing, and local driveway slope ordinances.</p>
+
+  <h3>Request a Sample Drawing</h3>
+  <p>A reputable firm will email you a redacted sample so you can see how clean and detailed their plans are before you commit.</p>
+
+  <h3>Bundle to Save</h3>
+  <p>If you’re also installing a fence or pool, bundle the surveys. One site visit can produce multiple plan sheets at a discount.</p>
+</section>
+
+<section id="storing-using">
+  <h2>Storing and Using Your Survey Long-Term</h2>
+  <p>Keep both digital and hard copies. Scan the plan at 300 dpi and save to cloud storage with a file name like “123_Main_St_Driveway_AsBuilt_2024.pdf.” Store the paper original in your house file with the deed, not in the garage where heat and humidity can fade ink.</p>
+  <p>When you refinance, upload the PDF to the lender’s portal. When you sell, send it to the listing agent so they can include it in the disclosure package. Buyers appreciate transparency, and you’ll avoid frantic last-minute phone calls.</p>
+</section>
+
+<section id="faq">
+  <h2>Frequently Asked Questions About Driveway As-Built Surveys</h2>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">Is a driveway as-built survey required for a simple resurfacing?</button>
+    <div class="faq-a">
+      <p>Generally, no. If the footprint, elevation, and drainage paths don’t change, most municipalities skip the survey. However, if the project alters the apron width or connects to a public storm drain, they may still ask for an updated plan.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">How is an as-built different from the original construction plan?</button>
+    <div class="faq-a">
+      <p>The construction plan shows the designer’s intent; the as-built shows what actually happened. Field crews often shift a drain a foot or widen a parking pad to miss a tree. The as-built captures those changes so future work is based on real-world conditions.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">Can my paving contractor create the as-built survey?</button>
+    <div class="faq-a">
+      <p>Only if the contractor is also a licensed land surveyor. Many pavers will sketch a “record drawing,” but it won’t carry a survey seal and won’t be accepted for permit closure or legal disputes. Always verify the license number on the final sheet.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">What if the survey reveals an encroachment?</button>
+    <div class="faq-a">
+      <p>Stay calm. Most neighbors and cities will work with you on a simple encroachment agreement or easement. Fixing it early—before you sell—gives you leverage and avoids legal fees that can run 5–10 times the cost of the original survey.</p>
+    </div>
+  </div>
+</section>
+
+  </main>
+
+  <aside class="guide-sidebar-col">
+    <div class="guide-sidebar">
+      <div class="sidebar-card">
+        <h4>&#128202; Quick Facts</h4>
+        <div class="quick-stat">
+          <span class="quick-stat-label">Paver Cost</span>
+          <span class="quick-stat-value">$15-30/sqft</span>
+        </div>
+        <div class="quick-stat">
+          <span class="quick-stat-label">Crushed Cost</span>
+          <span class="quick-stat-value">$5-11/sqft</span>
+        </div>
+        <div class="quick-stat">
+          <span class="quick-stat-label">Lifespan</span>
+          <span class="quick-stat-value">30-50+ years</span>
+        </div>
+        <div class="quick-stat">
+          <span class="quick-stat-label">Hardness</span>
+          <span class="quick-stat-value">6 Mohs</span>
+        </div>
+        <div class="quick-stat">
+          <span class="quick-stat-label">Maintenance</span>
+          <span class="quick-stat-value">Low</span>
+        </div>
+      </div>
+
+      <div class="sidebar-card sidebar-cta">
+        <h4>&#128640; Get Started Today</h4>
+        <p>Interested in a basalt driveway? Get a free estimate from our experts.</p>
+        <form onsubmit="handleSidebarSubmit(event)">
+          <input type="text" placeholder="Your Name" required aria-label="Your Name">
+          <input type="tel" placeholder="Phone Number" required aria-label="Phone Number">
+          <button type="submit">Request Free Estimate</button>
+        </form>
+      </div>
+
+      <div class="sidebar-card">
+        <h4>&#128218; Related Guides</h4>
+        <a href="cobblestone-driveway.html" class="related-guide">
+          <div class="related-guide-icon">&#127968;</div>
+          <div class="related-guide-content">
+            <h5>Cobblestone Driveway Guide</h5>
+            <span>12 min read</span>
+          </div>
+        </a>
+        <a href="driveway-basics-types-costs-lifespan.html" class="related-guide">
+          <div class="related-guide-icon">&#128214;</div>
+          <div class="related-guide-content">
+            <h5>Driveway Basics: Types, Costs &amp; Lifespan</h5>
+            <span>20 min read</span>
+          </div>
+        </a>
+        <a href="concrete-vs-asphalt-vs-gravel.html" class="related-guide">
+          <div class="related-guide-icon">&#9878;&#65039;</div>
+          <div class="related-guide-content">
+            <h5>Concrete vs Asphalt vs Gravel</h5>
+            <span>18 min read</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<footer style="text-align:center;padding:2rem;color:#6b7280;font-size:.9rem;">
+  <p>&copy; 2026 Drivewayz USA. Licensed &amp; Insured. Serving the United States with Pride.</p>
+  <p><a href="../index.html#services" style="color:#374151;">Services</a> &bull; <a href="../guides-hub.html" style="color:#374151;">Guides</a> &bull; <a href="../index.html#contact" style="color:#374151;">Contact</a></p>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded',function(){var sections=document.querySelectorAll('main section[id]');var tocLinks=document.querySelectorAll('.toc-link');var progressBar=document.getElementById('tocProgress');window.addEventListener('scroll',function(){var winH=document.documentElement.scrollHeight-window.innerHeight;var scrolled=(window.scrollY/winH)*100;if(progressBar)progressBar.style.width=scrolled+'%'});var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){tocLinks.forEach(function(link){link.classList.remove('active')});var activeLink=document.querySelector('.toc-link[data-section="'+entry.target.id+'"]');if(activeLink)activeLink.classList.add('active')}})},{rootMargin:'-20% 0px -60% 0px',threshold:0});sections.forEach(function(section){observer.observe(section)});tocLinks.forEach(function(link){link.addEventListener('click',function(e){e.preventDefault();var target=document.getElementById(this.getAttribute('data-section'));if(target){target.scrollIntoView({behavior:'smooth',block:'start'});var mobileToc=document.querySelector('.toc-sidebar-col');var toggle=document.querySelector('.toc-mobile-toggle');if(mobileToc)mobileToc.classList.remove('mobile-open');if(toggle)toggle.classList.remove('open')}})})});
+function toggleMobileToc(){var tocCol=document.querySelector('.toc-sidebar-col');var toggle=document.querySelector('.toc-mobile-toggle');tocCol.classList.toggle('mobile-open');toggle.classList.toggle('open')}
+function toggleFaq(btn){btn.parentElement.classList.toggle('open')}
+function saveGuide(){var si=document.getElementById('saveIcon'),st=document.getElementById('saveText');if(st.textContent==='Save Guide'){si.innerHTML='&#10084;&#65039;';st.textContent='Saved!'}else{si.innerHTML='&#128278;';st.textContent='Save Guide'}}
+function handleSidebarSubmit(e){e.preventDefault();alert('Thank you! We will contact you shortly with your free estimate.');e.target.reset()}
+</script>
+</body>
+</html>

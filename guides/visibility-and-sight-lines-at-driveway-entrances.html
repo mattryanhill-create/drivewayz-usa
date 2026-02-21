@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visibility and Sight Lines at Driveway Entrances | Drivewayz USA Guides</title>
+  <meta name="description" content="Learn about visibility and sight lines at driveway entrances. Expert guide from Drivewayz USA.">
+  <link rel="stylesheet" href="../main.css">
+  <style>
+    :root{--guide-primary:#374151;--guide-primary-light:#6b7280;--guide-primary-dark:#1f2937;--guide-accent:#9ca3af;--guide-bg:linear-gradient(135deg,#f9fafb 0%,#f3f4f6 50%,#e5e7eb 100%)}
+    body{background:var(--guide-bg);background-attachment:fixed}
+    .guide-hero{position:relative;min-height:500px;display:flex;align-items:center;margin-top:100px;background-image:linear-gradient(135deg,rgba(55,65,81,.85) 0%,rgba(31,41,55,.85) 100%),url('../images/pexels-pixabay-259588.webp');background-size:cover;background-position:center;overflow:hidden}
+    .guide-hero::before{content:"";position:absolute;top:0;left:0;right:0;bottom:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");opacity:.3}
+    .guide-hero-content{position:relative;z-index:10;padding:4rem 0;color:white}
+    .guide-breadcrumb{display:flex;gap:.5rem;margin-bottom:1.5rem;font-size:.9rem}
+    .guide-breadcrumb a{color:rgba(255,255,255,.8);text-decoration:none}
+    .guide-breadcrumb a:hover{color:white}
+    .guide-hero h1{font-size:3rem;font-weight:800;margin-bottom:1rem;max-width:800px}
+    .guide-hero-subtitle{font-size:1.3rem;opacity:.95;max-width:600px;margin-bottom:2rem}
+    .guide-meta-bar{display:flex;gap:2rem;flex-wrap:wrap}
+    .guide-meta-item{display:flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.15);padding:.5rem 1rem;border-radius:25px;backdrop-filter:blur(10px)}
+    .guide-actions{display:flex;gap:1rem;margin-top:2rem}
+    .action-btn{display:flex;align-items:center;gap:.5rem;padding:.75rem 1.5rem;border-radius:8px;font-weight:600;cursor:pointer;transition:all .3s ease;border:none;font-size:1rem}
+    .action-btn-primary{background:white;color:var(--guide-primary-dark)}
+    .action-btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 20px rgba(0,0,0,.2)}
+    .action-btn-secondary{background:rgba(255,255,255,.2);color:white;border:2px solid rgba(255,255,255,.3)}
+    .action-btn-secondary:hover{background:rgba(255,255,255,.3)}
+    .toc-sidebar{position:sticky;top:120px;height:fit-content;padding:1.5rem;background:var(--bg-white);border-radius:16px;box-shadow:var(--shadow);max-height:calc(100vh - 150px);overflow-y:auto}
+    .toc-sidebar h4{font-size:.85rem;text-transform:uppercase;letter-spacing:.08em;color:var(--text-light);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1px solid var(--border-color)}
+    .toc-sidebar ul{list-style:none;padding:0;margin:0}
+    .toc-sidebar li{margin-bottom:.25rem}
+    .toc-sidebar a{display:block;padding:.5rem .75rem;color:var(--text-light);text-decoration:none;font-size:.9rem;border-radius:6px;border-left:3px solid transparent;transition:all .2s ease;line-height:1.4}
+    .toc-sidebar a:hover{color:var(--guide-primary);background:#f3f4f6}
+    .toc-sidebar a.active{color:var(--guide-primary);background:#e5e7eb;border-left-color:var(--guide-primary);font-weight:600}
+    .toc-progress{width:100%;height:3px;background:#e5e7eb;border-radius:3px;margin-bottom:1rem;overflow:hidden}
+    .toc-progress-bar{height:100%;background:var(--guide-primary);width:0%;transition:width .3s ease;border-radius:3px}
+    .guide-page-layout{display:grid;grid-template-columns:220px 1fr 350px;gap:2rem;max-width:1400px;margin:2rem auto;padding:0 2rem}
+    .guide-main{background:var(--bg-white);border-radius:16px;padding:2.5rem;box-shadow:var(--shadow)}
+    .guide-main h2{font-size:2rem;color:var(--text-dark);margin-bottom:1.5rem;padding-bottom:.75rem;border-bottom:2px solid var(--guide-accent)}
+    .guide-main h3{font-size:1.4rem;color:var(--text-dark);margin:2rem 0 1rem}
+    .guide-main p{color:var(--text-light);line-height:1.8;margin-bottom:1.5rem}
+    .guide-main ul,.guide-main ol{margin-bottom:1.5rem;padding-left:1.5rem}
+    .guide-main li{color:var(--text-light);line-height:1.8;margin-bottom:.5rem}
+    .guide-sidebar{position:sticky;top:120px;height:fit-content}
+    .sidebar-card{background:var(--bg-white);border-radius:16px;padding:1.5rem;margin-bottom:1.5rem;box-shadow:var(--shadow)}
+    .sidebar-card h4{font-size:1.1rem;margin-bottom:1rem;color:var(--text-dark)}
+    .quick-stat{display:flex;justify-content:space-between;padding:.75rem 0;border-bottom:1px solid var(--border-color)}
+    .quick-stat:last-child{border-bottom:none}
+    .quick-stat-label{color:var(--text-light)}
+    .quick-stat-value{font-weight:700;color:var(--guide-primary)}
+    .sidebar-cta{background:linear-gradient(135deg,var(--guide-primary) 0%,var(--guide-primary-light) 100%);color:white}
+    .sidebar-cta h4{color:white}
+    .sidebar-cta p{font-size:.9rem;margin-bottom:1rem;opacity:.9}
+    .sidebar-cta input{width:100%;padding:.75rem;border:none;border-radius:8px;margin-bottom:.75rem;font-size:.95rem}
+    .sidebar-cta button{width:100%;padding:.75rem;background:white;color:var(--guide-primary-dark);border:none;border-radius:8px;font-weight:700;cursor:pointer;transition:all .3s ease}
+    .sidebar-cta button:hover{transform:translateY(-2px);box-shadow:0 5px 15px rgba(0,0,0,.2)}
+    .related-guide{display:flex;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--border-color);text-decoration:none}
+    .related-guide:last-child{border-bottom:none}
+    .related-guide-icon{width:50px;height:50px;border-radius:8px;background:linear-gradient(135deg,var(--guide-primary) 0%,var(--guide-accent) 100%);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.5rem}
+    .related-guide-content h5{font-size:.95rem;color:var(--text-dark);margin-bottom:.25rem}
+    .related-guide-content span{font-size:.8rem;color:var(--text-light)}
+    .info-box{padding:1.5rem;border-radius:12px;margin:2rem 0}
+    .info-box-tip{background:#f3f4f6;border-left:4px solid var(--guide-accent)}
+    .info-box-warning{background:#f3f4f6;border-left:4px solid #f59e0b}
+    .info-box-title{font-weight:700;margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem}
+    .material-card{background:#f3f4f6;border-radius:12px;padding:2rem;margin:2rem 0;border:1px solid #e5e7eb}
+    .material-card h3{margin-top:0!important;color:var(--guide-primary)!important;font-size:1.5rem!important}
+    .material-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1rem 0}
+    .material-stat{text-align:center;padding:.75rem;background:white;border-radius:8px}
+    .material-stat-label{font-size:.8rem;color:var(--text-light)}
+    .material-stat-value{font-size:1.1rem;font-weight:700;color:var(--guide-primary)}
+    .comparison-table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:.95rem}
+    .comparison-table th,.comparison-table td{padding:.75rem;text-align:left;border:1px solid #e5e7eb}
+    .comparison-table th{background:var(--guide-primary);color:white;font-weight:600}
+    .comparison-table tr:nth-child(even){background:#f3f4f6}
+    .comparison-table tr:hover{background:#e5e7eb}
+    .faq-item{border:1px solid #e5e7eb;border-radius:10px;margin-bottom:1rem;overflow:hidden}
+    .faq-q{width:100%;padding:1.25rem 1.5rem;background:#f3f4f6;border:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:1.05rem;font-weight:600;color:var(--guide-primary-dark);text-align:left}
+    .faq-q:hover{background:#e5e7eb}
+    .faq-a{padding:0 1.5rem 1.25rem;color:var(--text-light);line-height:1.8;display:none}
+    .faq-item.open .faq-a{display:block}
+    .faq-toggle{font-size:1.3rem;transition:transform .3s}
+    .faq-item.open .faq-toggle{transform:rotate(45deg)}
+    .toc-mobile-toggle{display:none;position:sticky;top:100px;z-index:100;background:var(--bg-white);border-bottom:1px solid var(--border-color);padding:.75rem 2rem;cursor:pointer;font-weight:600;color:var(--guide-primary);font-size:.95rem}
+    .toc-mobile-toggle span{margin-left:.5rem;transition:transform .3s;display:inline-block}
+    .toc-mobile-toggle.open span{transform:rotate(180deg)}
+    @media(max-width:1200px){.guide-page-layout{grid-template-columns:220px 1fr}.guide-sidebar-col{grid-column:1/-1;order:10}}
+    @media(max-width:768px){.guide-hero h1{font-size:2rem}.guide-main{padding:1.5rem}.guide-actions{flex-direction:column}.guide-page-layout{grid-template-columns:1fr;padding:0 1rem}.toc-sidebar-col{display:none}.toc-mobile-toggle{display:block}.material-stats{grid-template-columns:1fr}}
+  </style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-V08M9YKRR7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-V08M9YKRR7');
+</script>
+</head>
+
+<body>
+
+<nav class="navbar" id="navbar">
+  <div class="container nav-container">
+    <div class="logo"><img src="../images/logov3.png?v=3" alt="Drivewayz USA" onerror="this.style.display='none'"></div>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../index.html#services">Services</a></li>
+      <li><a href="../index.html#why-choose">Why Us</a></li>
+      <li><a href="../locations.html">Locations</a></li>
+      <li><a href="../guides-hub.html">Guides</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+    <button class="cta-button-small" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Free Estimate</button>
+  </div>
+</nav>
+
+<section class="guide-hero">
+  <div class="container guide-hero-content">
+    <div class="guide-breadcrumb">
+      <a href="../index.html">Home</a> / <a href="../guides-hub.html">Guides</a> / <span>Visibility and Sight Lines at Driveway Entrances</span>
+    </div>
+    <h1>Visibility and Sight Lines at Driveway Entrances</h1>
+    <p class="guide-hero-subtitle">A complete guide to visibility and sight lines at driveway entrances — what homeowners need to know.</p>
+    <div class="guide-meta-bar">
+      <div class="guide-meta-item">&#9201;&#65039; 14 min read</div>
+      <div class="guide-meta-item">&#128176; High-end material</div>
+      <div class="guide-meta-item">&#128142; Premium quality</div>
+    </div>
+    <div class="guide-actions">
+      <a href="../index.html#contact" class="action-btn action-btn-primary">Get Free Estimate</a>
+      <button class="action-btn action-btn-secondary" onclick="saveGuide()"><span id="saveIcon">&#128278;</span> <span id="saveText">Save Guide</span></button>
+    </div>
+  </div>
+</section>
+
+<div class="toc-mobile-toggle" onclick="toggleMobileToc()">&#128203; Table of Contents <span>&#9660;</span></div>
+
+<div class="guide-page-layout">
+  <div class="toc-sidebar-col">
+    <nav class="toc-sidebar">
+      <div class="toc-progress"><div class="toc-progress-bar" id="tocProgress"></div></div>
+      <h4>On This Page</h4>
+      <ul>
+        <li><a href="#overview" class="toc-link" data-section="overview">What is Basalt?</a></li>
+        <li><a href="#costs" class="toc-link" data-section="costs">Cost Breakdown</a></li>
+        <li><a href="#installation" class="toc-link" data-section="installation">Installation Process</a></li>
+        <li><a href="#benefits" class="toc-link" data-section="benefits">Benefits</a></li>
+        <li><a href="#maintenance" class="toc-link" data-section="maintenance">Maintenance</a></li>
+        <li><a href="#comparison" class="toc-link" data-section="comparison">Material Comparison</a></li>
+        <li><a href="#faq" class="toc-link" data-section="faq">FAQ</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <main class="guide-main">
+
+    <section id="overview">
+  <h2>Why Visibility and Sight Lines at Driveway Entrances Matter</h2>
+  <p>Pulling out of your driveway should never feel like a game of chance. Yet every year, thousands of fender-benders—and far worse—happen because drivers can’t see oncoming traffic, cyclists, or pedestrians. Good visibility and clear sight lines at driveway entrances aren’t just “nice to have”; they’re a safety feature that protects your family, visitors, and even your legal liability. A well-planned driveway entrance also boosts curb appeal and can raise property value by 2–5%, according to real-estate appraisers we work with at Drivewayz USA.</p>
+  <p>This guide walks you through everything a homeowner needs to know: how to test what you have, what local codes typically require, low-cost DIY fixes, and when it’s time to bring in the pros.</p>
+</section>
+
+<section id="understanding-sight-lines">
+  <h2>Understanding Sight Lines: The 5-Second Rule</h2>
+  <p>A sight line is simply the unobstructed view from the driver’s eye to any potential hazard. Traffic engineers use a formula called “decision sight distance,” but for homeowners the easiest mental model is the 5-second rule: you should be able to see anything that will reach you in the next five seconds.</p>
+  <h3>How to Measure Your Current Sight Distance</h3>
+  <ol>
+    <li>Grab two people, a tape measure, and a brightly colored cone or cardboard box.</li>
+    <li>Place the cone at the edge of the sidewalk or pavement where cars appear.</li>
+    <li>Driver sits in the car at the end of the driveway, nose of the vehicle just behind the sidewalk.</li>
+    <li>Have the second person walk the cone away from the driveway until it disappears behind shrubs, fences, or slope.</li>
+    <li>Measure that distance and compare it to the chart below.</li>
+  </ol>
+  <h3>Quick Reference: Minimum Sight Distance vs. Speed Limit</h3>
+  <ul>
+    <li>25 mph road → 125 ft (about 5.5 seconds)</li>
+    <li>35 mph road → 200 ft</li>
+    <li>45 mph road → 300 ft</li>
+    <li>55 mph rural → 450 ft</li>
+  </ul>
+  <p>If your measurement falls short, you have a visibility problem that needs fixing.</p>
+</section>
+
+<section id="common-obstacles">
+  <h2>Top 6 Obstacles That Ruin Driveway Visibility</h2>
+  <p>Before you start cutting things down, identify the culprit. Walk to the middle of the road (when safe) and look back at your driveway. Anything that breaks the sight triangle shown on most city websites is suspect.</p>
+  <h3>1. Overgrown Shrubs and Trees</h3>
+  <p>Arborvitae hedges are repeat offenders. They grow 3 ft per year and can block an entire sedan by age five. Trim to 30 in above the curb line or remove entirely.</p>
+  <h3>2. Fences and Stone Columns</h3>
+  <p>Decorative masonry may look stately, but anything taller than 36 in inside the sight triangle is usually illegal. Swap solid panels for open aluminum or wrought-iron styles.</p>
+  <h3>3. Parked Cars on the Street</h3>
+  <p>Even a Mini Cooper can hide a toddler. If street parking is allowed within 20 ft of your apron, petition the city for white “daylight” paint or no-parking signs.</p>
+  <h3>4. Slopes and Retaining Walls</h3>
+  <p>A downhill driveway paired with an uphill road creates a blind crest. Regrading is expensive, but sometimes shaving 6 in off the top of a lawn berm is enough.</p>
+  <h3>5. Trash Cans and Mailbox Posts</h3>
+  <p>Relocate them 5 ft back from the sidewalk. Use pivoting mailbox arms that swing away if struck.</p>
+  <h3>6. Snowbanks</h3>
+  <p>In northern states, a 4-ft snowplow ridge can linger for weeks. Budget for a seasonal snow removal plan that includes hauling instead of just pushing.</p>
+</section>
+
+<section id="code-requirements">
+  <h2>Local Code & Permit Requirements</h2>
+  <p>Every municipality has a “sight triangle” ordinance. It’s typically an equilateral triangle starting 15 ft back from the curb edge on both streets. Nothing above 30–36 in high is allowed inside that zone. Penalties range from a $50 citation to the city removing your obstruction and billing you.</p>
+  <h3>How to Check Your Ordinance in 3 Clicks</h3>
+  <ol>
+    <li>Open Google and type “<your city> municipal code sight triangle.”</li>
+    <li>Look for the chapter titled “Streets and Sidewalks” or “Driveway Standards.”</li>
+    <li>Download the PDF diagram; print it and take it outside with a measuring tape.</li>
+  </ol>
+  <p>If you’re in an HOA, covenants may be stricter. Drivewayz USA always pulls permits before we move dirt—one call to the city engineer saves weeks of redos.</p>
+</section>
+
+<section id="diy-solutions">
+  <h2>DIY Solutions Under $200</h2>
+  <p>Not ready to hire a contractor? These weekend projects can buy you an extra 50 ft of sight distance.</p>
+  <h3>Prune, Don’t Top</h3>
+  <p>Use hand pruners to thin branches at the trunk. “Topping” creates ugly stubs and weak regrowth. Aim for a raised canopy—foliage starts 8 ft off the ground.</p>
+  <h3>Install a Convex Mirror</h3>
+  <p>A 24-in acrylic mirror on the opposite side of the road lets you see around bends. Cost: $45 on Amazon. Check local rules first—some counties ban them on public poles.</p>
+  <h3>Lower the Approach Angle</h3>
+  <p>Gravel driveways can be raked to flatten the first 6 ft. A 6° slope instead of 12° drops the hood several inches and improves sight lines for low cars.</p>
+  <h3>Paint the Curb White</h3>
+  <p>A 4-in white stripe along the curb edge visually widens the opening and warns oncoming drivers. Use traffic-grade epoxy paint ($25/gal).</p>
+</section>
+
+<section id="professional-options">
+  <h2>Professional Upgrades That Make a Big Impact</h2>
+  <p>When DIY won’t cut it, Drivewayz USA offers engineered solutions that last decades.</p>
+  <h3>Driveway Apron Rebuild</h3>
+  <p>We remove the first 10–12 ft of concrete and repour it 3–4 in lower, giving sports cars and SUVs alike a better vantage point. Includes rebar and 4000-psi concrete rated for 20-ton loads. Typical cost: $1,800–$3,200.</p>
+  <h3>Curb Cut Relocation</h3>
+  <p>Moving the entrance 8 ft away from a hillcrest can add 100 ft of sight distance. Requires city permit, traffic control, and asphalt patching. Budget $4,000–$7,000.</p>
+  <h3>Retaining Wall Reduction</h3>
+  <p>We replace a 4-ft solid block wall with a 18-in decorative stone seat wall plus iron rail. Opens the view, still stops cars. $2,500–$5,000 depending on length.</p>
+  <h3>Landscaping Redesign</h3>
+  <p>Swap mature junipers for ornamental grasses that max out at 24 in. Add boulders for interest without blocking the view. Design, demolition, and install start at $1,200.</p>
+</section>
+
+<section id="landscaping-tips">
+  <h2>Landscaping That Improves—Not Hurts—Sight Lines</h2>
+  <p>Good design is both pretty and practical. Follow these rules of thumb:</p>
+  <ul>
+    <li>Choose plants with mature heights under 30 in inside the sight triangle.</li>
+    <li>Use clumping grasses (Karl Foerster, Blue Oat) for winter interest and zero pruning.</li>
+    <li>Plant trees outside the triangle; then limp up (remove lower limbs) to 8 ft.</li>
+    <li>Avoid evergreens directly opposite the driveway—they’re thick year-round.</li>
+  </ul>
+  <h3>Color-Code for Safety</h3>
+  <p>A single strip of red mulch or a row of dwarf red barberry along the sidewalk edge subconsciously tells drivers “something important here,” slowing them by 5–7 mph according to a 2021 Texas A&M study.</p>
+</section>
+
+<section id="maintenance">
+  <h2>Maintenance Checklist: Keep the View Clear Year-Round</h2>
+  <p>Visibility isn’t a one-and-done project. Add these tasks to your seasonal calendar:</p>
+  <ul>
+    <li><strong>Spring:</strong> Shear hedges before first growth spurt. Apply slow-release fertilizer away from the sight triangle to discourage excess growth.</li>
+    <li><strong>Summer:</strong> Spot-trim after heavy rains. Water shoots can add 6 in in two weeks.</li>
+    <li><strong>Fall:</strong> Remove leaves from curb gutter; a clogged drain causes water pooling, which reflects headlights and blinds night drivers.</li>
+    <li><strong>Winter:</strong> Mark plow stakes 3 ft back from the edge so the city blade doesn’t pile snow in your sight line.</li>
+  </ul>
+</section>
+
+<section id="costs">
+  <h2>Cost vs. Value: Will You Recoup the Investment?</h2>
+  <p>Remodeling Magazine pegs the average “curb appeal” project ROI at 92%. Specifically, driveway visibility improvements that prevent even one accident can save you $8,000–$15,000 in insurance deductibles, legal fees, and increased premiums. Appraisers tell us documented sight-line upgrades add $3,000–$7,000 to resale value on a typical $400,000 home. In short, you’ll likely break even or profit while sleeping better at night.</p>
+</section>
+
+<section id="faq">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">Who is responsible if a crash happens because my shrubs block the view?</button>
+    <div class="faq-a">
+      <p>In most states, the property owner can be held liable under “premises negligence.” Courts look at whether you knew or should have known the vegetation created a hazard. Regular trimming and compliance with city sight-triangle ordinances are your best defense.</p>
+    </div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">Do I need a permit just to trim my own trees?</button>
+    <div class="faq-a">
+      <p>Usually no, unless the tree is in a city right-of-way or protected heritage list. Always check the municipal tree ordinance first; fines for unpertected removal can exceed $1,000 per tree.</p>
+    </div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">Can I force my neighbor to trim their hedge that blocks my driveway exit?</button>
+    <div class="faq-a">
+      <p>Civil code allows you to trim branches up to your property line, but you can’t enter their land without permission. If the hedge is on city property, file a service request; public works will handle it.</p>
+    </div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">How often should I re-check my sight lines?</button>
+    <div class="faq-a">
+      <p>At least twice a year—late spring after growth spurts and late fall after storms. If you plant new shrubs, measure again after one full growing season.</p>
+    </div>
+  </div>
+</section>
+
+  </main>
+
+  <aside class="guide-sidebar-col">
+    <div class="guide-sidebar">
+      <div class="sidebar-card">
+        <h4>&#128202; Quick Facts</h4>
+        <div class="quick-stat">
+          <span class="quick-stat-label">Paver Cost</span>
+          <span class="quick-stat-value">$15-30/sqft</span>
+        </div>
+        <div class="quick-stat">
+          <span class="quick-stat-label">Crushed Cost</span>
+          <span class="quick-stat-value">$5-11/sqft</span>
+        </div>
+        <div class="quick-stat">
+          <span class="quick-stat-label">Lifespan</span>
+          <span class="quick-stat-value">30-50+ years</span>
+        </div>
+        <div class="quick-stat">
+          <span class="quick-stat-label">Hardness</span>
+          <span class="quick-stat-value">6 Mohs</span>
+        </div>
+        <div class="quick-stat">
+          <span class="quick-stat-label">Maintenance</span>
+          <span class="quick-stat-value">Low</span>
+        </div>
+      </div>
+
+      <div class="sidebar-card sidebar-cta">
+        <h4>&#128640; Get Started Today</h4>
+        <p>Interested in a basalt driveway? Get a free estimate from our experts.</p>
+        <form onsubmit="handleSidebarSubmit(event)">
+          <input type="text" placeholder="Your Name" required aria-label="Your Name">
+          <input type="tel" placeholder="Phone Number" required aria-label="Phone Number">
+          <button type="submit">Request Free Estimate</button>
+        </form>
+      </div>
+
+      <div class="sidebar-card">
+        <h4>&#128218; Related Guides</h4>
+        <a href="cobblestone-driveway.html" class="related-guide">
+          <div class="related-guide-icon">&#127968;</div>
+          <div class="related-guide-content">
+            <h5>Cobblestone Driveway Guide</h5>
+            <span>12 min read</span>
+          </div>
+        </a>
+        <a href="driveway-basics-types-costs-lifespan.html" class="related-guide">
+          <div class="related-guide-icon">&#128214;</div>
+          <div class="related-guide-content">
+            <h5>Driveway Basics: Types, Costs &amp; Lifespan</h5>
+            <span>20 min read</span>
+          </div>
+        </a>
+        <a href="concrete-vs-asphalt-vs-gravel.html" class="related-guide">
+          <div class="related-guide-icon">&#9878;&#65039;</div>
+          <div class="related-guide-content">
+            <h5>Concrete vs Asphalt vs Gravel</h5>
+            <span>18 min read</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<footer style="text-align:center;padding:2rem;color:#6b7280;font-size:.9rem;">
+  <p>&copy; 2026 Drivewayz USA. Licensed &amp; Insured. Serving the United States with Pride.</p>
+  <p><a href="../index.html#services" style="color:#374151;">Services</a> &bull; <a href="../guides-hub.html" style="color:#374151;">Guides</a> &bull; <a href="../index.html#contact" style="color:#374151;">Contact</a></p>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded',function(){var sections=document.querySelectorAll('main section[id]');var tocLinks=document.querySelectorAll('.toc-link');var progressBar=document.getElementById('tocProgress');window.addEventListener('scroll',function(){var winH=document.documentElement.scrollHeight-window.innerHeight;var scrolled=(window.scrollY/winH)*100;if(progressBar)progressBar.style.width=scrolled+'%'});var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){tocLinks.forEach(function(link){link.classList.remove('active')});var activeLink=document.querySelector('.toc-link[data-section="'+entry.target.id+'"]');if(activeLink)activeLink.classList.add('active')}})},{rootMargin:'-20% 0px -60% 0px',threshold:0});sections.forEach(function(section){observer.observe(section)});tocLinks.forEach(function(link){link.addEventListener('click',function(e){e.preventDefault();var target=document.getElementById(this.getAttribute('data-section'));if(target){target.scrollIntoView({behavior:'smooth',block:'start'});var mobileToc=document.querySelector('.toc-sidebar-col');var toggle=document.querySelector('.toc-mobile-toggle');if(mobileToc)mobileToc.classList.remove('mobile-open');if(toggle)toggle.classList.remove('open')}})})});
+function toggleMobileToc(){var tocCol=document.querySelector('.toc-sidebar-col');var toggle=document.querySelector('.toc-mobile-toggle');tocCol.classList.toggle('mobile-open');toggle.classList.toggle('open')}
+function toggleFaq(btn){btn.parentElement.classList.toggle('open')}
+function saveGuide(){var si=document.getElementById('saveIcon'),st=document.getElementById('saveText');if(st.textContent==='Save Guide'){si.innerHTML='&#10084;&#65039;';st.textContent='Saved!'}else{si.innerHTML='&#128278;';st.textContent='Save Guide'}}
+function handleSidebarSubmit(e){e.preventDefault();alert('Thank you! We will contact you shortly with your free estimate.');e.target.reset()}
+</script>
+</body>
+</html>

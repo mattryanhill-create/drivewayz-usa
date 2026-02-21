@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Driveway Resilience Planning: Preparing for Extreme Weather | Drivewayz USA Guides</title>
+  <meta name="description" content="Learn about driveway resilience planning: preparing for extreme weather. Expert guide from Drivewayz USA.">
+  <link rel="stylesheet" href="../main.css">
+  <style>
+    :root{--guide-primary:#374151;--guide-primary-light:#6b7280;--guide-primary-dark:#1f2937;--guide-accent:#9ca3af;--guide-bg:linear-gradient(135deg,#f9fafb 0%,#f3f4f6 50%,#e5e7eb 100%)}
+    body{background:var(--guide-bg);background-attachment:fixed}
+    .guide-hero{position:relative;min-height:500px;display:flex;align-items:center;margin-top:100px;background-image:linear-gradient(135deg,rgba(55,65,81,.85) 0%,rgba(31,41,55,.85) 100%),url('../images/pexels-pixabay-259588.webp');background-size:cover;background-position:center;overflow:hidden}
+    .guide-hero::before{content:"";position:absolute;top:0;left:0;right:0;bottom:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");opacity:.3}
+    .guide-hero-content{position:relative;z-index:10;padding:4rem 0;color:white}
+    .guide-breadcrumb{display:flex;gap:.5rem;margin-bottom:1.5rem;font-size:.9rem}
+    .guide-breadcrumb a{color:rgba(255,255,255,.8);text-decoration:none}
+    .guide-breadcrumb a:hover{color:white}
+    .guide-hero h1{font-size:3rem;font-weight:800;margin-bottom:1rem;max-width:800px}
+    .guide-hero-subtitle{font-size:1.3rem;opacity:.95;max-width:600px;margin-bottom:2rem}
+    .guide-meta-bar{display:flex;gap:2rem;flex-wrap:wrap}
+    .guide-meta-item{display:flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.15);padding:.5rem 1rem;border-radius:25px;backdrop-filter:blur(10px)}
+    .guide-actions{display:flex;gap:1rem;margin-top:2rem}
+    .action-btn{display:flex;align-items:center;gap:.5rem;padding:.75rem 1.5rem;border-radius:8px;font-weight:600;cursor:pointer;transition:all .3s ease;border:none;font-size:1rem}
+    .action-btn-primary{background:white;color:var(--guide-primary-dark)}
+    .action-btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 20px rgba(0,0,0,.2)}
+    .action-btn-secondary{background:rgba(255,255,255,.2);color:white;border:2px solid rgba(255,255,255,.3)}
+    .action-btn-secondary:hover{background:rgba(255,255,255,.3)}
+    .toc-sidebar{position:sticky;top:120px;height:fit-content;padding:1.5rem;background:var(--bg-white);border-radius:16px;box-shadow:var(--shadow);max-height:calc(100vh - 150px);overflow-y:auto}
+    .toc-sidebar h4{font-size:.85rem;text-transform:uppercase;letter-spacing:.08em;color:var(--text-light);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1px solid var(--border-color)}
+    .toc-sidebar ul{list-style:none;padding:0;margin:0}
+    .toc-sidebar li{margin-bottom:.25rem}
+    .toc-sidebar a{display:block;padding:.5rem .75rem;color:var(--text-light);text-decoration:none;font-size:.9rem;border-radius:6px;border-left:3px solid transparent;transition:all .2s ease;line-height:1.4}
+    .toc-sidebar a:hover{color:var(--guide-primary);background:#f3f4f6}
+    .toc-sidebar a.active{color:var(--guide-primary);background:#e5e7eb;border-left-color:var(--guide-primary);font-weight:600}
+    .toc-progress{width:100%;height:3px;background:#e5e7eb;border-radius:3px;margin-bottom:1rem;overflow:hidden}
+    .toc-progress-bar{height:100%;background:var(--guide-primary);width:0%;transition:width .3s ease;border-radius:3px}
+    .guide-page-layout{display:grid;grid-template-columns:220px 1fr 350px;gap:2rem;max-width:1400px;margin:2rem auto;padding:0 2rem}
+    .guide-main{background:var(--bg-white);border-radius:16px;padding:2.5rem;box-shadow:var(--shadow)}
+    .guide-main h2{font-size:2rem;color:var(--text-dark);margin-bottom:1.5rem;padding-bottom:.75rem;border-bottom:2px solid var(--guide-accent)}
+    .guide-main h3{font-size:1.4rem;color:var(--text-dark);margin:2rem 0 1rem}
+    .guide-main p{color:var(--text-light);line-height:1.8;margin-bottom:1.5rem}
+    .guide-main ul,.guide-main ol{margin-bottom:1.5rem;padding-left:1.5rem}
+    .guide-main li{color:var(--text-light);line-height:1.8;margin-bottom:.5rem}
+    .guide-sidebar{position:sticky;top:120px;height:fit-content}
+    .sidebar-card{background:var(--bg-white);border-radius:16px;padding:1.5rem;margin-bottom:1.5rem;box-shadow:var(--shadow)}
+    .sidebar-card h4{font-size:1.1rem;margin-bottom:1rem;color:var(--text-dark)}
+    .quick-stat{display:flex;justify-content:space-between;padding:.75rem 0;border-bottom:1px solid var(--border-color)}
+    .quick-stat:last-child{border-bottom:none}
+    .quick-stat-label{color:var(--text-light)}
+    .quick-stat-value{font-weight:700;color:var(--guide-primary)}
+    .sidebar-cta{background:linear-gradient(135deg,var(--guide-primary) 0%,var(--guide-primary-light) 100%);color:white}
+    .sidebar-cta h4{color:white}
+    .sidebar-cta p{font-size:.9rem;margin-bottom:1rem;opacity:.9}
+    .sidebar-cta input{width:100%;padding:.75rem;border:none;border-radius:8px;margin-bottom:.75rem;font-size:.95rem}
+    .sidebar-cta button{width:100%;padding:.75rem;background:white;color:var(--guide-primary-dark);border:none;border-radius:8px;font-weight:700;cursor:pointer;transition:all .3s ease}
+    .sidebar-cta button:hover{transform:translateY(-2px);box-shadow:0 5px 15px rgba(0,0,0,.2)}
+    .related-guide{display:flex;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--border-color);text-decoration:none}
+    .related-guide:last-child{border-bottom:none}
+    .related-guide-icon{width:50px;height:50px;border-radius:8px;background:linear-gradient(135deg,var(--guide-primary) 0%,var(--guide-accent) 100%);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.5rem}
+    .related-guide-content h5{font-size:.95rem;color:var(--text-dark);margin-bottom:.25rem}
+    .related-guide-content span{font-size:.8rem;color:var(--text-light)}
+    .info-box{padding:1.5rem;border-radius:12px;margin:2rem 0}
+    .info-box-tip{background:#f3f4f6;border-left:4px solid var(--guide-accent)}
+    .info-box-warning{background:#f3f4f6;border-left:4px solid #f59e0b}
+    .info-box-title{font-weight:700;margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem}
+    .material-card{background:#f3f4f6;border-radius:12px;padding:2rem;margin:2rem 0;border:1px solid #e5e7eb}
+    .material-card h3{margin-top:0!important;color:var(--guide-primary)!important;font-size:1.5rem!important}
+    .material-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1rem 0}
+    .material-stat{text-align:center;padding:.75rem;background:white;border-radius:8px}
+    .material-stat-label{font-size:.8rem;color:var(--text-light)}
+    .material-stat-value{font-size:1.1rem;font-weight:700;color:var(--guide-primary)}
+    .comparison-table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:.95rem}
+    .comparison-table th,.comparison-table td{padding:.75rem;text-align:left;border:1px solid #e5e7eb}
+    .comparison-table th{background:var(--guide-primary);color:white;font-weight:600}
+    .comparison-table tr:nth-child(even){background:#f3f4f6}
+    .comparison-table tr:hover{background:#e5e7eb}
+    .faq-item{border:1px solid #e5e7eb;border-radius:10px;margin-bottom:1rem;overflow:hidden}
+    .faq-q{width:100%;padding:1.25rem 1.5rem;background:#f3f4f6;border:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:1.05rem;font-weight:600;color:var(--guide-primary-dark);text-align:left}
+    .faq-q:hover{background:#e5e7eb}
+    .faq-a{padding:0 1.5rem 1.25rem;color:var(--text-light);line-height:1.8;display:none}
+    .faq-item.open .faq-a{display:block}
+    .faq-toggle{font-size:1.3rem;transition:transform .3s}
+    .faq-item.open .faq-toggle{transform:rotate(45deg)}
+    .toc-mobile-toggle{display:none;position:sticky;top:100px;z-index:100;background:var(--bg-white);border-bottom:1px solid var(--border-color);padding:.75rem 2rem;cursor:pointer;font-weight:600;color:var(--guide-primary);font-size:.95rem}
+    .toc-mobile-toggle span{margin-left:.5rem;transition:transform .3s;display:inline-block}
+    .toc-mobile-toggle.open span{transform:rotate(180deg)}
+    @media(max-width:1200px){.guide-page-layout{grid-template-columns:220px 1fr}.guide-sidebar-col{grid-column:1/-1;order:10}}
+    @media(max-width:768px){.guide-hero h1{font-size:2rem}.guide-main{padding:1.5rem}.guide-actions{flex-direction:column}.guide-page-layout{grid-template-columns:1fr;padding:0 1rem}.toc-sidebar-col{display:none}.toc-mobile-toggle{display:block}.material-stats{grid-template-columns:1fr}}
+  </style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-V08M9YKRR7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-V08M9YKRR7');
+</script>
+</head>
+
+<body>
+
+<nav class="navbar" id="navbar">
+  <div class="container nav-container">
+    <div class="logo"><img src="../images/logov3.png?v=3" alt="Drivewayz USA" onerror="this.style.display='none'"></div>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../index.html#services">Services</a></li>
+      <li><a href="../index.html#why-choose">Why Us</a></li>
+      <li><a href="../locations.html">Locations</a></li>
+      <li><a href="../guides-hub.html">Guides</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+    <button class="cta-button-small" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Free Estimate</button>
+  </div>
+</nav>
+
+<section class="guide-hero">
+  <div class="container guide-hero-content">
+    <div class="guide-breadcrumb">
+      <a href="../index.html">Home</a> / <a href="../guides-hub.html">Guides</a> / <span>Driveway Resilience Planning: Preparing for Extreme Weather</span>
+    </div>
+    <h1>Driveway Resilience Planning: Preparing for Extreme Weather</h1>
+    <p class="guide-hero-subtitle">A complete guide to driveway resilience planning — what homeowners need to know.</p>
+    <div class="guide-meta-bar">
+      <div class="guide-meta-item">&#9201;&#65039; 14 min read</div>
+      <div class="guide-meta-item">&#128176; High-end material</div>
+      <div class="guide-meta-item">&#128142; Premium quality</div>
+    </div>
+    <div class="guide-actions">
+      <a href="../index.html#contact" class="action-btn action-btn-primary">Get Free Estimate</a>
+      <button class="action-btn action-btn-secondary" onclick="saveGuide()"><span id="saveIcon">&#128278;</span> <span id="saveText">Save Guide</span></button>
+    </div>
+  </div>
+</section>
+
+<div class="toc-mobile-toggle" onclick="toggleMobileToc()">&#128203; Table of Contents <span>&#9660;</span></div>
+
+<div class="guide-page-layout">
+  <div class="toc-sidebar-col">
+    <nav class="toc-sidebar">
+      <div class="toc-progress"><div class="toc-progress-bar" id="tocProgress"></div></div>
+      <h4>On This Page</h4>
+      <ul>
+        <li><a href="#overview" class="toc-link" data-section="overview">What is Basalt?</a></li>
+        <li><a href="#costs" class="toc-link" data-section="costs">Cost Breakdown</a></li>
+        <li><a href="#installation" class="toc-link" data-section="installation">Installation Process</a></li>
+        <li><a href="#benefits" class="toc-link" data-section="benefits">Benefits</a></li>
+        <li><a href="#maintenance" class="toc-link" data-section="maintenance">Maintenance</a></li>
+        <li><a href="#comparison" class="toc-link" data-section="comparison">Material Comparison</a></li>
+        <li><a href="#faq" class="toc-link" data-section="faq">FAQ</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <main class="guide-main">
+
+    <section id="overview">
+<h2>What “Driveway Resilience Planning” Really Means</h2>
+<p>Driveway resilience planning is the proactive process of designing, building, and maintaining a driveway so it keeps working—no matter how wild the weather gets. Instead of reacting to potholes after every storm, you build in features that shrug off freeze-thaw cycles, 100-year floods, or the neighbor’s overflowing gutters.</p>
+<p>Think of it as insurance you can drive on. A resilient driveway:</p>
+<ul>
+<li>Drains water away before it turns to ice</li>
+<li>Flexes slightly instead of cracking when the ground shifts</li>
+<li>Uses materials rated for your local temperature extremes</li>
+<li>Has a maintenance calendar synced to weather forecasts</li>
+</ul>
+</section>
+
+<section id="climate-assessment">
+<h2>Start With a 15-Minute Climate Risk Scan</h2>
+<p>Before you spend a dime on materials, know exactly what your driveway is up against. Grab your phone and a notepad, walk the street, and answer four questions.</p>
+
+<h3>Pinpoint Your Local Threats</h3>
+<p>Look up your NOAA climate zone and note the record low, record high, and average annual rainfall. Then check city flood maps for 100- and 500-year floodplains. If you’re in the shaded zone, plan for periodic underwater duty.</p>
+
+<h3>Read Your Driveway Like a Crime Scene</h3>
+<p>After the next storm, photograph every puddle, crack, and chip. Mark them with sidewalk chalk. These photos become your “before” baseline and prove to insurers that damage was weather-related, not wear-and-tear.</p>
+
+<h3>Talk to the Old-Timers</h3>
+<p>Long-time neighbors have seen which driveways last. Ask what failed, when, and why. You’ll often hear, “The one that heaved was poured without rebar,” or “The city plow catches that edge every year.” Free knowledge.</p>
+</section>
+
+<section id="materials">
+<h2>Choose Materials Engineered for Extremes</h2>
+<p>Resilience starts at the molecular level. Below are the four most weather-proof options for U.S. climates, with the pros, cons, and approximate installed cost per square foot (2024 national averages).</p>
+
+<h3>Air-Entrained Concrete with 6% Ash</h3>
+<p>Microscopic air bubbles give freezing water room to expand. Fly-ash increases density and cuts CO₂. Expect 30–40 year life in freeze-thaw zones. Cost: $9–$12 / sq ft.</p>
+
+<h3>Porous Asphalt over Stone Recharge Bed</h3>
+<p>Water drains through the surface into a 12-inch clean-stone reservoir, eliminating ice formation on top. Best for slopes ≤ 5%. Needs vacuum sweeping yearly. Cost: $7–$10 / sq ft.</p>
+
+<h3>Reinforced Permeable Pavers</h3>
+<p>Concrete pavers with 8% open area, locked together with polymeric sand and edge restraints. Can handle 100 in/hr rainfall. Replace individual units if one chips. Cost: $10–$14 / sq ft.</p>
+
+<h3>Rubberized Chip Seal</h3>
+<p>Recycled tire rubber blended with asphalt emulsion, creating a flexible membrane that heals micro-cracks. Excellent for rural gravel upgrades. Re-coat every 8–10 years. Cost: $3–$5 / sq ft.</p>
+</section>
+
+<section id="drainage">
+<h2>Build Drainage That Works Before, During, and After the Storm</h2>
+<p>Water is the #1 enemy of every driveway. A resilient system moves it away in three stages.</p>
+
+<h3>Stage 1: Crown or Cross-Slope</h3>
+<p>Minimum 1% slope (1/8 in per foot) from center to edge for asphalt, 2% for concrete. Use a laser level during installation; eyeballing it is why puddles form.</p>
+
+<h3>Stage 2: Sub-Surface Drain Tile</h3>
+<p>Install 4-in perforated PVC along the downhill edge, encased in geotextile sock and #57 stone. Daylight the pipe to a ditch or rain garden at least 10 ft from the driveway. Cost: $12–$15 per linear foot installed.</p>
+
+<h3>Stage 3: Permeable Border</h3>
+<p>A 12-inch strip of permeable pavers or gravel along the garage apron keeps gutter overflow from undermining the slab. Top with ¾-inch angular stone that locks together—pea gravel rolls like marbles.</p>
+</section>
+
+<section id="cold-weather">
+<h2>Cold-Climate Hacks: Freeze-Thaw, Snow Loads, and Salt</h2>
+
+<h3>Seal Joints Every 2 Years</h3>
+<p>Use self-leveling silicone rated to –40 °F. Unsealed joints let water in; when it freezes, the hydraulic pressure can pop chunks out of even 4,000-psi concrete.</p>
+
+<h3>Switch to Calcium Magnesium Acetate (CMA)</h3>
+<p>Rock salt (sodium chloride) attacks concrete and corrodes rebar. CMA works down to –25 °F and is biodegradable. Apply only 2 oz per sq yard—half the label rate saves money and the planet.</p>
+
+<h3>Install a Snow-Melt Zone</h3>
+<p>For 50–75 sq ft at the garage entrance, add hydronic tubes or electric mats. Operate only during storms; on a timer plus slab sensor, annual operating cost is about $120 in Midwestern states. Prevents plow damage and slip claims.</p>
+</section>
+
+<section id="hot-weather">
+<h2>Hot-Climate &amp; UV Defense Plan</h2>
+
+<h3>Reflective Surface Coatings</h3>
+<p>Apply a light-gray or tan acrylic sealer with solar reflectance index (SRI) ≥ 29. Surface temps drop up to 20 °F, reducing thermal fatigue that causes asphalt to rut.</p>
+
+<h3>Control Joints Closer Together</h3>
+<p>In Phoenix or Vegas, cut joints every 6 ft instead of the standard 10 ft. Thermal expansion happens faster than in northern climates; tighter joints prevent random cracking.</p>
+
+<h3>Shade New Concrete for 72 Hours</h3>
+<p>Use inexpensive 60% shade cloth on stakes. Curing at temps above 95 °F without moisture causes surface crazing that lets monsoon rain penetrate later.</p>
+</section>
+
+<section id="storm-prep">
+<h2>72-Hour Storm Checklist</h2>
+<ol>
+<li><strong>48 hrs out:</strong> Clean catch basins, gutter outlets, and pipe grates. One clogged drain can sink a driveway.</li>
+<li><strong>36 hrs out:</strong> Fill any fresh cracks > ¼ in with polyurethane backer rod and sealant. Water can’t destroy what it can’t enter.</li>
+<li><strong>24 hrs out:</strong> Secure loose pavers or edging stones with fresh polymeric sand. Jet-wash first for adhesion.</li>
+<li><strong>6 hrs out:</strong> Move vehicles and heavy trailers off asphalt above 90 °F; tire dents become permanent under hurricane rain weight.</li>
+<li><strong>Post-storm:</strong> Photograph everything for insurance before you shovel or plow. Email time-stamped files to yourself for legal proof.</li>
+</ol>
+</section>
+
+<section id="maintenance">
+<h2>Maintenance Calendar You Can Sync to Google</h2>
+<p>Resilience isn’t a one-time upgrade; it’s a habit. Copy these dates into your calendar and set email reminders.</p>
+
+<h3>Spring (April)</h3>
+<ul>
+<li>Pressure-wash entire surface at < 2,500 psi</li>
+<li>Re-sand paver joints where washed out</li>
+<li>Apply UV-protective sealer every 3 years</li>
+</ul>
+
+<h3>Summer (July)</h3>
+<ul>
+<li>Inspect drainage outlets after heavy pop-up storms</li>
+<li>Touch-up sealant on control joints</li>
+</ul>
+
+<h3>Fall (October)</h3>
+<ul>
+<li>Clear leaves weekly; tannic acid stains concrete</li>
+<li>Apply CMA storage bin so you’re ready for first freeze</li>
+<li>Schedule professional inspection every odd-numbered year</li>
+</ul>
+
+<h3>Winter (January)</h3>
+<ul>
+<li>Plow with rubber-edged blade, ½ in above surface</li>
+<li>Never use metal shovels on pavers; use plastic or poly</li>
+</ul>
+</section>
+
+<section id="costs">
+<h2>Budgeting: What Resilience Upgrades Actually Cost</h2>
+<p>Prices include labor and materials, adjusted to 2024 national averages. Add 10% for coastal or high-cost metro areas.</p>
+
+<h3>Entry-Level Package ($2–$4 / sq ft)</h3>
+<ul>
+<li>Crack-seal and coat asphalt with rubberized sealer</li>
+<li>Install 4-in strip drain across garage apron</li>
+<li>5-year life extension</li>
+</ul>
+
+<h3>Mid-Range Package ($6–$9 / sq ft)</h3>
+<ul>
+<li>Milling and 1.5-in porous asphalt overlay</li>
+<li>Add edge drain tile to storm sewer</li>
+<li>Apply reflective top coat</li>
+<li>12-year life extension</li>
+</ul>
+
+<h3>Premium Package ($12–$16 / sq ft)</h3>
+<ul>
+<li>Remove and replace 6-in reinforced concrete with 6% air entrainment</li>
+<li>Full permeable paver border</li>
+<li>Hydronic snow-melt at entry</li>
+<li>25-year life extension</li>
+</ul>
+<p>Finance tip: Many counties offer low-interest green-infrastructure loans for permeable surfaces—check your storm-water utility.</p>
+</section>
+
+<section id="roi">
+<h2>ROI and Insurance Perks</h2>
+<p>Resilient driveways pay you back three ways:</p>
+<ol>
+<li><strong>Higher resale:</strong> Realtors report 5–10% bump in curb-appeal value when a home ad mentions “flood-proof permeable driveway.”</li>
+<li><strong>Lower claims:</strong> One avoided crack-heave incident saves the average $2,500 deductible.</li>
+<li><strong>Premium discounts:</strong> Some carriers (e.g., USAA, State Farm) give 2–3% credit for documented permeable surfaces that reduce storm-water runoff.</li>
+</ol>
+</section>
+
+<section id="faq">
+<h2>Frequently Asked Questions</h2>
+
+<div class="faq-item">
+<button class="faq-q" onclick="toggleFaq(this)">Can I retrofit my existing concrete driveway for resilience, or do I need to rip it out?</button>
+<div class="faq-a">
+<p>Retrofits work up to a point. If the slab is structurally sound (no vertical displacements > ½ in), you can saw-cut infill joints, add surface drainage, and apply a penetrating silane sealer. For widespread spider cracking or subsidence, partial removal and a permeable overlay are more cost-effective in the long run.</p>
+</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-q" onclick="toggleFaq(this)">How long does a permeable paver driveway really last in freeze-thaw areas?</button>
+<div class="faq-a">
+<p>When installed over an open-graded stone base (ASTM #2 stone minimum 12 in thick) and edge-restrained, expect 30–35 years. Individual units can chip, but you simply swap them out—no full-scale replacement. Keep joints topped with angular aggregate and vacuum annually to prevent clogging.</p>
+</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-q" onclick="toggleFaq(this)">Will a snow-melt system void my asphalt warranty?</button>
+<div class="faq-a">
+<p>Only if the asphalt mix isn’t designed for the heat. Specify PG 70-22 binder and keep fluid temps under 150 °F at the tube interface. Most reputable installers provide a 10-year warranty when these conditions are met. Always get it in writing.</p>
+</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-q" onclick="toggleFaq(this)">Does driveway resilience planning qualify for federal tax credits?</button>
+<div class="faq-a">
+<p>At the moment, permeable surfaces that manage storm-water runoff may qualify for local utility rebates, but there is no federal residential credit. However, the Inflation Reduction Act offers 30% credit up to $4,000 for qualifying battery-backup sump systems—handy if your driveway drainage ties into a pump.</p>
+</div>
+</div>
+</section>
+
+  </main>
+
+  <aside class="guide-sidebar-col">
+    <div class="guide-sidebar">
+      <div class="sidebar-card">
+        <h4>&#128202; Quick Facts</h4>
+        <div class="quick-stat">
+          <span class="quick-stat-label">Paver Cost</span>
+          <span class="quick-stat-value">$15-30/sqft</span>
+        </div>
+        <div class="quick-stat">
+          <span class="quick-stat-label">Crushed Cost</span>
+          <span class="quick-stat-value">$5-11/sqft</span>
+        </div>
+        <div class="quick-stat">
+          <span class="quick-stat-label">Lifespan</span>
+          <span class="quick-stat-value">30-50+ years</span>
+        </div>
+        <div class="quick-stat">
+          <span class="quick-stat-label">Hardness</span>
+          <span class="quick-stat-value">6 Mohs</span>
+        </div>
+        <div class="quick-stat">
+          <span class="quick-stat-label">Maintenance</span>
+          <span class="quick-stat-value">Low</span>
+        </div>
+      </div>
+
+      <div class="sidebar-card sidebar-cta">
+        <h4>&#128640; Get Started Today</h4>
+        <p>Interested in a basalt driveway? Get a free estimate from our experts.</p>
+        <form onsubmit="handleSidebarSubmit(event)">
+          <input type="text" placeholder="Your Name" required aria-label="Your Name">
+          <input type="tel" placeholder="Phone Number" required aria-label="Phone Number">
+          <button type="submit">Request Free Estimate</button>
+        </form>
+      </div>
+
+      <div class="sidebar-card">
+        <h4>&#128218; Related Guides</h4>
+        <a href="cobblestone-driveway.html" class="related-guide">
+          <div class="related-guide-icon">&#127968;</div>
+          <div class="related-guide-content">
+            <h5>Cobblestone Driveway Guide</h5>
+            <span>12 min read</span>
+          </div>
+        </a>
+        <a href="driveway-basics-types-costs-lifespan.html" class="related-guide">
+          <div class="related-guide-icon">&#128214;</div>
+          <div class="related-guide-content">
+            <h5>Driveway Basics: Types, Costs &amp; Lifespan</h5>
+            <span>20 min read</span>
+          </div>
+        </a>
+        <a href="concrete-vs-asphalt-vs-gravel.html" class="related-guide">
+          <div class="related-guide-icon">&#9878;&#65039;</div>
+          <div class="related-guide-content">
+            <h5>Concrete vs Asphalt vs Gravel</h5>
+            <span>18 min read</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<footer style="text-align:center;padding:2rem;color:#6b7280;font-size:.9rem;">
+  <p>&copy; 2026 Drivewayz USA. Licensed &amp; Insured. Serving the United States with Pride.</p>
+  <p><a href="../index.html#services" style="color:#374151;">Services</a> &bull; <a href="../guides-hub.html" style="color:#374151;">Guides</a> &bull; <a href="../index.html#contact" style="color:#374151;">Contact</a></p>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded',function(){var sections=document.querySelectorAll('main section[id]');var tocLinks=document.querySelectorAll('.toc-link');var progressBar=document.getElementById('tocProgress');window.addEventListener('scroll',function(){var winH=document.documentElement.scrollHeight-window.innerHeight;var scrolled=(window.scrollY/winH)*100;if(progressBar)progressBar.style.width=scrolled+'%'});var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){tocLinks.forEach(function(link){link.classList.remove('active')});var activeLink=document.querySelector('.toc-link[data-section="'+entry.target.id+'"]');if(activeLink)activeLink.classList.add('active')}})},{rootMargin:'-20% 0px -60% 0px',threshold:0});sections.forEach(function(section){observer.observe(section)});tocLinks.forEach(function(link){link.addEventListener('click',function(e){e.preventDefault();var target=document.getElementById(this.getAttribute('data-section'));if(target){target.scrollIntoView({behavior:'smooth',block:'start'});var mobileToc=document.querySelector('.toc-sidebar-col');var toggle=document.querySelector('.toc-mobile-toggle');if(mobileToc)mobileToc.classList.remove('mobile-open');if(toggle)toggle.classList.remove('open')}})})});
+function toggleMobileToc(){var tocCol=document.querySelector('.toc-sidebar-col');var toggle=document.querySelector('.toc-mobile-toggle');tocCol.classList.toggle('mobile-open');toggle.classList.toggle('open')}
+function toggleFaq(btn){btn.parentElement.classList.toggle('open')}
+function saveGuide(){var si=document.getElementById('saveIcon'),st=document.getElementById('saveText');if(st.textContent==='Save Guide'){si.innerHTML='&#10084;&#65039;';st.textContent='Saved!'}else{si.innerHTML='&#128278;';st.textContent='Save Guide'}}
+function handleSidebarSubmit(e){e.preventDefault();alert('Thank you! We will contact you shortly with your free estimate.');e.target.reset()}
+</script>
+</body>
+</html>
