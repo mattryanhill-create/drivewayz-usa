@@ -1,0 +1,32 @@
+#!/bin/bash
+ASPHALT="pexels-introspectivedsgn-9890648.webp"
+CONCRETE="pexels-goodcitizen-1315919.webp"
+PAVER="pexels-curtis-adams-1694007-3958961.webp"
+GRAVEL="pexels-pixabay-277667.webp"
+GENERAL="pexels-curtis-adams-1694007-3990589.webp"
+MAINT="pexels-artbovich-8134848.webp"
+COST="hugo-sousa-BghGseQbAkA-unsplash.webp"
+CLIMATE="pexels-sobeslavjan-13838908.webp"
+SPECIALTY="pexels-introspectivedsgn-7475608.webp"
+DESIGN="matt-jones-xpDHTc-pkog-unsplash.webp"
+DEFAULT="pexels-pixabay-221540.webp"
+for file in guides/*.html; do
+f=$(basename "$file")
+if [[ "$f" == asphalt-* ]]; then IMG="$ASPHALT"
+elif [[ "$f" == concrete-* || "$f" == curing-* || "$f" == stamped-* ]]; then IMG="$CONCRETE"
+elif [[ "$f" == paver-* || "$f" == brick-* || "$f" == cobblestone-* || "$f" == interlocking-* ]]; then IMG="$PAVER"
+elif [[ "$f" == gravel-* || "$f" == crushed-* ]]; then IMG="$GRAVEL"
+elif [[ "$f" == *crack* || "$f" == *sealing* || "$f" == *resurfac* || "$f" == *repair* || "$f" == *maintenance* ]]; then IMG="$MAINT"
+elif [[ "$f" == *-cost-in-* || "$f" == *pricing* ]]; then IMG="$COST"
+elif [[ "$f" == *freeze* || "$f" == *snow* || "$f" == *desert* || "$f" == *climate* || "$f" == heated-* ]]; then IMG="$CLIMATE"
+elif [[ "$f" == permeable-* || "$f" == resin-* || "$f" == exposed-aggregate-* || "$f" == chip-seal-* ]]; then IMG="$SPECIALTY"
+elif [[ "$f" == *curb-appeal* || "$f" == *luxury* || "$f" == *modern* || "$f" == *decorative* ]]; then IMG="$DESIGN"
+elif [[ "$f" == driveway-* ]]; then IMG="$GENERAL"
+else IMG="$DEFAULT"
+fi
+sed -i '' "s|pexels-pixabay-259588.webp|$IMG|g" "$file"
+sed -i '' "s|rgba(55,65,81,.85)|rgba(55,65,81,.55)|g" "$file"
+sed -i '' "s|rgba(31,41,55,.85)|rgba(31,41,55,.55)|g" "$file"
+echo "$f → $IMG"
+done
+echo "DONE"
