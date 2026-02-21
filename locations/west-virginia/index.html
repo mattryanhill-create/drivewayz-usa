@@ -22,8 +22,11 @@
         }
 
 
-        /* Breadcrumb - matches guide pages */
-        .state-breadcrumb { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; font-size: 0.9rem; }
+        
+        
+        
+        /* Breadcrumb - top-left of hero */
+        .state-breadcrumb { position: absolute; top: 1rem; left: 2rem; z-index: 3; padding: 1rem 2rem; display: flex; gap: 0.5rem; font-size: 0.9rem; text-align: left; }
         .state-breadcrumb a { color: rgba(255,255,255,0.8); text-decoration: none; }
         .state-breadcrumb a:hover { color: white; }
 
@@ -773,11 +776,11 @@
     <main id="content">
         <!-- Hero Section -->
         <section class="state-hero" style="background: linear-gradient(135deg, rgba(43,87,151,0.65), rgba(91,155,213,0.65)), url('/images/hero-west-virginia.webp'); background-size: cover; background-position: center;">
+            <div class="state-breadcrumb">
+                <a href="/">Home</a><span>/</span><a href="/locations/">Locations</a><span>/</span><span>West Virginia</span>
+            </div>
             <div class="state-hero-content">
-                <div class="state-breadcrumb">
-                    <a href="/">Home</a><span>/</span><a href="/locations/">Locations</a><span>/</span><span>West Virginia</span>
-                </div>
-                WE</span>
+                <span class="state-badge">WV</span>
                 <h1>West Virginia</h1>
                 <p class="tagline">Expert Driveway Solutions for West Virginia</p>
                 <a href="/#contact" class="btn-primary">Get Your Free Estimate</a>
