@@ -532,7 +532,7 @@ sans-serif;
     justify-content: space-between;
     align-items: center;
     padding: 0.5rem 20px;
-    height: 80px;
+    height: 100px;
 }
 
 .logo {
@@ -543,8 +543,8 @@ sans-serif;
 }
 
 .logo img {
-    height: 70px;
-    max-height: 70px;
+    height: 100px;
+    max-height: 100px;
     width: auto;
     max-width: 320px;
     display: block;
@@ -622,8 +622,8 @@ sans-serif;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    margin-top: 80px;
-    min-height: calc(90vh - 80px);
+    margin-top: 100px;
+    min-height: calc(90vh - 100px);
 }
 
 .hero-overlay {
