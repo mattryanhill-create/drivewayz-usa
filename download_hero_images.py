@@ -183,16 +183,20 @@ def inject_image_into_state(html: str, image_src: str) -> str:
 
 
 def inject_image_into_hub(html: str, image_src: str, selector: str) -> str:
+    # Use semi-transparent gradient so photo shows through
+    semi_transparent = f"linear-gradient(135deg, rgba(43, 87, 151, 0.65) 0%, rgba(91, 155, 213, 0.6) 100%), url('{image_src}')"
+
     def _replace(match: re.Match) -> str:
         block = match.group(1)
         block = re.sub(
-            r"background\s*:\s*(linear-gradient\([^;]+\))\s*(?:,\s*url\([^;]+\))?\s*;",
-            rf"background:\1, url('{image_src}');",
+            r"background\s*:\s*(?:linear-gradient\([^;]+\)\s*,?\s*)?(?:url\([^)]+\)\s*)?;?",
+            f"background: {semi_transparent}; ",
             block,
+            count=1,
             flags=re.IGNORECASE,
         )
         if "background:" not in block:
-            block = f"background:linear-gradient(135deg,rgba(43,87,151,.8),rgba(91,155,213,.6)), url('{image_src}');" + block
+            block = f"background: {semi_transparent}; " + block
         block = ensure_bg_size_position(block)
         return f"{selector}{{{block}}}"
 
@@ -312,10 +316,21 @@ def main() -> None:
             time.sleep(API_DELAY_SECONDS)
             continue
 
+        query_used = query
         try:
             result, search_status, real_url = unsplash_search(access_key, query)
             print(f"[{page_rel}] HTTP {search_status} search")
-            photo = pick_photo(result)
+            try:
+                photo = pick_photo(result)
+            except RuntimeError as e:
+                if "No photos" in str(e) and query != "residential driveway home":
+                    query_used = "residential driveway home"
+                    result, search_status, _ = unsplash_search(access_key, query_used)
+                    print(f"[{page_rel}] fallback HTTP {search_status} search")
+                    time.sleep(API_DELAY_SECONDS)
+                    photo = pick_photo(result)
+                else:
+                    raise
             url = photo["urls"]["regular"]
             raw, image_status = download_bytes(url)
             print(f"[{page_rel}] HTTP {image_status} image download")
