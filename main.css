@@ -594,7 +594,9 @@ sans-serif;
 .cta-button-small {
     background-color: var(--primary-color);
     color: white;
-    padding: 0.6rem 1.75rem;
+    padding: 0.75rem 1.5rem;
+           margin-left: 1.5rem;
+           white-space: nowrap;
     border: none;
     border-radius: 6px;
     font-size: 1.05rem;
@@ -1015,11 +1017,6 @@ section {
     
     .logo img {
         height: 60px;
-    }
-    
-    .cta-button-small {
-        padding: 0.5rem 1rem;
-        font-size: 0.9rem;
     }
 }
 
