@@ -1,20 +1,19 @@
 #!/usr/bin/env python3
 """
-Download hero images from Pexels and inject them into gradient-only pages.
+Download hero images from Unsplash and inject them into gradient-only pages.
 
-NOTE: This script is ready to run once PEXELS_API_KEY is provided in .env.
+Uses hero-image-map.json (search_keyword per page). Requires UNSPLASH_ACCESS_KEY in .env.
 """
 
 from __future__ import annotations
 
+import argparse
 import io
 import json
-import os
 import re
 import subprocess
 import time
 from pathlib import Path
-from typing import Optional
 from urllib.error import HTTPError, URLError
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
@@ -23,23 +22,21 @@ from urllib.request import Request, urlopen
 ROOT = Path(__file__).resolve().parent
 MAP_PATH = ROOT / "hero-image-map.json"
 IMAGES_DIR = ROOT / "images"
-PEXELS_ENDPOINT = "https://api.pexels.com/v1/search"
+UNSPLASH_ENDPOINT = "https://api.unsplash.com/search/photos"
 API_DELAY_SECONDS = 2
-MIN_WIDTH = 1280
-MIN_HEIGHT = 720
 
 
 def load_env_key() -> str:
     env_path = ROOT / ".env"
     if not env_path.exists():
-        raise RuntimeError(".env not found. Add PEXELS_API_KEY=... first.")
+        raise RuntimeError(".env not found. Add UNSPLASH_ACCESS_KEY=... first.")
     for line in env_path.read_text(encoding="utf-8").splitlines():
         line = line.strip()
         if not line or line.startswith("#"):
             continue
-        if line.startswith("PEXELS_API_KEY="):
+        if line.startswith("UNSPLASH_ACCESS_KEY="):
             return line.split("=", 1)[1].strip().strip('"').strip("'")
-    raise RuntimeError("PEXELS_API_KEY not found in .env")
+    raise RuntimeError("UNSPLASH_ACCESS_KEY not found in .env")
 
 
 def slug_for_page(page_rel: str) -> str:
@@ -53,41 +50,41 @@ def slug_for_page(page_rel: str) -> str:
     return path.stem
 
 
-def pexels_search(api_key: str, query: str) -> dict:
+def unsplash_search(access_key: str, query: str) -> tuple[dict, int, str]:
     params = {
         "query": query,
         "orientation": "landscape",
-        "per_page": 10,
+        "per_page": 1,
         "page": 1,
-        "size": "large",
     }
-    req = Request(f"{PEXELS_ENDPOINT}?{urlencode(params)}")
-    req.add_header("Authorization", api_key)
+    search_url = f"{UNSPLASH_ENDPOINT}?{urlencode(params)}"
+    req = Request(search_url)
+    req.add_header("Authorization", f"Client-ID {access_key}")
     with urlopen(req, timeout=30) as resp:
-        return json.loads(resp.read().decode("utf-8"))
+        status = int(resp.getcode() or 0)
+        return json.loads(resp.read().decode("utf-8")), status, search_url
 
 
 def pick_photo(result: dict) -> dict:
-    photos = result.get("photos", [])
-    for photo in photos:
-        width = int(photo.get("width", 0))
-        height = int(photo.get("height", 0))
-        if width >= MIN_WIDTH and height >= MIN_HEIGHT and photo.get("src", {}).get("large2x"):
-            return photo
-    if photos:
-        return photos[0]
-    raise RuntimeError("No photos returned from Pexels")
+    results = result.get("results", [])
+    if not results:
+        raise RuntimeError("No photos returned from Unsplash")
+    photo = results[0]
+    urls = photo.get("urls", {})
+    if not urls.get("regular"):
+        raise RuntimeError("No regular URL in Unsplash result")
+    return photo
 
 
-def download_bytes(url: str) -> bytes:
+def download_bytes(url: str) -> tuple[bytes, int]:
     req = Request(url, headers={"User-Agent": "drivewayz-usa-hero-pipeline/1.0"})
     with urlopen(req, timeout=60) as resp:
-        return resp.read()
+        status = int(resp.getcode() or 0)
+        return resp.read(), status
 
 
 def save_webp(raw: bytes, out_path: Path) -> None:
     out_path.parent.mkdir(parents=True, exist_ok=True)
-    # Pillow first, fallback to cwebp if Pillow unavailable.
     try:
         from PIL import Image  # type: ignore
 
@@ -123,14 +120,21 @@ def ensure_bg_size_position(block: str) -> str:
 def inject_image_into_guide(html: str, image_src: str) -> str:
     def _replace(match: re.Match) -> str:
         block = match.group(1)
-        if "/images/" in block:
-            return match.group(0)
         block = re.sub(
-            r"background-image\s*:\s*(linear-gradient\([^;]+\))\s*;",
+            r"background-image\s*:\s*(linear-gradient\([^;]+\))\s*(?:,\s*url\([^;]+\))?\s*;",
             rf"background-image:\1,url('{image_src}');",
             block,
             flags=re.IGNORECASE,
         )
+        if "background-image" not in block:
+            block = re.sub(
+                r"background\s*:\s*(linear-gradient\([^;]+\))\s*(?:,\s*url\([^;]+\))?\s*;",
+                rf"background:\1, url('{image_src}');",
+                block,
+                flags=re.IGNORECASE,
+            )
+        if "background-image" not in block and "background:" not in block:
+            block = f"background:linear-gradient(135deg,rgba(0,0,0,.45) 0%,rgba(0,0,0,.45) 100%), url('{image_src}');" + block
         block = ensure_bg_size_position(block)
         return f".guide-hero{{{block}}}"
 
@@ -138,7 +142,6 @@ def inject_image_into_guide(html: str, image_src: str) -> str:
 
 
 def inject_image_into_state(html: str, image_src: str) -> str:
-    # Preferred target in generated state pages: <section class="state-hero" style="background: ...;">
     section_re = re.compile(
         r'(<section[^>]*class=["\']state-hero["\'][^>]*style=["\'])([^"\']+)(["\'])',
         re.IGNORECASE,
@@ -146,29 +149,33 @@ def inject_image_into_state(html: str, image_src: str) -> str:
     section_match = section_re.search(html)
     if section_match:
         style_val = section_match.group(2)
-        if "/images/" not in style_val:
-            style_val = re.sub(
-                r"background\s*:\s*(linear-gradient\([^;]+\))\s*;?",
-                rf"background:\1, url('{image_src}');",
-                style_val,
-                flags=re.IGNORECASE,
-            )
-            if "background-size" not in style_val:
-                style_val += " background-size: cover;"
-            if "background-position" not in style_val:
-                style_val += " background-position: center;"
+        # Use semi-transparent gradient so photo shows through (solid hex hides it)
+        semi_transparent = f"linear-gradient(135deg, rgba(43, 87, 151, 0.7) 0%, rgba(91, 155, 213, 0.6) 50%, rgba(74, 144, 217, 0.6) 100%), url('{image_src}')"
+        style_val = re.sub(
+            r"background\s*:\s*(?:linear-gradient\([^;]+\)\s*,?\s*)?(?:url\([^)]+\)\s*)?;?",
+            f"background: {semi_transparent}; ",
+            style_val,
+            count=1,
+            flags=re.IGNORECASE,
+        )
+        if "background:" not in style_val:
+            style_val = f"background: {semi_transparent}; " + style_val
+        if "background-size" not in style_val:
+            style_val += " background-size: cover;"
+        if "background-position" not in style_val:
+            style_val += " background-position: center;"
         return section_re.sub(rf"\1{style_val}\3", html, count=1)
 
     def _replace(match: re.Match) -> str:
         block = match.group(1)
-        if "/images/" in block:
-            return match.group(0)
         block = re.sub(
-            r"background\s*:\s*(linear-gradient\([^;]+\))\s*;",
+            r"background\s*:\s*(linear-gradient\([^;]+\))\s*(?:,\s*url\([^;]+\))?\s*;",
             rf"background:\1, url('{image_src}');",
             block,
             flags=re.IGNORECASE,
         )
+        if "background:" not in block:
+            block = f"background:linear-gradient(135deg,rgba(43,87,151,.8),rgba(91,155,213,.6)), url('{image_src}');" + block
         block = ensure_bg_size_position(block)
         return f".state-hero{{{block}}}"
 
@@ -178,14 +185,14 @@ def inject_image_into_state(html: str, image_src: str) -> str:
 def inject_image_into_hub(html: str, image_src: str, selector: str) -> str:
     def _replace(match: re.Match) -> str:
         block = match.group(1)
-        if "/images/" in block:
-            return match.group(0)
         block = re.sub(
-            r"background\s*:\s*(linear-gradient\([^;]+\))\s*;",
+            r"background\s*:\s*(linear-gradient\([^;]+\))\s*(?:,\s*url\([^;]+\))?\s*;",
             rf"background:\1, url('{image_src}');",
             block,
             flags=re.IGNORECASE,
         )
+        if "background:" not in block:
+            block = f"background:linear-gradient(135deg,rgba(43,87,151,.8),rgba(91,155,213,.6)), url('{image_src}');" + block
         block = ensure_bg_size_position(block)
         return f"{selector}{{{block}}}"
 
@@ -221,11 +228,8 @@ def update_generate_articles_template_hint() -> None:
     text = path.read_text(encoding="utf-8", errors="ignore")
     if "hero-image-map.json" in text:
         return
-    marker = "TEMPLATE_PATH = PROJECT_ROOT / \"guides\" / \"basalt-driveway\" / \"index.html\"\n"
-    insert = (
-        "TEMPLATE_PATH = PROJECT_ROOT / \"guides\" / \"basalt-driveway\" / \"index.html\"\n"
-        "HERO_IMAGE_MAP_PATH = PROJECT_ROOT / \"hero-image-map.json\"  # Future hero image mapping input\n"
-    )
+    marker = 'TEMPLATE_PATH = PROJECT_ROOT / "guides" / "basalt-driveway" / "index.html"\n'
+    insert = marker + 'HERO_IMAGE_MAP_PATH = PROJECT_ROOT / "hero-image-map.json"\n'
     text = text.replace(marker, insert, 1)
     path.write_text(text, encoding="utf-8")
 
@@ -235,57 +239,103 @@ def update_generate_state_template_hint() -> None:
     text = path.read_text(encoding="utf-8", errors="ignore")
     if "hero-image-map.json" in text:
         return
-    marker = "BASE_URL = \"https://drivewayzusa.co\"\n"
-    insert = (
-        "BASE_URL = \"https://drivewayzusa.co\"\n"
-        "HERO_IMAGE_MAP_PATH = os.path.join(PROJECT_ROOT, \"hero-image-map.json\")  # Future hero image mapping input\n"
-    )
+    marker = 'BASE_URL = "https://drivewayzusa.co"\n'
+    insert = marker + 'HERO_IMAGE_MAP_PATH = os.path.join(PROJECT_ROOT, "hero-image-map.json")\n'
     text = text.replace(marker, insert, 1)
     path.write_text(text, encoding="utf-8")
 
 
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Download and inject hero images from Unsplash.")
+    parser.add_argument(
+        "--limit-guides",
+        nargs="+",
+        default=[],
+        help="Only process these mapping paths.",
+    )
+    parser.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Print planned API calls without network/filesystem changes.",
+    )
+    args = parser.parse_args()
+    normalized: list[str] = []
+    for token in args.limit_guides:
+        normalized.extend([p.strip() for p in token.split(",") if p.strip()])
+    args.limit_guides = normalized
+    return args
+
+
 def main() -> None:
-    api_key = load_env_key()
+    args = parse_args()
+    access_key = load_env_key()
     if not MAP_PATH.exists():
         raise RuntimeError("hero-image-map.json not found. Run mapping script first.")
 
-    mapping = json.loads(MAP_PATH.read_text(encoding="utf-8"))
+    mapping: dict[str, dict] = json.loads(MAP_PATH.read_text(encoding="utf-8"))
+    if args.limit_guides:
+        selected: dict[str, dict] = {}
+        for rel in args.limit_guides:
+            if rel in mapping:
+                selected[rel] = mapping[rel]
+            else:
+                print(f"[WARN] Not in hero-image-map.json: {rel}")
+        mapping = selected
+
     downloaded = 0
     skipped_existing = 0
     failed: list[tuple[str, str]] = []
+    processed = 0
+
+    if args.dry_run:
+        print("[INFO] Dry-run; no API calls or file writes.")
 
     for page_rel, info in mapping.items():
+        processed += 1
         slug = slug_for_page(page_rel)
+        query = info.get("search_keyword", "residential driveway")
         image_rel = f"/images/hero-{slug}.webp"
         image_path = IMAGES_DIR / f"hero-{slug}.webp"
 
+        if args.dry_run:
+            search_url = f"{UNSPLASH_ENDPOINT}?query={query}&orientation=landscape&per_page=1"
+            print(f"\n[PLAN] {page_rel}")
+            print(f"  query: {query}")
+            print(f"  search_url: {search_url}")
+            print(f"  would_write: {image_path.relative_to(ROOT)}")
+            print(f"  would_inject: {image_rel}")
+            continue
+
         if image_path.exists():
             skipped_existing += 1
-        else:
-            query = info.get("search_keyword", "residential driveway")
-            try:
-                result = pexels_search(api_key, query)
-                photo = pick_photo(result)
-                raw = download_bytes(photo["src"]["large2x"])
-                save_webp(raw, image_path)
-                downloaded += 1
-                time.sleep(API_DELAY_SECONDS)
-            except (RuntimeError, HTTPError, URLError, OSError, subprocess.CalledProcessError) as exc:
-                failed.append((page_rel, str(exc)))
-                continue
+            inject_page_hero(page_rel, image_rel)
+            time.sleep(API_DELAY_SECONDS)
+            continue
 
-        inject_page_hero(page_rel, image_rel)
+        try:
+            result, search_status, real_url = unsplash_search(access_key, query)
+            print(f"[{page_rel}] HTTP {search_status} search")
+            photo = pick_photo(result)
+            url = photo["urls"]["regular"]
+            raw, image_status = download_bytes(url)
+            print(f"[{page_rel}] HTTP {image_status} image download")
+            save_webp(raw, image_path)
+            downloaded += 1
+            inject_page_hero(page_rel, image_rel)
+        except (RuntimeError, HTTPError, URLError, OSError, subprocess.CalledProcessError) as exc:
+            failed.append((page_rel, str(exc)))
+            continue
 
-    # Maintain crawlable hero <img> tags after updates.
-    subprocess.run(["node", "scripts/add-hero-img-tags.js"], cwd=ROOT, check=True)
+        time.sleep(API_DELAY_SECONDS)
 
-    # Template hints for future generation workflows.
-    update_generate_articles_template_hint()
-    update_generate_state_template_hint()
+    if not args.dry_run and (downloaded > 0 or skipped_existing > 0):
+        add_hero_script = ROOT / "scripts" / "add-hero-img-tags.js"
+        if add_hero_script.exists():
+            subprocess.run(["node", str(add_hero_script)], cwd=ROOT, check=False)
+        update_generate_articles_template_hint()
+        update_generate_state_template_hint()
 
-    print(f"Downloaded: {downloaded}")
-    print(f"Skipped existing: {skipped_existing}")
-    print(f"Failed: {len(failed)}")
+    print(f"\nProcessed: {processed}, Downloaded: {downloaded}, Skipped existing: {skipped_existing}, Failed: {len(failed)}")
     if failed:
         for rel, reason in failed[:20]:
             print(f"  - {rel}: {reason}")

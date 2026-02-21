@@ -14,6 +14,7 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 LOCATIONS_DIR = os.path.join(PROJECT_ROOT, "locations")
 TEMPLATE_PATH = os.path.join(LOCATIONS_DIR, "state-page", "index.html")
 BASE_URL = "https://drivewayzusa.co"
+HERO_IMAGE_MAP_PATH = os.path.join(PROJECT_ROOT, "hero-image-map.json")  # Future hero image mapping input
 GA_TAG = "G-V08M9YKRR7"
 
 # State/territory name to abbreviation mapping (50 states + DC + territories)

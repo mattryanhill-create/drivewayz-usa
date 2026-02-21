@@ -29,6 +29,7 @@ from openai import OpenAI
 PROJECT_ROOT = Path(__file__).resolve().parent
 CSV_PATH = PROJECT_ROOT / "content_briefs.csv"
 TEMPLATE_PATH = PROJECT_ROOT / "guides" / "basalt-driveway" / "index.html"
+HERO_IMAGE_MAP_PATH = PROJECT_ROOT / "hero-image-map.json"  # Future hero image mapping input
 OUTPUT_DIR = PROJECT_ROOT / "guides"
 FAILED_JSON = PROJECT_ROOT / "failed.json"
 API_BASE_URL = "https://api.moonshot.ai/v1"
