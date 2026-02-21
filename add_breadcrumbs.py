@@ -36,43 +36,19 @@ def slug_to_display_name(slug: str) -> str:
     return slug.replace("-", " ").title()
 
 
-BREADCRUMB_CSS = """
-        /* Breadcrumb */
-        .breadcrumb-bar {
-            background: #f0f0f0;
-            padding: 0.5rem 2rem;
-            font-size: 0.9rem;
-            color: var(--text-light);
-            margin-top: 140px;
-        }
-        .breadcrumb-bar .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .breadcrumb-bar a {
-            color: var(--text-light);
-            text-decoration: none;
-        }
-        .breadcrumb-bar a:hover {
-            color: var(--primary-dark);
-            text-decoration: underline;
-        }
-        .breadcrumb-bar .sep {
-            margin: 0 0.4rem;
-            color: #999;
-        }
-        .breadcrumb-bar + section.state-hero {
-            margin-top: 0.5rem;
-        }
+# Guide-style breadcrumb: white text inside hero, / separators (matches /guides/concrete-repair/)
+STATE_BREADCRUMB_CSS = """
+        /* Breadcrumb - matches guide pages */
+        .state-breadcrumb { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; font-size: 0.9rem; }
+        .state-breadcrumb a { color: rgba(255,255,255,0.8); text-decoration: none; }
+        .state-breadcrumb a:hover { color: white; }
 """
 
 
 def build_breadcrumb_html(state_name: str) -> str:
-    return f'''    <nav class="breadcrumb-bar" aria-label="Breadcrumb">
-        <div class="container">
-            <a href="/">Home</a><span class="sep">›</span><a href="/locations/">Locations</a><span class="sep">›</span>{state_name}
-        </div>
-    </nav>
+    return f'''                <div class="state-breadcrumb">
+                    <a href="/">Home</a><span>/</span><a href="/locations/">Locations</a><span>/</span><span>{state_name}</span>
+                </div>
 '''
 
 
@@ -89,42 +65,57 @@ def build_breadcrumb_schema(state_name: str, slug: str) -> str:
     return f'    <script type="application/ld+json">\n    {json.dumps(data, indent=4)}\n    </script>\n'
 
 
+# Old breadcrumb-bar HTML pattern to remove (gray bar above hero)
+OLD_BREADCRUMB_BAR_PATTERN = re.compile(
+    r'\s*<nav class="breadcrumb-bar"[^>]*>.*?</nav>\s*',
+    re.DOTALL
+)
+
+# Old breadcrumb-bar CSS block to remove
+OLD_BREADCRUMB_CSS_PATTERN = re.compile(
+    r'\s*/\* Breadcrumb \*/\s*'
+    r'\.breadcrumb-bar\s*\{[^}]*\}[\s\S]*?'
+    r'\.breadcrumb-bar \+ section\.state-hero\s*\{[^}]*\}\s*',
+    re.MULTILINE
+)
+
+
 def inject_breadcrumbs(html: str, slug: str) -> str:
     state_name = slug_to_display_name(slug)
     breadcrumb_html = build_breadcrumb_html(state_name)
     schema_html = build_breadcrumb_schema(state_name, slug)
 
-    # Skip if already has breadcrumbs
-    if "breadcrumb-bar" in html:
-        return html
+    # 1. Remove old gray breadcrumb-bar above hero
+    html = OLD_BREADCRUMB_BAR_PATTERN.sub("\n        ", html)
 
-    # 1. Add breadcrumb HTML: inside main, as first child (below nav, above hero)
-    main_open = '    <!-- Main Content -->\n    <main id="content">'
-    if main_open in html and 'breadcrumb-bar' not in html:
-        html = html.replace(
-            main_open + '\n        <!-- Hero Section -->',
-            main_open + '\n' + breadcrumb_html + '        <!-- Hero Section -->',
-            1
+    # 2. Remove old breadcrumb-bar CSS
+    html = OLD_BREADCRUMB_CSS_PATTERN.sub("\n", html)
+
+    # 3. Add guide-style breadcrumb inside state-hero-content (before state-badge)
+    if "state-breadcrumb" not in html:
+        html = re.sub(
+            r'(<div class="state-hero-content">)\s*(<span class="state-badge">)',
+            r'\1\n' + breadcrumb_html.rstrip() + '\n                \2',
+            html,
+            count=1
         )
 
-    # 2. Add breadcrumb CSS: before /* Hero Section */ or similar early in style
-    if "/* Breadcrumb */" not in html:
+    # 4. Add state-breadcrumb CSS (guide-style)
+    if ".state-breadcrumb" not in html:
         if "        /* Hero Section */" in html:
             html = html.replace(
                 "        /* Hero Section */",
-                BREADCRUMB_CSS.rstrip() + "\n\n        /* Hero Section */",
+                STATE_BREADCRUMB_CSS.rstrip() + "\n\n        /* Hero Section */",
                 1
             )
         elif "        /* Navigation */" in html:
             html = html.replace(
                 "        /* Navigation */",
-                BREADCRUMB_CSS.rstrip() + "\n\n        /* Navigation */",
+                STATE_BREADCRUMB_CSS.rstrip() + "\n\n        /* Navigation */",
                 1
             )
-        elif "</style>" in html:
-            html = html.replace("</style>", BREADCRUMB_CSS + "\n    </style>", 1)
 
-    # 3. Add JSON-LD in head: before </head>
+    # 5. Ensure JSON-LD in head
     if '"@type": "BreadcrumbList"' not in html:
         html = html.replace("</head>", schema_html + "</head>", 1)
 

@@ -21,6 +21,12 @@
             --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
         }
 
+
+        /* Breadcrumb - matches guide pages */
+        .state-breadcrumb { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; font-size: 0.9rem; }
+        .state-breadcrumb a { color: rgba(255,255,255,0.8); text-decoration: none; }
+        .state-breadcrumb a:hover { color: white; }
+
         /* Navigation */
 
         .btn-primary {
@@ -40,38 +46,7 @@
             transform: translateY(-2px);
             box-shadow: var(--shadow-lg);
         }
-
-
-
-        /* Breadcrumb */
-        .breadcrumb-bar {
-            background: #f0f0f0;
-            padding: 0.5rem 2rem;
-            font-size: 0.9rem;
-            color: var(--text-light);
-            margin-top: 140px;
-        }
-        .breadcrumb-bar .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .breadcrumb-bar a {
-            color: var(--text-light);
-            text-decoration: none;
-        }
-        .breadcrumb-bar a:hover {
-            color: var(--primary-dark);
-            text-decoration: underline;
-        }
-        .breadcrumb-bar .sep {
-            margin: 0 0.4rem;
-            color: #999;
-        }
-        .breadcrumb-bar + section.state-hero {
-            margin-top: 0.5rem;
-        }
-
-        /* Hero Section */
+/* Hero Section */
         .state-hero {
             position: relative;
             min-height: 70vh;
@@ -796,15 +771,13 @@
 
     <!-- Main Content -->
     <main id="content">
-    <nav class="breadcrumb-bar" aria-label="Breadcrumb">
-        <div class="container">
-            <a href="/">Home</a><span class="sep">›</span><a href="/locations/">Locations</a><span class="sep">›</span>California
-        </div>
-    </nav>
         <!-- Hero Section -->
         <section class="state-hero" style="background: linear-gradient(135deg, rgba(43,87,151,0.65), rgba(91,155,213,0.65)), url('/images/hero-california.webp'); background-size: cover; background-position: center;">
             <div class="state-hero-content">
-                <span class="state-badge">CA</span>
+                <div class="state-breadcrumb">
+                    <a href="/">Home</a><span>/</span><a href="/locations/">Locations</a><span>/</span><span>California</span>
+                </div>
+                CA</span>
                 <h1>California</h1>
                 <p class="tagline">Expert Driveway Solutions for California</p>
                 <a href="/#contact" class="btn-primary">Get Your Free Estimate</a>
