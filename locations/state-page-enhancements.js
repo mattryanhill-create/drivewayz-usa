@@ -71,7 +71,7 @@ function addBreadcrumbs(state) {
     var nav = document.createElement('nav');
     nav.className = 'breadcrumb-nav';
     nav.setAttribute('aria-label', 'Breadcrumb');
-    nav.innerHTML = '<ol><li><a href="../index.html">Home</a></li><li><a href="../locations.html">Locations</a></li><li><span>' + state.name + '</span></li></ol>';
+    nav.innerHTML = '<ol><li><a href="/">Home</a></li><li><a href="/locations/">Locations</a></li><li><span>' + state.name + '</span></li></ol>';
     hero.parentNode.insertBefore(nav, hero);
     var heroContent = hero.querySelector('.state-hero-content');
     if (heroContent) {
@@ -138,7 +138,7 @@ function wrapContentWithSidebar(state) {
       '<p>Ready to transform your driveway? Get a free estimate.</p>' +
       '<input type="text" placeholder="Your Name" aria-label="Your Name">' +
       '<input type="tel" placeholder="Phone Number" aria-label="Phone Number">' +
-      '<button onclick="window.location=\'../index.html#contact\'">Request Free Estimate</button>';
+      '<button onclick="window.location=\'/#contact\'">Request Free Estimate</button>';
     sidebarInner.appendChild(formCard);
     sidebarCol.appendChild(sidebarInner);
     var parent = introSection.parentNode;
@@ -196,7 +196,7 @@ function addMidPageCTA(state) {
     cta.className = 'mid-cta-banner';
     cta.innerHTML = '<h3>Get Your Free ' + state.name + ' Driveway Estimate</h3>' +
       '<p>No obligation. Expert advice tailored to your local climate and conditions.</p>' +
-      '<a href="../index.html#contact" class="btn-primary">Get Free Estimate</a>' +
+      '<a href="/#contact" class="btn-primary">Get Free Estimate</a>' +
       '<a href="tel:+18005551234" class="cta-phone">&#128222; Or Call Now</a>';
     whySection.parentNode.insertBefore(cta, whySection.nextSibling);
   } catch(e) { console.error('SPE addMidPageCTA:', e); }
@@ -233,7 +233,7 @@ function makeCityCardsClickable() {
       if (card.classList.contains('clickable')) return;
       card.classList.add('clickable');
       card.addEventListener('click', function() {
-        window.location.href = '../index.html#contact';
+        window.location.href = '/#contact';
       });
     });
   } catch(e) { console.error('SPE makeCityCardsClickable:', e); }

@@ -357,7 +357,7 @@ function buildBreadcrumb() {
   if (!h1) return;
   var bc = document.createElement('div');
   bc.className = 'guides-breadcrumb';
-  bc.innerHTML = '<a href="index.html">Home</a><span class="separator">\u203A</span><span>Driveway Guides</span>';
+  bc.innerHTML = '<a href="/">Home</a><span class="separator">\u203A</span><span>Driveway Guides</span>';
   heroContent.insertBefore(bc, h1);
 }
 
@@ -466,21 +466,21 @@ function buildSidebarPopularHTML() {
       title: 'Driveway Basics: Types, Costs & Lifespan',
       badge: 'BEGINNER', badgeColor: '#dc2626',
       meta: '20 min read',
-      href: 'guides/driveway-basics-types-costs-lifespan.html',
+      href: '/guides/driveway-basics-types-costs-lifespan/',
       img: 'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=150&h=150&fit=crop'
     },
     {
       title: 'Concrete Driveway Repair Guide',
       badge: 'REPAIR', badgeColor: '#dc2626',
       meta: '15 min read',
-      href: 'guides/concrete-repair.html',
+      href: '/guides/concrete-repair/',
       img: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=150&h=150&fit=crop'
     },
     {
       title: 'Driveway Cost Calculator & Pricing Guide',
       badge: 'PLANNING', badgeColor: '#10b981',
       meta: '18 min read',
-      href: 'guides/driveway-costs.html',
+      href: '/guides/driveway-costs/',
       img: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=150&h=150&fit=crop'
     }
   ];
@@ -502,7 +502,7 @@ function buildSidebarCTAHTML() {
   return '<div class="sidebar-widget sidebar-cta">' +
     '<h3>Need Professional Help?</h3>' +
     '<p>Get a free estimate from our driveway experts. Serving all 50 states.</p>' +
-    '<a href="index.html#contact" class="sidebar-cta-btn">Get Free Estimate</a>' +
+    '<a href="/#contact" class="sidebar-cta-btn">Get Free Estimate</a>' +
     '</div>';
 }
 
@@ -609,16 +609,16 @@ function enhanceFooter() {
     '<p>Your trusted partner for professional driveway services across America. Quality craftsmanship, nationwide coverage, local expertise.</p>' +
     '</div>' +
     '<div class="footer-col"><h4>Quick Links</h4><ul>' +
-    '<li><a href="index.html">Home</a></li>' +
-    '<li><a href="index.html#services">Services</a></li>' +
-    '<li><a href="locations.html">Locations</a></li>' +
-    '<li><a href="guides-hub.html">Guides</a></li>' +
+    '<li><a href="/">Home</a></li>' +
+    '<li><a href="/#services">Services</a></li>' +
+    '<li><a href="/locations/">Locations</a></li>' +
+    '<li><a href="/guides-hub/">Guides</a></li>' +
     '</ul></div>' +
     '<div class="footer-col"><h4>Services</h4><ul>' +
-    '<li><a href="index.html#services">Driveway Installation</a></li>' +
-    '<li><a href="index.html#services">Sealcoating</a></li>' +
-    '<li><a href="index.html#services">Repairs</a></li>' +
-    '<li><a href="index.html#services">Resurfacing</a></li>' +
+    '<li><a href="/#services">Driveway Installation</a></li>' +
+    '<li><a href="/#services">Sealcoating</a></li>' +
+    '<li><a href="/#services">Repairs</a></li>' +
+    '<li><a href="/#services">Resurfacing</a></li>' +
     '</ul></div>' +
     '<div class="footer-col"><h4>Contact</h4><ul>' +
     '<li>1-800-DRIVEWAY</li>' +

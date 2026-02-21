@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Driveway Warranty Tracking: Digital Record Keeping | Drivewayz USA Guides</title>
+  <meta name="description" content="Learn about driveway warranty tracking: digital record keeping. Expert guide from Drivewayz USA.">
+  <link rel="stylesheet" href="/main.css">
+  <style>
+    :root{--guide-primary:#374151;--guide-primary-light:#6b7280;--guide-primary-dark:#1f2937;--guide-accent:#9ca3af;--guide-bg:linear-gradient(135deg,#f9fafb 0%,#f3f4f6 50%,#e5e7eb 100%)}
+    body{background:var(--guide-bg);background-attachment:scroll}
+    .guide-hero{position:relative;min-height:500px;display:flex;align-items:center;margin-top:100px;background-image:linear-gradient(135deg,rgba(55,65,81,.55) 0%,rgba(31,41,55,.55) 100%),url('/images/pexels-curtis-adams-1694007-3990589.webp');background-size:cover;background-position:center;overflow:hidden}
+    .guide-hero::before{content:"";position:absolute;top:0;left:0;right:0;bottom:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");opacity:.3}
+    .guide-hero-content{position:relative;z-index:10;padding:4rem 0;color:white}
+    .guide-breadcrumb{display:flex;gap:.5rem;margin-bottom:1.5rem;font-size:.9rem}
+    .guide-breadcrumb a{color:rgba(255,255,255,.8);text-decoration:none}
+    .guide-breadcrumb a:hover{color:white}
+    .guide-hero h1{font-size:3rem;font-weight:800;margin-bottom:1rem;max-width:800px}
+    .guide-hero-subtitle{font-size:1.3rem;opacity:.95;max-width:600px;margin-bottom:2rem}
+    .guide-meta-bar{display:flex;gap:2rem;flex-wrap:wrap}
+    .guide-meta-item{display:flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.15);padding:.5rem 1rem;border-radius:25px;backdrop-filter:blur(10px)}
+    .guide-actions{display:flex;gap:1rem;margin-top:2rem}
+    .action-btn{display:flex;align-items:center;gap:.5rem;padding:.75rem 1.5rem;border-radius:8px;font-weight:600;cursor:pointer;transition:all .3s ease;border:none;font-size:1rem}
+    .action-btn-primary{background:white;color:var(--guide-primary-dark)}
+    .action-btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 20px rgba(0,0,0,.2)}
+    .action-btn-secondary{background:rgba(255,255,255,.2);color:white;border:2px solid rgba(255,255,255,.3)}
+    .action-btn-secondary:hover{background:rgba(255,255,255,.3)}
+    .toc-sidebar{position:sticky;top:120px;height:fit-content;padding:1.5rem;background:var(--bg-white);border-radius:16px;box-shadow:var(--shadow);max-height:calc(100vh - 150px);overflow-y:auto}
+    .toc-sidebar h4{font-size:.85rem;text-transform:uppercase;letter-spacing:.08em;color:var(--text-light);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1px solid var(--border-color)}
+    .toc-sidebar ul{list-style:none;padding:0;margin:0}
+    .toc-sidebar li{margin-bottom:.25rem}
+    .toc-sidebar a{display:block;padding:.5rem .75rem;color:var(--text-light);text-decoration:none;font-size:.9rem;border-radius:6px;border-left:3px solid transparent;transition:all .2s ease;line-height:1.4}
+    .toc-sidebar a:hover{color:var(--guide-primary);background:#f3f4f6}
+    .toc-sidebar a.active{color:var(--guide-primary);background:#e5e7eb;border-left-color:var(--guide-primary);font-weight:600}
+    .toc-progress{width:100%;height:3px;background:#e5e7eb;border-radius:3px;margin-bottom:1rem;overflow:hidden}
+    .toc-progress-bar{height:100%;background:var(--guide-primary);width:0%;transition:width .3s ease;border-radius:3px}
+    .guide-page-layout{display:grid;grid-template-columns:220px 1fr 350px;gap:2rem;max-width:1400px;margin:2rem auto;padding:0 2rem}
+    .guide-main{background:var(--bg-white);border-radius:16px;padding:2.5rem;box-shadow:var(--shadow)}
+    .guide-main h2{font-size:2rem;color:var(--text-dark);margin-bottom:1.5rem;padding-bottom:.75rem;border-bottom:2px solid var(--guide-accent)}
+    .guide-main h3{font-size:1.4rem;color:var(--text-dark);margin:2rem 0 1rem}
+    .guide-main p{color:var(--text-light);line-height:1.8;margin-bottom:1.5rem}
+    .guide-main ul,.guide-main ol{margin-bottom:1.5rem;padding-left:1.5rem}
+    .guide-main li{color:var(--text-light);line-height:1.8;margin-bottom:.5rem}
+    .guide-sidebar{position:sticky;top:120px;height:fit-content}
+    .sidebar-card{background:var(--bg-white);border-radius:16px;padding:1.5rem;margin-bottom:1.5rem;box-shadow:var(--shadow)}
+    .sidebar-card h4{font-size:1.1rem;margin-bottom:1rem;color:var(--text-dark)}
+    .quick-stat{display:flex;justify-content:space-between;padding:.75rem 0;border-bottom:1px solid var(--border-color)}
+    .quick-stat:last-child{border-bottom:none}
+    .quick-stat-label{color:var(--text-light)}
+    .quick-stat-value{font-weight:700;color:var(--guide-primary)}
+    .sidebar-cta{background:linear-gradient(135deg,var(--guide-primary) 0%,var(--guide-primary-light) 100%);color:white}
+    .sidebar-cta h4{color:white}
+    .sidebar-cta p{font-size:.9rem;margin-bottom:1rem;opacity:.9}
+    .sidebar-cta input{width:100%;padding:.75rem;border:none;border-radius:8px;margin-bottom:.75rem;font-size:.95rem}
+    .sidebar-cta button{width:100%;padding:.75rem;background:white;color:var(--guide-primary-dark);border:none;border-radius:8px;font-weight:700;cursor:pointer;transition:all .3s ease}
+    .sidebar-cta button:hover{transform:translateY(-2px);box-shadow:0 5px 15px rgba(0,0,0,.2)}
+    .related-guide{display:flex;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--border-color);text-decoration:none}
+    .related-guide:last-child{border-bottom:none}
+    .related-guide-icon{width:50px;height:50px;border-radius:8px;background:linear-gradient(135deg,var(--guide-primary) 0%,var(--guide-accent) 100%);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.5rem}
+    .related-guide-content h5{font-size:.95rem;color:var(--text-dark);margin-bottom:.25rem}
+    .related-guide-content span{font-size:.8rem;color:var(--text-light)}
+    .info-box{padding:1.5rem;border-radius:12px;margin:2rem 0}
+    .info-box-tip{background:#f3f4f6;border-left:4px solid var(--guide-accent)}
+    .info-box-warning{background:#f3f4f6;border-left:4px solid #f59e0b}
+    .info-box-title{font-weight:700;margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem}
+    .material-card{background:#f3f4f6;border-radius:12px;padding:2rem;margin:2rem 0;border:1px solid #e5e7eb}
+    .material-card h3{margin-top:0!important;color:var(--guide-primary)!important;font-size:1.5rem!important}
+    .material-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1rem 0}
+    .material-stat{text-align:center;padding:.75rem;background:white;border-radius:8px}
+    .material-stat-label{font-size:.8rem;color:var(--text-light)}
+    .material-stat-value{font-size:1.1rem;font-weight:700;color:var(--guide-primary)}
+    .comparison-table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:.95rem}
+    .comparison-table th,.comparison-table td{padding:.75rem;text-align:left;border:1px solid #e5e7eb}
+    .comparison-table th{background:var(--guide-primary);color:white;font-weight:600}
+    .comparison-table tr:nth-child(even){background:#f3f4f6}
+    .comparison-table tr:hover{background:#e5e7eb}
+    .faq-item{border:1px solid #e5e7eb;border-radius:10px;margin-bottom:1rem;overflow:hidden}
+    .faq-q{width:100%;padding:1.25rem 1.5rem;background:#f3f4f6;border:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:1.05rem;font-weight:600;color:var(--guide-primary-dark);text-align:left}
+    .faq-q:hover{background:#e5e7eb}
+    .faq-a{padding:0 1.5rem 1.25rem;color:var(--text-light);line-height:1.8;display:none}
+    .faq-item.open .faq-a{display:block}
+    .faq-toggle{font-size:1.3rem;transition:transform .3s}
+    .faq-item.open .faq-toggle{transform:rotate(45deg)}
+    .toc-mobile-toggle{display:none;position:sticky;top:100px;z-index:100;background:var(--bg-white);border-bottom:1px solid var(--border-color);padding:.75rem 2rem;cursor:pointer;font-weight:600;color:var(--guide-primary);font-size:.95rem}
+    .toc-mobile-toggle span{margin-left:.5rem;transition:transform .3s;display:inline-block}
+    .toc-mobile-toggle.open span{transform:rotate(180deg)}
+    @media(max-width:1200px){.guide-page-layout{grid-template-columns:220px 1fr}.guide-sidebar-col{grid-column:1/-1;order:10}}
+    @media(max-width:768px){.guide-hero h1{font-size:2rem}.guide-main{padding:1.5rem}.guide-actions{flex-direction:column}.guide-page-layout{grid-template-columns:1fr;padding:0 1rem}.toc-sidebar-col{display:none}.toc-mobile-toggle{display:block}.material-stats{grid-template-columns:1fr}}
+  </style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-V08M9YKRR7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-V08M9YKRR7');
+</script>
+</head>
+
+<body>
+
+<nav class="navbar" id="navbar">
+  <div class="container nav-container">
+    <div class="logo"><img src="/images/logov3.png?v=3" alt="Drivewayz USA" onerror="this.style.display='none'"></div>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/#services">Services</a></li>
+      <li><a href="/#why-choose">Why Us</a></li>
+      <li><a href="/locations/">Locations</a></li>
+      <li><a href="/guides-hub/">Guides</a></li>
+      <li><a href="/#contact">Contact</a></li>
+    </ul>
+    <button class="cta-button-small" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Free Estimate</button>
+  </div>
+</nav>
+
+<section class="guide-hero">
+  <img src="/images/pexels-curtis-adams-1694007-3990589.webp" alt="Driveway Warranty Tracking: Digital Record Keeping — Drivewayz USA" class="guide-hero-img" width="1200" height="630" loading="eager" fetchpriority="high">
+  <div class="container guide-hero-content">
+    <div class="guide-breadcrumb">
+      <a href="/">Home</a> / <a href="/guides-hub/">Guides</a> / <span>Driveway Warranty Tracking: Digital Record Keeping</span>
+    </div>
+    <h1>Driveway Warranty Tracking: Digital Record Keeping</h1>
+    <p class="guide-hero-subtitle">A complete guide to driveway warranty tracking — what homeowners need to know.</p>
+    <div class="guide-meta-bar">
+      <div class="guide-meta-item">&#9201;&#65039; 14 min read</div>
+      <div class="guide-meta-item">&#128176; High-end material</div>
+      <div class="guide-meta-item">&#128142; Premium quality</div>
+    </div>
+    <div class="guide-actions">
+      <a href="/#contact" class="action-btn action-btn-primary">Get Free Estimate</a>
+      <button class="action-btn action-btn-secondary" onclick="saveGuide()"><span id="saveIcon">&#128278;</span> <span id="saveText">Save Guide</span></button>
+    </div>
+  </div>
+</section>
+
+<div class="toc-mobile-toggle" onclick="toggleMobileToc()">&#128203; Table of Contents <span>&#9660;</span></div>
+
+<div class="guide-page-layout">
+  <div class="toc-sidebar-col">
+    <nav class="toc-sidebar">
+      <div class="toc-progress"><div class="toc-progress-bar" id="tocProgress"></div></div>
+      <h4>On This Page</h4>
+      <ul>
+        <li><a href="#overview" class="toc-link" data-section="overview">What is Basalt?</a></li>
+        <li><a href="#costs" class="toc-link" data-section="costs">Cost Breakdown</a></li>
+        <li><a href="#installation" class="toc-link" data-section="installation">Installation Process</a></li>
+        <li><a href="#benefits" class="toc-link" data-section="benefits">Benefits</a></li>
+        <li><a href="#maintenance" class="toc-link" data-section="maintenance">Maintenance</a></li>
+        <li><a href="#comparison" class="toc-link" data-section="comparison">Material Comparison</a></li>
+        <li><a href="#faq" class="toc-link" data-section="faq">FAQ</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <main class="guide-main">
+
+    <section id="overview">
+  <h2>Why Driveway Warranty Tracking Matters</h2>
+  <p>Your new asphalt or concrete driveway is a major investment—one that should look great and stay strong for decades. But even the best installation can crack or fade if you miss a single seal-coat deadline. A digital warranty-tracking system keeps every promise, deadline, and phone number in one place so you never lose coverage or pay for repairs that should be free.</p>
+  <p>Think of it as a “carfax” for your driveway: an always-up-to-date folder that proves what was done, when, and who’s responsible next. Below you’ll learn the exact tools homeowners use, how to set them up in under an hour, and how to squeeze the most value out of any contractor warranty.</p>
+</section>
+
+<section id="digital-vs-paper">
+  <h2>Digital vs. Paper Warranty Files—The Real-World Pros & Cons</h2>
+  <p>Sticking the warranty in a kitchen drawer feels easy—until you remodel the kitchen, move, or the paper yellows and the ink rubs off. Here’s how digital beats paper every time.</p>
+  <h3>Instant Access Anywhere</h3>
+  <p>Cloud drives sync to every phone, tablet, or laptop. When a hairline crack appears, you can pull up the warranty on the spot and confirm if you’re still within the 24-month workmanship period.</p>
+  <h3>Search-Friendly Text</h3>
+  <p>PDFs created from your phone are searchable. Type “sealer” or “crack fill” and jump straight to that clause instead of rereading five pages of fine print.</p>
+  <h3>Backup & Security</h3>
+  <p>Fires, floods, and toddlers with juice boxes can destroy paper. Encrypted cloud storage keeps duplicates in multiple data centers. Enable two-factor authentication and your warranty is safer than in any filing cabinet.</p>
+</section>
+
+<section id="setup">
+  <h2>Setting Up Your Driveway Warranty Tracking System in 5 Steps</h2>
+  <p>You don’t need expensive software. Free consumer tools work perfectly.</p>
+  <ol>
+    <li><strong>Pick a primary cloud drive.</strong> Google Drive, OneDrive, or iCloud all offer 5–15 GB free—enough for hundreds of high-res photos.</li>
+    <li><strong>Create a main folder:</strong> “Home/Driveway Warranty”. Inside it, create sub-folders: Contracts, Receipts, Photos, Correspondence, Calendar.</li>
+    <li><strong>Scan or photograph every document.</strong> Use free apps like Adobe Scan or Microsoft Lens to convert paper into crisp PDFs. Save them with descriptive names: “2024-Acme-Paving-5-Year-Workmanship-Warranty.pdf”.</li>
+    <li><strong>Upload photos the same day work is finished.</strong> Include wide shots, close-ups of control joints, and serial numbers on sealer tanks. These time-stamped images become “evidence” if a dispute arises.</li>
+    <li><strong>Share the folder with a trusted second email</strong> (spouse, relative, or your real-estate agent if you plan to sell). Shared access prevents loss if you forget a password.</li>
+  </ol>
+</section>
+
+<section id="key-details">
+  <h2>Key Warranty Details You Must Capture</h2>
+  <p>Missing even one of these can void coverage.</p>
+  <h3>Contractor License & Insurance Info</h3>
+  <p>Take a screenshot of the license page from your state’s contractor board. Save it next to the warranty so you can confirm the company was active on the day of installation.</p>
+  <h3>Exact Coverage Periods</h3>
+  <p>Most warranties list two separate clocks: workmanship (1–5 years) and materials (limited lifetime or prorated). Record both start dates in your phone calendar with alerts 30 days before expiration.</p>
+  <h3>Maintenance Requirements</h3>
+  <p>Many asphalt warranties require seal-coating every 2–3 years. Note the brand of sealer and minimum thickness. If you switch products, keep the receipt to prove compatibility.</p>
+  <h3>Exclusions & Transfer Clauses</h3>
+  <p>Some warranties become void if home ownership changes; others transfer once for free. Capture the exact wording so you can advertise a transferable warranty when you sell.</p>
+</section>
+
+<section id="tools">
+  <h2>Best Free & Low-Cost Tools for Homeowners</h2>
+  <p>Below are the apps our clients rave about.</p>
+  <ul>
+    <li><strong>Google Drive + Google Calendar:</strong> 15 GB free, seamless Android integration, color-coded maintenance reminders.</li>
+    <li><strong>Evernote:</strong> Tag notes by “asphalt,” “concrete,” or “repair.” Clip email confirmations directly from Gmail.</li>
+    <li><strong>Notion:</strong> Build a mini-database with gallery view of each driveway section, last service date, and next due date.</li>
+    <li><strong>Apple Notes (iOS):</strong> Scan documents with the built-in scanner, lock notes with Face ID, share via iCloud link.</li>
+    <li><strong>Excel or Google Sheets template:</strong> Download our free template (link in bio) that auto-calculates “days until next seal” and turns red when overdue.</li>
+  </ul>
+</section>
+
+<section id="maintenance-log">
+  <h2>Building a Living Maintenance Log</h2>
+  <p>A warranty is only as strong as your maintenance record. Courts and manufacturers side with homeowners who prove they followed every instruction.</p>
+  <h3>Photo Tips That Win Disputes</h3>
+  <ul>
+    <li>Stand in the same spot every season—use a sidewalk crack or fence post as a marker.</li>
+    <li>Include a newspaper or phone date screen to establish time.</li>
+    <li>Shoot after rain so cracks show darker against wet pavement.</li>
+  </ul>
+  <h3>What to Record After Every Service</h3>
+  <p>Date, weather (temp & humidity), product brand, batch number, square footage covered, and technician’s name. Snap a pic of the invoice and the finished surface before anyone drives on it.</p>
+</section>
+
+<section id="reminder-system">
+  <h2>Automated Reminder Systems—Set It and Forget It</h2>
+  <p>Humans forget; software doesn’t. Use these triggers:</p>
+  <ul>
+    <li><strong>Google Calendar:</strong> Create recurring events every 24 months for seal-coat, every 6 months for visual inspection.</li>
+    <li><strong>IFTTT or Zapier:</strong> If “calendar event approaches,” then “send SMS to spouse.”</li>
+    <li><strong>Smart-home assistants:</strong> “Alexa, add driveway inspection to my Saturday list.”</li>
+  </ul>
+</section>
+
+<section id="selling">
+  <h2>Using Digital Warranty Records When You Sell</h2>
+  <p>A transferable warranty backed by tidy digital records can add $3,000–$5,000 to your asking price. Buyers love proof the driveway was babied.</p>
+  <h3>Create a One-Page Summary</h3>
+  <p>Export a PDF that lists install date, warranty length, maintenance history, and next due service. Attach QR codes that link to full photos stored online.</p>
+  <h3>Share a Read-Only Link</h3>
+  <p>Google Drive lets you generate view-only links. Embed the link in the MLS listing or email it to the buyer’s inspector before they visit.</p>
+</section>
+
+<section id="common-mistakes">
+  <h2>Common Digital Tracking Mistakes (and Quick Fixes)</h2>
+  <ul>
+    <li><strong>Mistake:</strong> Saving everything as JPG instead of PDF. <strong>Fix:</strong> Use a scanner app that merges multi-page warranties into one PDF.</li>
+    <li><strong>Mistake:</strong> Forgetting file names. <strong>Fix:</strong> Adopt a naming convention: YYYY-Company-Service-Type.pdf.</li>
+    <li><strong>Mistake:</strong> Only storing on a single phone. <strong>Fix:</strong> Enable automatic cloud backup every night.</li>
+    <li><strong>Mistake:</strong> Waiting until something breaks. <strong>Fix:</strong> Log the install-day photos the same week; future you will thank present you.</li>
+  </ul>
+</section>
+
+<section id="faq">
+  <h2>Driveway Warranty Tracking FAQ</h2>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">Does digital storage satisfy legal requirements if I end up in court?</button>
+    <div class="faq-a">
+      <p>Yes. Courts accept time-stamped digital files as long as they’re authentic and unaltered. Keep originals in a non-editable PDF and back them up to at least two cloud providers.</p>
+    </div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">How long should I keep warranty records after the coverage ends?</button>
+    <div class="faq-a">
+      <p>Retain them at least 7 years past the end date. If you sell the home, give the buyer the entire file; they may need it for future warranty transfers or to prove proper maintenance.</p>
+    </div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">What if the contractor goes out of business?</button>
+    <div class="faq-a">
+      <p>Your digital copy proves the original terms. Some manufacturers honor material-only warranties even when the installer closes. Having the license number and original insurance certificate speeds up claims with the bonding company.</p>
+    </div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">Is it safe to store receipts in Google Drive or should I pay for encrypted storage?</button>
+    <div class="faq-a">
+      <p>For typical residential warranties, Google Drive’s built-in encryption is sufficient. Enable two-factor authentication and share links as “view only.” If you’re extra cautious, add a free client-side encryption tool like Cryptomator before upload.</p>
+    </div>
+  </div>
+</section>
+
+  </main>
+
+  <aside class="guide-sidebar-col">
+    <div class="guide-sidebar">
+      <div class="sidebar-card">
+        <h4>&#128202; Quick Facts</h4>
+        <div class="quick-stat">
+          <span class="quick-stat-label">Paver Cost</span>
+          <span class="quick-stat-value">$15-30/sqft</span>
+        </div>
+        <div class="quick-stat">
+          <span class="quick-stat-label">Crushed Cost</span>
+          <span class="quick-stat-value">$5-11/sqft</span>
+        </div>
+        <div class="quick-stat">
+          <span class="quick-stat-label">Lifespan</span>
+          <span class="quick-stat-value">30-50+ years</span>
+        </div>
+        <div class="quick-stat">
+          <span class="quick-stat-label">Hardness</span>
+          <span class="quick-stat-value">6 Mohs</span>
+        </div>
+        <div class="quick-stat">
+          <span class="quick-stat-label">Maintenance</span>
+          <span class="quick-stat-value">Low</span>
+        </div>
+      </div>
+
+      <div class="sidebar-card sidebar-cta">
+        <h4>&#128640; Get Started Today</h4>
+        <p>Interested in a basalt driveway? Get a free estimate from our experts.</p>
+        <form onsubmit="handleSidebarSubmit(event)">
+          <input type="text" placeholder="Your Name" required aria-label="Your Name">
+          <input type="tel" placeholder="Phone Number" required aria-label="Phone Number">
+          <button type="submit">Request Free Estimate</button>
+        </form>
+      </div>
+
+      <div class="sidebar-card">
+        <h4>&#128218; Related Guides</h4>
+        <a href="/guides/cobblestone-driveway/" class="related-guide">
+          <div class="related-guide-icon">&#127968;</div>
+          <div class="related-guide-content">
+            <h5>Cobblestone Driveway Guide</h5>
+            <span>12 min read</span>
+          </div>
+        </a>
+        <a href="/guides/driveway-basics-types-costs-lifespan/" class="related-guide">
+          <div class="related-guide-icon">&#128214;</div>
+          <div class="related-guide-content">
+            <h5>Driveway Basics: Types, Costs &amp; Lifespan</h5>
+            <span>20 min read</span>
+          </div>
+        </a>
+        <a href="/guides/concrete-vs-asphalt-vs-gravel/" class="related-guide">
+          <div class="related-guide-icon">&#9878;&#65039;</div>
+          <div class="related-guide-content">
+            <h5>Concrete vs Asphalt vs Gravel</h5>
+            <span>18 min read</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<footer style="text-align:center;padding:2rem;color:#6b7280;font-size:.9rem;">
+  <p>&copy; 2026 Drivewayz USA. Licensed &amp; Insured. Serving the United States with Pride.</p>
+  <p><a href="/#services" style="color:#374151;">Services</a> &bull; <a href="/guides-hub/" style="color:#374151;">Guides</a> &bull; <a href="/#contact" style="color:#374151;">Contact</a></p>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded',function(){var sections=document.querySelectorAll('main section[id]');var tocLinks=document.querySelectorAll('.toc-link');var progressBar=document.getElementById('tocProgress');window.addEventListener('scroll',function(){var winH=document.documentElement.scrollHeight-window.innerHeight;var scrolled=(window.scrollY/winH)*100;if(progressBar)progressBar.style.width=scrolled+'%'});var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){tocLinks.forEach(function(link){link.classList.remove('active')});var activeLink=document.querySelector('.toc-link[data-section="'+entry.target.id+'"]');if(activeLink)activeLink.classList.add('active')}})},{rootMargin:'-20% 0px -60% 0px',threshold:0});sections.forEach(function(section){observer.observe(section)});tocLinks.forEach(function(link){link.addEventListener('click',function(e){e.preventDefault();var target=document.getElementById(this.getAttribute('data-section'));if(target){target.scrollIntoView({behavior:'smooth',block:'start'});var mobileToc=document.querySelector('.toc-sidebar-col');var toggle=document.querySelector('.toc-mobile-toggle');if(mobileToc)mobileToc.classList.remove('mobile-open');if(toggle)toggle.classList.remove('open')}})})});
+function toggleMobileToc(){var tocCol=document.querySelector('.toc-sidebar-col');var toggle=document.querySelector('.toc-mobile-toggle');tocCol.classList.toggle('mobile-open');toggle.classList.toggle('open')}
+function toggleFaq(btn){btn.parentElement.classList.toggle('open')}
+function saveGuide(){var si=document.getElementById('saveIcon'),st=document.getElementById('saveText');if(st.textContent==='Save Guide'){si.innerHTML='&#10084;&#65039;';st.textContent='Saved!'}else{si.innerHTML='&#128278;';st.textContent='Save Guide'}}
+function handleSidebarSubmit(e){e.preventDefault();alert('Thank you! We will contact you shortly with your free estimate.');e.target.reset()}
+</script>
+<script src="/js/seo.js"></script>
+</body>
+</html>

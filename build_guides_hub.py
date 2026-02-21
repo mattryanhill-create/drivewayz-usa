@@ -2,12 +2,12 @@
 """
 build_guides_hub.py
 
-Scans all HTML files in /guides/, extracts title + meta description,
-and rebuilds guides-hub.html with all guides listed as cards.
+Scans all /guides/*/index.html files, extracts title + meta description,
+and rebuilds guides-hub/index.html with all guides listed as cards.
 Also assigns categories based on keywords in the title.
 
 Run from Cursor Terminal: python3 build_guides_hub.py
-Then: git add guides-hub.html && git commit -m "Rebuild guides hub with all guides" && git push origin main
+Then: git add guides-hub/index.html && git commit -m "Rebuild guides hub with all guides" && git push origin main
 """
 
 import os
@@ -16,7 +16,7 @@ from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parent
 GUIDES_DIR = PROJECT_ROOT / "guides"
-OUTPUT_FILE = PROJECT_ROOT / "guides-hub.html"
+OUTPUT_FILE = PROJECT_ROOT / "guides-hub" / "index.html"
 
 # ── Category mapping: keyword fragments → category slug + label ──────────────
 CATEGORY_RULES = [
@@ -86,7 +86,7 @@ def build_card(guide: dict) -> str:
     slug, label = categorize(guide["title"])
     color = BADGE_COLORS.get(slug, "#6b7280")
     read_time = estimate_read_time(guide["desc"], guide["title"])
-    href = f"guides/{guide['filename']}"
+    href = f"/guides/{guide['slug']}/"
     return f"""
         <article class="guide-card" data-category="{slug}">
           <div class="guide-card-content">
@@ -112,7 +112,7 @@ def build_hub(guides: list) -> str:
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Driveway Guides | Expert Tips &amp; How-To Guides | Drivewayz USA</title>
   <meta name="description" content="Browse {total}+ expert driveway guides covering installation, repair, maintenance, costs, and materials. Learn from Drivewayz USA's 15+ years of expertise.">
-  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="/main.css">
   <style>
     .guides-hero{{
       position:relative;height:40vh;min-height:300px;
@@ -157,17 +157,17 @@ def build_hub(guides: list) -> str:
   <nav class="navbar" id="navbar">
     <div class="container nav-container">
       <div class="logo">
-        <a href="index.html"><img src="images/logov3.png?v=3" alt="Drivewayz USA"></a>
+        <a href="/"><img src="/images/logov3.png?v=3" alt="Drivewayz USA"></a>
       </div>
       <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="index.html#services">Services</a></li>
-        <li><a href="index.html#why-choose">Why Us</a></li>
-        <li><a href="locations.html">Locations</a></li>
-        <li><a href="guides-hub.html" style="color:var(--primary-color);">Guides</a></li>
-        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/#services">Services</a></li>
+        <li><a href="/#why-choose">Why Us</a></li>
+        <li><a href="/locations/">Locations</a></li>
+        <li><a href="/guides-hub/" style="color:var(--primary-color);">Guides</a></li>
+        <li><a href="/#contact">Contact</a></li>
       </ul>
-      <button class="cta-button-small" onclick="window.location.href='index.html#contact'">Free Estimate</button>
+      <button class="cta-button-small" onclick="window.location.href='/#contact'">Free Estimate</button>
     </div>
   </nav>
 
@@ -193,7 +193,7 @@ def build_hub(guides: list) -> str:
     <div class="container">
       <h2 class="section-title">Need Professional Help?</h2>
       <p class="section-subtitle">Get a free estimate from our driveway experts. Serving all 50 states.</p>
-      <button class="cta-button" onclick="window.location.href='index.html#contact'">Get Your Free Estimate</button>
+      <button class="cta-button" onclick="window.location.href='/#contact'">Get Your Free Estimate</button>
     </div>
   </section>
 
@@ -202,16 +202,16 @@ def build_hub(guides: list) -> str:
     <div class="container">
       <p>&copy; 2026 Drivewayz USA. Licensed &amp; Insured. Serving the United States with Pride.</p>
       <p class="footer-links">
-        <a href="index.html#services">Services</a> &bull;
-        <a href="locations.html">Locations</a> &bull;
-        <a href="guides-hub.html">Guides</a> &bull;
-        <a href="index.html#contact">Contact</a>
+        <a href="/#services">Services</a> &bull;
+        <a href="/locations/">Locations</a> &bull;
+        <a href="/guides-hub/">Guides</a> &bull;
+        <a href="/#contact">Contact</a>
       </p>
     </div>
   </footer>
 
-  <script src="main.js" defer></script>
-  <script src="js/guides-enhancements.js" defer></script>
+  <script src="/main.js" defer></script>
+  <script src="/js/guides-enhancements.js" defer></script>
 </body>
 </html>
 """
@@ -222,8 +222,8 @@ def main():
         print(f"ERROR: guides/ directory not found at {GUIDES_DIR}")
         return
 
-    html_files = sorted(GUIDES_DIR.glob("*.html"))
-    print(f"Found {len(html_files)} HTML files in guides/")
+    html_files = sorted(GUIDES_DIR.glob("*/index.html"))
+    print(f"Found {len(html_files)} guide index files in guides/")
 
     guides = []
     for f in html_files:
@@ -231,7 +231,7 @@ def main():
         if not meta:
             continue
         guides.append({
-            "filename": f.name,
+            "slug": f.parent.name,
             "title": meta["title"],
             "desc": meta["desc"],
         })
@@ -239,12 +239,12 @@ def main():
     # Sort alphabetically by title
     guides.sort(key=lambda g: g["title"].lower())
 
-    print(f"Building guides-hub.html with {len(guides)} guides...")
+    print(f"Building guides-hub/index.html with {len(guides)} guides...")
     hub_html = build_hub(guides)
     OUTPUT_FILE.write_text(hub_html, encoding="utf-8")
     print(f"Done. Written to {OUTPUT_FILE}")
     print(f"\nNext steps:")
-    print(f"  git add guides-hub.html")
+    print(f"  git add guides-hub/index.html")
     print(f"  git commit -m 'Rebuild guides hub: {len(guides)} guides listed'")
     print(f"  git push origin main")
 

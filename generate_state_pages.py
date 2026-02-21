@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
 Generate individual static HTML files for each state from Drivewayz.txt files.
-Uses locations/state-page.html as the template base.
-Output: locations/[state-slug].html (e.g., florida.html, california.html)
+Uses locations/state-page/index.html as the template base.
+Output: locations/[state-slug]/index.html (e.g., florida/index.html)
 """
 
 import re
@@ -12,8 +12,8 @@ import html
 # Config
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 LOCATIONS_DIR = os.path.join(PROJECT_ROOT, "locations")
-TEMPLATE_PATH = os.path.join(LOCATIONS_DIR, "state-page.html")
-BASE_URL = "https://www.drivewayzusa.co"
+TEMPLATE_PATH = os.path.join(LOCATIONS_DIR, "state-page", "index.html")
+BASE_URL = "https://drivewayzusa.co"
 GA_TAG = "G-V08M9YKRR7"
 
 # State/territory name to abbreviation mapping (50 states + DC + territories)
@@ -160,7 +160,7 @@ def parse_drivewayz_txt(content: str, state_name: str) -> dict:
         if line.strip().startswith("* ") and "References" not in line:
             title = line.strip().lstrip("* ").strip()
             if title:
-                data["related_resources"].append({"title": title, "url": "../guides-hub.html"})
+                data["related_resources"].append({"title": title, "url": "/guides-hub/"})
         i += 1
 
     # References
@@ -183,7 +183,7 @@ def parse_drivewayz_txt(content: str, state_name: str) -> dict:
 
 
 def get_template_static_parts():
-    """Extract static head, nav, footer, and styles from state-page.html."""
+    """Extract static head, nav, footer, and styles from state-page template."""
     with open(TEMPLATE_PATH, "r", encoding="utf-8") as f:
         content = f.read()
 
@@ -221,7 +221,7 @@ def get_template_static_parts():
 def build_state_html(state_name: str, slug: str, data: dict) -> str:
     """Build complete HTML for a state page."""
     abbr = STATE_ABBREVIATIONS.get(slug, slug[:2].upper())
-    canonical_url = f"{BASE_URL}/locations/{slug}.html"
+    canonical_url = f"{BASE_URL}/locations/{slug}/"
     title = f"{state_name} Driveway Services | Drivewayz USA"
     meta_desc = f"Professional driveway installation and repair in {state_name}. Expert services for {state_name}'s unique climate. Free estimates. Call today."
     if data["climate_summary"]:
@@ -391,7 +391,7 @@ def build_state_html(state_name: str, slug: str, data: dict) -> str:
                 <span class="state-badge">{abbr}</span>
                 <h1>{html.escape(state_name)}</h1>
                 <p class="tagline">{html.escape(hero_tagline)}</p>
-                <a href="../index.html#contact" class="btn-primary">Get Your Free Estimate</a>
+                <a href="/#contact" class="btn-primary">Get Your Free Estimate</a>
             </div>
         </section>
 
@@ -456,7 +456,7 @@ def build_state_html(state_name: str, slug: str, data: dict) -> str:
             <div class="cta-box">
                 <h2>Ready to Transform Your Driveway?</h2>
                 <p>Join thousands of satisfied homeowners in {state_name}. Get your free, no-obligation estimate today.</p>
-                <a href="../index.html#contact" class="btn-primary">Schedule Free Estimate</a>
+                <a href="/#contact" class="btn-primary">Schedule Free Estimate</a>
             </div>
         </section>
     </main>
@@ -513,7 +513,7 @@ def build_state_html(state_name: str, slug: str, data: dict) -> str:
     <title>{html.escape(title)}</title>
     <meta name="description" content="{html.escape(meta_desc)}">
     <link rel="canonical" href="{canonical_url}">
-    <link rel="stylesheet" href="../main.css">
+    <link rel="stylesheet" href="/main.css">
 {full_template[full_template.find("<style>"):full_template.find("</style>") + 8]}
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id={GA_TAG}"></script>
@@ -556,12 +556,14 @@ def main():
         data = parse_drivewayz_txt(content, state_name)
         html_content = build_state_html(state_name, slug, data)
 
-        output_path = os.path.join(LOCATIONS_DIR, f"{slug}.html")
+        output_dir = os.path.join(LOCATIONS_DIR, slug)
+        os.makedirs(output_dir, exist_ok=True)
+        output_path = os.path.join(output_dir, "index.html")
         with open(output_path, "w", encoding="utf-8") as f:
             f.write(html_content)
 
         generated.append((state_name, slug))
-        print(f"  Generated: {slug}.html ({state_name})")
+        print(f"  Generated: {slug}/index.html ({state_name})")
 
     print(f"\nDone! Generated {len(generated)} state pages in {LOCATIONS_DIR}/")
     return generated

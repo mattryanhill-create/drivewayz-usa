@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Winter Driveway Survival Guide | Drivewayz USA Guides</title>
+  <meta name="description" content="Learn about winter driveway survival guide. Expert guide from Drivewayz USA.">
+  <link rel="stylesheet" href="/main.css">
+  <style>
+    :root{--guide-primary:#374151;--guide-primary-light:#6b7280;--guide-primary-dark:#1f2937;--guide-accent:#9ca3af;--guide-bg:linear-gradient(135deg,#f9fafb 0%,#f3f4f6 50%,#e5e7eb 100%)}
+    body{background:var(--guide-bg);background-attachment:scroll}
+    .guide-hero{position:relative;min-height:500px;display:flex;align-items:center;margin-top:100px;background-image:linear-gradient(135deg,rgba(55,65,81,.55) 0%,rgba(31,41,55,.55) 100%),url('/images/pexels-pixabay-221540.webp');background-size:cover;background-position:center;overflow:hidden}
+    .guide-hero::before{content:"";position:absolute;top:0;left:0;right:0;bottom:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");opacity:.3}
+    .guide-hero-content{position:relative;z-index:10;padding:4rem 0;color:white}
+    .guide-breadcrumb{display:flex;gap:.5rem;margin-bottom:1.5rem;font-size:.9rem}
+    .guide-breadcrumb a{color:rgba(255,255,255,.8);text-decoration:none}
+    .guide-breadcrumb a:hover{color:white}
+    .guide-hero h1{font-size:3rem;font-weight:800;margin-bottom:1rem;max-width:800px}
+    .guide-hero-subtitle{font-size:1.3rem;opacity:.95;max-width:600px;margin-bottom:2rem}
+    .guide-meta-bar{display:flex;gap:2rem;flex-wrap:wrap}
+    .guide-meta-item{display:flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.15);padding:.5rem 1rem;border-radius:25px;backdrop-filter:blur(10px)}
+    .guide-actions{display:flex;gap:1rem;margin-top:2rem}
+    .action-btn{display:flex;align-items:center;gap:.5rem;padding:.75rem 1.5rem;border-radius:8px;font-weight:600;cursor:pointer;transition:all .3s ease;border:none;font-size:1rem}
+    .action-btn-primary{background:white;color:var(--guide-primary-dark)}
+    .action-btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 20px rgba(0,0,0,.2)}
+    .action-btn-secondary{background:rgba(255,255,255,.2);color:white;border:2px solid rgba(255,255,255,.3)}
+    .action-btn-secondary:hover{background:rgba(255,255,255,.3)}
+    .toc-sidebar{position:sticky;top:120px;height:fit-content;padding:1.5rem;background:var(--bg-white);border-radius:16px;box-shadow:var(--shadow);max-height:calc(100vh - 150px);overflow-y:auto}
+    .toc-sidebar h4{font-size:.85rem;text-transform:uppercase;letter-spacing:.08em;color:var(--text-light);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1px solid var(--border-color)}
+    .toc-sidebar ul{list-style:none;padding:0;margin:0}
+    .toc-sidebar li{margin-bottom:.25rem}
+    .toc-sidebar a{display:block;padding:.5rem .75rem;color:var(--text-light);text-decoration:none;font-size:.9rem;border-radius:6px;border-left:3px solid transparent;transition:all .2s ease;line-height:1.4}
+    .toc-sidebar a:hover{color:var(--guide-primary);background:#f3f4f6}
+    .toc-sidebar a.active{color:var(--guide-primary);background:#e5e7eb;border-left-color:var(--guide-primary);font-weight:600}
+    .toc-progress{width:100%;height:3px;background:#e5e7eb;border-radius:3px;margin-bottom:1rem;overflow:hidden}
+    .toc-progress-bar{height:100%;background:var(--guide-primary);width:0%;transition:width .3s ease;border-radius:3px}
+    .guide-page-layout{display:grid;grid-template-columns:220px 1fr 350px;gap:2rem;max-width:1400px;margin:2rem auto;padding:0 2rem}
+    .guide-main{background:var(--bg-white);border-radius:16px;padding:2.5rem;box-shadow:var(--shadow)}
+    .guide-main h2{font-size:2rem;color:var(--text-dark);margin-bottom:1.5rem;padding-bottom:.75rem;border-bottom:2px solid var(--guide-accent)}
+    .guide-main h3{font-size:1.4rem;color:var(--text-dark);margin:2rem 0 1rem}
+    .guide-main p{color:var(--text-light);line-height:1.8;margin-bottom:1.5rem}
+    .guide-main ul,.guide-main ol{margin-bottom:1.5rem;padding-left:1.5rem}
+    .guide-main li{color:var(--text-light);line-height:1.8;margin-bottom:.5rem}
+    .guide-sidebar{position:sticky;top:120px;height:fit-content}
+    .sidebar-card{background:var(--bg-white);border-radius:16px;padding:1.5rem;margin-bottom:1.5rem;box-shadow:var(--shadow)}
+    .sidebar-card h4{font-size:1.1rem;margin-bottom:1rem;color:var(--text-dark)}
+    .quick-stat{display:flex;justify-content:space-between;padding:.75rem 0;border-bottom:1px solid var(--border-color)}
+    .quick-stat:last-child{border-bottom:none}
+    .quick-stat-label{color:var(--text-light)}
+    .quick-stat-value{font-weight:700;color:var(--guide-primary)}
+    .sidebar-cta{background:linear-gradient(135deg,var(--guide-primary) 0%,var(--guide-primary-light) 100%);color:white}
+    .sidebar-cta h4{color:white}
+    .sidebar-cta p{font-size:.9rem;margin-bottom:1rem;opacity:.9}
+    .sidebar-cta input{width:100%;padding:.75rem;border:none;border-radius:8px;margin-bottom:.75rem;font-size:.95rem}
+    .sidebar-cta button{width:100%;padding:.75rem;background:white;color:var(--guide-primary-dark);border:none;border-radius:8px;font-weight:700;cursor:pointer;transition:all .3s ease}
+    .sidebar-cta button:hover{transform:translateY(-2px);box-shadow:0 5px 15px rgba(0,0,0,.2)}
+    .related-guide{display:flex;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--border-color);text-decoration:none}
+    .related-guide:last-child{border-bottom:none}
+    .related-guide-icon{width:50px;height:50px;border-radius:8px;background:linear-gradient(135deg,var(--guide-primary) 0%,var(--guide-accent) 100%);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.5rem}
+    .related-guide-content h5{font-size:.95rem;color:var(--text-dark);margin-bottom:.25rem}
+    .related-guide-content span{font-size:.8rem;color:var(--text-light)}
+    .info-box{padding:1.5rem;border-radius:12px;margin:2rem 0}
+    .info-box-tip{background:#f3f4f6;border-left:4px solid var(--guide-accent)}
+    .info-box-warning{background:#f3f4f6;border-left:4px solid #f59e0b}
+    .info-box-title{font-weight:700;margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem}
+    .material-card{background:#f3f4f6;border-radius:12px;padding:2rem;margin:2rem 0;border:1px solid #e5e7eb}
+    .material-card h3{margin-top:0!important;color:var(--guide-primary)!important;font-size:1.5rem!important}
+    .material-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1rem 0}
+    .material-stat{text-align:center;padding:.75rem;background:white;border-radius:8px}
+    .material-stat-label{font-size:.8rem;color:var(--text-light)}
+    .material-stat-value{font-size:1.1rem;font-weight:700;color:var(--guide-primary)}
+    .comparison-table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:.95rem}
+    .comparison-table th,.comparison-table td{padding:.75rem;text-align:left;border:1px solid #e5e7eb}
+    .comparison-table th{background:var(--guide-primary);color:white;font-weight:600}
+    .comparison-table tr:nth-child(even){background:#f3f4f6}
+    .comparison-table tr:hover{background:#e5e7eb}
+    .faq-item{border:1px solid #e5e7eb;border-radius:10px;margin-bottom:1rem;overflow:hidden}
+    .faq-q{width:100%;padding:1.25rem 1.5rem;background:#f3f4f6;border:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:1.05rem;font-weight:600;color:var(--guide-primary-dark);text-align:left}
+    .faq-q:hover{background:#e5e7eb}
+    .faq-a{padding:0 1.5rem 1.25rem;color:var(--text-light);line-height:1.8;display:none}
+    .faq-item.open .faq-a{display:block}
+    .faq-toggle{font-size:1.3rem;transition:transform .3s}
+    .faq-item.open .faq-toggle{transform:rotate(45deg)}
+    .toc-mobile-toggle{display:none;position:sticky;top:100px;z-index:100;background:var(--bg-white);border-bottom:1px solid var(--border-color);padding:.75rem 2rem;cursor:pointer;font-weight:600;color:var(--guide-primary);font-size:.95rem}
+    .toc-mobile-toggle span{margin-left:.5rem;transition:transform .3s;display:inline-block}
+    .toc-mobile-toggle.open span{transform:rotate(180deg)}
+    @media(max-width:1200px){.guide-page-layout{grid-template-columns:220px 1fr}.guide-sidebar-col{grid-column:1/-1;order:10}}
+    @media(max-width:768px){.guide-hero h1{font-size:2rem}.guide-main{padding:1.5rem}.guide-actions{flex-direction:column}.guide-page-layout{grid-template-columns:1fr;padding:0 1rem}.toc-sidebar-col{display:none}.toc-mobile-toggle{display:block}.material-stats{grid-template-columns:1fr}}
+  </style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-V08M9YKRR7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-V08M9YKRR7');
+</script>
+</head>
+
+<body>
+
+<nav class="navbar" id="navbar">
+  <div class="container nav-container">
+    <div class="logo"><img src="/images/logov3.png?v=3" alt="Drivewayz USA" onerror="this.style.display='none'"></div>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/#services">Services</a></li>
+      <li><a href="/#why-choose">Why Us</a></li>
+      <li><a href="/locations/">Locations</a></li>
+      <li><a href="/guides-hub/">Guides</a></li>
+      <li><a href="/#contact">Contact</a></li>
+    </ul>
+    <button class="cta-button-small" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Free Estimate</button>
+  </div>
+</nav>
+
+<section class="guide-hero">
+  <img src="/images/pexels-pixabay-221540.webp" alt="Winter Driveway Survival Guide — Drivewayz USA" class="guide-hero-img" width="1200" height="630" loading="eager" fetchpriority="high">
+  <div class="container guide-hero-content">
+    <div class="guide-breadcrumb">
+      <a href="/">Home</a> / <a href="/guides-hub/">Guides</a> / <span>Winter Driveway Survival Guide</span>
+    </div>
+    <h1>Winter Driveway Survival Guide</h1>
+    <p class="guide-hero-subtitle">A complete guide to winter driveway survival guide — what homeowners need to know.</p>
+    <div class="guide-meta-bar">
+      <div class="guide-meta-item">&#9201;&#65039; 14 min read</div>
+      <div class="guide-meta-item">&#128176; High-end material</div>
+      <div class="guide-meta-item">&#128142; Premium quality</div>
+    </div>
+    <div class="guide-actions">
+      <a href="/#contact" class="action-btn action-btn-primary">Get Free Estimate</a>
+      <button class="action-btn action-btn-secondary" onclick="saveGuide()"><span id="saveIcon">&#128278;</span> <span id="saveText">Save Guide</span></button>
+    </div>
+  </div>
+</section>
+
+<div class="toc-mobile-toggle" onclick="toggleMobileToc()">&#128203; Table of Contents <span>&#9660;</span></div>
+
+<div class="guide-page-layout">
+  <div class="toc-sidebar-col">
+    <nav class="toc-sidebar">
+      <div class="toc-progress"><div class="toc-progress-bar" id="tocProgress"></div></div>
+      <h4>On This Page</h4>
+      <ul>
+        <li><a href="#overview" class="toc-link" data-section="overview">What is Basalt?</a></li>
+        <li><a href="#costs" class="toc-link" data-section="costs">Cost Breakdown</a></li>
+        <li><a href="#installation" class="toc-link" data-section="installation">Installation Process</a></li>
+        <li><a href="#benefits" class="toc-link" data-section="benefits">Benefits</a></li>
+        <li><a href="#maintenance" class="toc-link" data-section="maintenance">Maintenance</a></li>
+        <li><a href="#comparison" class="toc-link" data-section="comparison">Material Comparison</a></li>
+        <li><a href="#faq" class="toc-link" data-section="faq">FAQ</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <main class="guide-main">
+
+    <section id="overview">
+  <h2>Why Your Driveway Needs a Winter Survival Plan</h2>
+  <p>Every October, the first frost sneaks up on Midwest driveways and quietly fractures the surface. By April, what started as hairline cracks has become potholes wide enough to swallow a flip-flop. This winter driveway survival guide walks you through the exact steps Drivewayz USA recommends to protect asphalt, concrete, and paver drives from freeze–thaw cycles, snowplows, and de-icing chemicals—so you skip the spring repair bill and keep your curb appeal intact.</p>
+</section>
+
+<section id="pre-winter-prep">
+  <h2>1. Pre-Winter Prep: Start in September, Not November</h2>
+
+  <h3>Inspect for Micro-Cracks</h3>
+  <p>Hairline cracks less than ¼ in. wide let water penetrate and expand when it freezes. Walk your driveway after a rain; any dark lines that stay damp longer than the surrounding surface are suspect. Mark them with sidewalk chalk so you don’t lose them under fall leaves.</p>
+
+  <h3>Clean & Seal the Surface</h3>
+  <ul>
+    <li>Pressure-wash at 2,500 PSI to remove algae and oil. Oil spots block sealer adhesion; scrub with a biodegradable degreaser first.</li>
+    <li>Let the surface dry 24 h. Trapped moisture turns sealer white and flaky.</li>
+    <li>Apply a coal-tar-free, high-solids asphalt sealer with 4–5% latex additive for flexibility. Two thin coats (cross-rolled) last longer than one thick coat.</li>
+  </ul>
+
+  <h3>Patch Early, Patch Right</h3>
+  <p>For asphalt, use a cold-patch rated to –20 °F. Overfill ½ in., tamp with a 4×4 until the patch no longer moves underfoot, then seal the edges. Concrete drives need a cementitious vinyl-patch mix; feather it out 1 in. beyond the damage to reduce edging stress.</p>
+
+  <h3>Trim the Edges</h3>
+  <p>Grass creeping over the edge traps moisture and invites frost heave. Cut back vegetation 2 in. from the drive and add a 45 °F bevel of topsoil so meltwater runs off, not in.</p>
+</section>
+
+<section id="snow-removal">
+  <h2>2. Smart Snow Removal: Save Your Back & Your Blacktop</h2>
+
+  <h3>Plastic vs. Steel Blades</h3>
+  <p>Steel snowblower and plow blades gouge asphalt and chip concrete seams. Swap to polyurethane or rubber-edged blades. They cost $30–$50 more but save $400 in spring patching.</p>
+
+  <h3>Set the Plow Height</h3>
+  <p>Leave ½ in. of packed snow on new asphalt (< 2 years old) to avoid scraping off the protective oils. On older drives, drop to ¼ in. but never “skim” bare; that’s how frost gets in.</p>
+
+  <h3>Shovel Early, Shovel Often</h3>
+  <p>Fresh snow weighs 7 lb per ft³; after 24 h it compacts to 15 lb. Shovel every 3–4 in. of fall to reduce salt demand by 30 %. Use an ergonomic plastic shovel with a nylon wear strip—metal strips act like a planer on your surface.</p>
+
+  <h3>Mark Obstacles Before the First Flake</h3>
+  <p>Driveway markers (fiberglass rods with reflective tape) should sit 6 in. higher than expected snow depth. Place them every 3 ft along edges and 1 ft in from the apron where the city plow surges.</p>
+</section>
+
+<section id="de-icing">
+  <h2>3. De-Icing Without Destroying</h2>
+
+  <h3>Choose the Right Salt</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Lowest Effective Temp.</th>
+        <th>Concrete Safe?</th>
+        <th>Asphalt Safe?</th>
+        <th>Price per 50 lb</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Rock salt (NaCl)</td>
+        <td>15 °F</td>
+        <td>No</td>
+        <td>Yes</td>
+        <td>$6</td>
+      </tr>
+      <tr>
+        <td>Calcium chloride pellets</td>
+        <td>–25 °F</td>
+        <td>Yes (if rinsed)</td>
+        <td>Yes</td>
+        <td>$18</td>
+      </tr>
+      <tr>
+        <td>Magnesium chloride flakes</td>
+        <td>–10 °F</td>
+        <td>Yes</td>
+        <td>Yes</td>
+        <td>$16</td>
+      </tr>
+      <tr>
+        <td>Acetate-based (CMA)</td>
+        <td>20 °F</td>
+        <td>Best</td>
+        <td>Yes</td>
+        <td>$35</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Apply Brine, Not Bulk</h3>
+  <p>Mix 1 gal hot water + 2 lb calcium chloride until dissolved. Spray a light mist (≈ ½ cup per yd²) two hours before a storm. You’ll use 75 % less chloride and keep meltwater from refreezing.</p>
+
+  <h3>Sand for Traction, Not Melting</h3>
+  <p>Play sand or chicken grit gives instant grip on steep grades. Mix 1 cup sand + 1 tbsp salt in a 5-gal bucket; the trace salt keeps the sand from freezing into clumps in the garage.</p>
+</section>
+
+<section id="drainage">
+  <h2>4. Drainage: The Hidden Heave Killer</h2>
+
+  <h3>Grade Check in 60 Seconds</h3>
+  <p>Pour a 5-gal bucket of water at the garage door. If water still ponds after 5 min, you’ve got low spots. Mark the outline with spray paint; in spring, top with a ½-in. lift of asphalt or a self-leveling concrete overlay.</p>
+
+  <h3>Clear the Shoulders</h3>
+  <p>Snowbanks along the edge act like dams. After every storm, carve a 6-in. channel every 8 ft so meltwater escapes instead of backing under the slab.</p>
+
+  <h3>Install a Snow-Melt Drain</h3>
+  <p>For apron puddles that refreeze into black ice, trench a 4-in. perforated pipe 12 in. below the surface, daylighting to the yard. A $120 DIY kit prevents the nightly freeze-thaw cycle that spalls concrete edges.</p>
+</section>
+
+<section id="emergency">
+  <h2>5. Emergency Fixes You Can Do at 10 °F</h2>
+
+  <h3>“Soft” Asphalt?</h3>
+  <p>New asphalt can rut under tire pressure when temps spike above 50 °F in January. Lay plywood under each tire when parked for more than 2 h.</p>
+
+  <h3>Blowout Cracks Overnight</h3>
+  <p>If a crack widens to ½ in. after a cold snap, fill it temporarily with backer rod and a self-leveling silicone sealant rated to –40 °F. Tool it with a plastic spoon dipped in soapy water; it sets in 30 min and flexes with the freeze.</p>
+
+  <h3>Ice Dam on the Apron</h3>
+  <p>When the city plow leaves a 2-ft berm that refreezes, score 1-in. grooves with a brick chisel every foot. The grooves act as stress relievers so you can lift blocks out instead of hacking randomly.</p>
+</section>
+
+<section id="spring-recovery">
+  <h2>6. Spring Recovery: Undo Winter’s Damage Fast</h2>
+
+  <h3>Power-Wash & Photograph</h3>
+  <p>Before anything grows, pressure-wash and snap dated photos. Insurance claims and HOA complaints move faster with clear “before” shots.</p>
+
+  <h3>Seal the New Cracks</h3>
+  <p>Wait until daytime highs hit 50 °F for 3 consecutive days. Use a hot-rubberized crack fill for asphalt; for concrete, inject a polyurethane that expands to 3× its volume.</p>
+
+  <h3>Spot-Seal vs. Full Coat</h3>
+  <p>If < 15 % of the surface is cracked, spot-seal and save $0.60 per ft². More than that, reseal the entire drive to keep the patchwork from looking like a quilt.</p>
+
+  <h3>Book Early, Save 15 %</h3>
+  <p>Schedule your seal-coat before March 15; contractors offer early-bird pricing to fill calendars. Waiting until May can cost an extra $0.20 per ft².</p>
+</section>
+
+<section id="costs">
+  <h2>7. Winter Driveway Costs at a Glance</h2>
+  <ul>
+    <li>DIY seal coat, 600 ft² driveway: $120 materials + 4 h labor</li>
+    <li>Pro seal coat same size: $300–$400, 2-year warranty</li>
+    <li>Cold-patch, 5 gal bucket: $18, covers 6 ft² at 1 in. depth</li>
+    <li>Poly-plow edge kit: $45, saves $400 in patchwork</li>
+    <li>Calcium chloride brine, 5 gal: $8, treats 1,000 ft² twice</li>
+    <li>Spring hot-rubber crack fill, pro: $1.50–$2.00 per linear ft</li>
+  </ul>
+</section>
+
+<section id="faq">
+  <h2>Winter Driveway Survival Guide: FAQ</h2>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">Can I use regular table salt on my driveway if I run out of ice melt?</button>
+    <div class="faq-a">
+      <p>Table salt (sodium chloride) works above 15 °F but is 100 % pure and dissolves too fast, creating more freeze-thaw cycles. It’s also finer, so you’ll over-apply. In a pinch, mix 1 cup table salt with 4 cups playground sand to slow dissolution and add traction. Rinse the slab in spring to prevent surface scaling.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">How soon can I seal a new asphalt driveway before winter?</button>
+    <div class="faq-a">
+      <p>Wait a minimum of 90 days after paving so the light oils evaporate. If October hits before the 90-day mark, seal the following spring instead. Sealing too early traps solvents, causing “power steering tears” when you turn the wheel on cold mornings.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">Is it safe to use a metal shovel on stamped concrete?</button>
+    <div class="faq-a">
+      <p>No. Metal shovels scratch the release agent and can pop off the colored surface. Use a plastic or poly shovel with a rubber-coated leading edge. For ice, apply calcium chloride in a sock (tie it up and drag it across) rather than chipping.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">Why does my driveway have white streaks after snow melts?</button>
+    <div class="faq-a">
+      <p>White streaks are efflorescence—salt left behind when meltwater evaporates. It’s mostly cosmetic. Rinse with a garden hose on a warm day; if it persists, scrub with a 1:10 vinegar-water solution and rinse again. Seal in late spring to reduce porosity.</p>
+    </div>
+  </div>
+</section>
+
+  </main>
+
+  <aside class="guide-sidebar-col">
+    <div class="guide-sidebar">
+      <div class="sidebar-card">
+        <h4>&#128202; Quick Facts</h4>
+        <div class="quick-stat">
+          <span class="quick-stat-label">Paver Cost</span>
+          <span class="quick-stat-value">$15-30/sqft</span>
+        </div>
+        <div class="quick-stat">
+          <span class="quick-stat-label">Crushed Cost</span>
+          <span class="quick-stat-value">$5-11/sqft</span>
+        </div>
+        <div class="quick-stat">
+          <span class="quick-stat-label">Lifespan</span>
+          <span class="quick-stat-value">30-50+ years</span>
+        </div>
+        <div class="quick-stat">
+          <span class="quick-stat-label">Hardness</span>
+          <span class="quick-stat-value">6 Mohs</span>
+        </div>
+        <div class="quick-stat">
+          <span class="quick-stat-label">Maintenance</span>
+          <span class="quick-stat-value">Low</span>
+        </div>
+      </div>
+
+      <div class="sidebar-card sidebar-cta">
+        <h4>&#128640; Get Started Today</h4>
+        <p>Interested in a basalt driveway? Get a free estimate from our experts.</p>
+        <form onsubmit="handleSidebarSubmit(event)">
+          <input type="text" placeholder="Your Name" required aria-label="Your Name">
+          <input type="tel" placeholder="Phone Number" required aria-label="Phone Number">
+          <button type="submit">Request Free Estimate</button>
+        </form>
+      </div>
+
+      <div class="sidebar-card">
+        <h4>&#128218; Related Guides</h4>
+        <a href="/guides/cobblestone-driveway/" class="related-guide">
+          <div class="related-guide-icon">&#127968;</div>
+          <div class="related-guide-content">
+            <h5>Cobblestone Driveway Guide</h5>
+            <span>12 min read</span>
+          </div>
+        </a>
+        <a href="/guides/driveway-basics-types-costs-lifespan/" class="related-guide">
+          <div class="related-guide-icon">&#128214;</div>
+          <div class="related-guide-content">
+            <h5>Driveway Basics: Types, Costs &amp; Lifespan</h5>
+            <span>20 min read</span>
+          </div>
+        </a>
+        <a href="/guides/concrete-vs-asphalt-vs-gravel/" class="related-guide">
+          <div class="related-guide-icon">&#9878;&#65039;</div>
+          <div class="related-guide-content">
+            <h5>Concrete vs Asphalt vs Gravel</h5>
+            <span>18 min read</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<footer style="text-align:center;padding:2rem;color:#6b7280;font-size:.9rem;">
+  <p>&copy; 2026 Drivewayz USA. Licensed &amp; Insured. Serving the United States with Pride.</p>
+  <p><a href="/#services" style="color:#374151;">Services</a> &bull; <a href="/guides-hub/" style="color:#374151;">Guides</a> &bull; <a href="/#contact" style="color:#374151;">Contact</a></p>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded',function(){var sections=document.querySelectorAll('main section[id]');var tocLinks=document.querySelectorAll('.toc-link');var progressBar=document.getElementById('tocProgress');window.addEventListener('scroll',function(){var winH=document.documentElement.scrollHeight-window.innerHeight;var scrolled=(window.scrollY/winH)*100;if(progressBar)progressBar.style.width=scrolled+'%'});var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){tocLinks.forEach(function(link){link.classList.remove('active')});var activeLink=document.querySelector('.toc-link[data-section="'+entry.target.id+'"]');if(activeLink)activeLink.classList.add('active')}})},{rootMargin:'-20% 0px -60% 0px',threshold:0});sections.forEach(function(section){observer.observe(section)});tocLinks.forEach(function(link){link.addEventListener('click',function(e){e.preventDefault();var target=document.getElementById(this.getAttribute('data-section'));if(target){target.scrollIntoView({behavior:'smooth',block:'start'});var mobileToc=document.querySelector('.toc-sidebar-col');var toggle=document.querySelector('.toc-mobile-toggle');if(mobileToc)mobileToc.classList.remove('mobile-open');if(toggle)toggle.classList.remove('open')}})})});
+function toggleMobileToc(){var tocCol=document.querySelector('.toc-sidebar-col');var toggle=document.querySelector('.toc-mobile-toggle');tocCol.classList.toggle('mobile-open');toggle.classList.toggle('open')}
+function toggleFaq(btn){btn.parentElement.classList.toggle('open')}
+function saveGuide(){var si=document.getElementById('saveIcon'),st=document.getElementById('saveText');if(st.textContent==='Save Guide'){si.innerHTML='&#10084;&#65039;';st.textContent='Saved!'}else{si.innerHTML='&#128278;';st.textContent='Save Guide'}}
+function handleSidebarSubmit(e){e.preventDefault();alert('Thank you! We will contact you shortly with your free estimate.');e.target.reset()}
+</script>
+<script src="/js/seo.js"></script>
+</body>
+</html>

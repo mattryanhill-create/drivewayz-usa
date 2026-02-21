@@ -4,8 +4,8 @@ build_sitemap.py
 
 Generates sitemap.xml for drivewayzusa.co covering:
   - Core pages (index, guides-hub, locations)
-  - All /guides/*.html pages
-  - All /locations/*.html pages
+  - All /guides/*/ pages
+  - All /locations/*/ pages
 
 Run from Cursor Terminal: python3 build_sitemap.py
 Then: git add sitemap.xml robots.txt && git commit -m "Add sitemap.xml and robots.txt" && git push origin main
@@ -23,9 +23,8 @@ TODAY = date.today().isoformat()
 # Core pages: (path, priority, changefreq)
 CORE_PAGES = [
     ("/",              "1.0", "weekly"),
-    ("/guides-hub.html", "0.9", "daily"),
-    ("/locations.html",  "0.9", "monthly"),
-    ("/index.html#contact", "0.7", "monthly"),
+    ("/guides-hub/", "0.9", "daily"),
+    ("/locations/",  "0.9", "monthly"),
 ]
 
 
@@ -48,10 +47,10 @@ def collect_pages() -> list:
     # Guides
     guides_dir = PROJECT_ROOT / "guides"
     if guides_dir.exists():
-        guide_files = sorted(guides_dir.glob("*.html"))
+        guide_files = sorted(guides_dir.glob("*/index.html"))
         print(f"Found {len(guide_files)} guide pages")
         for f in guide_files:
-            loc = f"/guides/{f.name}"
+            loc = f"/guides/{f.parent.name}/"
             entries.append(build_url_entry(loc, "0.8", "monthly"))
     else:
         print("WARNING: guides/ directory not found")
@@ -59,10 +58,13 @@ def collect_pages() -> list:
     # Location pages
     locations_dir = PROJECT_ROOT / "locations"
     if locations_dir.exists():
-        loc_files = sorted(locations_dir.glob("*.html"))
+        loc_files = sorted(locations_dir.glob("*/index.html"))
         print(f"Found {len(loc_files)} location pages")
         for f in loc_files:
-            loc = f"/locations/{f.name}"
+            slug = f.parent.name
+            if slug == "state-page":
+                continue
+            loc = f"/locations/{slug}/"
             entries.append(build_url_entry(loc, "0.7", "monthly"))
     else:
         print("WARNING: locations/ directory not found")

@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Driveway GPS Staking: Precise Layout From Digital Plans | Drivewayz USA Guides</title>
+  <meta name="description" content="Learn about driveway gps staking: precise layout from digital plans. Expert guide from Drivewayz USA.">
+  <link rel="stylesheet" href="/main.css">
+  <style>
+    :root{--guide-primary:#374151;--guide-primary-light:#6b7280;--guide-primary-dark:#1f2937;--guide-accent:#9ca3af;--guide-bg:linear-gradient(135deg,#f9fafb 0%,#f3f4f6 50%,#e5e7eb 100%)}
+    body{background:var(--guide-bg);background-attachment:scroll}
+    .guide-hero{position:relative;min-height:500px;display:flex;align-items:center;margin-top:100px;background-image:linear-gradient(135deg,rgba(55,65,81,.55) 0%,rgba(31,41,55,.55) 100%),url('/images/pexels-curtis-adams-1694007-3990589.webp');background-size:cover;background-position:center;overflow:hidden}
+    .guide-hero::before{content:"";position:absolute;top:0;left:0;right:0;bottom:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");opacity:.3}
+    .guide-hero-content{position:relative;z-index:10;padding:4rem 0;color:white}
+    .guide-breadcrumb{display:flex;gap:.5rem;margin-bottom:1.5rem;font-size:.9rem}
+    .guide-breadcrumb a{color:rgba(255,255,255,.8);text-decoration:none}
+    .guide-breadcrumb a:hover{color:white}
+    .guide-hero h1{font-size:3rem;font-weight:800;margin-bottom:1rem;max-width:800px}
+    .guide-hero-subtitle{font-size:1.3rem;opacity:.95;max-width:600px;margin-bottom:2rem}
+    .guide-meta-bar{display:flex;gap:2rem;flex-wrap:wrap}
+    .guide-meta-item{display:flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.15);padding:.5rem 1rem;border-radius:25px;backdrop-filter:blur(10px)}
+    .guide-actions{display:flex;gap:1rem;margin-top:2rem}
+    .action-btn{display:flex;align-items:center;gap:.5rem;padding:.75rem 1.5rem;border-radius:8px;font-weight:600;cursor:pointer;transition:all .3s ease;border:none;font-size:1rem}
+    .action-btn-primary{background:white;color:var(--guide-primary-dark)}
+    .action-btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 20px rgba(0,0,0,.2)}
+    .action-btn-secondary{background:rgba(255,255,255,.2);color:white;border:2px solid rgba(255,255,255,.3)}
+    .action-btn-secondary:hover{background:rgba(255,255,255,.3)}
+    .toc-sidebar{position:sticky;top:120px;height:fit-content;padding:1.5rem;background:var(--bg-white);border-radius:16px;box-shadow:var(--shadow);max-height:calc(100vh - 150px);overflow-y:auto}
+    .toc-sidebar h4{font-size:.85rem;text-transform:uppercase;letter-spacing:.08em;color:var(--text-light);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1px solid var(--border-color)}
+    .toc-sidebar ul{list-style:none;padding:0;margin:0}
+    .toc-sidebar li{margin-bottom:.25rem}
+    .toc-sidebar a{display:block;padding:.5rem .75rem;color:var(--text-light);text-decoration:none;font-size:.9rem;border-radius:6px;border-left:3px solid transparent;transition:all .2s ease;line-height:1.4}
+    .toc-sidebar a:hover{color:var(--guide-primary);background:#f3f4f6}
+    .toc-sidebar a.active{color:var(--guide-primary);background:#e5e7eb;border-left-color:var(--guide-primary);font-weight:600}
+    .toc-progress{width:100%;height:3px;background:#e5e7eb;border-radius:3px;margin-bottom:1rem;overflow:hidden}
+    .toc-progress-bar{height:100%;background:var(--guide-primary);width:0%;transition:width .3s ease;border-radius:3px}
+    .guide-page-layout{display:grid;grid-template-columns:220px 1fr 350px;gap:2rem;max-width:1400px;margin:2rem auto;padding:0 2rem}
+    .guide-main{background:var(--bg-white);border-radius:16px;padding:2.5rem;box-shadow:var(--shadow)}
+    .guide-main h2{font-size:2rem;color:var(--text-dark);margin-bottom:1.5rem;padding-bottom:.75rem;border-bottom:2px solid var(--guide-accent)}
+    .guide-main h3{font-size:1.4rem;color:var(--text-dark);margin:2rem 0 1rem}
+    .guide-main p{color:var(--text-light);line-height:1.8;margin-bottom:1.5rem}
+    .guide-main ul,.guide-main ol{margin-bottom:1.5rem;padding-left:1.5rem}
+    .guide-main li{color:var(--text-light);line-height:1.8;margin-bottom:.5rem}
+    .guide-sidebar{position:sticky;top:120px;height:fit-content}
+    .sidebar-card{background:var(--bg-white);border-radius:16px;padding:1.5rem;margin-bottom:1.5rem;box-shadow:var(--shadow)}
+    .sidebar-card h4{font-size:1.1rem;margin-bottom:1rem;color:var(--text-dark)}
+    .quick-stat{display:flex;justify-content:space-between;padding:.75rem 0;border-bottom:1px solid var(--border-color)}
+    .quick-stat:last-child{border-bottom:none}
+    .quick-stat-label{color:var(--text-light)}
+    .quick-stat-value{font-weight:700;color:var(--guide-primary)}
+    .sidebar-cta{background:linear-gradient(135deg,var(--guide-primary) 0%,var(--guide-primary-light) 100%);color:white}
+    .sidebar-cta h4{color:white}
+    .sidebar-cta p{font-size:.9rem;margin-bottom:1rem;opacity:.9}
+    .sidebar-cta input{width:100%;padding:.75rem;border:none;border-radius:8px;margin-bottom:.75rem;font-size:.95rem}
+    .sidebar-cta button{width:100%;padding:.75rem;background:white;color:var(--guide-primary-dark);border:none;border-radius:8px;font-weight:700;cursor:pointer;transition:all .3s ease}
+    .sidebar-cta button:hover{transform:translateY(-2px);box-shadow:0 5px 15px rgba(0,0,0,.2)}
+    .related-guide{display:flex;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--border-color);text-decoration:none}
+    .related-guide:last-child{border-bottom:none}
+    .related-guide-icon{width:50px;height:50px;border-radius:8px;background:linear-gradient(135deg,var(--guide-primary) 0%,var(--guide-accent) 100%);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.5rem}
+    .related-guide-content h5{font-size:.95rem;color:var(--text-dark);margin-bottom:.25rem}
+    .related-guide-content span{font-size:.8rem;color:var(--text-light)}
+    .info-box{padding:1.5rem;border-radius:12px;margin:2rem 0}
+    .info-box-tip{background:#f3f4f6;border-left:4px solid var(--guide-accent)}
+    .info-box-warning{background:#f3f4f6;border-left:4px solid #f59e0b}
+    .info-box-title{font-weight:700;margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem}
+    .material-card{background:#f3f4f6;border-radius:12px;padding:2rem;margin:2rem 0;border:1px solid #e5e7eb}
+    .material-card h3{margin-top:0!important;color:var(--guide-primary)!important;font-size:1.5rem!important}
+    .material-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1rem 0}
+    .material-stat{text-align:center;padding:.75rem;background:white;border-radius:8px}
+    .material-stat-label{font-size:.8rem;color:var(--text-light)}
+    .material-stat-value{font-size:1.1rem;font-weight:700;color:var(--guide-primary)}
+    .comparison-table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:.95rem}
+    .comparison-table th,.comparison-table td{padding:.75rem;text-align:left;border:1px solid #e5e7eb}
+    .comparison-table th{background:var(--guide-primary);color:white;font-weight:600}
+    .comparison-table tr:nth-child(even){background:#f3f4f6}
+    .comparison-table tr:hover{background:#e5e7eb}
+    .faq-item{border:1px solid #e5e7eb;border-radius:10px;margin-bottom:1rem;overflow:hidden}
+    .faq-q{width:100%;padding:1.25rem 1.5rem;background:#f3f4f6;border:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:1.05rem;font-weight:600;color:var(--guide-primary-dark);text-align:left}
+    .faq-q:hover{background:#e5e7eb}
+    .faq-a{padding:0 1.5rem 1.25rem;color:var(--text-light);line-height:1.8;display:none}
+    .faq-item.open .faq-a{display:block}
+    .faq-toggle{font-size:1.3rem;transition:transform .3s}
+    .faq-item.open .faq-toggle{transform:rotate(45deg)}
+    .toc-mobile-toggle{display:none;position:sticky;top:100px;z-index:100;background:var(--bg-white);border-bottom:1px solid var(--border-color);padding:.75rem 2rem;cursor:pointer;font-weight:600;color:var(--guide-primary);font-size:.95rem}
+    .toc-mobile-toggle span{margin-left:.5rem;transition:transform .3s;display:inline-block}
+    .toc-mobile-toggle.open span{transform:rotate(180deg)}
+    @media(max-width:1200px){.guide-page-layout{grid-template-columns:220px 1fr}.guide-sidebar-col{grid-column:1/-1;order:10}}
+    @media(max-width:768px){.guide-hero h1{font-size:2rem}.guide-main{padding:1.5rem}.guide-actions{flex-direction:column}.guide-page-layout{grid-template-columns:1fr;padding:0 1rem}.toc-sidebar-col{display:none}.toc-mobile-toggle{display:block}.material-stats{grid-template-columns:1fr}}
+  </style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-V08M9YKRR7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-V08M9YKRR7');
+</script>
+</head>
+
+<body>
+
+<nav class="navbar" id="navbar">
+  <div class="container nav-container">
+    <div class="logo"><img src="/images/logov3.png?v=3" alt="Drivewayz USA" onerror="this.style.display='none'"></div>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/#services">Services</a></li>
+      <li><a href="/#why-choose">Why Us</a></li>
+      <li><a href="/locations/">Locations</a></li>
+      <li><a href="/guides-hub/">Guides</a></li>
+      <li><a href="/#contact">Contact</a></li>
+    </ul>
+    <button class="cta-button-small" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Free Estimate</button>
+  </div>
+</nav>
+
+<section class="guide-hero">
+  <img src="/images/pexels-curtis-adams-1694007-3990589.webp" alt="Driveway GPS Staking: Precise Layout From Digital Plans — Drivewayz USA" class="guide-hero-img" width="1200" height="630" loading="eager" fetchpriority="high">
+  <div class="container guide-hero-content">
+    <div class="guide-breadcrumb">
+      <a href="/">Home</a> / <a href="/guides-hub/">Guides</a> / <span>Driveway GPS Staking: Precise Layout From Digital Plans</span>
+    </div>
+    <h1>Driveway GPS Staking: Precise Layout From Digital Plans</h1>
+    <p class="guide-hero-subtitle">A complete guide to driveway gps staking — what homeowners need to know.</p>
+    <div class="guide-meta-bar">
+      <div class="guide-meta-item">&#9201;&#65039; 14 min read</div>
+      <div class="guide-meta-item">&#128176; High-end material</div>
+      <div class="guide-meta-item">&#128142; Premium quality</div>
+    </div>
+    <div class="guide-actions">
+      <a href="/#contact" class="action-btn action-btn-primary">Get Free Estimate</a>
+      <button class="action-btn action-btn-secondary" onclick="saveGuide()"><span id="saveIcon">&#128278;</span> <span id="saveText">Save Guide</span></button>
+    </div>
+  </div>
+</section>
+
+<div class="toc-mobile-toggle" onclick="toggleMobileToc()">&#128203; Table of Contents <span>&#9660;</span></div>
+
+<div class="guide-page-layout">
+  <div class="toc-sidebar-col">
+    <nav class="toc-sidebar">
+      <div class="toc-progress"><div class="toc-progress-bar" id="tocProgress"></div></div>
+      <h4>On This Page</h4>
+      <ul>
+        <li><a href="#overview" class="toc-link" data-section="overview">What is Basalt?</a></li>
+        <li><a href="#costs" class="toc-link" data-section="costs">Cost Breakdown</a></li>
+        <li><a href="#installation" class="toc-link" data-section="installation">Installation Process</a></li>
+        <li><a href="#benefits" class="toc-link" data-section="benefits">Benefits</a></li>
+        <li><a href="#maintenance" class="toc-link" data-section="maintenance">Maintenance</a></li>
+        <li><a href="#comparison" class="toc-link" data-section="comparison">Material Comparison</a></li>
+        <li><a href="#faq" class="toc-link" data-section="faq">FAQ</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <main class="guide-main">
+
+    <section id="overview">
+  <h2>What Is Driveway GPS Staking and Why It Matters</h2>
+  <p>Driveway GPS Staking is the modern way to turn your digital driveway plan into perfect stakes in the ground. Instead of a tape measure and a prayer, installers use survey-grade GPS rovers, robotic total stations, and your approved site plan to mark every edge, curve, and elevation change within ¼ inch. The result? A driveway that fits the first time, passes inspection faster, and avoids costly do-overs.</p>
+  <p>If you are building a new home, widening an existing driveway, or adding a circle turn-around, GPS staking is the cheapest insurance policy you can buy against “oops” moments.</p>
+</section>
+
+<section id="how-it-works">
+  <h2>How Driveway GPS Staking Works—Step by Step</h2>
+
+  <h3>1. Upload the Plan</h3>
+  <p>Your contractor uploads the engineered PDF or CAD file to cloud-based staking software. The same file the city approved becomes the digital blueprint.</p>
+
+  <h3>2. Tie Into Control Points</h3>
+  <p>The crew finds two permanent survey monuments—usually a lot corner pin and a city benchmark. Those points anchor the entire layout so every stake is legally tied to your property lines.</p>
+
+  <h3>3. Calibrate the Rover</h3>
+  <p>A GPS rover (hand-held unit on a pole) is calibrated to 0.02 ft accuracy. One crew member walks the site while another watches the screen in real time.</p>
+
+  <h3>4. Mark the Stakes</h3>
+  <p>Colored survey lath and spray paint appear at key locations: edge of pavement, back of curb, drainage inlets, utility crossings, and joint lines. Elevations are written right on the stake so the excavator knows how deep to cut or fill.</p>
+
+  <h3>5. Quality Check</h3>
+  <p>Before equipment rolls in, the crew re-runs a quick “as-staked” report. Any stake off by more than 0.03 ft is adjusted on the spot.</p>
+</section>
+
+<section id="benefits">
+  <h2>Top 7 Benefits for Homeowners</h2>
+  <ul>
+    <li><strong>Eliminates guesswork.</strong> Curves and angles match the plan exactly—no skinny throat or awkward radius.</li>
+    <li><strong>Avoids tear-outs.</strong> Concrete placed in the wrong spot costs $12–$18 per sq ft to remove and replace.</li>
+    <li><strong>Faster permits.</strong> Inspectors trust GPS logs; field changes drop by 70 %.</li>
+    <li><strong>Saves trees & utilities.</strong> Precise stakes keep excavation away from roots and buried lines.</li>
+    <li><strong>Better drainage.</strong> Elevations are set to within 0.01 ft so water runs to the catch basin, not your garage.</li>
+    <li><strong>Accurate bids.</strong> Contractors see the exact square footage and slope—no padding for “unknowns.”</li>
+    <li><strong>Higher resale value.</strong> A certified as-built survey shows buyers the driveway is legal and square.</li>
+  </ul>
+</section>
+
+<section id="diy-vs-pro">
+  <h2>Can You Do Driveway GPS Staking Yourself?</h2>
+
+  <h3>What Pros Use</h3>
+  <p>Survey-grade GNSS rovers ($18 k–$25 k), access to local CORS network corrections, and CAD software that exports to field controllers.</p>
+
+  <h3>DIY Options</h3>
+  <p>Consumer GPS units (even the best) are accurate to ±3 ft—fine for hiking, useless for concrete. Rental rovers exist ($300/day) but still require training and a valid control network.</p>
+
+  <h3>Bottom Line</h3>
+  <p>For a typical $8 k–$15 k driveway, professional staking costs 1–2 % of the job and removes 90 % of the risk. Hire it out.</p>
+</section>
+
+<section id="choosing-contractor">
+  <h2>Choosing a Driveway GPS Staking Contractor</h2>
+
+  <h3>Checklist</h3>
+  <ol>
+    <li>Licensed land-surveyor or certified staking tech on staff.</li>
+    <li>Equipment less than 3 years old and calibrated annually.</li>
+    <li>Proof of $1 M liability + E&O insurance.</li>
+    <li>Sample “as-staked” PDF report from a recent job.</li>
+    <li>Flat-fee quote that includes one re-stake if the city moves a utility.</li>
+  </ol>
+
+  <h3>Red Flags</h3>
+  <ul>
+    <li>Quotes by the hour with no max.</li>
+    <li>Won’t supply raw GPS files.</li>
+    <li>Uses only a smartphone app.</li>
+  </ul>
+</section>
+
+<section id="preparing-yard">
+  <h2>How to Prepare Your Yard for GPS Staking Day</h2>
+
+  <h3>Clear Line of Sight</h3>
+  <p>Trim low branches to 8 ft so the rover pole moves freely.</p>
+
+  <h3>Mark Utilities</h3>
+  <p>Call 811 at least 48 hrs earlier; paint and flags keep the survey crew safe.</p>
+
+  <h3>Secure Pets</h3>
+  <p>Roaming dogs love survey lath—keep them inside for a few hours.</p>
+
+  <h3>Have the Plan Ready</h3>
+  <p>Email the final stamped plan the night before so the crew can preload it.</p>
+</section>
+
+<section id="costs">
+  <h2>What Does Driveway GPS Staking Cost?</h2>
+  <p>National average: $450–$900 for a standard two-car driveway (12 ft × 50 ft). Variables include:</p>
+  <ul>
+    <li><strong>Site size:</strong> Each extra 1 000 sq ft adds ~$75.</li>
+    <li><strong>Slope:</strong> Steep lots require more elevation shots (+20 %).</li>
+    <li><strong>Travel:</strong> Rural sites outside CORS network add $100 for base-station setup.</li>
+    <li><strong>Re-stakes:</strong> First re-stake is usually free; after that $50–$75 per visit.</li>
+  </ul>
+  <p>Package deal: Many full-service driveway contractors bundle GPS staking into the total price; ask for an itemized breakdown so you can compare apples to apples.</p>
+</section>
+
+<section id="survey-types">
+  <h2>Types of Driveway Surveys You May Hear About</h2>
+
+  <h3>Boundary Survey</h3>
+  <p>Establishes property corners; required before any staking if pins are missing.</p>
+
+  <h3>Topographic Survey</h3>
+  <p>Maps existing elevations, trees, and structures; helps engineers design drainage.</p>
+
+  <h3>Driveway GPS Staking (Construction Layout)</h3>
+  <p>Marks exactly where pavement, curb, and joints go—this is the service you need on pour day.</p>
+
+  <h3>As-Built Survey</h3>
+  <p>Certifies the finished driveway matches the permit; often required for final occupancy.</p>
+</section>
+
+<section id="technology">
+  <h2>Technology Behind the Scenes</h2>
+
+  <h3>GNSS vs. GPS</h3>
+  <p>Modern rovers tap GPS, GLONASS, Galileo, and BeiDou satellites for 30 % more accuracy than GPS alone.</p>
+
+  <h3>RTK Corrections</h3>
+  <p>Real-Time Kinematic signals from a base station or CORS network shrink error from 3 ft to 0.02 ft in under 3 seconds.</p>
+
+  <h3>Robotic Total Station Backup</h3>
+  <p>Under heavy tree cover, the crew switches to a robotic total station that shoots an infrared prism for millimeter accuracy.</p>
+</section>
+
+<section id="common-mistakes">
+  <h2>Common Mistakes Homeowners Make</h2>
+  <ul>
+    <li>Skipping staking to “save money,” then paying $3 k to move a 6-in-thick slab.</li>
+    <li>Accepting a “rough stake” from the excavator instead of a licensed survey.</li>
+    <li>Changing the driveway width after staking without telling the crew.</li>
+    <li>Forgetting to verify the stake elevations match the city-approved drainage plan.</li>
+  </ul>
+</section>
+
+<section id="faq">
+  <h2>Frequently Asked Questions</h2>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">How accurate is Driveway GPS Staking compared to traditional methods?</button>
+    <div class="faq-a">
+      <p>Traditional tape-and-string layout is accurate to about 1–2 inches on a good day. GPS staking hits 0.02–0.04 ft (¼ inch) horizontally and vertically, even on sloped or curved driveways. That precision keeps joints aligned and water flowing the right direction.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">Do I still need a full boundary survey before GPS staking?</button>
+    <div class="faq-a">
+      <p>Only if your property corners are missing or you plan to pave within 1 ft of the setback line. Most driveway crews can tie into existing monument pins. If pins are gone, a licensed surveyor must set them first—expect an extra $400–$700.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">Will the staking crew work in light rain?</button>
+    <div class="faq-a">
+      <p>Yes. Survey-grade rovers are IP67 waterproof, and a misty day actually improves GPS signal by reducing atmospheric interference. Heavy rain or lightning stops work for safety, but a light drizzle just means you should wear boots while you watch.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">How long are the stakes valid?</button>
+    <div class="faq-a">
+      <p>Stakes typically stay accurate for 60–90 days unless they are knocked out by grading equipment or foot traffic. Most contractors schedule staking 1–3 days before excavation. If your project is delayed, ask for a quick “stake-check” visit—usually free if nothing has moved.</p>
+    </div>
+  </div>
+</section>
+
+  </main>
+
+  <aside class="guide-sidebar-col">
+    <div class="guide-sidebar">
+      <div class="sidebar-card">
+        <h4>&#128202; Quick Facts</h4>
+        <div class="quick-stat">
+          <span class="quick-stat-label">Paver Cost</span>
+          <span class="quick-stat-value">$15-30/sqft</span>
+        </div>
+        <div class="quick-stat">
+          <span class="quick-stat-label">Crushed Cost</span>
+          <span class="quick-stat-value">$5-11/sqft</span>
+        </div>
+        <div class="quick-stat">
+          <span class="quick-stat-label">Lifespan</span>
+          <span class="quick-stat-value">30-50+ years</span>
+        </div>
+        <div class="quick-stat">
+          <span class="quick-stat-label">Hardness</span>
+          <span class="quick-stat-value">6 Mohs</span>
+        </div>
+        <div class="quick-stat">
+          <span class="quick-stat-label">Maintenance</span>
+          <span class="quick-stat-value">Low</span>
+        </div>
+      </div>
+
+      <div class="sidebar-card sidebar-cta">
+        <h4>&#128640; Get Started Today</h4>
+        <p>Interested in a basalt driveway? Get a free estimate from our experts.</p>
+        <form onsubmit="handleSidebarSubmit(event)">
+          <input type="text" placeholder="Your Name" required aria-label="Your Name">
+          <input type="tel" placeholder="Phone Number" required aria-label="Phone Number">
+          <button type="submit">Request Free Estimate</button>
+        </form>
+      </div>
+
+      <div class="sidebar-card">
+        <h4>&#128218; Related Guides</h4>
+        <a href="/guides/cobblestone-driveway/" class="related-guide">
+          <div class="related-guide-icon">&#127968;</div>
+          <div class="related-guide-content">
+            <h5>Cobblestone Driveway Guide</h5>
+            <span>12 min read</span>
+          </div>
+        </a>
+        <a href="/guides/driveway-basics-types-costs-lifespan/" class="related-guide">
+          <div class="related-guide-icon">&#128214;</div>
+          <div class="related-guide-content">
+            <h5>Driveway Basics: Types, Costs &amp; Lifespan</h5>
+            <span>20 min read</span>
+          </div>
+        </a>
+        <a href="/guides/concrete-vs-asphalt-vs-gravel/" class="related-guide">
+          <div class="related-guide-icon">&#9878;&#65039;</div>
+          <div class="related-guide-content">
+            <h5>Concrete vs Asphalt vs Gravel</h5>
+            <span>18 min read</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<footer style="text-align:center;padding:2rem;color:#6b7280;font-size:.9rem;">
+  <p>&copy; 2026 Drivewayz USA. Licensed &amp; Insured. Serving the United States with Pride.</p>
+  <p><a href="/#services" style="color:#374151;">Services</a> &bull; <a href="/guides-hub/" style="color:#374151;">Guides</a> &bull; <a href="/#contact" style="color:#374151;">Contact</a></p>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded',function(){var sections=document.querySelectorAll('main section[id]');var tocLinks=document.querySelectorAll('.toc-link');var progressBar=document.getElementById('tocProgress');window.addEventListener('scroll',function(){var winH=document.documentElement.scrollHeight-window.innerHeight;var scrolled=(window.scrollY/winH)*100;if(progressBar)progressBar.style.width=scrolled+'%'});var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){tocLinks.forEach(function(link){link.classList.remove('active')});var activeLink=document.querySelector('.toc-link[data-section="'+entry.target.id+'"]');if(activeLink)activeLink.classList.add('active')}})},{rootMargin:'-20% 0px -60% 0px',threshold:0});sections.forEach(function(section){observer.observe(section)});tocLinks.forEach(function(link){link.addEventListener('click',function(e){e.preventDefault();var target=document.getElementById(this.getAttribute('data-section'));if(target){target.scrollIntoView({behavior:'smooth',block:'start'});var mobileToc=document.querySelector('.toc-sidebar-col');var toggle=document.querySelector('.toc-mobile-toggle');if(mobileToc)mobileToc.classList.remove('mobile-open');if(toggle)toggle.classList.remove('open')}})})});
+function toggleMobileToc(){var tocCol=document.querySelector('.toc-sidebar-col');var toggle=document.querySelector('.toc-mobile-toggle');tocCol.classList.toggle('mobile-open');toggle.classList.toggle('open')}
+function toggleFaq(btn){btn.parentElement.classList.toggle('open')}
+function saveGuide(){var si=document.getElementById('saveIcon'),st=document.getElementById('saveText');if(st.textContent==='Save Guide'){si.innerHTML='&#10084;&#65039;';st.textContent='Saved!'}else{si.innerHTML='&#128278;';st.textContent='Save Guide'}}
+function handleSidebarSubmit(e){e.preventDefault();alert('Thank you! We will contact you shortly with your free estimate.');e.target.reset()}
+</script>
+<script src="/js/seo.js"></script>
+</body>
+</html>

@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concrete vs Asphalt vs Gravel: Complete Comparison | Drivewayz USA</title>
+    <meta name="description" content="Data-driven comparison of concrete, asphalt, and gravel driveways. Compare costs ($6-15 vs $3-7 vs $1-3/sqft), durability, maintenance, climate performance, and which fits your home best.">
+    <link rel="stylesheet" href="/main.css">
+    <style>
+        :root {
+            --guide-primary: #0f766e;
+            --guide-primary-light: #14b8a6;
+            --guide-primary-dark: #115e59;
+            --guide-accent: #f59e0b;
+            --guide-bg: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 50%, #99f6e4 100%);
+        }
+        body { background: var(--guide-bg); background-attachment: fixed; }
+
+        .guide-hero { position: relative; min-height: 500px; display: flex; align-items: center; margin-top: 100px; background: linear-gradient(135deg, #0f766e 0%, #14b8a6 50%, #115e59 100%); overflow: hidden; }
+        .guide-hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E"); }
+        .guide-hero-content { position: relative; z-index: 10; padding: 4rem 0; color: white; }
+        .guide-breadcrumb { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; font-size: 0.9rem; }
+        .guide-breadcrumb a { color: rgba(255,255,255,0.8); text-decoration: none; }
+        .guide-breadcrumb a:hover { color: white; }
+        .guide-hero h1 { font-size: 3rem; font-weight: 800; margin-bottom: 1rem; max-width: 800px; }
+        .guide-hero-subtitle { font-size: 1.3rem; opacity: 0.95; max-width: 600px; margin-bottom: 2rem; }
+        .guide-meta-bar { display: flex; gap: 2rem; flex-wrap: wrap; }
+        .guide-meta-item { display: flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.15); padding: 0.5rem 1rem; border-radius: 25px; backdrop-filter: blur(10px); }
+        .guide-actions { display: flex; gap: 1rem; margin-top: 2rem; }
+        .action-btn { display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; border: none; font-size: 1rem; }
+        .action-btn-primary { background-color: white; color: var(--guide-primary-dark); }
+        .action-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+        .action-btn-secondary { background-color: rgba(255,255,255,0.2); color: white; border: 2px solid rgba(255,255,255,0.3); }
+        .action-btn-secondary:hover { background-color: rgba(255,255,255,0.3); }
+
+        .guide-tabs { background-color: var(--bg-white); border-bottom: 1px solid var(--border-color); position: sticky; top: 100px; z-index: 100; }
+        .tabs-container { display: flex; gap: 0; overflow-x: auto; }
+        .tab-btn { padding: 1rem 1.5rem; background: none; border: none; border-bottom: 3px solid transparent; cursor: pointer; font-size: 1rem; font-weight: 600; color: var(--text-light); white-space: nowrap; transition: all 0.3s ease; }
+        .tab-btn:hover { color: var(--guide-primary); }
+        .tab-btn.active { color: var(--guide-primary); border-bottom-color: var(--guide-primary); }
+
+        .tab-content { display: none; padding: 3rem 0; animation: fadeIn 0.3s ease; }
+        .tab-content.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        .guide-content-wrapper { display: grid; grid-template-columns: 1fr 350px; gap: 3rem; }
+        .guide-main { background-color: var(--bg-white); border-radius: 16px; padding: 2.5rem; box-shadow: var(--shadow); }
+        .guide-sidebar { position: sticky; top: 180px; height: fit-content; }
+
+        .guide-main h2 { font-size: 2rem; color: var(--text-dark); margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: 2px solid var(--guide-accent); }
+        .guide-main h3 { font-size: 1.4rem; color: var(--text-dark); margin: 2rem 0 1rem; }
+        .guide-main p { color: var(--text-light); line-height: 1.8; margin-bottom: 1.5rem; }
+        .guide-main ul, .guide-main ol { margin-bottom: 1.5rem; padding-left: 1.5rem; }
+        .guide-main li { color: var(--text-light); line-height: 1.8; margin-bottom: 0.5rem; }
+
+        .info-box { padding: 1.5rem; border-radius: 12px; margin: 2rem 0; }
+        .info-box-tip { background-color: #ecfdf5; border-left: 4px solid var(--guide-primary); }
+        .info-box-warning { background-color: #fef2f2; border-left: 4px solid #ef4444; }
+        .info-box-title { font-weight: 700; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; }
+
+        .comparison-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.95rem; }
+        .comparison-table th, .comparison-table td { padding: 0.75rem; text-align: left; border: 1px solid #e5e7eb; }
+        .comparison-table th { background: var(--guide-primary); color: white; font-weight: 600; }
+        .comparison-table tr:nth-child(even) { background: #f9fafb; }
+
+        .sidebar-card { background-color: var(--bg-white); border-radius: 16px; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: var(--shadow); }
+        .sidebar-card h4 { font-size: 1.1rem; margin-bottom: 1rem; color: var(--text-dark); }
+        .quick-stat { display: flex; justify-content: space-between; padding: 0.75rem 0; border-bottom: 1px solid var(--border-color); }
+        .quick-stat:last-child { border-bottom: none; }
+        .quick-stat-label { color: var(--text-light); }
+        .quick-stat-value { font-weight: 700; color: var(--guide-primary); }
+
+        .sidebar-cta { background: linear-gradient(135deg, var(--guide-primary) 0%, var(--guide-primary-light) 100%); color: white; }
+        .sidebar-cta h4 { color: white; }
+        .sidebar-cta p { font-size: 0.9rem; margin-bottom: 1rem; opacity: 0.9; }
+        .sidebar-cta input, .sidebar-cta textarea { width: 100%; padding: 0.75rem; border: none; border-radius: 8px; margin-bottom: 0.75rem; font-size: 0.95rem; }
+        .sidebar-cta button { width: 100%; padding: 0.75rem; background-color: white; color: var(--guide-primary-dark); border: none; border-radius: 8px; font-weight: 700; cursor: pointer; transition: all 0.3s ease; }
+        .sidebar-cta button:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+
+        .related-guide { display: flex; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--border-color); text-decoration: none; }
+        .related-guide:last-child { border-bottom: none; }
+        .related-guide-image { width: 60px; height: 60px; border-radius: 8px; background: linear-gradient(135deg, var(--guide-primary) 0%, var(--guide-primary-light) 100%); flex-shrink: 0; }
+        .related-guide-content h5 { font-size: 0.95rem; color: var(--text-dark); margin-bottom: 0.25rem; }
+        .related-guide-content span { font-size: 0.8rem; color: var(--text-light); }
+
+        .faq-item { border: 1px solid #e5e7eb; border-radius: 10px; margin-bottom: 1rem; overflow: hidden; }
+        .faq-q { width: 100%; padding: 1.25rem 1.5rem; background: #f8fafc; border: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 1.05rem; font-weight: 600; color: var(--guide-primary-dark); text-align: left; }
+        .faq-q:hover { background: #f1f5f9; }
+        .faq-a { padding: 0 1.5rem 1.25rem; color: var(--text-light); line-height: 1.8; display: none; }
+        .faq-item.open .faq-a { display: block; }
+        .faq-toggle { font-size: 1.3rem; transition: transform 0.3s; }
+        .faq-item.open .faq-toggle { transform: rotate(45deg); }
+
+        @media (max-width: 1024px) { .guide-content-wrapper { grid-template-columns: 1fr; } .guide-sidebar { position: static; order: -1; } }
+        @media (max-width: 768px) { .guide-hero h1 { font-size: 2rem; } .guide-main { padding: 1.5rem; } .guide-actions { flex-direction: column; } .tabs-container { padding: 0 1rem; } }
+    </style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-V08M9YKRR7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-V08M9YKRR7');
+</script>
+</head>
+
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <div class="logo"><a href="/"><img src="/images/logov3.png?v=3" alt="Drivewayz USA" onerror="this.style.display='none'"></a></div>
+            <ul class="nav-links">
+                <li><a href="/#home">Home</a></li>
+                <li><a href="/#services">Services</a></li>
+                <li><a href="/#why-choose">Why Us</a></li>
+                <li><a href="/locations/">Locations</a></li>
+                <li><a href="/guides-hub/" style="color: var(--primary-color);">Guides</a></li>
+                <li><a href="/#contact">Contact</a></li>
+            </ul>
+            <button class="cta-button-small" onclick="window.location.href='/#contact'">Free Estimate</button>
+        </div>
+    </nav>
+
+    <section class="guide-hero">
+        <div class="container guide-hero-content">
+            <div class="guide-breadcrumb"><a href="/">Home</a><span>/</span><a href="/guides-hub/">Guides</a><span>/</span><span>Material Comparison</span></div>
+            <h1>Concrete vs Asphalt vs Gravel: Complete Comparison</h1>
+            <p class="guide-hero-subtitle">Data-driven analysis to help you choose the best driveway material for your home, climate, and budget.</p>
+            <div class="guide-meta-bar">
+                <div class="guide-meta-item"><span>⏱️</span><span>18 min read</span></div>
+                <div class="guide-meta-item"><span>📊</span><span>Comparison</span></div>
+                <div class="guide-meta-item"><span>📈</span><span>Data-driven</span></div>
+            </div>
+            <div class="guide-actions">
+                <button class="action-btn action-btn-primary" onclick="switchTab('cost-comparison')">Compare Costs</button>
+                <button class="action-btn action-btn-secondary" onclick="saveGuide()"><span id="saveIcon">🔖</span> <span id="saveText">Save Guide</span></button>
+            </div>
+        </div>
+    </section>
+
+    <section class="guide-tabs">
+        <div class="container">
+            <div class="tabs-container">
+                <button class="tab-btn active" data-tab="overview" onclick="switchTab('overview')">Overview</button>
+                <button class="tab-btn" data-tab="cost-comparison" onclick="switchTab('cost-comparison')">Cost Comparison</button>
+                <button class="tab-btn" data-tab="durability" onclick="switchTab('durability')">Durability</button>
+                <button class="tab-btn" data-tab="maintenance" onclick="switchTab('maintenance')">Maintenance</button>
+                <button class="tab-btn" data-tab="climate" onclick="switchTab('climate')">Climate</button>
+                <button class="tab-btn" data-tab="best-for" onclick="switchTab('best-for')">Best For</button>
+                <button class="tab-btn" data-tab="faq" onclick="switchTab('faq')">FAQ</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="tab-content active" id="overview">
+        <div class="container">
+            <div class="guide-content-wrapper">
+                <div class="guide-main">
+                    <h2>Choosing the Right Driveway Material</h2>
+                    <p>Choosing between concrete, asphalt, and gravel is one of the most important decisions homeowners face when installing or replacing a driveway. Each material offers distinct advantages in cost, durability, maintenance, and appearance. This comparison helps you determine which option fits your needs, climate, and budget.</p>
+                    <p>Concrete provides the most design flexibility and longest lifespan but carries the highest upfront cost. Asphalt offers the best balance of price and performance, especially in cold climates. Gravel is the most economical upfront but requires the most ongoing maintenance.</p>
+                    <div class="info-box info-box-tip">
+                        <div class="info-box-title"><span>💡</span> Pro Tip</div>
+                        <p>Consider your 20-year total cost, not just installation. Gravel's low upfront cost plus high maintenance often equals asphalt over time. Concrete's longevity can make it the best value in hot climates.</p>
+                    </div>
+                    <table class="comparison-table">
+                        <thead><tr><th>Factor</th><th>Concrete</th><th>Asphalt</th><th>Gravel</th></tr></thead>
+                        <tbody>
+                            <tr><td>Cost per sq ft</td><td>$6-15</td><td>$3-7</td><td>$1-3</td></tr>
+                            <tr><td>Lifespan</td><td>25-30 years</td><td>15-20 years</td><td>100+ years*</td></tr>
+                            <tr><td>Maintenance</td><td>Low</td><td>Moderate</td><td>High</td></tr>
+                            <tr><td>Climate best</td><td>Hot/moderate</td><td>Cold</td><td>All</td></tr>
+                        </tbody>
+                    </table>
+                    <p><em>*Gravel with ongoing maintenance</em></p>
+                </div>
+                <aside class="guide-sidebar">
+                    <div class="sidebar-card">
+                        <h4>📊 Quick Facts</h4>
+                        <div class="quick-stat"><span class="quick-stat-label">Concrete</span><span class="quick-stat-value">$6-15/sqft</span></div>
+                        <div class="quick-stat"><span class="quick-stat-label">Asphalt</span><span class="quick-stat-value">$3-7/sqft</span></div>
+                        <div class="quick-stat"><span class="quick-stat-label">Gravel</span><span class="quick-stat-value">$1-3/sqft</span></div>
+                        <div class="quick-stat"><span class="quick-stat-label">600 sqft (typical)</span><span class="quick-stat-value">$600-9,000</span></div>
+                    </div>
+                    <div class="sidebar-card sidebar-cta">
+                        <h4>🚀 Get Quotes for All Options</h4>
+                        <p>Compare concrete, asphalt, and gravel estimates for your project.</p>
+                        <form onsubmit="handleSidebarSubmit(event)">
+                            <input type="text" placeholder="Your Name" required>
+                            <input type="tel" placeholder="Phone Number" required>
+                            <textarea placeholder="Describe your project" rows="3"></textarea>
+                            <button type="submit">Request Free Estimate</button>
+                        </form>
+                    </div>
+                    <div class="sidebar-card">
+                        <h4>📚 Related Guides</h4>
+                        <a href="/guides/driveway-basics-types-costs-lifespan/" class="related-guide">
+                            <div class="related-guide-image"></div>
+                            <div class="related-guide-content"><h5>Driveway Basics</h5><span>20 min read</span></div>
+                        </a>
+                        <a href="/guides/how-long-driveway-last/" class="related-guide">
+                            <div class="related-guide-image"></div>
+                            <div class="related-guide-content"><h5>How Long Driveways Last</h5><span>14 min read</span></div>
+                        </a>
+                        <a href="/guides/concrete-repair/" class="related-guide">
+                            <div class="related-guide-image"></div>
+                            <div class="related-guide-content"><h5>Concrete Repair Guide</h5><span>15 min read</span></div>
+                        </a>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <section class="tab-content" id="cost-comparison">
+        <div class="container">
+            <div class="guide-content-wrapper">
+                <div class="guide-main">
+                    <h2>Cost Comparison</h2>
+                    <p>Concrete costs $6-15 per square foot depending on finish—basic gray at the low end, stamped or exposed aggregate at the high end. For a 600 sq ft two-car driveway: basic $3,600-6,000, mid-range $6,000-9,000, premium $7,200-9,000.</p>
+                    <p>Asphalt runs $3-7 per square foot. Standard mix: $1,800-3,000 for 600 sq ft. Premium or recycled mixes fall in the middle. Asphalt offers the best paved-surface value.</p>
+                    <p>Gravel is $1-3 per square foot—$600-1,800 for 600 sq ft. Decorative stone or stabilized gravel pushes toward the high end. Lowest upfront cost but ongoing replenishment adds expense.</p>
+                    <div class="info-box info-box-tip">
+                        <div class="info-box-title"><span>💡</span> Pro Tip</div>
+                        <p>Over 20 years, asphalt and gravel often have similar total costs when maintenance is included. Concrete can be the best long-term value in hot climates due to its durability and low maintenance.</p>
+                    </div>
+                    <table class="comparison-table">
+                        <thead><tr><th>Material</th><th>600 sq ft</th><th>Annual Maintenance</th><th>20-Year Total</th></tr></thead>
+                        <tbody>
+                            <tr><td>Concrete</td><td>$3,600-9,000</td><td>$100-300</td><td>$4,400-15,000</td></tr>
+                            <tr><td>Asphalt</td><td>$1,800-4,200</td><td>$200-500</td><td>$5,800-14,200</td></tr>
+                            <tr><td>Gravel</td><td>$600-1,800</td><td>$300-600</td><td>$6,600-13,800</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <aside class="guide-sidebar">
+                    <div class="sidebar-card">
+                        <h4>💰 Cost Ranges</h4>
+                        <div class="quick-stat"><span class="quick-stat-label">Concrete/sqft</span><span class="quick-stat-value">$6-15</span></div>
+                        <div class="quick-stat"><span class="quick-stat-label">Asphalt/sqft</span><span class="quick-stat-value">$3-7</span></div>
+                        <div class="quick-stat"><span class="quick-stat-label">Gravel/sqft</span><span class="quick-stat-value">$1-3</span></div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <section class="tab-content" id="durability">
+        <div class="container">
+            <div class="guide-content-wrapper">
+                <div class="guide-main">
+                    <h2>Durability & Lifespan</h2>
+                    <p>Concrete driveways last 25-30 years with proper installation and maintenance. Key factors: 3,000-4,000 psi compressive strength, 4-6 inch thickness, reinforcement, and control joints. Concrete's rigidity provides excellent load-bearing capacity but susceptibility to cracking from ground movement.</p>
+                    <p>Asphalt lasts 15-20 years. Its flexibility handles temperature changes well. Performance depends heavily on base quality—a poor base leads to premature failure. Edges are most vulnerable.</p>
+                    <p>Gravel can last indefinitely with proper base and ongoing replenishment. The base lasts generations; the surface gravel requires periodic grading and top-ups. Excellent drainage and flexibility.</p>
+                    <div class="info-box info-box-tip">
+                        <div class="info-box-title"><span>💡</span> Pro Tip</div>
+                        <p>Pavers last 25-50+ years. If longevity is your top priority and budget allows, paver driveways offer the best combination of durability and aesthetic options.</p>
+                    </div>
+                </div>
+                <aside class="guide-sidebar">
+                    <div class="sidebar-card">
+                        <h4>📏 Lifespan</h4>
+                        <div class="quick-stat"><span class="quick-stat-label">Concrete</span><span class="quick-stat-value">25-30 yrs</span></div>
+                        <div class="quick-stat"><span class="quick-stat-label">Asphalt</span><span class="quick-stat-value">15-20 yrs</span></div>
+                        <div class="quick-stat"><span class="quick-stat-label">Gravel</span><span class="quick-stat-value">Indefinite</span></div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <section class="tab-content" id="maintenance">
+        <div class="container">
+            <div class="guide-content-wrapper">
+                <div class="guide-main">
+                    <h2>Maintenance Requirements</h2>
+                    <p>Concrete requires relatively little maintenance: sealing every 2-5 years ($0.50-1.00/sqft), crack repair as needed, annual pressure washing, and prompt stain removal. Low maintenance is a major selling point.</p>
+                    <p>Asphalt needs regular care: sealing every 1-3 years ($0.30-0.60/sqft), annual crack inspection and filling, pothole repair as needed, and edge maintenance. Budget $200-500 annually for asphalt upkeep.</p>
+                    <p>Gravel demands the most work: gravel replenishment every 1-3 years, grading 2-4 times yearly to smooth ruts, weed control, and pothole filling. Annual costs run $300-600.</p>
+                    <div class="info-box info-box-tip">
+                        <div class="info-box-title"><span>💡</span> Pro Tip</div>
+                        <p>Seal concrete and asphalt on schedule—delaying sealant application accelerates deterioration. For gravel, investing in a quality base reduces long-term grading and replenishment needs.</p>
+                    </div>
+                </div>
+                <aside class="guide-sidebar">
+                    <div class="sidebar-card">
+                        <h4>🔧 Maintenance Level</h4>
+                        <div class="quick-stat"><span class="quick-stat-label">Concrete</span><span class="quick-stat-value">Low</span></div>
+                        <div class="quick-stat"><span class="quick-stat-label">Asphalt</span><span class="quick-stat-value">Moderate</span></div>
+                        <div class="quick-stat"><span class="quick-stat-label">Gravel</span><span class="quick-stat-value">High</span></div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <section class="tab-content" id="climate">
+        <div class="container">
+            <div class="guide-content-wrapper">
+                <div class="guide-main">
+                    <h2>Climate Performance</h2>
+                    <p><strong>Concrete</strong> excels in hot climates—it doesn't soften in heat. In cold climates, use air-entrainment additives and 5-6 inch thickness. Vulnerable to freeze-thaw without proper installation. Salt exposure can cause scaling.</p>
+                    <p><strong>Asphalt</strong> is ideal for cold climates. Its flexibility resists freeze-thaw damage. Can soften above 95°F in hot regions. Snow removal is easy; de-icers are generally safe. Can be used within days of installation.</p>
+                    <p><strong>Gravel</strong> performs well in all climates. Superior drainage prevents water issues. No freeze-thaw damage to the surface. Can generate dust in hot, dry areas. Snow removal is challenging but possible.</p>
+                    <div class="info-box info-box-tip">
+                        <div class="info-box-title"><span>💡</span> Pro Tip</div>
+                        <p>In freeze-thaw zones, asphalt is the safest paved choice. For hot climates, concrete's heat resistance and light-color options make it ideal. Gravel works everywhere but consider dust in arid regions.</p>
+                    </div>
+                </div>
+                <aside class="guide-sidebar">
+                    <div class="sidebar-card">
+                        <h4>🌡️ Best Climate</h4>
+                        <div class="quick-stat"><span class="quick-stat-label">Concrete</span><span class="quick-stat-value">Hot/Moderate</span></div>
+                        <div class="quick-stat"><span class="quick-stat-label">Asphalt</span><span class="quick-stat-value">Cold</span></div>
+                        <div class="quick-stat"><span class="quick-stat-label">Gravel</span><span class="quick-stat-value">All</span></div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <section class="tab-content" id="best-for">
+        <div class="container">
+            <div class="guide-content-wrapper">
+                <div class="guide-main">
+                    <h2>Best Choice by Situation</h2>
+                    <p><strong>Cold climates:</strong> Asphalt wins. Flexibility handles ground movement; concrete can crack. If you prefer concrete, use air-entrainment and proper thickness.</p>
+                    <p><strong>Hot climates:</strong> Concrete wins. Won't soften like asphalt. Light colors stay cooler. Gravel also works but generates dust.</p>
+                    <p><strong>Budget:</strong> Gravel short-term; asphalt long-term. Gravel has lowest upfront cost but high maintenance. Asphalt balances initial cost and ongoing care.</p>
+                    <p><strong>Curb appeal:</strong> Concrete wins. Stamped patterns, colors, textures complement any home. Asphalt is functional; gravel is rustic.</p>
+                    <p><strong>Long driveways (100+ ft):</strong> Gravel or asphalt. Gravel is most economical for long rural driveways. Asphalt offers best paved-surface value. Concrete often cost-prohibitive.</p>
+                    <div class="info-box info-box-tip">
+                        <div class="info-box-title"><span>💡</span> Pro Tip</div>
+                        <p>Get quotes for all three options. Regional material availability and labor rates vary significantly. Your local contractors can provide accurate comparisons for your specific project.</p>
+                    </div>
+                </div>
+                <aside class="guide-sidebar">
+                    <div class="sidebar-card">
+                        <h4>✅ Quick Picks</h4>
+                        <div class="quick-stat"><span class="quick-stat-label">Cold →</span><span class="quick-stat-value">Asphalt</span></div>
+                        <div class="quick-stat"><span class="quick-stat-label">Hot →</span><span class="quick-stat-value">Concrete</span></div>
+                        <div class="quick-stat"><span class="quick-stat-label">Budget →</span><span class="quick-stat-value">Gravel/Asphalt</span></div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <section class="tab-content" id="faq">
+        <div class="container">
+            <div class="guide-content-wrapper">
+                <div class="guide-main">
+                    <h2>Frequently Asked Questions</h2>
+                    <div class="faq-item">
+                        <button class="faq-q" onclick="toggleFaq(this)">Which is better concrete or asphalt driveway? <span class="faq-toggle">+</span></button>
+                        <div class="faq-a"><p><strong>Concrete</strong> is better for hot climates, low maintenance, curb appeal, and long-term durability. <strong>Asphalt</strong> is better for cold climates, budget-conscious buyers, easier repairs, and faster installation.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" onclick="toggleFaq(this)">Is gravel cheaper than asphalt? <span class="faq-toggle">+</span></button>
+                        <div class="faq-a"><p>Gravel has <strong>lower upfront cost</strong> ($1-3 vs $3-7/sqft) but <strong>higher ongoing maintenance</strong>. Over 20 years, total costs are often similar. Gravel is best for long driveways, rural properties, or temporary solutions.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" onclick="toggleFaq(this)">Which driveway lasts longest? <span class="faq-toggle">+</span></button>
+                        <div class="faq-a"><p><strong>Pavers</strong> last 25-50+ years, <strong>concrete</strong> 25-30 years, <strong>gravel</strong> indefinitely with maintenance, <strong>asphalt</strong> 15-20 years (resurfacing can extend life).</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" onclick="toggleFaq(this)">What adds more value to a home? <span class="faq-toggle">+</span></button>
+                        <div class="faq-a"><p><strong>Concrete and pavers</strong> add the most value (5-10% increase). <strong>Asphalt</strong> adds moderate value (3-5%). <strong>Gravel</strong> adds minimal value (1-3%) and may not appeal to all buyers.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" onclick="toggleFaq(this)">Can I install a gravel driveway myself? <span class="faq-toggle">+</span></button>
+                        <div class="faq-a"><p><strong>Yes.</strong> Gravel is the only option commonly DIY-installed. Concrete and asphalt require professional equipment and expertise. For gravel, proper base preparation is critical—consider renting a compactor.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" onclick="toggleFaq(this)">How long does asphalt take to install? <span class="faq-toggle">+</span></button>
+                        <div class="faq-a"><p>Asphalt installation takes <strong>1-2 days</strong>. You can drive on it within <strong>3-5 days</strong>. Concrete takes 3-7 days to install and 7-10 days before driving. Asphalt offers the fastest time-to-use.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" onclick="toggleFaq(this)">Does concrete crack more than asphalt? <span class="faq-toggle">+</span></button>
+                        <div class="faq-a"><p>Yes. Concrete is rigid and more susceptible to cracking from ground movement, freeze-thaw, and settling. Asphalt flexes with temperature and substrate changes. Proper control joints and base preparation minimize concrete cracking.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" onclick="toggleFaq(this)">Which is best for a long rural driveway? <span class="faq-toggle">+</span></button>
+                        <div class="faq-a"><p>For driveways over 100 feet, <strong>gravel</strong> is most economical. <strong>Asphalt</strong> offers the best balance of cost and paved surface for long driveways. <strong>Concrete</strong> is often cost-prohibitive at length—material and labor scale quickly.</p></div>
+                    </div>
+                </div>
+                <aside class="guide-sidebar">
+                    <div class="sidebar-card sidebar-cta">
+                        <h4>🚀 Compare All Three</h4>
+                        <p>Get free quotes for concrete, asphalt, and gravel from our network.</p>
+                        <button onclick="window.location.href='/#contact'" style="width:100%;padding:0.75rem;background:white;color:var(--guide-primary-dark);border:none;border-radius:8px;font-weight:700;cursor:pointer;">Get Free Estimate</button>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer" style="margin-top: 4rem;">
+        <div class="container">
+            <p>&copy; 2026 Drivewayz USA. Licensed & Insured. Serving the United States with Pride.</p>
+            <p class="footer-links">
+                <a href="/#services">Services</a> •
+                <a href="/guides-hub/">Guides</a> •
+                <a href="/#contact">Contact</a> •
+                <a href="#">Privacy Policy</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        function switchTab(tabName) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelector(`.tab-btn[data-tab="${tabName}"]`)?.classList.add('active');
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            document.getElementById(tabName)?.classList.add('active');
+            localStorage.setItem('concreteVsGuideTab', tabName);
+        }
+        function toggleFaq(btn) { btn.parentElement.classList.toggle('open'); }
+        function saveGuide() {
+            let saved = JSON.parse(localStorage.getItem('savedGuides') || '[]');
+            const id = 'concrete-vs-asphalt-vs-gravel';
+            if (saved.includes(id)) { saved = saved.filter(x => x !== id); document.getElementById('saveIcon').textContent = '🔖'; document.getElementById('saveText').textContent = 'Save Guide'; }
+            else { saved.push(id); document.getElementById('saveIcon').textContent = '❤️'; document.getElementById('saveText').textContent = 'Saved!'; }
+            localStorage.setItem('savedGuides', JSON.stringify(saved));
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            const saved = JSON.parse(localStorage.getItem('savedGuides') || '[]');
+            if (saved.includes('concrete-vs-asphalt-vs-gravel')) { document.getElementById('saveIcon').textContent = '❤️'; document.getElementById('saveText').textContent = 'Saved!'; }
+            const lastTab = localStorage.getItem('concreteVsGuideTab');
+            if (lastTab && document.getElementById(lastTab)) switchTab(lastTab);
+        });
+        function handleSidebarSubmit(e) { e.preventDefault(); alert('Thank you! We will contact you shortly with your free estimate.'); e.target.reset(); }
+    </script>
+<script src="/js/seo.js"></script>
+</body>
+</html>

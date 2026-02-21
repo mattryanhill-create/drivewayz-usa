@@ -36,9 +36,9 @@ def make_page(filename, title, meta_desc, breadcrumb, h1, subtitle, meta1, meta2
     <style>{css}</style>
 </head>
 <body>
-    <nav class="navbar" id="navbar"><div class="container nav-container"><div class="logo"><a href="../index.html"><img src="../images/logov3.png?v=3" alt="Drivewayz USA" onerror="this.style.display=&apos;none&apos;"></a></div><ul class="nav-links"><li><a href="../index.html">Home</a></li><li><a href="../index.html#services">Services</a></li><li><a href="../index.html#why-choose">Why Us</a></li><li><a href="../locations.html">Locations</a></li><li><a href="../guides-hub.html">Guides</a></li><li><a href="../index.html#contact">Contact</a></li></ul><a href="../index.html#contact" class="cta-button-sm">Free Estimate</a></div></nav>
+    <nav class="navbar" id="navbar"><div class="container nav-container"><div class="logo"><a href="/"><img src="../images/logov3.png?v=3" alt="Drivewayz USA" onerror="this.style.display=&apos;none&apos;"></a></div><ul class="nav-links"><li><a href="/">Home</a></li><li><a href="/#services">Services</a></li><li><a href="/#why-choose">Why Us</a></li><li><a href="..//locations/">Locations</a></li><li><a href="..//guides-hub/">Guides</a></li><li><a href="/#contact">Contact</a></li></ul><a href="/#contact" class="cta-button-sm">Free Estimate</a></div></nav>
 
-    <section class="guide-hero"><div class="container"><div class="guide-hero-content"><div class="guide-breadcrumb"><a href="../index.html">Home</a> / <a href="../guides-hub.html">Guides</a> / <span>{breadcrumb}</span></div><h1>{h1}</h1><p class="guide-hero-subtitle">{subtitle}</p><div class="guide-meta-bar"><div class="guide-meta-item">{meta1}</div><div class="guide-meta-item">{meta2}</div><div class="guide-meta-item">{meta3}</div></div><div class="guide-actions"><a href="../index.html#contact" class="action-btn action-btn-primary">Get Free Estimate</a><button class="action-btn action-btn-secondary" onclick="saveGuide()"><span id="saveIcon">&#128278;</span> <span id="saveText">Save Guide</span></button></div></div></div></section>
+    <section class="guide-hero"><div class="container"><div class="guide-hero-content"><div class="guide-breadcrumb"><a href="/">Home</a> / <a href="..//guides-hub/">Guides</a> / <span>{breadcrumb}</span></div><h1>{h1}</h1><p class="guide-hero-subtitle">{subtitle}</p><div class="guide-meta-bar"><div class="guide-meta-item">{meta1}</div><div class="guide-meta-item">{meta2}</div><div class="guide-meta-item">{meta3}</div></div><div class="guide-actions"><a href="/#contact" class="action-btn action-btn-primary">Get Free Estimate</a><button class="action-btn action-btn-secondary" onclick="saveGuide()"><span id="saveIcon">&#128278;</span> <span id="saveText">Save Guide</span></button></div></div></div></section>
 
     <div class="toc-mobile-toggle" onclick="toggleMobileToc()">&#128203; Table of Contents <span>&#9660;</span></div>
 
@@ -54,7 +54,7 @@ def make_page(filename, title, meta_desc, breadcrumb, h1, subtitle, meta1, meta2
         </div></aside>
     </div>
 
-    <footer style="text-align:center;padding:2rem;color:var(--text-light);font-size:.9rem;margin-top:2rem"><p>&copy; 2026 Drivewayz USA. Licensed &amp; Insured. Serving the United States with Pride.</p><p><a href="../index.html#services">Services</a> &bull; <a href="../guides-hub.html">Guides</a> &bull; <a href="../index.html#contact">Contact</a></p></footer>
+    <footer style="text-align:center;padding:2rem;color:var(--text-light);font-size:.9rem;margin-top:2rem"><p>&copy; 2026 Drivewayz USA. Licensed &amp; Insured. Serving the United States with Pride.</p><p><a href="/#services">Services</a> &bull; <a href="..//guides-hub/">Guides</a> &bull; <a href="/#contact">Contact</a></p></footer>
 
     <script src="../main.js"></script>
     <script>

@@ -3,16 +3,16 @@
  * Adds crawlable <img> tags to guide hero sections for SEO and accessibility.
  * Extracts hero image from .guide-hero CSS, generates alt from <title>, inserts
  * <img> after <section class="guide-hero"> and before <div class="container guide-hero-content">.
- * Skips files that use color gradients instead of a photo (no url('../images/...') in CSS).
+ * Skips files that use color gradients instead of a photo (no url('/images/...') in CSS).
  */
 
 const fs = require('fs');
 const path = require('path');
 
 const GUIDES_DIR = path.join(__dirname, '..', 'guides');
-const IMG_PREFIX = '../images/';
+const IMG_PREFIX = '/images/';
 
-// Regex: url('../images/' followed by any chars up to ')  inside .guide-hero rule
+// Regex: url('/images/' followed by any chars up to ')  inside .guide-hero rule
 const HERO_IMG_REGEX = /\.guide-hero\s*\{[^}]*url\s*\(\s*'\.\.\/images\/([^']+)'\s*\)/;
 
 // Regex: <title>...</title>

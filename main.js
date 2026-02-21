@@ -568,7 +568,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Render page based on URL
   renderPage();
 
-    // Handle hash scroll from external pages (e.g., locations.html -> index.html#why-choose)
+    // Handle hash scroll from external pages (e.g., /locations/ -> /#why-choose)
   if (window.location.hash) {
     setTimeout(function() {
       var targetId = window.location.hash.substring(1);

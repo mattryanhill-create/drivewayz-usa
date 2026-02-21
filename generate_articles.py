@@ -28,7 +28,7 @@ from openai import OpenAI
 # Config
 PROJECT_ROOT = Path(__file__).resolve().parent
 CSV_PATH = PROJECT_ROOT / "content_briefs.csv"
-TEMPLATE_PATH = PROJECT_ROOT / "guides" / "basalt-driveway.html"
+TEMPLATE_PATH = PROJECT_ROOT / "guides" / "basalt-driveway" / "index.html"
 OUTPUT_DIR = PROJECT_ROOT / "guides"
 FAILED_JSON = PROJECT_ROOT / "failed.json"
 API_BASE_URL = "https://api.moonshot.ai/v1"
@@ -234,7 +234,7 @@ def build_page_from_template(
 
     # Replace breadcrumb span (last segment)
     result = re.sub(
-        r"(<a href=\"../guides-hub.html\">Guides</a> / <span>)[^<]*(</span>)",
+        r"(<a href=\"/guides-hub/\">Guides</a> / <span>)[^<]*(</span>)",
         rf"\g<1>{html.escape(topic)}\g<2>",
         result,
         count=1,
@@ -245,7 +245,7 @@ def build_page_from_template(
     article_body_with_jsonld = article_body
     # Determine canonical URL for the FAQ page for possible use (not strictly needed here).
     slug = slugify(topic)
-    page_url = BASE_URL + "guides/" + slug + ".html"
+    page_url = BASE_URL + "guides/" + slug + "/"
 
     faq_qas = extract_faq_qas(article_body)
     faq_json_ld = build_faq_json_ld(faq_qas, topic, page_url)
@@ -288,8 +288,8 @@ def process_single_row(
         return {"status": "skipped", "topic": "", "error": None, "row": index + 1}
 
     slug = slugify(topic)
-    filename = f"{slug}.html"
-    filepath = OUTPUT_DIR / filename
+    output_dir = OUTPUT_DIR / slug
+    filepath = output_dir / "index.html"
 
     if filepath.exists():
         return {"status": "skipped", "topic": topic, "error": None, "row": index + 1}
@@ -302,6 +302,7 @@ def process_single_row(
             full_page = build_page_from_template(
                 template_html, topic, article_body
             )
+            output_dir.mkdir(parents=True, exist_ok=True)
             filepath.write_text(full_page, encoding="utf-8")
             return {"status": "success", "topic": topic, "error": None, "row": index + 1}
         else:

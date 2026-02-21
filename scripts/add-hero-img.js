@@ -13,7 +13,7 @@ const path = require('path');
 
 const GUIDES_DIR = path.join(__dirname, '..', 'guides');
 
-// Regex: url('../images/FILENAME') inside .guide-hero rule
+// Regex: url('/images/FILENAME') inside .guide-hero rule
 const HERO_IMG_REGEX = /\.guide-hero\s*\{[^}]*url\s*\(\s*'\.\.\/images\/([^']+)'\s*\)/;
 
 // Regex: <title>Topic | Drivewayz USA Guides</title>
@@ -48,7 +48,7 @@ function processFile(filePath) {
   // 2. Extract background-image filename from .guide-hero CSS
   const heroMatch = html.match(HERO_IMG_REGEX);
   if (!heroMatch) {
-    return { status: 'skipped', reason: 'no url(../images/...) in .guide-hero CSS' };
+    return { status: 'skipped', reason: 'no url(/images/...) in .guide-hero CSS' };
   }
   const filename = heroMatch[1];
 
@@ -59,7 +59,7 @@ function processFile(filePath) {
   }
 
   // 3. Insert img as first child of section.guide-hero
-  const imgTag = `<img src="../images/${filename}" alt="${escapeHtml(altText)}" class="guide-hero-img" width="1200" height="630" loading="eager" fetchpriority="high">`;
+  const imgTag = `<img src="/images/${filename}" alt="${escapeHtml(altText)}" class="guide-hero-img" width="1200" height="630" loading="eager" fetchpriority="high">`;
 
   if (HERO_IMG_EXISTS_REGEX.test(html)) {
     // Already has img - only apply iOS fix if we changed it
