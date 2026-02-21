@@ -262,6 +262,12 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="Print planned API calls without network/filesystem changes.",
     )
+    parser.add_argument(
+        "--delay",
+        type=int,
+        default=API_DELAY_SECONDS,
+        help="Seconds to wait between API requests (default: 2).",
+    )
     args = parser.parse_args()
     normalized: list[str] = []
     for token in args.limit_guides:
@@ -313,7 +319,7 @@ def main() -> None:
         if image_path.exists():
             skipped_existing += 1
             inject_page_hero(page_rel, image_rel)
-            time.sleep(API_DELAY_SECONDS)
+            time.sleep(args.delay)
             continue
 
         query_used = query
@@ -327,7 +333,7 @@ def main() -> None:
                     query_used = "residential driveway home"
                     result, search_status, _ = unsplash_search(access_key, query_used)
                     print(f"[{page_rel}] fallback HTTP {search_status} search")
-                    time.sleep(API_DELAY_SECONDS)
+                    time.sleep(args.delay)
                     photo = pick_photo(result)
                 else:
                     raise
@@ -341,7 +347,7 @@ def main() -> None:
             failed.append((page_rel, str(exc)))
             continue
 
-        time.sleep(API_DELAY_SECONDS)
+        time.sleep(args.delay)
 
     if not args.dry_run and (downloaded > 0 or skipped_existing > 0):
         add_hero_script = ROOT / "scripts" / "add-hero-img-tags.js"
