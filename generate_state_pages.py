@@ -13,7 +13,7 @@ import html
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 LOCATIONS_DIR = os.path.join(PROJECT_ROOT, "locations")
 TEMPLATE_PATH = os.path.join(LOCATIONS_DIR, "state-page.html")
-BASE_URL = "https://www.drivewayzusa.com"
+BASE_URL = "https://www.drivewayzusa.co"
 GA_TAG = "G-V08M9YKRR7"
 
 # State/territory name to abbreviation mapping (50 states + DC + territories)
