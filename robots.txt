@@ -1,24 +1,4 @@
-# Drivewayz USA - robots.txt
-# https://mattryanhill-create.github.io/drivewayz-usa/
-
 User-agent: *
 Allow: /
 
-# Block crawling of raw content files
-Disallow: /*.md$
-Disallow: /*.docx$
-Disallow: /*.txt$
-Disallow: /*.py$
-Disallow: /*.sh$
-Disallow: /*.tiff$
-
-# Block duplicate root-level images (copies exist in /images/)
-Disallow: /brian-wangenheim-*
-Disallow: /dillon-kydd-*
-Disallow: /hugo-sousa-*
-Disallow: /jonas-jaeken-*
-Disallow: /matt-jones-*
-Disallow: /mike-von-*
-Disallow: /pexels-*
-
-Sitemap: https://mattryanhill-create.github.io/drivewayz-usa/sitemap.xml
+Sitemap: https://www.drivewayzusa.com/sitemap.xml
