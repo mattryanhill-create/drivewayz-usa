@@ -20,7 +20,7 @@ import re
 import threading
 import time
 from pathlib import Path
-from typing import Optional
+from typing import Optional, List, Tuple
 
 from dotenv import load_dotenv
 from openai import OpenAI
@@ -34,6 +34,7 @@ FAILED_JSON = PROJECT_ROOT / "failed.json"
 API_BASE_URL = "https://api.moonshot.ai/v1"
 MODEL = "kimi-k2-0905-preview"
 DELAY_SECONDS = 0.5
+BASE_URL = "https://drivewayzusa.co/"
 
 # System prompt for Kimi API
 SYSTEM_PROMPT = """You are an expert SEO content writer for Drivewayz USA, a driveway services company. Write detailed, helpful, original articles. Use H2 and H3 subheadings. Include practical advice homeowners can use. Write in a friendly, authoritative tone. Use short paragraphs. Include a FAQ section at the end with 3-4 common questions. Output only the article body HTML — no full page structure, just the content that goes inside the main article area."""
@@ -112,12 +113,82 @@ def generate_meta_description(topic: str, max_length: int = 155) -> str:
     return base[:max_length] + ("..." if len(base) > max_length else "")
 
 
+def extract_faq_qas(article_body: str) -> List[Tuple[str, str]]:
+    """
+    Extract (question, answer) pairs from the FAQ section of the HTML article body.
+    Looks for <section id="faq"> with children of .faq-item.
+    """
+    faqs = []
+    faq_section_match = re.search(
+        r'<section[^>]*id=["\']faq["\'][^>]*>(.*?)</section>',
+        article_body,
+        flags=re.DOTALL | re.IGNORECASE,
+    )
+    if faq_section_match:
+        faq_html = faq_section_match.group(1)
+        faq_items = re.findall(
+            r'<div\s+class=["\']faq-item["\'][^>]*>(.*?)</div>',
+            faq_html,
+            flags=re.DOTALL | re.IGNORECASE,
+        )
+        for item_html in faq_items:
+            # Extract question from <button class="faq-q" ...>?</button>
+            q_match = re.search(
+                r'<button\s+class=["\']faq-q["\'][^>]*>(.*?)</button>',
+                item_html,
+                flags=re.DOTALL | re.IGNORECASE,
+            )
+            # Extract answer from <div class="faq-a">...</div>
+            a_match = re.search(
+                r'<div\s+class=["\']faq-a["\'][^>]*>(.*?)</div>',
+                item_html,
+                flags=re.DOTALL | re.IGNORECASE,
+            )
+            if q_match and a_match:
+                question = re.sub(r"\s+", " ", html.unescape(q_match.group(1).strip()))
+                # Remove any html tags from answer text for schema
+                answer_html = a_match.group(1).strip()
+                answer = re.sub(r"<[^>]+>", "", answer_html)
+                answer = re.sub(r"\s+", " ", html.unescape(answer.strip()))
+                faqs.append((question, answer))
+    return faqs
+
+
+def build_faq_json_ld(qas: List[Tuple[str, str]], topic: str, url: str) -> str:
+    """Build FAQPage JSON-LD schema script given Q&A list."""
+    if not qas:
+        return ""
+    main_entity = []
+    for q, a in qas:
+        main_entity.append(
+            {
+                "@type": "Question",
+                "name": q,
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": a,
+                },
+            }
+        )
+    schema = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": main_entity,
+    }
+    # No root-level "name" or "url" to keep compliant.
+    return (
+        '<script type="application/ld+json">\n'
+        + json.dumps(schema, ensure_ascii=False, indent=2)
+        + "\n</script>"
+    )
+
+
 def build_page_from_template(
     template_html: str,
     topic: str,
     article_body: str,
 ) -> str:
-    """Replace template placeholders with generated content."""
+    """Replace template placeholders with generated content (with FAQPage JSON-LD)."""
     meta_desc = generate_meta_description(topic)
     page_title = f"{topic} | Drivewayz USA Guides"
     subtitle = (
@@ -170,9 +241,37 @@ def build_page_from_template(
     )
 
     # Replace main content
+    # We want to inject the FAQ JSON-LD after the FAQ section (if any).
+    article_body_with_jsonld = article_body
+    # Determine canonical URL for the FAQ page for possible use (not strictly needed here).
+    slug = slugify(topic)
+    page_url = BASE_URL + "guides/" + slug + ".html"
+
+    faq_qas = extract_faq_qas(article_body)
+    faq_json_ld = build_faq_json_ld(faq_qas, topic, page_url)
+
+    # If FAQ section exists, inject after </section> (where section id="faq")
+    if faq_json_ld:
+        def _inject_ld(match):
+            section = match.group(0)
+            # Add JSON-LD after FAQ </section>
+            return section + "\n" + faq_json_ld
+
+        # Try to find the FAQ section close tag
+        article_body_with_jsonld, count = re.subn(
+            r'(</section>\s*)(?!.*</section>)',  # Only the LAST </section>
+            lambda m: _inject_ld(m),
+            article_body_with_jsonld,
+            count=1,
+            flags=re.DOTALL | re.IGNORECASE,
+        )
+        if count == 0:
+            # If not found (FAQ section missing), append JSON-LD at end just in case
+            article_body_with_jsonld += "\n" + faq_json_ld
+
     result = re.sub(
         r"(<main class=\"guide-main\">)\s*[\s\S]*?(\s*</main>)",
-        rf"\g<1>\n\n    {article_body}\g<2>",
+        rf"\g<1>\n\n    {article_body_with_jsonld}\g<2>",
         result,
         count=1,
     )
