@@ -567,5 +567,18 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Render page based on URL
   renderPage();
+
+    // Handle hash scroll from external pages (e.g., locations.html -> index.html#why-choose)
+  if (window.location.hash) {
+    setTimeout(function() {
+      var targetId = window.location.hash.substring(1);
+      var targetSection = document.getElementById(targetId);
+      if (targetSection) {
+        var navbarHeight = document.querySelector('.navbar') ? document.querySelector('.navbar').offsetHeight : 0;
+        var targetPosition = targetSection.offsetTop - navbarHeight - 20;
+        window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+      }
+    }, 300);
+  }
 });
 
