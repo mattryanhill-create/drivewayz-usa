@@ -179,10 +179,16 @@ body {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-a.service-card {
-  display: block;
+a.service-card,
+a.service-card:hover,
+a.service-card:visited,
+a.service-card:active {
   text-decoration: none;
   color: inherit;
+}
+
+a.service-card {
+  display: block;
 }
 
 .service-card:hover {
