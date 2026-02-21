@@ -571,10 +571,24 @@ sans-serif;
     color: var(--text-dark);
     font-weight: 600;
     transition: color 0.3s ease;
+     position: relative;
 }
 
 .nav-links a:hover {
     color: var(--primary-color);
+}
+
+.nav-links a.active {
+  color: var(--primary-color);
+}
+.nav-links a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--primary-color);
 }
 
 .cta-button-small {
