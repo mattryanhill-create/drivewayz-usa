@@ -64,6 +64,19 @@
         .nav-links a:hover {
             color: var(--primary);
         }
+
+            .nav-links a.active {
+            color: var(--primary);
+        }
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--primary);
+        }
         .btn-primary {
             background: var(--primary);
             color: white;
@@ -685,7 +698,7 @@
             <li><a href="../index.html">Home</a></li>
             <li><a href="../index.html#services">Services</a></li>
             <li><a href="../index.html#why-choose">Why Us</a></li>
-            <li><a href="../locations.html">Locations</a></li>
+                                    <li><a href="../locations.html" class="active">Locations</a></li>
             <li><a href="../guides-hub.html">Guides</a></li>
             <li><a href="../index.html#contact">Contact</a></li>
         </ul>
