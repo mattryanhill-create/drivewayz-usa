@@ -1,0 +1,139 @@
+{
+  "alabama": [],
+  "alaska": [],
+  "american-samoa": [],
+  "arizona": [],
+  "arkansas": [],
+  "california": [
+    {
+      "title": "Best Driveway Materials for California's Drought Conditions",
+      "url": "/guides/drought-resistant-driveways-california/",
+      "category": "PLANNING",
+      "thumbnail": "/images/hero-concrete-repair.webp",
+      "read_time": "8 min read"
+    },
+    {
+      "title": "Earthquake-Resistant Driveway Installation in CA",
+      "url": "/guides/earthquake-resistant-driveways/",
+      "category": "INSTALLATION",
+      "thumbnail": "/images/hero-gravel-pothole-repair.webp",
+      "read_time": "10 min read"
+    },
+    {
+      "title": "Permeable Pavers for California Stormwater Compliance",
+      "url": "/guides/permeable-pavers-california/",
+      "category": "PLANNING",
+      "thumbnail": "/images/hero-guides-hub.webp",
+      "read_time": "6 min read"
+    }
+  ],
+  "colorado": [],
+  "connecticut": [],
+  "delaware": [],
+  "florida": [
+    {
+      "title": "Hurricane-Proof Driveway Materials for Florida",
+      "url": "/guides/hurricane-resistant-driveways-florida/",
+      "category": "PLANNING",
+      "thumbnail": "/images/hero-florida.webp",
+      "read_time": "9 min read"
+    },
+    {
+      "title": "Handling Florida's High Water Table: Driveway Drainage",
+      "url": "/guides/drainage-high-water-table-florida/",
+      "category": "REPAIR",
+      "thumbnail": "/images/hero-concrete-repair.webp",
+      "read_time": "7 min read"
+    }
+  ],
+  "georgia": [],
+  "guam": [],
+  "hawaii": [],
+  "idaho": [],
+  "illinois": [],
+  "indiana": [],
+  "iowa": [],
+  "kansas": [],
+  "kentucky": [],
+  "louisiana": [],
+  "maine": [],
+  "maryland": [],
+  "massachusetts": [],
+  "michigan": [],
+  "minnesota": [],
+  "mississippi": [],
+  "missouri": [],
+  "montana": [],
+  "nebraska": [],
+  "nevada": [],
+  "new-hampshire": [],
+  "new-jersey": [],
+  "new-mexico": [],
+  "new-york": [
+    {
+      "title": "Snow Belt Driveways: Best Materials for New York Winters",
+      "url": "/guides/snow-belt-driveway-materials-ny/",
+      "category": "PLANNING",
+      "thumbnail": "/images/hero-new-york.webp",
+      "read_time": "11 min read"
+    },
+    {
+      "title": "Salt Damage and Concrete Driveway Repair in NY",
+      "url": "/guides/salt-damage-concrete-repair/",
+      "category": "REPAIR",
+      "thumbnail": "/images/hero-concrete-repair.webp",
+      "read_time": "8 min read"
+    },
+    {
+      "title": "Beginner's Guide to Driveway Permits in New York",
+      "url": "/guides/driveway-permits-new-york/",
+      "category": "BEGINNER",
+      "thumbnail": "/images/hero-gravel-pothole-repair.webp",
+      "read_time": "5 min read"
+    }
+  ],
+  "north-carolina": [],
+  "north-dakota": [],
+  "northern-mariana-islands": [],
+  "ohio": [],
+  "oklahoma": [],
+  "oregon": [],
+  "pennsylvania": [],
+  "puerto-rico": [],
+  "rhode-island": [],
+  "south-carolina": [],
+  "south-dakota": [],
+  "tennessee": [],
+  "texas": [
+    {
+      "title": "Best Concrete Driveway Options for Texas Heat",
+      "url": "/guides/concrete-driveway-texas/",
+      "category": "PLANNING",
+      "thumbnail": "/images/hero-concrete-repair.webp",
+      "read_time": "12 min read"
+    },
+    {
+      "title": "Expansive Soil Solutions for Texas Driveways",
+      "url": "/guides/expansive-soil-texas-driveways/",
+      "category": "INSTALLATION",
+      "thumbnail": "/images/hero-texas.webp",
+      "read_time": "9 min read"
+    },
+    {
+      "title": "Hail-Resistant Driveway Materials for North Texas",
+      "url": "/guides/hail-resistant-driveways-texas/",
+      "category": "REPAIR",
+      "thumbnail": "/images/hero-gravel-pothole-repair.webp",
+      "read_time": "7 min read"
+    }
+  ],
+  "us-virgin-islands": [],
+  "utah": [],
+  "vermont": [],
+  "virginia": [],
+  "washington": [],
+  "washington-dc": [],
+  "west-virginia": [],
+  "wisconsin": [],
+  "wyoming": []
+}

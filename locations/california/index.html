@@ -514,6 +514,92 @@
             font-size: 0.9rem;
         }
 
+
+        /* Trending Driveway Topics Section */
+        .trending-section {
+            padding: 4rem 2rem;
+            background: var(--bg-light);
+            border-top: 1px solid #eee;
+        }
+        .trending-section h3 {
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+        }
+        .trending-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .trending-card {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 1rem;
+            background: var(--white);
+            border: 1px solid #eee;
+            border-radius: 12px;
+            padding: 1rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            transition: box-shadow 0.3s ease;
+        }
+        .trending-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .trending-card-thumb {
+            flex-shrink: 0;
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            object-fit: cover;
+            background: #f0f0f0;
+        }
+        .trending-card-body {
+            flex: 1;
+            min-width: 0;
+        }
+        .trending-card-badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            margin-bottom: 0.35rem;
+            background: var(--primary);
+            color: var(--white);
+        }
+        .trending-card-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 0 0 0.25rem 0;
+        }
+        .trending-card-title a {
+            color: var(--text-dark);
+            text-decoration: none;
+        }
+        .trending-card-title a:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+        .trending-card-meta {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+        .trending-empty {
+            background: var(--white);
+            border: 1px solid #eee;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            color: var(--text-light);
+        }
+        @media (min-width: 768px) {
+            .trending-cards {
+                flex-direction: column;
+            }
+        }
+
         /* CTA Section */
         .cta-section {
             padding: 5rem 2rem;
@@ -873,6 +959,39 @@
             <a href="/guides-hub/" class="resource-link">Driveway Cost Calculator</a>
             <a href="/guides-hub/" class="resource-link">Earthquake-Resistant Driveway Design</a>
             <a href="/guides-hub/" class="resource-link">California Stormwater Compliance Guide</a>
+                </div>
+            </div>
+        </section>
+
+                <!-- Trending Driveway Topics -->
+        <section class="trending-section">
+            <div class="container">
+                <h3>⭐ Trending Driveway Topics in California</h3>
+                <div class="trending-cards">
+                    <div class="trending-card">
+                        <img class="trending-card-thumb" src="/images/hero-concrete-repair.webp" alt="">
+                        <div class="trending-card-body">
+                            <span class="trending-card-badge">PLANNING</span>
+                            <h4 class="trending-card-title"><a href="/guides/drought-resistant-driveways-california/">Best Driveway Materials for California's Drought Conditions</a></h4>
+                            <p class="trending-card-meta">8 min read</p>
+                        </div>
+                    </div>
+                    <div class="trending-card">
+                        <img class="trending-card-thumb" src="/images/hero-gravel-pothole-repair.webp" alt="">
+                        <div class="trending-card-body">
+                            <span class="trending-card-badge">INSTALLATION</span>
+                            <h4 class="trending-card-title"><a href="/guides/earthquake-resistant-driveways/">Earthquake-Resistant Driveway Installation in CA</a></h4>
+                            <p class="trending-card-meta">10 min read</p>
+                        </div>
+                    </div>
+                    <div class="trending-card">
+                        <img class="trending-card-thumb" src="/images/hero-guides-hub.webp" alt="">
+                        <div class="trending-card-body">
+                            <span class="trending-card-badge">PLANNING</span>
+                            <h4 class="trending-card-title"><a href="/guides/permeable-pavers-california/">Permeable Pavers for California Stormwater Compliance</a></h4>
+                            <p class="trending-card-meta">6 min read</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
