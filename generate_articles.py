@@ -4,8 +4,13 @@ Generate SEO articles from content briefs using Moonshot's Kimi API.
 Reads content_briefs.csv (column: Article Topic) and outputs full HTML pages to guides/
 
 Dependencies: pip install openai python-dotenv
+
+Usage:
+  python generate_articles.py              # Process all briefs
+  python generate_articles.py --start 37 --end 61   # Process briefs 37-61 only
 """
 
+import argparse
 import concurrent.futures
 import csv
 import html
@@ -212,6 +217,11 @@ def process_single_row(
 
 
 def main():
+    parser = argparse.ArgumentParser(description="Generate SEO articles from content briefs")
+    parser.add_argument("--start", type=int, help="First brief number (1-based)")
+    parser.add_argument("--end", type=int, help="Last brief number (1-based)")
+    args = parser.parse_args()
+
     api_key = os.environ.get("MOONSHOT_API_KEY")
     if not api_key:
         print("ERROR: MOONSHOT_API_KEY not found in .env")
@@ -244,6 +254,14 @@ def main():
         for i, row in enumerate(rows)
         if row.get("Article Topic", row.get("article_topic", "")).strip()
     ]
+
+    # Filter by brief range if --start/--end provided (brief numbers are 1-based)
+    if args.start is not None or args.end is not None:
+        start = args.start or 1
+        end = args.end or len(work_items)
+        work_items = [(i, row) for i, row in work_items if start <= (i + 1) <= end]
+        print(f"Processing briefs {start}–{end} ({len(work_items)} articles)")
+
     total = len(work_items)
 
     failed = []
