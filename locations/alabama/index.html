@@ -22,48 +22,7 @@
         }
 
         /* Navigation */
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            height: 140px;
-            background: var(--white);
-            box-shadow: var(--shadow);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            padding: 0 2rem;
-        }
-        .nav-container {
-            max-width: 1400px;
-            width: 100%;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .nav-logo img {
-            height: 130px;
-            max-height: 130px;
-            width: auto;
-            max-width: 320px;
-        }
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-            list-style: none;
-        }
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        .nav-links a:hover {
-            color: var(--primary);
-        }
+
         .btn-primary {
             background: var(--primary);
             color: white;
@@ -81,14 +40,7 @@
             transform: translateY(-2px);
             box-shadow: var(--shadow-lg);
         }
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--text-dark);
-        }
+
 
         /* Hero Section */
         .state-hero {
@@ -636,19 +588,7 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            .navbar {
-                height: 90px;
-                padding: 0.5rem 1rem;
-            }
-            .nav-logo img {
-                height: 70px;
-            }
-            .nav-links {
-                display: none;
-            }
-            .mobile-menu-btn {
-                display: block;
-            }
+
             .state-hero {
                 margin-top: 90px;
                 min-height: 60vh;
@@ -676,23 +616,28 @@
 </head>
 
 <body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="/" class="nav-logo">
-                <img src="/images/logov3.png?v=3" alt="Drivewayz USA">
-            </a>
-                    <ul class="nav-links">
-            <li><a href="/">Home</a></li>
-            <li><a href="/#services">Services</a></li>
-            <li><a href="#why-choose">Why Us</a></li>
-            <li><a href="/locations/" class="active">Locations</a></li>
-            <li><a href="/guides-hub/">Guides</a></li>
-            <li><a href="/#contact">Contact</a></li>
-        </ul>
-        <button class="cta-button-small" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Free Estimate</button>
-        <button class="mobile-menu-btn">☰</button>
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <a href="/"><img src="/images/logov3.png?v=3" alt="Drivewayz USA"></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/#services">Services</a></li>
+                <li><a href="#why-choose">Why Us</a></li>
+                <li><a href="/locations/" class="active">Locations</a></li>
+                <li><a href="/guides-hub/">Guides</a></li>
+                <li><a href="/#contact">Contact</a></li>
+            </ul>
+            <button class="cta-button-small" onclick="window.location.href='/#contact'">Free Estimate</button>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
+    <div class="nav-overlay" id="nav-overlay"></div>
 
     <!-- Main Content -->
     <main id="content">
@@ -861,5 +806,34 @@
             <p>&copy; 2024 Drivewayz USA. All rights reserved. | Alabama Driveway Services</p>
         </div>
     </footer>
+    <script>
+    (function() {
+        var hamburger = document.getElementById('hamburger');
+        var navLinks = document.querySelector('.nav-links');
+        var overlay = document.getElementById('nav-overlay');
+
+        if (!hamburger || !navLinks || !overlay) {
+            return;
+        }
+
+        function toggleMenu() {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            overlay.classList.toggle('active');
+            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+        }
+
+        hamburger.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
+
+        navLinks.querySelectorAll('a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                if (navLinks.classList.contains('active')) {
+                    toggleMenu();
+                }
+            });
+        });
+    })();
+    </script>
 </body>
 </html>

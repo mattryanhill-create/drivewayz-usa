@@ -394,6 +394,18 @@
     });
     </script>
         <script src="/js/seo.js"></script>
+
+    <script>
+    (function() {
+        var logoLink = document.querySelector('.logo a[href="/"]');
+        if (!logoLink) return;
+
+        logoLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.location.href = '/';
+        });
+    })();
+    </script>
         <!-- Mobile Nav Toggle -->
     <script>
     (function() {

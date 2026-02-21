@@ -203,7 +203,7 @@ def get_template_static_parts():
     styles = style_match.group(1) if style_match else ""
 
     # Extract nav HTML
-    nav_match = re.search(r'<nav class="navbar">(.*?)</nav>', content, re.DOTALL)
+    nav_match = re.search(r'<nav class="navbar"[^>]*>(.*?)</nav>', content, re.DOTALL)
     nav_html = nav_match.group(0) if nav_match else ""
 
     # Extract footer HTML
@@ -493,7 +493,7 @@ def build_state_html(state_name: str, slug: str, data: dict) -> str:
         new_head = new_head + "\n" + ga_block
 
     # Get nav and footer from template
-    nav_match = re.search(r'<nav class="navbar">.*?</nav>', full_template, re.DOTALL)
+    nav_match = re.search(r'<nav class="navbar"[^>]*>.*?</nav>', full_template, re.DOTALL)
     footer_match = re.search(r'<footer class="footer">.*?</footer>', full_template, re.DOTALL)
     nav_html = nav_match.group(0) if nav_match else ""
     footer_html = footer_match.group(0) if footer_match else ""
@@ -527,10 +527,40 @@ def build_state_html(state_name: str, slug: str, data: dict) -> str:
 
 <body>
     {nav_html}
+    <div class="nav-overlay" id="nav-overlay"></div>
 
 {content_html}
 
     {footer_html}
+    <script>
+    (function() {{
+        var hamburger = document.getElementById('hamburger');
+        var navLinks = document.querySelector('.nav-links');
+        var overlay = document.getElementById('nav-overlay');
+
+        if (!hamburger || !navLinks || !overlay) {{
+            return;
+        }}
+
+        function toggleMenu() {{
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            overlay.classList.toggle('active');
+            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+        }}
+
+        hamburger.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
+
+        navLinks.querySelectorAll('a').forEach(function(link) {{
+            link.addEventListener('click', function() {{
+                if (navLinks.classList.contains('active')) {{
+                    toggleMenu();
+                }}
+            }});
+        }});
+    }})();
+    </script>
 </body>
 </html>"""
 

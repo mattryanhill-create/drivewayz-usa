@@ -168,8 +168,14 @@ def build_hub(guides: list) -> str:
         <li><a href="/#contact">Contact</a></li>
       </ul>
       <button class="cta-button-small" onclick="window.location.href='/#contact'">Free Estimate</button>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </nav>
+  <div class="nav-overlay" id="nav-overlay"></div>
 
   <!-- Hero -->
   <section class="guides-hero">
@@ -212,6 +218,35 @@ def build_hub(guides: list) -> str:
 
   <script src="/main.js" defer></script>
   <script src="/js/guides-enhancements.js" defer></script>
+  <script>
+    (function() {{
+      var hamburger = document.getElementById('hamburger');
+      var navLinks = document.querySelector('.nav-links');
+      var overlay = document.getElementById('nav-overlay');
+
+      if (!hamburger || !navLinks || !overlay) {{
+        return;
+      }}
+
+      function toggleMenu() {{
+        hamburger.classList.toggle('active');
+        navLinks.classList.toggle('active');
+        overlay.classList.toggle('active');
+        document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+      }}
+
+      hamburger.addEventListener('click', toggleMenu);
+      overlay.addEventListener('click', toggleMenu);
+
+      navLinks.querySelectorAll('a').forEach(function(link) {{
+        link.addEventListener('click', function() {{
+          if (navLinks.classList.contains('active')) {{
+            toggleMenu();
+          }}
+        }});
+      }});
+    }})();
+  </script>
 </body>
 </html>
 """
