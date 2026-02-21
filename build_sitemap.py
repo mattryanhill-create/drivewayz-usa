@@ -14,7 +14,7 @@ Then: git add sitemap.xml robots.txt && git commit -m "Add sitemap.xml and robot
 from datetime import date
 from pathlib import Path
 
-BASE_URL = "https://www.drivewayzusa.com"
+BASE_URL = "https://drivewayzusa.co"
 PROJECT_ROOT = Path(__file__).resolve().parent
 OUTPUT_FILE = PROJECT_ROOT / "sitemap.xml"
 ROBOTS_FILE = PROJECT_ROOT / "robots.txt"
