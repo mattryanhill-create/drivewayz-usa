@@ -311,7 +311,7 @@ def build_state_html(state_name: str, slug: str, data: dict) -> str:
     resources_html = ""
     if data["related_resources"]:
         resources_html = "\n".join(
-            f'            <a href="{html.escape(r["url"])}" target="_blank" rel="noopener" class="resource-link">{html.escape(r["title"])}</a>'
+            f'            <a href="{html.escape(r["url"])}" class="resource-link">{html.escape(r["title"])}</a>'
             for r in data["related_resources"]
         )
 

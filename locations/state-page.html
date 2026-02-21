@@ -3230,7 +3230,7 @@
 
             // NEW: Generate resources HTML
             const resourcesHTML = state.relatedResources ? state.relatedResources.map(resource => `
-                <a href="${resource.url}" target="_blank" rel="noopener" class="resource-link">${resource.title}</a>
+                <a href="${resource.url}" class="resource-link">${resource.title}</a>
             `).join('') : '';
 
             // Set hero background style
