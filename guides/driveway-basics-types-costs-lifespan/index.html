@@ -15,6 +15,7 @@
             --guide-accent: #5B9BD5;
             --guide-bg: linear-gradient(135deg, #f0f5fa 0%, #dce8f5 50%, #c5d9ed 100%);
         }
+        html, body { overflow-x: hidden; width: 100%; }
         body { background: var(--guide-bg); background-attachment: fixed; }
 
         /* Hero */
@@ -145,7 +146,7 @@
             .guide-sidebar-col { grid-column: 1 / -1; order: 10; }
         }
         /* Responsive: Mobile */
-        @media (max-width: 768px) {
+        @media (max-width: 768px) { .guide-hero{width:100vw;margin-left:calc(-50vw + 50%);} .comparison-table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;} .material-stats{grid-template-columns:1fr;} .pros-cons{grid-template-columns:1fr;} 
             .guide-hero h1 { font-size: 2rem; }
             .guide-main { padding: 1.5rem; }
             .guide-actions { flex-direction: column; }
@@ -180,8 +181,9 @@
                                             <li><a href="/locations/">Locations</a></li>
                                 <li><a href="/guides-hub/">Guides</a></li>
                                 
-                <li><a href="/for-homeowners.html">For Homeowners</a></li>
-                <li><a href="/#contact">Contact</a></li>
+                <li><a href="/for-homeowners/">For Homeowners</a></li>
+      <li><a href="/for-contractors/">For Contractors</a></li>
+      <li><a href="/#contact">Contact</a></li>
                         </ul>
                         <button class="cta-button-small" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Free Estimate</button>
         </div>
@@ -409,9 +411,16 @@
     </div><!-- end guide-page-layout -->
 
     <!-- Footer -->
+    <nav class="guide-internal-links" aria-label="Related pages" style="max-width:1400px;margin:0 auto 2rem;padding:0 2rem;">
+  <ul style="list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;font-size:.95rem;">
+    <li><a href="/guides-hub/">View all driveway guides</a></li>
+  </ul>
+</nav>
+
+
     <footer style="text-align:center; padding:2rem; margin-top:3rem; color:var(--text-light); font-size:.9rem;">
         <p>&copy; 2026 Drivewayz USA. Licensed &amp; Insured. Serving the United States with Pride.</p>
-        <p><a href="/for-homeowners.html">For Homeowners</a> &bull; <a href="/for-contractors.html">For Contractors</a> &bull; <a href="/#services">Services</a> &bull; <a href="/guides-hub/">Guides</a> &bull; <a href="/#contact">Contact</a></p>
+        <p><a href="/for-homeowners/">For Homeowners</a> &bull; <a href="/for-contractors/">For Contractors</a> &bull; <a href="/#services">Services</a> &bull; <a href="/locations/">Locations</a> &bull; <a href="/guides-hub/">Guides</a> &bull; <a href="/#contact">Contact</a> &bull; <a href="#">Privacy Policy</a></p>
     </footer>
 
     <script>

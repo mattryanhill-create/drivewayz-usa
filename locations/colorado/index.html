@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Colorado Driveway Services | Drivewayz USA</title>
-    <meta name="description" content="Colorado&#x27;s semi-arid, continental climate brings dramatic temperature swings, intense UV exposure at high altitude, heavy snowfall in the mountains, and si...">
+    <meta name="description" content="Colorado&#x27;s semi-arid, continental climate brings dramatic temperature swings, intense UV exposure at high altitude, heavy snowfall in the mountains, and...">
     <link rel="canonical" href="https://drivewayzusa.co/locations/colorado/">
     <link rel="stylesheet" href="/main.css">
 <style>
@@ -20,15 +20,6 @@
             --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
             --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
         }
-
-
-        
-        
-        
-        /* Breadcrumb - top-left of hero */
-        .state-breadcrumb { position: absolute; top: 1rem; left: 2rem; z-index: 3; padding: 1rem 2rem; display: flex; gap: 0.5rem; font-size: 0.9rem; text-align: left; }
-        .state-breadcrumb a { color: rgba(255,255,255,0.8); text-decoration: none; }
-        .state-breadcrumb a:hover { color: white; }
 
         /* Navigation */
 
@@ -49,7 +40,9 @@
             transform: translateY(-2px);
             box-shadow: var(--shadow-lg);
         }
-/* Hero Section */
+
+
+        /* Hero Section */
         .state-hero {
             position: relative;
             min-height: 70vh;
@@ -66,8 +59,9 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: none;
-            pointer-events: none;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
             z-index: 1;
         }
         .state-hero::after {
@@ -77,7 +71,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(to bottom, rgba(43, 87, 151, 0.4), rgba(91, 155, 213, 0.3));
+            background: linear-gradient(to bottom, rgba(43, 87, 151, 0.8), rgba(91, 155, 213, 0.6));
             z-index: 2;
         }
         .state-hero-content {
@@ -406,6 +400,37 @@
             content: "↗";
             font-size: 0.9rem;
         }
+        .featured-guides-section .section-sub {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+        .featured-guides-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 auto 1.5rem;
+            max-width: 600px;
+        }
+        .featured-guides-list li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .featured-guides-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: 700;
+        }
+        .featured-guides-list .resource-link::after {
+            content: none;
+        }
+        .more-guides-link {
+            text-align: center;
+            margin-top: 1rem;
+        }
 
         /* Why Choose Section */
         .why-section {
@@ -521,7 +546,7 @@
             font-size: 0.9rem;
         }
 
-/* CTA Section */
+        /* CTA Section */
         .cta-section {
             padding: 5rem 2rem;
             background: var(--bg-light);
@@ -610,108 +635,6 @@
                 font-size: 1.8rem;
             }
         }
-    
-        /* Content with Sidebar Layout */
-        .content-with-sidebar {
-            display: grid;
-            grid-template-columns: 1fr 320px;
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-        .main-content-col {
-            min-width: 0;
-        }
-        .trending-sidebar {
-            position: sticky;
-            top: 100px;
-            align-self: start;
-        }
-        .trending-widget {
-            background: var(--white);
-            border-radius: 16px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-            border: 1px solid #eee;
-            padding: 1.25rem;
-        }
-        .trending-widget h3 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--text-dark);
-            margin: 0 0 1rem 0;
-        }
-        .trending-widget-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.75rem;
-            padding: 1rem 0;
-            border-bottom: 1px solid #eee;
-        }
-        .trending-widget-item:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
-        }
-        .trending-widget-item:first-child {
-            padding-top: 0;
-        }
-        .trending-widget-thumb {
-            flex-shrink: 0;
-            width: 80px;
-            height: 80px;
-            border-radius: 8px;
-            object-fit: cover;
-            background: #f0f0f0;
-        }
-        .trending-widget-body {
-            flex: 1;
-            min-width: 0;
-        }
-        .trending-widget-badge {
-            display: inline-block;
-            font-size: 0.65rem;
-            font-weight: 700;
-            letter-spacing: 0.05em;
-            padding: 0.2rem 0.5rem;
-            border-radius: 999px;
-            margin-bottom: 0.3rem;
-            background: var(--primary);
-            color: var(--white);
-        }
-        .trending-widget-title {
-            font-size: 0.95rem;
-            font-weight: 600;
-            margin: 0 0 0.2rem 0;
-            line-height: 1.3;
-        }
-        .trending-widget-title a {
-            color: var(--text-dark);
-            text-decoration: none;
-        }
-        .trending-widget-title a:hover {
-            color: var(--primary-dark);
-            text-decoration: underline;
-        }
-        .trending-widget-meta {
-            font-size: 0.8rem;
-            color: var(--text-light);
-        }
-        .trending-widget-empty {
-            font-size: 0.95rem;
-            color: var(--text-light);
-            line-height: 1.5;
-        }
-        @media (max-width: 768px) {
-            .content-with-sidebar {
-                grid-template-columns: 1fr;
-                padding: 0 1rem;
-            }
-            .trending-sidebar {
-                position: static;
-                order: 2;
-            }
-        }
-
     </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-V08M9YKRR7"></script>
@@ -721,31 +644,6 @@
   gtag('js', new Date());
   gtag('config', 'G-V08M9YKRR7');
 </script>
-    <script type="application/ld+json">
-    {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-        {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://drivewayzusa.co/"
-        },
-        {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Locations",
-            "item": "https://drivewayzusa.co/locations/"
-        },
-        {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "Colorado"
-        }
-    ]
-}
-    </script>
 </head>
 
 <body>
@@ -760,7 +658,8 @@
                 <li><a href="#why-choose">Why Us</a></li>
                 <li><a href="/locations/" class="active">Locations</a></li>
                 <li><a href="/guides-hub/">Guides</a></li>
-                <li><a href="/for-homeowners.html">For Homeowners</a></li>
+                <li><a href="/for-homeowners/">For Homeowners</a></li>
+                <li><a href="/for-contractors/">For Contractors</a></li>
                 <li><a href="/#contact">Contact</a></li>
             </ul>
             <button class="cta-button-small" onclick="window.location.href='/#contact'">Free Estimate</button>
@@ -776,21 +675,18 @@
     <!-- Main Content -->
     <main id="content">
         <!-- Hero Section -->
-        <section class="state-hero" style="background: linear-gradient(135deg, rgba(43,87,151,0.65), rgba(91,155,213,0.65)), url('/images/hero-colorado.webp'); background-size: cover; background-position: center;">
-            <div class="state-breadcrumb">
-                <a href="/">Home</a><span>/</span><a href="/locations/">Locations</a><span>/</span><span>Colorado</span>
-            </div>
+        <section class="state-hero" style="background: linear-gradient(135deg, #2B5797 0%, #5B9BD5 50%, #4A90D9 100%);">
+            <img src="/images/hero-colorado.webp" alt="Colorado driveway services — Drivewayz USA" class="state-hero-img" width="1200" height="630" loading="eager" fetchpriority="high">
+        
             <div class="state-hero-content">
                 <span class="state-badge">CO</span>
-                <h1>Colorado</h1>
+                <h1>Colorado Driveway Services</h1>
                 <p class="tagline">Expert Driveway Solutions for Colorado</p>
                 <a href="/#contact" class="btn-primary">Get Your Free Estimate</a>
             </div>
         </section>
 
-        <div class="content-with-sidebar">
-            <div class="main-content-col">
-                <!-- Intro Section -->
+        <!-- Intro Section -->
         <section class="intro-section">
             <div class="container">
                 <div class="intro-content">
@@ -894,14 +790,6 @@
                 </div>
             </div>
         </section>
-            </div>
-                    <aside class="trending-sidebar">
-                        <div class="trending-widget">
-                            <h3>⭐ Trending Driveway Topics in Colorado</h3>
-                            <p class="trending-widget-empty">New Colorado content coming soon. Check back for local tips and guides.</p>
-                        </div>
-                    </aside>
-        </div>
 
         <section class="local-facts-section">
             <div class="container">
@@ -1013,16 +901,17 @@
                 </ul>
             </div>
         </section>
-        <section class="resources-section">
+        <section class="resources-section featured-guides-section">
             <div class="container">
-                <h3>Related Resources</h3>
-                <div class="resources-links">
-            <a href="/guides-hub/" class="resource-link">Heated Driveway Systems: Complete Guide</a>
-            <a href="/guides-hub/" class="resource-link">Concrete Freeze-Thaw Protection</a>
-            <a href="/guides-hub/" class="resource-link">Driveway Cost Calculator</a>
-            <a href="/guides-hub/" class="resource-link">High-Altitude Concrete Considerations</a>
-            <a href="/guides-hub/" class="resource-link">Snow Removal Equipment Guide</a>
-                </div>
+                <h3>Featured Driveway Guides for Colorado</h3>
+                <p class="section-sub">Essential reading for Colorado homeowners planning a driveway project</p>
+                <ul class="featured-guides-list">
+                <li><a href="/guides/asphalt-driveway-cost-in-colorado-local-pricing/" class="resource-link">Asphalt Driveway Cost in Colorado: Local Pricing</a></li>
+                <li><a href="/guides/concrete-driveway-cost-in-colorado-2026-price-guide/" class="resource-link">Concrete Driveway Cost in Colorado: 2026 Price Guide</a></li>
+                <li><a href="/guides/driveway-permits-and-regulations-in-colorado/" class="resource-link">Driveway Permits and Regulations in Colorado</a></li>
+                <li><a href="/guides/best-driveway-material-for-colorado-homes/" class="resource-link">Best Driveway Material for Colorado Homes</a></li>
+                </ul>
+                <p class="more-guides-link"><a href="/guides-hub/" class="resource-link">View all driveway guides</a></p>
             </div>
         </section>
 
@@ -1044,12 +933,15 @@
                 <p>Professional driveway services across all 50 states.</p>
             </div>
             <div class="footer-section">
-                <h4>Quick Links</h4>
-                <a href="/for-homeowners.html">For Homeowners</a>
-                <a href="/for-contractors.html">For Contractors</a>
-                <a href="/">Home</a>
-                <a href="/locations/" class="active">Locations</a>
-                <a href="/#services">Services</a>
+                <p class="footer-links">
+                    <a href="/for-homeowners/">For Homeowners</a> &bull;
+                    <a href="/for-contractors/">For Contractors</a> &bull;
+                    <a href="/#services">Services</a> &bull;
+                    <a href="/locations/">Locations</a> &bull;
+                    <a href="/guides-hub/">Guides</a> &bull;
+                    <a href="/#contact">Contact</a> &bull;
+                    <a href="#">Privacy Policy</a>
+                </p>
             </div>
             <div class="footer-section">
                 <h4>Contact</h4>

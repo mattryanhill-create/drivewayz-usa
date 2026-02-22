@@ -25,6 +25,8 @@ from typing import Optional, List, Tuple
 from dotenv import load_dotenv
 from openai import OpenAI
 
+from state_guides import get_state_for_guide, slug_to_display_name
+
 # Config
 PROJECT_ROOT = Path(__file__).resolve().parent
 CSV_PATH = PROJECT_ROOT / "content_briefs.csv"
@@ -275,6 +277,30 @@ def build_page_from_template(
         rf"\g<1>\n\n    {article_body_with_jsonld}\g<2>",
         result,
         count=1,
+    )
+
+    # Inject state-aware internal links (Back to [State] driveways + View all guides)
+    state_slug = get_state_for_guide(slug)
+    links = []
+    if state_slug:
+        state_name = slug_to_display_name(state_slug)
+        links.append(
+            f'<li><a href="/locations/{html.escape(state_slug)}/">Back to {html.escape(state_name)} driveways</a></li>'
+        )
+    links.append('<li><a href="/guides-hub/">View all driveway guides</a></li>')
+    items = "\n    ".join(links)
+    internal_links_html = (
+        f'<nav class="guide-internal-links" aria-label="Related pages" style="max-width:1400px;margin:0 auto 2rem;padding:0 2rem;">\n'
+        f'  <ul style="list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;font-size:.95rem;">\n'
+        f"    {items}\n"
+        f"  </ul>\n</nav>"
+    )
+    result = re.sub(
+        r'<nav\s+class="guide-internal-links"[^>]*>.*?</nav>',
+        internal_links_html,
+        result,
+        count=1,
+        flags=re.DOTALL,
     )
 
     return result

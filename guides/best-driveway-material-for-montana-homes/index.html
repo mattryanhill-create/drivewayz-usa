@@ -8,7 +8,8 @@
   <link rel="stylesheet" href="/main.css">
   <style>
     :root{--guide-primary:#374151;--guide-primary-light:#6b7280;--guide-primary-dark:#1f2937;--guide-accent:#9ca3af;--guide-bg:linear-gradient(135deg,#f9fafb 0%,#f3f4f6 50%,#e5e7eb 100%)}
-    body{background:var(--guide-bg);background-attachment:scroll}
+        html, body { overflow-x: hidden; width: 100%; }
+        body{background:var(--guide-bg);background-attachment:scroll}
     .guide-hero{position:relative;min-height:500px;display:flex;align-items:center;margin-top:100px;background-image:linear-gradient(135deg,rgba(55,65,81,.55) 0%,rgba(31,41,55,.55) 100%),url('/images/pexels-pixabay-221540.webp');background-size:cover;background-position:center;overflow:hidden}
     .guide-hero::before{content:"";position:absolute;top:0;left:0;right:0;bottom:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");opacity:.3}
     .guide-hero-content{position:relative;z-index:10;padding:4rem 0;color:white}
@@ -85,7 +86,7 @@
     .toc-mobile-toggle span{margin-left:.5rem;transition:transform .3s;display:inline-block}
     .toc-mobile-toggle.open span{transform:rotate(180deg)}
     @media(max-width:1200px){.guide-page-layout{grid-template-columns:220px 1fr}.guide-sidebar-col{grid-column:1/-1;order:10}}
-    @media(max-width:768px){.guide-hero h1{font-size:2rem}.guide-main{padding:1.5rem}.guide-actions{flex-direction:column}.guide-page-layout{grid-template-columns:1fr;padding:0 1rem}.toc-sidebar-col{display:none}.toc-mobile-toggle{display:block}.material-stats{grid-template-columns:1fr}}
+    @media(max-width:768px){.guide-hero{width:100vw;margin-left:calc(-50vw + 50%);}.comparison-table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;}.material-stats{grid-template-columns:1fr;}.pros-cons{grid-template-columns:1fr;}.guide-hero h1{font-size:2rem}.guide-main{padding:1.5rem}.guide-actions{flex-direction:column}.guide-page-layout{grid-template-columns:1fr;padding:0 1rem}.toc-sidebar-col{display:none}.toc-mobile-toggle{display:block}.material-stats{grid-template-columns:1fr}}
   </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-V08M9YKRR7"></script>
@@ -108,7 +109,8 @@
       <li><a href="/#why-choose">Why Us</a></li>
       <li><a href="/locations/">Locations</a></li>
       <li><a href="/guides-hub/">Guides</a></li>
-      <li><a href="/for-homeowners.html">For Homeowners</a></li>
+      <li><a href="/for-homeowners/">For Homeowners</a></li>
+      <li><a href="/for-contractors/">For Contractors</a></li>
       <li><a href="/#contact">Contact</a></li>
     </ul>
     <button class="cta-button-small" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Free Estimate</button>
@@ -406,9 +408,18 @@
   </aside>
 </div>
 
+<nav class="guide-internal-links" aria-label="Related pages" style="max-width:1400px;margin:0 auto 2rem;padding:0 2rem;">
+  <ul style="list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;font-size:.95rem;">
+    <li><a href="/locations/montana/">Back to Montana driveways</a></li>
+    <li><a href="/guides-hub/">View all driveway guides</a></li>
+  </ul>
+</nav>
+
+
+
 <footer style="text-align:center;padding:2rem;color:#6b7280;font-size:.9rem;">
   <p>&copy; 2026 Drivewayz USA. Licensed &amp; Insured. Serving the United States with Pride.</p>
-  <p><a href="/for-homeowners.html">For Homeowners</a> &bull; <a href="/for-contractors.html">For Contractors</a> &bull; <a href="/#services" style="color:#374151;">Services</a> &bull; <a href="/guides-hub/" style="color:#374151;">Guides</a> &bull; <a href="/#contact" style="color:#374151;">Contact</a></p>
+  <p><a href="/for-homeowners/">For Homeowners</a> &bull; <a href="/for-contractors/">For Contractors</a> &bull; <a href="/#services">Services</a> &bull; <a href="/locations/">Locations</a> &bull; <a href="/guides-hub/">Guides</a> &bull; <a href="/#contact">Contact</a> &bull; <a href="#">Privacy Policy</a></p>
 </footer>
 
 <script>

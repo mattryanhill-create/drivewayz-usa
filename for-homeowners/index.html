@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Homeowners | Plan & Price Your Driveway | Drivewayz USA</title>
+    <meta name="description" content="Plan and price your next driveway with confidence. Step-by-step guides, tools, and free estimates for American homeowners.">
+    <link rel="canonical" href="https://drivewayzusa.co/for-homeowners/">
+    <link rel="stylesheet" href="/main.css?v=6">
+    <meta name="google-site-verification" content="gPA0uTm7zOOI6bEiMk4Bq-vUlXRLGLVioiHtGsy3qG8" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-V08M9YKRR7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-V08M9YKRR7');
+</script>
+<style>
+.services-checkbox-group {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem 2rem;
+}
+.services-checkbox-group label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: normal;
+  cursor: pointer;
+}
+.services-checkbox-group input[type="checkbox"] {
+  width: auto;
+}
+@media (max-width: 600px) {
+  .services-checkbox-group { grid-template-columns: 1fr; }
+}
+#needsOtherWrapper.visible {
+  max-height: 120px;
+  opacity: 1;
+  margin-top: 0.5rem;
+}
+.faq-item { border: 1px solid #e5e7eb; border-radius: 10px; margin-bottom: 1rem; overflow: hidden; }
+.faq-q { width: 100%; padding: 1.25rem 1.5rem; background: #F3F4F6; border: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 1.05rem; font-weight: 600; color: var(--text-dark); text-align: left; }
+.faq-q:hover { background: #E5E7EB; }
+.faq-a { padding: 0 1.5rem 1.25rem; color: var(--text-light); line-height: 1.8; display: none; }
+.faq-item.open .faq-a { display: block; }
+.faq-toggle { font-size: 1.3rem; transition: transform .3s; }
+.faq-item.open .faq-toggle { transform: rotate(45deg); }
+.seasonal-section { padding: 3rem 1.5rem; background: linear-gradient(180deg, #e8f4fc 0%, #d4eaf7 100%); }
+.seasonal-card { max-width: 480px; margin: 0 auto; background: #fff; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 12px rgba(0,0,0,.06); }
+.seasonal-card h3 { font-size: 1.35rem; margin-bottom: 0.5rem; color: var(--text-dark); }
+.seasonal-card .subtext { font-size: 0.95rem; color: var(--text-light); margin-bottom: 1.5rem; line-height: 1.6; }
+.seasonal-form { display: flex; flex-direction: column; gap: 1rem; }
+.seasonal-form input[type="email"] { padding: 0.75rem 1rem; border: 2px solid var(--border-color); border-radius: 8px; font-size: 1rem; }
+.seasonal-form input:focus { outline: none; border-color: var(--primary-color); }
+.seasonal-form .btn-subscribe { padding: 0.75rem 1.5rem; background: var(--primary-color); color: #fff; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 0.95rem; }
+.seasonal-form .btn-subscribe:hover { background: var(--primary-dark); }
+.seasonal-success { text-align: center; padding: 1rem 0; color: #059669; font-weight: 600; }
+</style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <a href="/"><img src="/images/logov3.png?v=3" alt="Drivewayz USA" onerror="this.style.display='none'"></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/#home">Home</a></li>
+                <li><a href="/#services">Services</a></li>
+                <li><a href="/#why-choose">Why Us</a></li>
+                <li><a href="/locations/">Locations</a></li>
+                <li><a href="/guides-hub/">Guides</a></li>
+                <li><a href="/for-homeowners/">For Homeowners</a></li>
+                <li><a href="/cost-calculator/">Cost Calculator</a></li>
+                <li><a href="/for-contractors/">For Contractors</a></li>
+                <li><a href="#homeowner-estimate">Contact</a></li>
+            </ul>
+            <button class="cta-button-small" onclick="document.getElementById('homeowner-estimate').scrollIntoView({behavior: 'smooth'})">Free Estimate</button>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+    <div class="nav-overlay" id="nav-overlay"></div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <h1 class="hero-title">Plan and price your next driveway with confidence</h1>
+            <p class="hero-subtitle">Step-by-step guides, tools, and free estimates for American homeowners.</p>
+            <div class="cta-band-buttons" style="margin-top: 1.5rem; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                <a href="#homeowner-estimate" class="cta-band-button primary">Get my free estimate</a>
+                <a href="/for-homeowners-quiz/" class="cta-band-button secondary">Take the driveway quiz</a>
+                <a href="/cost-calculator/" class="cta-band-button secondary">Cost calculator</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Strip -->
+    <section class="trust-strip">
+        <div class="container">
+            <div class="trust-strip-inner">
+                <p class="trust-item">⭐ 4.9/5 rating from 1,200+ homeowners</p>
+                <p class="trust-item">🛡️ Licensed &amp; Insured</p>
+                <p class="trust-item">✅ Warranty Included - Financing Available</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How it works</h2>
+            <div class="steps-grid" style="grid-template-columns: repeat(3, minmax(0, 1fr));">
+                <article class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Learn the Basics</h3>
+                    <p>Browse our guides to compare materials, understand pricing, and discover what works best for your climate and budget.</p>
+                </article>
+                <article class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Plan Your Project</h3>
+                    <p>Use our checklists and <a href="/cost-calculator/">cost calculator</a> to map out timelines and prepare for contractor conversations.</p>
+                </article>
+                <article class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Connect with Pros</h3>
+                    <p>When you're ready, we'll match you with vetted local contractors who specialize in your project type.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular guides -->
+    <section class="guides">
+        <div class="container">
+            <h2 class="section-title">Popular guides</h2>
+            <div class="guides-grid">
+                <article class="guide-card">
+                    <h3>Driveway Connected Home Integration</h3>
+                    <p>Linking driveways to smart systems. Learn how to integrate your driveway with smart home technology.</p>
+                    <a href="/guides/driveway-connected-home-integration-linking-to-smart-systems/" class="guide-link">Read Full Guide →</a>
+                </article>
+                <article class="guide-card">
+                    <h3>Concrete vs Asphalt vs Gravel</h3>
+                    <p>Compare the pros, cons, and costs of the most popular driveway materials for your home.</p>
+                    <a href="/guides/concrete-vs-asphalt-vs-gravel/" class="guide-link">Read Full Guide →</a>
+                </article>
+                <article class="guide-card">
+                    <h3>Driveway Cost Breakdown</h3>
+                    <p>Understand labor, materials, and equipment costs to build a realistic budget for your project.</p>
+                    <a href="/guides/driveway-cost-breakdown-labor-materials-and-equipment/" class="guide-link">Read Full Guide →</a>
+                </article>
+                <article class="guide-card">
+                    <h3>How to Fix Potholes in Gravel Driveways</h3>
+                    <p>Professional repair techniques to fix potholes and maintain a smooth gravel surface.</p>
+                    <a href="/guides/gravel-pothole-repair/" class="guide-link">Read Full Guide →</a>
+                </article>
+                <article class="guide-card">
+                    <h3>Concrete Driveway Repair Guide</h3>
+                    <p>DIY and professional solutions for cracks, resurfacing, and cost breakdowns.</p>
+                    <a href="/guides/concrete-repair/" class="guide-link">Read Full Guide →</a>
+                </article>
+                <article class="guide-card">
+                    <h3>How to Vet a Driveway Contractor</h3>
+                    <p>Essential questions to ask before hiring. Protect your investment with the right contractor.</p>
+                    <a href="/guides/how-to-vet-a-driveway-contractor-questions-to-ask/" class="guide-link">Read Full Guide →</a>
+                </article>
+            </div>
+            <p class="guides-footer-link">
+                <a href="/guides-hub/" class="guide-link">View All Guides →</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="guides" style="background: var(--bg-light);">
+        <div class="container">
+            <h2 class="section-title">Common Questions From Homeowners</h2>
+            <div class="faq-list" style="max-width: 720px; margin: 0 auto;">
+                <div class="faq-item">
+                    <button class="faq-q" onclick="toggleFaq(this)">How does the free estimate process work? <span class="faq-toggle">+</span></button>
+                    <div class="faq-a"><p>Fill out our form with your project details and ZIP code. We review your request and match you with vetted local contractors who specialize in your driveway type. You will receive a call or email within 1-2 business days with a no-obligation quote.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q" onclick="toggleFaq(this)">Is there really no cost for the estimate? <span class="faq-toggle">+</span></button>
+                    <div class="faq-a"><p>Correct. The estimate is 100% free with no obligation. We connect you with contractors who provide honest, transparent quotes. You are never pressured to commit.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q" onclick="toggleFaq(this)">How do you choose which contractors to recommend? <span class="faq-toggle">+</span></button>
+                    <div class="faq-a"><p>Every contractor in our network is licensed, insured, and vetted for quality workmanship. We match based on your location, driveway material, and project size to ensure the best fit.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q" onclick="toggleFaq(this)">How long does a driveway project usually take? <span class="faq-toggle">+</span></button>
+                    <div class="faq-a"><p>Most residential driveways take 1-3 days for installation. Concrete needs 7 days to cure before driving on it. Timelines vary by material, size, and weather conditions.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q" onclick="toggleFaq(this)">What if I am not sure which driveway material I want? <span class="faq-toggle">+</span></button>
+                    <div class="faq-a"><p>That is completely normal. Select &quot;Not Sure&quot; on the form and your matched contractor will walk you through the options during the estimate visit. You can also browse our guides or take our driveway quiz to narrow it down.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q" onclick="toggleFaq(this)">Do you serve my area? <span class="faq-toggle">+</span></button>
+                    <div class="faq-a"><p>Drivewayz USA operates nationwide across all 50 states. Enter your ZIP code in the estimate form and we will match you with contractors in your area.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Get Seasonal Driveway Tips -->
+    <section class="seasonal-section">
+        <div class="container">
+            <div class="seasonal-card">
+                <h3>Get Seasonal Driveway Tips</h3>
+                <p class="subtext">Join 5,000+ homeowners who get free maintenance reminders, cost-saving tips, and seasonal prep guides delivered to their inbox.</p>
+                <form id="seasonalForm" class="seasonal-form">
+                    <input type="hidden" name="persona" value="homeowner">
+                    <input type="hidden" name="source" value="seasonal_optin">
+                    <input type="email" id="seasonalEmail" name="email" placeholder="Your email address" required>
+                    <button type="submit" class="btn-subscribe">Subscribe - It's Free</button>
+                </form>
+                <div id="seasonalSuccess" class="seasonal-success" style="display: none;">You are subscribed! Check your inbox for your first tip.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact / Estimate Section -->
+    <section id="homeowner-estimate" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get Your Free Estimate</h2>
+            <p class="section-subtitle">Proudly serving homeowners across the United States</p>
+            
+            <div class="contact-content">
+                <form id="contactForm" class="contact-form">
+                    <input type="hidden" name="persona" value="homeowner">
+                    <input type="hidden" name="source" value="for_homeowners_page">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Phone *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label>What do you need? <span style="font-weight:normal;color:#888;">(select all that apply)</span></label>
+                            <div class="services-checkbox-group">
+                                <label><input type="checkbox" name="needs" value="New Driveway Installation"> New Driveway Installation</label>
+                                <label><input type="checkbox" name="needs" value="Driveway Repair / Resurfacing"> Driveway Repair / Resurfacing</label>
+                                <label><input type="checkbox" name="needs" value="Sealcoating / Maintenance"> Sealcoating / Maintenance</label>
+                                <label><input type="checkbox" name="needs" value="Replace Existing Driveway"> Replace Existing Driveway</label>
+                                <label><input type="checkbox" name="needs" value="Not Sure - Just Exploring"> Not Sure – Just Exploring</label>
+                                <label><input type="checkbox" name="needs" value="Other" id="needsOtherCheckbox"> Other</label>
+                            </div>
+                            <div id="needsOtherWrapper" style="max-height:0;overflow:hidden;transition:max-height 0.3s ease,opacity 0.3s ease;opacity:0;margin-top:0;">
+                                <input type="text" id="needsOtherText" name="needsOther" placeholder="e.g., heated driveway, turnaround area, ADA accessibility" style="margin-top:0.75rem;width:100%;">
+                                <small style="color:#888;display:block;margin-top:0.25rem;">Please describe what you need</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="zip">ZIP Code *</label>
+                            <input type="text" id="zip" name="zip" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Tell us about your project</label>
+                        <textarea id="message" name="message" rows="5"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="cta-button">Request Free Estimate</button>
+                    <div id="formMessage" class="form-message"></div>
+                </form>
+                
+                <div class="contact-info">
+                    <h3>Serving the United States</h3>
+                    <p>Nationwide driveway installation and repair services across all 50 states</p>
+                    
+                    <div class="info-item">
+                        <strong>📍 Service Area:</strong> Nationwide across the United States
+                    </div>
+                    <div class="info-item">
+                        <strong>⏰ Hours:</strong> Mon-Sat 7:00 AM - 6:00 PM
+                    </div>
+                    <div class="info-item">
+                        <strong>📞 Call:</strong> (800) 555-DRWY
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Drivewayz USA. Licensed & Insured. Serving the United States with Pride.</p>
+            <p class="footer-links">
+                <a href="/for-homeowners/">For Homeowners</a> &bull;
+                <a href="/for-contractors/">For Contractors</a> &bull;
+                <a href="/#services">Services</a> &bull;
+                <a href="/locations/">Locations</a> &bull;
+                <a href="/guides-hub/">Guides</a> &bull;
+                <a href="#homeowner-estimate">Contact</a> &bull;
+                <a href="#">Privacy Policy</a>
+            </p>
+        </div>
+    </footer>
+    <script src="/main.js?v=4" defer></script>
+
+    <script>
+    function toggleFaq(btn) {
+      btn.parentElement.classList.toggle('open');
+    }
+    </script>
+
+    <!-- Seasonal opt-in form handler -->
+    <script>
+    document.getElementById('seasonalForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      var form = e.target;
+      var btn = form.querySelector('button[type="submit"]');
+      var email = document.getElementById('seasonalEmail').value.trim();
+      btn.disabled = true;
+      btn.textContent = 'Subscribing...';
+      try {
+        var res = await fetch('https://drivewayzusa.app.n8n.cloud/webhook/4a46a030-9b41-482a-abf5-4724062aec71', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            firstName: '',
+            lastName: '',
+            email: email,
+            phone: '',
+            persona: 'homeowner',
+            source: 'seasonal_optin',
+            message: 'Seasonal maintenance email opt-in'
+          })
+        });
+        if (res.ok) {
+          gtag('event', 'email_subscribe', {
+            event_category: 'engagement',
+            event_label: 'seasonal_optin',
+            value: 1
+          });
+          form.style.display = 'none';
+          document.getElementById('seasonalSuccess').style.display = 'block';
+        } else {
+          btn.disabled = false;
+          btn.textContent = 'Subscribe - It\'s Free';
+          alert('Something went wrong. Please try again.');
+        }
+      } catch (err) {
+        btn.disabled = false;
+        btn.textContent = 'Subscribe - It\'s Free';
+        alert('Network error. Please try again later.');
+      }
+    });
+    </script>
+
+    <!-- Progressive disclosure: show/hide "Other" text field + conditional required -->
+    <script>
+    (function() {
+      var otherCheckbox = document.getElementById('needsOtherCheckbox');
+      var otherWrapper = document.getElementById('needsOtherWrapper');
+      var otherText = document.getElementById('needsOtherText');
+      if (otherCheckbox && otherWrapper && otherText) {
+        otherCheckbox.addEventListener('change', function() {
+          if (this.checked) {
+            otherWrapper.style.maxHeight = '120px';
+            otherWrapper.style.opacity = '1';
+            otherWrapper.style.marginTop = '0.75rem';
+            otherText.required = true;
+            otherText.focus();
+          } else {
+            otherWrapper.style.maxHeight = '0';
+            otherWrapper.style.opacity = '0';
+            otherWrapper.style.marginTop = '0';
+            otherText.required = false;
+            otherText.value = '';
+            otherText.style.borderColor = '';
+          }
+        });
+      }
+    })();
+    </script>
+
+    <!-- n8n Webhook Form Handler -->
+    <script>
+    document.getElementById("contactForm").addEventListener("submit", async function(e) {
+        e.preventDefault();
+        var form = e.target;
+        var submitBtn = form.querySelector('button[type="submit"]');
+        var msgDiv = document.getElementById("formMessage");
+        var fullName = document.getElementById("name").value.trim();
+        var nameParts = fullName.split(" ");
+        var firstName = nameParts[0] || "";
+        var lastName = nameParts.slice(1).join(" ") || "";
+
+        // Validate: if "Other" is checked, the text field must not be empty
+        var otherCb = document.getElementById('needsOtherCheckbox');
+        var otherTxt = document.getElementById('needsOtherText');
+        if (otherCb && otherCb.checked && (!otherTxt.value || !otherTxt.value.trim())) {
+          otherTxt.style.borderColor = '#e74c3c';
+          otherTxt.focus();
+          var wrapper = document.getElementById('needsOtherWrapper');
+          if (wrapper) {
+            wrapper.style.maxHeight = '120px';
+            wrapper.style.opacity = '1';
+            wrapper.style.marginTop = '0.75rem';
+          }
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Request Free Estimate';
+          return;
+        }
+
+        var data = {
+            firstName: firstName,
+            lastName: lastName,
+            email: document.getElementById("email").value.trim(),
+            phone: document.getElementById("phone").value.trim(),
+            needs: (function() {
+              var checked = [];
+              document.querySelectorAll('input[name="needs"]:checked').forEach(function(cb) {
+                checked.push(cb.value);
+              });
+              return checked;
+            })(),
+            needsOther: document.getElementById('needsOtherText').value.trim(),
+            message: document.getElementById("message").value.trim(),
+            zip: document.getElementById("zip").value.trim(),
+            persona: form.querySelector('input[name="persona"]').value,
+            source: form.querySelector('input[name="source"]').value
+        };
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Sending...";
+
+        try {
+            var res = await fetch("https://drivewayzusa.app.n8n.cloud/webhook/4a46a030-9b41-482a-abf5-4724062aec71", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data)
+            });
+            if (res.ok) {
+                gtag('event', 'generate_lead', {
+                    'event_category': 'form',
+                    'event_label': 'free_estimate',
+                    'value': 1
+                });
+                window.location.href = '/thank-you-homeowner/';
+                return;
+            } else {
+                msgDiv.textContent = "Something went wrong. Please try again.";
+                msgDiv.style.color = "red";
+            }
+        } catch (err) {
+            msgDiv.textContent = "Network error. Please try again later.";
+            msgDiv.style.color = "red";
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.textContent = "Request Free Estimate";
+        }
+    });
+    </script>
+    <script src="/js/seo.js"></script>
+
+    <script>
+    (function() {
+        var logoLink = document.querySelector('.logo a[href="/"]');
+        if (!logoLink) return;
+        logoLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.location.href = '/';
+        });
+    })();
+    </script>
+    <!-- Mobile Nav Toggle -->
+    <script>
+    (function() {
+        var hamburger = document.getElementById('hamburger');
+        var navLinks = document.querySelector('.nav-links');
+        var overlay = document.getElementById('nav-overlay');
+
+        function toggleMenu() {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            overlay.classList.toggle('active');
+            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+        }
+
+        if (hamburger) {
+            hamburger.addEventListener('click', toggleMenu);
+        }
+        if (overlay) {
+            overlay.addEventListener('click', toggleMenu);
+        }
+
+        navLinks.querySelectorAll('a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                if (navLinks.classList.contains('active')) {
+                    toggleMenu();
+                }
+            });
+        });
+    })();
+    </script>
+</body>
+</html>

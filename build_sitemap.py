@@ -22,9 +22,13 @@ TODAY = date.today().isoformat()
 
 # Core pages: (path, priority, changefreq)
 CORE_PAGES = [
-    ("/",              "1.0", "weekly"),
-    ("/guides-hub/", "0.9", "daily"),
-    ("/locations/",  "0.9", "monthly"),
+    ("/",                    "1.0", "weekly"),
+    ("/guides-hub/",         "0.9", "daily"),
+    ("/locations/",          "0.9", "monthly"),
+    ("/for-homeowners/",     "0.9", "monthly"),
+    ("/for-contractors/",     "0.9", "monthly"),
+    ("/cost-calculator/",     "0.8", "monthly"),
+    ("/for-homeowners-quiz/", "0.8", "monthly"),
 ]
 
 

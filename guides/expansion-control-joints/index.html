@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/main.css">
     <style>
         :root { --guide-primary: #6b21a8; --guide-primary-light: #a855f7; --guide-primary-dark: #581c87; --guide-accent: #06b6d4; --guide-bg: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 50%, #e9d5ff 100%); }
+        html, body { overflow-x: hidden; width: 100%; }
         body { background: var(--guide-bg); background-attachment: fixed; }
         .guide-hero { position: relative; min-height: 500px; display: flex; align-items: center; margin-top: 100px; background: linear-gradient(135deg, #6b21a8 0%, #a855f7 50%, #7c3aed 100%); overflow: hidden; }
         .guide-hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E"); }
@@ -70,7 +71,7 @@
         .faq-toggle { font-size: 1.3rem; transition: transform .3s; }
         .faq-item.open .faq-toggle { transform: rotate(45deg); }
         @media (max-width: 1024px) { .guide-content-wrapper { grid-template-columns: 1fr; } .guide-sidebar { position: static; order: -1; } }
-        @media (max-width: 768px) { .guide-hero h1 { font-size: 2rem; } .guide-main { padding: 1.5rem; } .guide-actions { flex-direction: column; } .tabs-container { padding: 0 1rem; } }
+        @media (max-width: 768px) { .guide-hero{width:100vw;margin-left:calc(-50vw + 50%);} .comparison-table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;} .material-stats{grid-template-columns:1fr;} .pros-cons{grid-template-columns:1fr;}  .guide-hero h1 { font-size: 2rem; } .guide-main { padding: 1.5rem; } .guide-actions { flex-direction: column; } .tabs-container { padding: 0 1rem; } }
     </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-V08M9YKRR7"></script>
@@ -88,12 +89,12 @@
             <div class="logo"><a href="/"><img src="/images/logov3.png?v=3" alt="Drivewayz USA" onerror="this.style.display='none'"></a></div>
             <ul class="nav-links">
                 <li><a href="/#home">Home</a></li>
-                <li><a href="/for-homeowners.html">For Homeowners</a> • <a href="/for-contractors.html">For Contractors</a> • <a href="/#services">Services</a></li>
+                <li><a href="/#services">Services</a></li>
                 <li><a href="/#why-choose">Why Us</a></li>
                 <li><a href="/locations/">Locations</a></li>
                 <li><a href="/guides-hub/" style="color: var(--primary-color);">Guides</a></li>
-                
-                <li><a href="/for-homeowners.html">For Homeowners</a></li>
+                <li><a href="/for-homeowners/">For Homeowners</a></li>
+                <li><a href="/for-contractors/">For Contractors</a></li>
                 <li><a href="/#contact">Contact</a></li>
             </ul>
             <button class="cta-button-small" onclick="window.location.href='/#contact'">Free Estimate</button>
@@ -344,12 +345,20 @@
         </div>
     </section>
 
+    <nav class="guide-internal-links" aria-label="Related pages" style="max-width:1400px;margin:0 auto 2rem;padding:0 2rem;">
+  <ul style="list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;font-size:.95rem;">
+    <li><a href="/guides-hub/">View all driveway guides</a></li>
+  </ul>
+</nav>
+
+
+
     <footer class="footer" style="margin-top: 4rem;">
         <div class="container">
             <p>&copy; 2026 Drivewayz USA. Licensed & Insured. Serving the United States with Pride.</p>
             <p class="footer-links">
-                <a href="/for-homeowners.html">For Homeowners</a> •
-                <a href="/for-contractors.html">For Contractors</a> •
+                <a href="/for-homeowners/">For Homeowners</a> •
+                <a href="/for-contractors/">For Contractors</a> •
                 <a href="/#services">Services</a> •
                 <a href="/guides-hub/">Guides</a> •
                 <a href="/#contact">Contact</a> •

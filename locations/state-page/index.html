@@ -399,6 +399,37 @@
             content: "↗";
             font-size: 0.9rem;
         }
+        .featured-guides-section .section-sub {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+        .featured-guides-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 auto 1.5rem;
+            max-width: 600px;
+        }
+        .featured-guides-list li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .featured-guides-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: 700;
+        }
+        .featured-guides-list .resource-link::after {
+            content: none;
+        }
+        .more-guides-link {
+            text-align: center;
+            margin-top: 1rem;
+        }
 
         /* Why Choose Section */
         .why-section {
@@ -628,7 +659,8 @@
                 <li><a href="#why-choose">Why Us</a></li>
                 <li><a href="/locations/" class="active">Locations</a></li>
                 <li><a href="/guides-hub/">Guides</a></li>
-                <li><a href="/for-homeowners.html">For Homeowners</a></li>
+                <li><a href="/for-homeowners/">For Homeowners</a></li>
+                <li><a href="/for-contractors/">For Contractors</a></li>
                 <li><a href="/#contact">Contact</a></li>
             </ul>
             <button class="cta-button-small" onclick="window.location.href='/#contact'">Free Estimate</button>
@@ -652,12 +684,15 @@
                 <p>Professional driveway services across all 50 states.</p>
             </div>
             <div class="footer-section">
-                <h4>Quick Links</h4>
-                <a href="/for-homeowners.html">For Homeowners</a>
-                <a href="/for-contractors.html">For Contractors</a>
-                <a href="/">Home</a>
-                <a href="/locations/" class="active">Locations</a>
-                <a href="/#services">Services</a>
+                <p class="footer-links">
+                    <a href="/for-homeowners/">For Homeowners</a> &bull;
+                    <a href="/for-contractors/">For Contractors</a> &bull;
+                    <a href="/#services">Services</a> &bull;
+                    <a href="/locations/">Locations</a> &bull;
+                    <a href="/guides-hub/">Guides</a> &bull;
+                    <a href="/#contact">Contact</a> &bull;
+                    <a href="#">Privacy Policy</a>
+                </p>
             </div>
             <div class="footer-section">
                 <h4>Contact</h4>

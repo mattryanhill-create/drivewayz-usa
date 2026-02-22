@@ -9,6 +9,8 @@ import re
 import os
 import html
 
+from state_guides import build_state_guides_map
+
 # Config
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 LOCATIONS_DIR = os.path.join(PROJECT_ROOT, "locations")
@@ -226,7 +228,18 @@ def build_state_html(state_name: str, slug: str, data: dict) -> str:
     title = f"{state_name} Driveway Services | Drivewayz USA"
     meta_desc = f"Professional driveway installation and repair in {state_name}. Expert services for {state_name}'s unique climate. Free estimates. Call today."
     if data["climate_summary"]:
-        meta_desc = data["climate_summary"][:155] + "..." if len(data["climate_summary"]) > 155 else data["climate_summary"]
+        raw = data["climate_summary"]
+        if len(raw) > 157:
+            # Truncate to 140-160 chars at word boundary
+            raw = raw[:157].rsplit(" ", 1)[0]
+            meta_desc = raw + "..." if not raw.endswith(".") else raw
+        else:
+            meta_desc = raw
+    # Ensure meta description is 140-160 chars for SEO
+    if len(meta_desc) < 140:
+        suffix = " Free estimates. Call today."
+        meta_desc = (meta_desc.rstrip(". …") + suffix) if len(meta_desc.rstrip(". …")) + len(suffix) <= 160 else meta_desc
+    meta_desc = meta_desc[:160] if len(meta_desc) > 160 else meta_desc
 
     # Hero gradient - use consistent brand colors
     gradient = "linear-gradient(135deg, #2B5797 0%, #5B9BD5 50%, #4A90D9 100%)"
@@ -369,9 +382,29 @@ def build_state_html(state_name: str, slug: str, data: dict) -> str:
             f"        </section>\n"
         )
 
-    # Resources section
+    # Featured guides section (state-specific internal links) or fallback to Related Resources
     res_section = ""
-    if resources_html:
+    state_guides_map = build_state_guides_map(max_per_state=5)
+    featured_guides = state_guides_map.get(slug, [])
+
+    if featured_guides:
+        guides_list = "\n".join(
+            f'                <li><a href="/guides/{html.escape(gs)}/" class="resource-link">{html.escape(title)}</a></li>'
+            for gs, title in featured_guides
+        )
+        res_section = (
+            f"        <section class=\"resources-section featured-guides-section\">\n"
+            f"            <div class=\"container\">\n"
+            f"                <h3>Featured Driveway Guides for {state_name}</h3>\n"
+            f"                <p class=\"section-sub\">Essential reading for {state_name} homeowners planning a driveway project</p>\n"
+            f"                <ul class=\"featured-guides-list\">\n"
+            f"{guides_list}\n"
+            f"                </ul>\n"
+            f"                <p class=\"more-guides-link\"><a href=\"/guides-hub/\" class=\"resource-link\">View all driveway guides</a></p>\n"
+            f"            </div>\n"
+            f"        </section>\n"
+        )
+    elif resources_html:
         res_section = (
             f"        <section class=\"resources-section\">\n"
             f"            <div class=\"container\">\n"
@@ -383,14 +416,19 @@ def build_state_html(state_name: str, slug: str, data: dict) -> str:
             f"        </section>\n"
         )
 
+    # Hero image: use state-specific if exists, else gradient-only (no img)
+    hero_img_path = f"/images/hero-{slug}.webp"
+    hero_img_html = f'''            <img src="{hero_img_path}" alt="{html.escape(state_name)} driveway services — Drivewayz USA" class="state-hero-img" width="1200" height="630" loading="eager" fetchpriority="high">
+        '''
     # Build full content
     content_html = f'''    <!-- Main Content -->
     <main id="content">
         <!-- Hero Section -->
         <section class="state-hero" style="background: {gradient};">
+{hero_img_html}
             <div class="state-hero-content">
                 <span class="state-badge">{abbr}</span>
-                <h1>{html.escape(state_name)}</h1>
+                <h1>{html.escape(state_name)} Driveway Services</h1>
                 <p class="tagline">{html.escape(hero_tagline)}</p>
                 <a href="/#contact" class="btn-primary">Get Your Free Estimate</a>
             </div>

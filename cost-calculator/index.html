@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driveway Cost Calculator | Drivewayz USA</title>
+    <meta name="description" content="Estimate your driveway project cost by material, size, and region. Free instant calculator.">
+    <link rel="canonical" href="https://drivewayzusa.co/cost-calculator/">
+    <link rel="stylesheet" href="/main.css?v=6">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-V08M9YKRR7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-V08M9YKRR7');
+</script>
+<style>
+.calc-section { padding: 4rem 0; background: var(--bg-light); }
+.calc-card { background: #fff; border-radius: 16px; padding: 2.5rem; box-shadow: var(--shadow); max-width: 640px; margin: 0 auto 2rem; }
+.calc-card h2 { font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--text-dark); }
+.calc-form .form-row { margin-bottom: 1.5rem; }
+.calc-form .form-row:last-of-type { margin-bottom: 2rem; }
+.radio-group { display: flex; flex-direction: column; gap: 0.75rem; }
+.radio-group label { display: flex; align-items: center; gap: 0.5rem; font-weight: normal; cursor: pointer; }
+.radio-group input { width: auto; }
+.result-card { background: linear-gradient(135deg, #e8f4fc 0%, #d4eaf7 100%); border: 2px solid var(--primary-color); border-radius: 12px; padding: 2rem; margin-top: 2rem; display: none; }
+.result-card.visible { display: block; }
+.result-card h3 { font-size: 1.1rem; color: var(--text-dark); margin-bottom: 0.75rem; }
+.result-estimate { font-size: 2rem; font-weight: 800; color: var(--primary-dark); margin: 0.5rem 0; }
+.result-detail { font-size: 0.95rem; color: var(--text-light); margin: 0.25rem 0; }
+.result-disclaimer { font-size: 0.85rem; color: var(--text-light); margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid rgba(0,0,0,0.1); }
+.calc-cta { text-align: center; margin-top: 1.5rem; }
+.calc-cta p { margin-bottom: 1rem; font-weight: 600; color: var(--text-dark); }
+.comparison-table { width: 100%; border-collapse: collapse; margin-top: 1rem; font-size: 0.95rem; }
+.comparison-table th, .comparison-table td { padding: 0.75rem; text-align: left; border: 1px solid var(--border-color); }
+.comparison-table th { background: var(--primary-color); color: white; font-weight: 600; }
+.comparison-table tr:nth-child(even) { background: rgba(255,255,255,0.6); }
+@media (max-width: 768px) { .calc-card { padding: 1.5rem; } .result-estimate { font-size: 1.5rem; } }
+@media (max-width: 600px) { .form-row { grid-template-columns: 1fr !important; } }
+</style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <a href="/"><img src="/images/logov3.png?v=3" alt="Drivewayz USA" onerror="this.style.display='none'"></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/#home">Home</a></li>
+                <li><a href="/#services">Services</a></li>
+                <li><a href="/#why-choose">Why Us</a></li>
+                <li><a href="/locations/">Locations</a></li>
+                <li><a href="/guides-hub/">Guides</a></li>
+                <li><a href="/for-homeowners/">For Homeowners</a></li>
+                <li><a href="/cost-calculator/" style="color: var(--primary-color); font-weight: 600;">Cost Calculator</a></li>
+                <li><a href="/for-contractors/">For Contractors</a></li>
+                <li><a href="/#contact">Contact</a></li>
+            </ul>
+            <button class="cta-button-small" onclick="window.location.href='/for-homeowners/#homeowner-estimate'">Free Estimate</button>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+    <div class="nav-overlay" id="nav-overlay"></div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <h1 class="hero-title">Driveway Cost Calculator</h1>
+            <p class="hero-subtitle">Get an instant estimate based on your material, driveway size, and location.</p>
+        </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section class="calc-section">
+        <div class="container">
+            <div class="calc-card">
+                <h2>Estimate Your Project</h2>
+                <form id="calcForm" class="calc-form contact-form">
+                    <div class="form-row" style="grid-template-columns: 1fr;">
+                        <div class="form-group">
+                            <label for="material">Driveway Material</label>
+                            <select id="material" name="material" required>
+                                <option value="concrete">Concrete ($8-$15/sqft)</option>
+                                <option value="asphalt">Asphalt ($3-$7/sqft)</option>
+                                <option value="gravel">Gravel ($1-$3/sqft)</option>
+                                <option value="pavers">Pavers ($10-$30/sqft)</option>
+                                <option value="chipseal">Chip Seal ($2.50-$4/sqft)</option>
+                                <option value="exposed">Exposed Aggregate ($10-$18/sqft)</option>
+                                <option value="cobblestone">Cobblestone ($15-$30/sqft)</option>
+                                <option value="stamped">Stamped Concrete ($12-$20/sqft)</option>
+                                <option value="notsure">Not Sure</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row" style="grid-template-columns: 1fr 1fr;">
+                        <div class="form-group">
+                            <label for="length">Driveway Length (ft)</label>
+                            <input type="number" id="length" name="length" value="50" min="5" max="500" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="width">Driveway Width (ft)</label>
+                            <input type="number" id="width" name="width" value="12" min="6" max="50" required>
+                        </div>
+                    </div>
+                    <div class="form-row" style="grid-template-columns: 1fr;">
+                        <div class="form-group">
+                            <label for="region">Region</label>
+                            <select id="region" name="region">
+                                <option value="northeast">Northeast (+10%)</option>
+                                <option value="southeast">Southeast (base)</option>
+                                <option value="midwest">Midwest (-5%)</option>
+                                <option value="southwest">Southwest (base)</option>
+                                <option value="westcoast">West Coast (+15%)</option>
+                                <option value="mountainwest">Mountain West (-5%)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row" style="grid-template-columns: 1fr;">
+                        <div class="form-group">
+                            <label>Project Type</label>
+                            <div class="radio-group">
+                                <label><input type="radio" name="projectType" value="new" checked> New Installation</label>
+                                <label><input type="radio" name="projectType" value="replace"> Replace Existing (+20% for tearout)</label>
+                                <label><input type="radio" name="projectType" value="repair"> Repair/Resurface (50% of full cost)</label>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" id="calcBtn" class="cta-button">Calculate Estimate</button>
+                </form>
+
+                <div id="resultSingle" class="result-card">
+                    <h3>Your Estimate</h3>
+                    <p class="result-detail"><strong>Square footage:</strong> <span id="resultSqft">0</span> sq ft</p>
+                    <p class="result-detail"><strong>Region modifier:</strong> <span id="resultModifier">—</span></p>
+                    <p class="result-estimate" id="resultRange">Estimated Cost: $0 - $0</p>
+                    <p class="result-disclaimer">This is a rough estimate. Actual costs depend on site conditions, grading, drainage, and local labor rates.</p>
+                    <div class="calc-cta">
+                        <p>Want an exact quote?</p>
+                        <a href="/for-homeowners/#homeowner-estimate" class="cta-band-button primary">Get your free estimate</a>
+                    </div>
+                </div>
+
+                <div id="resultCompare" class="result-card" style="display:none;">
+                    <h3>Material Comparison</h3>
+                    <p class="result-detail"><strong>Square footage:</strong> <span id="compareSqft">0</span> sq ft</p>
+                    <p class="result-detail"><strong>Region modifier:</strong> <span id="compareModifier">—</span></p>
+                    <div style="overflow-x: auto;">
+                        <table class="comparison-table" id="compareTable">
+                            <thead><tr><th>Material</th><th>Low Estimate</th><th>High Estimate</th></tr></thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                    <p class="result-disclaimer">This is a rough estimate. Actual costs depend on site conditions, grading, drainage, and local labor rates.</p>
+                    <div class="calc-cta">
+                        <p>Want an exact quote?</p>
+                        <a href="/for-homeowners/#homeowner-estimate" class="cta-band-button primary">Get your free estimate</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Drivewayz USA. Licensed & Insured. Serving the United States with Pride.</p>
+            <p class="footer-links">
+                <a href="/for-homeowners/">For Homeowners</a> &bull;
+                <a href="/for-contractors/">For Contractors</a> &bull;
+                <a href="/#services">Services</a> &bull;
+                <a href="/locations/">Locations</a> &bull;
+                <a href="/guides-hub/">Guides</a> &bull;
+                <a href="/#contact">Contact</a> &bull;
+                <a href="#">Privacy Policy</a>
+            </p>
+        </div>
+    </footer>
+    <script src="/main.js?v=4" defer></script>
+    <script>
+    (function() {
+        var MATERIALS = {
+            concrete: { name: 'Concrete', low: 8, high: 15 },
+            asphalt: { name: 'Asphalt', low: 3, high: 7 },
+            gravel: { name: 'Gravel', low: 1, high: 3 },
+            pavers: { name: 'Pavers', low: 10, high: 30 },
+            chipseal: { name: 'Chip Seal', low: 2.5, high: 4 },
+            exposed: { name: 'Exposed Aggregate', low: 10, high: 18 },
+            cobblestone: { name: 'Cobblestone', low: 15, high: 30 },
+            stamped: { name: 'Stamped Concrete', low: 12, high: 20 }
+        };
+        var REGIONS = {
+            northeast: { name: 'Northeast', mod: 1.1 },
+            southeast: { name: 'Southeast', mod: 1 },
+            midwest: { name: 'Midwest', mod: 0.95 },
+            southwest: { name: 'Southwest', mod: 1 },
+            westcoast: { name: 'West Coast', mod: 1.15 },
+            mountainwest: { name: 'Mountain West', mod: 0.95 }
+        };
+        var PROJECT_TYPES = { new: 1, replace: 1.2, repair: 0.5 };
+
+        function fmt(n) { return Math.round(n).toLocaleString(); }
+
+        function calc() {
+            var length = parseFloat(document.getElementById('length').value) || 50;
+            var width = parseFloat(document.getElementById('width').value) || 12;
+            var sqft = length * width;
+            var regionKey = document.getElementById('region').value;
+            var projectKey = document.querySelector('input[name="projectType"]:checked').value;
+            var region = REGIONS[regionKey];
+            var projectMod = PROJECT_TYPES[projectKey];
+            var modLabel = region.mod === 1 ? 'Base (no change)' : (region.mod > 1 ? '+' + Math.round((region.mod - 1) * 100) + '%' : Math.round((region.mod - 1) * 100) + '%');
+            var modifier = region.mod * projectMod;
+
+            var materialKey = document.getElementById('material').value;
+            var single = materialKey !== 'notsure';
+
+            if (single) {
+                var m = MATERIALS[materialKey];
+                var low = sqft * m.low * modifier;
+                var high = sqft * m.high * modifier;
+                var mid = (low + high) / 2;
+
+                document.getElementById('resultSingle').classList.add('visible');
+                document.getElementById('resultCompare').style.display = 'none';
+                document.getElementById('resultSqft').textContent = fmt(sqft);
+                document.getElementById('resultModifier').textContent = modLabel + (projectMod !== 1 ? ' | ' + (projectMod === 1.2 ? '+20% tearout' : '50% resurface') : '');
+                document.getElementById('resultRange').textContent = 'Estimated Cost: $' + fmt(low) + ' - $' + fmt(high);
+
+                if (typeof gtag === 'function') {
+                    gtag('event', 'calculator_use', { event_category: 'tool', event_label: materialKey, value: mid });
+                }
+            } else {
+                document.getElementById('resultSingle').classList.remove('visible');
+                document.getElementById('resultCompare').style.display = 'block';
+                document.getElementById('compareSqft').textContent = fmt(sqft);
+                document.getElementById('compareModifier').textContent = modLabel + (projectMod !== 1 ? ' | ' + (projectMod === 1.2 ? '+20% tearout' : '50% resurface') : '');
+
+                var tbody = document.getElementById('compareTable').querySelector('tbody');
+                tbody.innerHTML = '';
+                var totalMid = 0;
+                for (var k in MATERIALS) {
+                    var mat = MATERIALS[k];
+                    var lo = sqft * mat.low * modifier;
+                    var hi = sqft * mat.high * modifier;
+                    totalMid += (lo + hi) / 2;
+                    var tr = document.createElement('tr');
+                    tr.innerHTML = '<td>' + mat.name + '</td><td>$' + fmt(lo) + '</td><td>$' + fmt(hi) + '</td>';
+                    tbody.appendChild(tr);
+                }
+
+                if (typeof gtag === 'function') {
+                    gtag('event', 'calculator_use', { event_category: 'tool', event_label: 'notsure', value: totalMid / 8 });
+                }
+            }
+        }
+
+        document.getElementById('calcBtn').addEventListener('click', function(e) { e.preventDefault(); calc(); });
+    })();
+    </script>
+    <script>
+    (function() {
+        var hamburger = document.getElementById('hamburger');
+        var navLinks = document.querySelector('.nav-links');
+        var overlay = document.getElementById('nav-overlay');
+        function toggleMenu() {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            overlay.classList.toggle('active');
+            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+        }
+        if (hamburger) hamburger.addEventListener('click', toggleMenu);
+        if (overlay) overlay.addEventListener('click', toggleMenu);
+        if (navLinks) navLinks.querySelectorAll('a').forEach(function(l) { l.addEventListener('click', function() { if (navLinks.classList.contains('active')) toggleMenu(); }); });
+    })();
+    </script>
+</body>
+</html>

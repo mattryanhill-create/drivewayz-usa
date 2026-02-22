@@ -843,18 +843,59 @@ section {
     color: var(--primary-dark);
 }
 
-/* ----- Guide Hero SEO Image ----- */
-/* Hide visually but keep in DOM for crawlers (Google). Does not duplicate background. */
+/* ----- Guide Hero: Crawlable <img> as visual source ----- */
 .guide-hero-img {
     position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+/* When img is present, it provides the hero image; gradient overlay via ::after */
+.guide-hero:has(.guide-hero-img) {
+    background-image: none !important;
+}
+.guide-hero:has(.guide-hero-img)::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(55,65,81,.55) 0%, rgba(31,41,55,.55) 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+.guide-hero--stone:has(.guide-hero-img)::after {
+    background: linear-gradient(135deg, rgba(120,113,108,.65) 0%, rgba(168,162,158,.6) 50%, rgba(168,162,158,.6) 100%);
+}
+.guide-hero:has(.guide-hero-img)::before {
+    z-index: 2;
+}
+.guide-hero:has(.guide-hero-img) .guide-hero-content {
+    z-index: 3;
+}
+
+/* ----- State Hero: Crawlable <img> as visual source ----- */
+.state-hero-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+.state-hero:has(.state-hero-img) {
+    background: none !important;
+}
+.state-hero:has(.state-hero-img)::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(43, 87, 151, 0.8), rgba(91, 155, 213, 0.6));
+    z-index: 1;
+    pointer-events: none;
+}
+.state-hero:has(.state-hero-img) .state-hero-content {
+    z-index: 3;
 }
 
 .contact {

@@ -35,8 +35,9 @@
                 <li><a href="#why-choose">Why Us</a></li>
                                 <li><a href="/locations/">Locations</a></li>
                 <li><a href="/guides-hub/">Guides</a></li>
-                <li><a href="/for-homeowners.html">For Homeowners</a></li>
-                                <li><a href="/for-contractors.html">For Contractors</a></li>
+                <li><a href="/for-homeowners/">For Homeowners</a></li>
+                <li><a href="/cost-calculator/">Cost Calculator</a></li>
+                                <li><a href="/for-contractors/">For Contractors</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <button class="cta-button-small" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Free Estimate</button>
@@ -92,7 +93,7 @@
                 </a>
 
                 <!-- Exposed Aggregate Concrete -->
-                <a class="service-card" href="/guides/exposed-aggregate-driveway/">
+                <a class="service-card" href="/guides/exposed-aggregate-concrete-driveway-guide/">
                     <div class="service-icon">✨</div>
                     <h3>Exposed Aggregate Concrete</h3>
                     <p>Stunning decorative finish that reveals natural stone textures. Slip-resistant and exceptionally durable for high-traffic areas.</p>
@@ -106,7 +107,7 @@
                 </a>
 
                 <!-- Pavestone Driveways -->
-                <a class="service-card" href="/guides/pavestone-driveway/">
+                <a class="service-card" href="/guides/paver-driveway-installation-step-by-step-guide/">
                     <div class="service-icon">🧱</div>
                     <h3>Pavestone Driveways</h3>
                     <p>Interlocking pavers in unlimited design options. Easy to repair, permeable drainage, and instant curb appeal for modern homes.</p>
@@ -252,7 +253,7 @@
         <p style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; color: #e94560; margin-bottom: 10px; font-weight: 600;">For Driveway Professionals</p>
         <h2 style="font-size: 2rem; color: #ffffff; margin-bottom: 15px; font-weight: 700;">Are You a Contractor?</h2>
         <p style="font-size: 1.1rem; color: #b0b0b0; margin-bottom: 30px; line-height: 1.6;">Join our network and get matched with pre-qualified homeowners in your area. No monthly fees. No long-term contracts.</p>
-        <a href="/for-contractors.html" style="display: inline-block; padding: 14px 36px; background-color: #e94560; color: #ffffff; text-decoration: none; border-radius: 8px; font-size: 1rem; font-weight: 600; transition: background-color 0.3s ease;">Learn More &amp; Apply</a>
+        <a href="/for-contractors/" style="display: inline-block; padding: 14px 36px; background-color: #e94560; color: #ffffff; text-decoration: none; border-radius: 8px; font-size: 1rem; font-weight: 600; transition: background-color 0.3s ease;">Learn More &amp; Apply</a>
       </div>
     </section>
 
@@ -337,11 +338,12 @@
         <div class="container">
             <p>&copy; 2026 Drivewayz USA. Licensed & Insured. Serving the United States with Pride.</p>
             <p class="footer-links">
-                <a href="/for-homeowners.html">For Homeowners</a> •
-                <a href="/for-contractors.html">For Contractors</a> •
-                <a href="#services">Services</a> • <a href="/locations/">Locations</a> • 
-                <a href="/guides-hub/">Guides</a> • 
-                <a href="#contact">Contact</a> • 
+                <a href="/for-homeowners/">For Homeowners</a> &bull;
+                <a href="/for-contractors/">For Contractors</a> &bull;
+                <a href="/#services">Services</a> &bull;
+                <a href="/locations/">Locations</a> &bull;
+                <a href="/guides-hub/">Guides</a> &bull;
+                <a href="/#contact">Contact</a> &bull;
                 <a href="#">Privacy Policy</a>
             </p>
         </div>
@@ -385,15 +387,8 @@
                     'event_label': 'free_estimate',
                     'value': 1
                 });
-                msgDiv.textContent = "Thank you! We will be in touch shortly.";
-                msgDiv.style.color = "green";
-                form.reset();
-                submitBtn.textContent = "\u2713 Submission Complete";
-                submitBtn.style.backgroundColor = "#28a745";
-                submitBtn.style.borderColor = "#28a745";
-                submitBtn.style.cursor = "default";
-                submitBtn.disabled = true;
-                submitBtn.classList.add("submitted");
+                window.location.href = '/thank-you-homeowner/';
+                return;
             } else {
                 msgDiv.textContent = "Something went wrong. Please try again.";
                 msgDiv.style.color = "red";
@@ -402,10 +397,8 @@
             msgDiv.textContent = "Network error. Please try again later.";
             msgDiv.style.color = "red";
         } finally {
-                if (!submitBtn.classList.contains("submitted")) {
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = "Request Free Estimate";
-                }
+            submitBtn.disabled = false;
+            submitBtn.textContent = "Request Free Estimate";
         }
     });
     </script>
