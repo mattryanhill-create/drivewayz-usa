@@ -42,12 +42,13 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar" id="navbar">
+    <header class="site-header navbar" id="navbar">
         <div class="container nav-container">
             <div class="logo">
                 <a href="/"><img src="/images/logov3.png?v=3" alt="Drivewayz USA" onerror="this.style.display='none'"></a>
             </div>
-            <ul class="nav-links">
+            <nav class="main-nav" aria-label="Main navigation">
+                <ul class="main-nav__list nav-links" id="main-nav-menu">
                 <li><a href="/#home">Home</a></li>
                 <li><a href="/#services">Services</a></li>
                 <li><a href="/#why-choose">Why Us</a></li>
@@ -58,12 +59,13 @@
                 <li><a href="/for-contractors/">For Contractors</a></li>
                 <li><a href="/#contact">Contact</a></li>
             </ul>
-            <button class="cta-button-small" onclick="window.location.href='/for-homeowners/#homeowner-estimate'">Free Estimate</button>
-            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                </nav>
+                <button class="cta-button-small" onclick="window.location.href='/for-homeowners/#homeowner-estimate'">Free Estimate</button>
+            <button class="nav-toggle hamburger" id="hamburger" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-nav-menu">
                 <span></span><span></span><span></span>
             </button>
         </div>
-    </nav>
+    </header>
     <div class="nav-overlay" id="nav-overlay"></div>
 
     <!-- Hero Section -->

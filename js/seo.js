@@ -36,3 +36,44 @@
     window.gtag('config', GA_ID);
   }
 })();
+
+// ===========================================
+// NAV TOGGLE - Responsive hamburger menu
+// ===========================================
+document.addEventListener('DOMContentLoaded', function() {
+  var header = document.querySelector('.site-header, .navbar');
+  var toggle = document.querySelector('.nav-toggle, .hamburger');
+  var nav = document.querySelector('.main-nav, .nav-links#main-nav-menu, .nav-links');
+  var overlay = document.getElementById('nav-overlay');
+
+  if (!header || !toggle) return;
+
+  function toggleNav() {
+    var isOpen = header.classList.toggle('nav-open');
+    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    if (nav) nav.classList.toggle('active', isOpen);
+    toggle.classList.toggle('active', isOpen);
+    if (overlay) {
+      overlay.classList.toggle('active', isOpen);
+    }
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  }
+
+  toggle.addEventListener('click', function() {
+    toggleNav();
+  });
+
+  if (overlay) {
+    overlay.addEventListener('click', toggleNav);
+  }
+
+  if (nav) {
+    nav.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        if (header.classList.contains('nav-open')) {
+          toggleNav();
+        }
+      });
+    });
+  }
+});
