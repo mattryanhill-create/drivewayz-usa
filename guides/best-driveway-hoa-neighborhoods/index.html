@@ -263,7 +263,7 @@
   </div>
   <footer style="text-align:center;padding:3rem 2rem;color:var(--text-light);font-size:.9rem;">
     <p>&copy; 2026 Drivewayz USA. Licensed &amp; Insured. Serving the United States with Pride.</p>
-    <p><a href="/#services">Services</a> &bull; <a href="/guides-hub/">Guides</a> &bull; <a href="/#contact">Contact</a></p>
+    <p><a href="/for-homeowners.html">For Homeowners</a> &bull; <a href="/for-contractors.html">For Contractors</a> &bull; <a href="/#services">Services</a> &bull; <a href="/guides-hub/">Guides</a> &bull; <a href="/#contact">Contact</a></p>
   </footer>
   <script>
     document.addEventListener('DOMContentLoaded',function(){var sections=document.querySelectorAll('main section[id]');var tocLinks=document.querySelectorAll('.toc-link');var progressBar=document.getElementById('tocProgress');window.addEventListener('scroll',function(){var winH=document.documentElement.scrollHeight-window.innerHeight;var scrolled=(window.scrollY/winH)*100;if(progressBar)progressBar.style.width=scrolled+'%'});var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){tocLinks.forEach(function(link){link.classList.remove('active')});var activeLink=document.querySelector('.toc-link[data-section="'+entry.target.id+'"]');if(activeLink)activeLink.classList.add('active')}})},{rootMargin:'-20% 0px -60% 0px',threshold:0});sections.forEach(function(section){observer.observe(section)});tocLinks.forEach(function(link){link.addEventListener('click',function(e){e.preventDefault();var target=document.getElementById(this.getAttribute('data-section'));if(target){target.scrollIntoView({behavior:'smooth',block:'start'})}})})});
