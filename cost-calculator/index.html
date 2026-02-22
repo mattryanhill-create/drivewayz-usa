@@ -8,6 +8,8 @@
     <link rel="canonical" href="https://drivewayzusa.co/cost-calculator/">
     <link rel="stylesheet" href="/main.css?v=6">
 <!-- Google tag (gtag.js) -->
+<link rel="preconnect" href="https://www.googletagmanager.com">
+
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-V08M9YKRR7"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -31,6 +33,9 @@
 .result-detail { font-size: 0.95rem; color: var(--text-light); margin: 0.25rem 0; }
 .result-disclaimer { font-size: 0.85rem; color: var(--text-light); margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid rgba(0,0,0,0.1); }
 .calc-cta { text-align: center; margin-top: 1.5rem; }
+.calc-breadcrumb { position: absolute; top: 1rem; left: 2rem; z-index: 3; font-size: 0.9rem; }
+.calc-breadcrumb a { color: rgba(255,255,255,0.85); text-decoration: none; }
+.calc-breadcrumb a:hover { color: #fff; }
 .calc-cta p { margin-bottom: 1rem; font-weight: 600; color: var(--text-dark); }
 .comparison-table { width: 100%; border-collapse: collapse; margin-top: 1rem; font-size: 0.95rem; }
 .comparison-table th, .comparison-table td { padding: 0.75rem; text-align: left; border: 1px solid var(--border-color); }
@@ -45,7 +50,7 @@
     <header class="site-header navbar" id="navbar">
         <div class="container nav-container">
             <div class="logo">
-                <a href="/"><picture><source srcset="/images/logov3.webp" type="image/webp"><img src="/images/logov3.png?v=3" alt="Drivewayz USA" width="1536" height="1024" loading="eager" onerror="this.style.display='none'"></picture></a>
+                <a href="/"><picture><source srcset="/images/logov3-640.webp 640w, /images/logov3-1280.webp 1280w" type="image/webp"><img src="/images/logov3-640.png" srcset="/images/logov3-640.png 640w, /images/logov3-800.png 800w" alt="Drivewayz USA" width="1536" height="1024" loading="eager" onerror="this.style.display='none'"></picture></a>
             </div>
             <nav class="main-nav" aria-label="Main navigation">
                 <ul class="main-nav__list nav-links" id="main-nav-menu">
@@ -69,8 +74,9 @@
     <div class="nav-overlay" id="nav-overlay"></div>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <picture class="hero-bg-picture" style="position:absolute;inset:0;z-index:0;width:100%;height:100%;margin:0;padding:0;display:block;"><source srcset="/hero-driveway.webp" type="image/webp"><img src="/hero-driveway.jpg" alt="" width="7360" height="4912" loading="eager" fetchpriority="high" style="width:100%;height:100%;object-fit:cover;display:block;"></picture>
+    <section class="hero" style="position:relative;">
+        <div class="calc-breadcrumb"><a href="/">Home</a> / <span>Cost Calculator</span></div>
+        <picture class="hero-bg-picture" style="position:absolute;inset:0;z-index:0;width:100%;height:100%;margin:0;padding:0;display:block;"><source srcset="/hero-driveway-640.webp 640w, /hero-driveway-1280.webp 1280w" type="image/webp"><img src="/hero-driveway-640.jpg" srcset="/hero-driveway-640.jpg 640w, /hero-driveway-900.jpg 900w" alt="" width="7360" height="4912" loading="eager" fetchpriority="high" style="width:100%;height:100%;object-fit:cover;display:block;"></picture>
         <div class="hero-overlay"></div>
         <div class="container hero-content">
             <h1 class="hero-title">Driveway Cost Calculator</h1>

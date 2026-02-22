@@ -34,9 +34,14 @@
     .guide-meta{font-size:.85rem;color:var(--text-light);margin-bottom:.75rem;}
     .read-more{color:var(--primary-color);font-weight:600;text-decoration:none;font-size:.9rem;}
     .read-more:hover{color:var(--primary-dark);}
+    .guides-breadcrumb{position:absolute;top:1rem;left:2rem;z-index:3;font-size:.9rem;color:rgba(255,255,255,.9);}
+    .guides-breadcrumb a{color:rgba(255,255,255,.8);text-decoration:none;}
+    .guides-breadcrumb a:hover{color:#fff;}
     @media(max-width:768px){.guides-grid{grid-template-columns:1fr;}.guides-hero h1{font-size:2rem;}}
   </style>
   <!-- Google tag (gtag.js) -->
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-V08M9YKRR7"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -50,7 +55,7 @@
   <header class="site-header navbar" id="navbar">
     <div class="container nav-container">
       <div class="logo">
-        <a href="/"><picture><source srcset="/images/logov3.webp" type="image/webp"><img src="/images/logov3.png?v=3" alt="Drivewayz USA" width="1536" height="1024" loading="eager"></picture></a>
+        <a href="/"><picture><source srcset="/images/logov3-640.webp 640w, /images/logov3-1280.webp 1280w" type="image/webp"><img src="/images/logov3-640.png" srcset="/images/logov3-640.png 640w, /images/logov3-800.png 800w" alt="Drivewayz USA" width="1536" height="1024" loading="eager" onerror="this.style.display='none'"></picture></a>
       </div>
       <nav class="main-nav" aria-label="Main navigation">
                 <ul class="main-nav__list nav-links" id="main-nav-menu">
@@ -76,6 +81,7 @@
 
   <!-- Hero -->
   <section class="guides-hero">
+    <div class="guides-breadcrumb"><a href="/">Home</a> / <span>Guides</span></div>
     <div class="guides-hero-content">
       <h1>Driveway Guides &amp; Expert Tips</h1>
       <p>Learn from our 15+ years of American driveway expertise. 1018 guides covering every topic.</p>

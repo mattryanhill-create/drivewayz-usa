@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="/main.css?v=6">
     <meta name="google-site-verification" content="gPA0uTm7zOOI6bEiMk4Bq-vUlXRLGLVioiHtGsy3qG8" />
 <!-- Google tag (gtag.js) -->
+<link rel="preconnect" href="https://www.googletagmanager.com">
+
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-V08M9YKRR7"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -57,6 +59,9 @@
 .seasonal-form .btn-subscribe { padding: 0.75rem 1.5rem; background: var(--primary-color); color: #fff; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 0.95rem; }
 .seasonal-form .btn-subscribe:hover { background: var(--primary-dark); }
 .seasonal-success { text-align: center; padding: 1rem 0; color: #059669; font-weight: 600; }
+.homeowner-breadcrumb { position: absolute; top: 1rem; left: 2rem; z-index: 3; font-size: 0.9rem; }
+.homeowner-breadcrumb a { color: rgba(255,255,255,0.85); text-decoration: none; }
+.homeowner-breadcrumb a:hover { color: #fff; }
 </style>
 </head>
 
@@ -65,7 +70,7 @@
     <header class="site-header navbar" id="navbar">
         <div class="container nav-container">
             <div class="logo">
-                <a href="/"><picture><source srcset="/images/logov3.webp" type="image/webp"><img src="/images/logov3.png?v=3" alt="Drivewayz USA" width="1536" height="1024" loading="eager" onerror="this.style.display='none'"></picture></a>
+                <a href="/"><picture><source srcset="/images/logov3-640.webp 640w, /images/logov3-1280.webp 1280w" type="image/webp"><img src="/images/logov3-640.png" srcset="/images/logov3-640.png 640w, /images/logov3-800.png 800w" alt="Drivewayz USA" width="1536" height="1024" loading="eager" onerror="this.style.display='none'"></picture></a>
             </div>
             <nav class="main-nav" aria-label="Main navigation">
                 <ul class="main-nav__list nav-links" id="main-nav-menu">
@@ -91,8 +96,9 @@
     <div class="nav-overlay" id="nav-overlay"></div>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <picture class="hero-bg-picture" style="position:absolute;inset:0;z-index:0;width:100%;height:100%;margin:0;padding:0;display:block;"><source srcset="/hero-driveway.webp" type="image/webp"><img src="/hero-driveway.jpg" alt="" width="7360" height="4912" loading="eager" fetchpriority="high" style="width:100%;height:100%;object-fit:cover;display:block;"></picture>
+    <section class="hero" style="position:relative;">
+        <div class="homeowner-breadcrumb"><a href="/">Home</a> / <span>For Homeowners</span></div>
+        <picture class="hero-bg-picture" style="position:absolute;inset:0;z-index:0;width:100%;height:100%;margin:0;padding:0;display:block;"><source srcset="/hero-driveway-640.webp 640w, /hero-driveway-1280.webp 1280w" type="image/webp"><img src="/hero-driveway-640.jpg" srcset="/hero-driveway-640.jpg 640w, /hero-driveway-900.jpg 900w" alt="" width="7360" height="4912" loading="eager" fetchpriority="high" style="width:100%;height:100%;object-fit:cover;display:block;"></picture>
         <div class="hero-overlay"></div>
         <div class="container hero-content">
             <h1 class="hero-title">Plan and price your next driveway with confidence</h1>
