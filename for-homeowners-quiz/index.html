@@ -8,6 +8,11 @@
     <link rel="canonical" href="https://drivewayzusa.co/for-homeowners-quiz">
     <link rel="stylesheet" href="/main.css?v=6">
     <meta name="google-site-verification" content="gPA0uTm7zOOI6bEiMk4Bq-vUlXRLGLVioiHtGsy3qG8" />
+    <style>
+    .quiz-option:has(input:checked) { border-color: var(--primary-color) !important; background: rgba(43, 87, 151, 0.06); }
+    .quiz-option:hover { border-color: #9ca3af; }
+    @media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } }
+    </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-V08M9YKRR7"></script>
 <script>
@@ -61,26 +66,47 @@
         <section class="contact" id="homeowner-estimate">
             <div class="container">
                 <div id="quiz-form-wrapper" style="max-width: 600px; margin: 0 auto;">
-                    <form id="homeowner-quiz-form" class="contact-form">
-                        <input type="hidden" name="persona" value="homeowner">
-                        <input type="hidden" name="source" value="quiz">
+                    <!-- Progress bar -->
+                    <div class="quiz-progress" style="margin-bottom: 1.5rem;">
+                        <div class="quiz-progress-bar" style="height: 6px; background: #e5e7eb; border-radius: 3px; overflow: hidden;">
+                            <div id="quiz-progress-fill" style="height: 100%; width: 12.5%; background: var(--primary-color); transition: width 0.3s ease;"></div>
+                        </div>
+                        <p id="quiz-step-indicator" style="font-size: 0.875rem; color: var(--text-light); margin-top: 0.5rem;">Step 1 of 8</p>
+                    </div>
 
-                        <!-- Step 1 -->
+                    <form id="homeowner-quiz-form" class="contact-form" novalidate>
+                        <!-- HubSpot-aligned hidden fields -->
+                        <input type="hidden" name="quiz_completed" value="true">
+                        <input type="hidden" name="lead_source_detail" value="homeowner_quiz">
+
+                        <!-- Step 1: Contact info -->
                         <div class="quiz-step" data-step="1" id="quiz-step-1">
+                            <h3 style="margin-bottom: 1rem; font-size: 1.25rem;">Let's start with your contact info</h3>
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label for="fullName">Full Name *</label>
-                                    <input type="text" id="fullName" name="fullName" required>
+                                    <label for="first_name">First Name *</label>
+                                    <input type="text" id="first_name" name="first_name" required autocomplete="given-name">
                                 </div>
                                 <div class="form-group">
+                                    <label for="last_name">Last Name *</label>
+                                    <input type="text" id="last_name" name="last_name" required autocomplete="family-name">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
                                     <label for="email">Email *</label>
-                                    <input type="email" id="email" name="email" required>
+                                    <input type="email" id="email" name="email" required autocomplete="email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone</label>
+                                    <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="(555) 555-5555">
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Step 2 -->
+                        <!-- Step 2: Location -->
                         <div class="quiz-step" data-step="2" id="quiz-step-2" style="display: none;">
+                            <h3 style="margin-bottom: 1rem; font-size: 1.25rem;">Where is your project?</h3>
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="zip">ZIP Code *</label>
@@ -145,25 +171,58 @@
                             </div>
                         </div>
 
-                        <!-- Step 3 -->
+                        <!-- Step 3: Project type -->
                         <div class="quiz-step" data-step="3" id="quiz-step-3" style="display: none;">
+                            <h3 style="margin-bottom: 1rem; font-size: 1.25rem;">What type of project?</h3>
                             <div class="form-group">
-                                <label for="projectTimeline">Project Timeline *</label>
-                                <select id="projectTimeline" name="projectTimeline" required>
-                                    <option value="">Select timeline...</option>
-                                    <option value="Just researching">Just researching</option>
-                                    <option value="3–6 months">3–6 months</option>
-                                    <option value="Within 60 days">Within 60 days</option>
-                                    <option value="Emergency / ASAP">Emergency / ASAP</option>
-                                </select>
+                                <label>Project Type *</label>
+                                <div class="quiz-options" style="display: flex; flex-direction: column; gap: 0.75rem; margin-top: 0.5rem;">
+                                    <label class="quiz-option" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; border: 2px solid var(--border-color); border-radius: 8px; cursor: pointer;">
+                                        <input type="radio" name="persona_segment" value="new-driveway" required> New driveway installation
+                                    </label>
+                                    <label class="quiz-option" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; border: 2px solid var(--border-color); border-radius: 8px; cursor: pointer;">
+                                        <input type="radio" name="persona_segment" value="repair"> Repair or replacement
+                                    </label>
+                                    <label class="quiz-option" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; border: 2px solid var(--border-color); border-radius: 8px; cursor: pointer;">
+                                        <input type="radio" name="persona_segment" value="maintenance"> Maintenance (sealing, crack repair, etc.)
+                                    </label>
+                                </div>
                             </div>
                         </div>
 
-                        <!-- Step 4 -->
+                        <!-- Step 4: Material interest -->
                         <div class="quiz-step" data-step="4" id="quiz-step-4" style="display: none;">
+                            <h3 style="margin-bottom: 1rem; font-size: 1.25rem;">Which materials interest you?</h3>
+                            <p style="font-size: 0.95rem; color: var(--text-light); margin-bottom: 0.75rem;">Select all that apply</p>
                             <div class="form-group">
-                                <label for="budgetRange">Budget Range *</label>
-                                <select id="budgetRange" name="budgetRange" required>
+                                <div class="quiz-options" style="display: flex; flex-direction: column; gap: 0.5rem;">
+                                    <label class="quiz-option" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.6rem 1rem; border: 2px solid var(--border-color); border-radius: 8px; cursor: pointer;">
+                                        <input type="checkbox" name="material_interest" value="Concrete"> Concrete
+                                    </label>
+                                    <label class="quiz-option" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.6rem 1rem; border: 2px solid var(--border-color); border-radius: 8px; cursor: pointer;">
+                                        <input type="checkbox" name="material_interest" value="Asphalt"> Asphalt
+                                    </label>
+                                    <label class="quiz-option" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.6rem 1rem; border: 2px solid var(--border-color); border-radius: 8px; cursor: pointer;">
+                                        <input type="checkbox" name="material_interest" value="Gravel"> Gravel
+                                    </label>
+                                    <label class="quiz-option" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.6rem 1rem; border: 2px solid var(--border-color); border-radius: 8px; cursor: pointer;">
+                                        <input type="checkbox" name="material_interest" value="Pavers"> Pavers
+                                    </label>
+                                    <label class="quiz-option" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.6rem 1rem; border: 2px solid var(--border-color); border-radius: 8px; cursor: pointer;">
+                                        <input type="checkbox" name="material_interest" value="Chip Seal"> Chip Seal
+                                    </label>
+                                    <label class="quiz-option" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.6rem 1rem; border: 2px solid var(--border-color); border-radius: 8px; cursor: pointer;">
+                                        <input type="checkbox" name="material_interest" value="Not sure yet"> Not sure yet
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 5: Budget -->
+                        <div class="quiz-step" data-step="5" id="quiz-step-5" style="display: none;">
+                            <h3 style="margin-bottom: 1rem; font-size: 1.25rem;">What's your budget range?</h3>
+                            <div class="form-group">
+                                <select id="budget_range" name="budget_range" required>
                                     <option value="">Select budget...</option>
                                     <option value="Not sure yet">Not sure yet</option>
                                     <option value="Under $5,000">Under $5,000</option>
@@ -174,20 +233,56 @@
                             </div>
                         </div>
 
-                        <!-- Step 5 -->
-                        <div class="quiz-step" data-step="5" id="quiz-step-5" style="display: none;">
+                        <!-- Step 6: Timeline -->
+                        <div class="quiz-step" data-step="6" id="quiz-step-6" style="display: none;">
+                            <h3 style="margin-bottom: 1rem; font-size: 1.25rem;">When do you plan to start?</h3>
                             <div class="form-group">
-                                <label for="materialInterest">Driveway Material Interest *</label>
-                                <select id="materialInterest" name="materialInterest" required>
-                                    <option value="">Select material...</option>
-                                    <option value="Not sure yet">Not sure yet</option>
-                                    <option value="Gravel">Gravel</option>
-                                    <option value="Asphalt">Asphalt</option>
-                                    <option value="Concrete">Concrete</option>
-                                    <option value="Pavers">Pavers</option>
-                                    <option value="Stamped Concrete">Stamped Concrete</option>
-                                    <option value="Other">Other</option>
+                                <select id="project_timeline" name="project_timeline" required>
+                                    <option value="">Select timeline...</option>
+                                    <option value="Just researching">Just researching</option>
+                                    <option value="3–6 months">3–6 months</option>
+                                    <option value="Within 60 days">Within 60 days</option>
+                                    <option value="Emergency / ASAP">Emergency / ASAP</option>
                                 </select>
+                            </div>
+                        </div>
+
+                        <!-- Step 7: Property type -->
+                        <div class="quiz-step" data-step="7" id="quiz-step-7" style="display: none;">
+                            <h3 style="margin-bottom: 1rem; font-size: 1.25rem;">What type of property?</h3>
+                            <div class="form-group">
+                                <div class="quiz-options" style="display: flex; flex-direction: column; gap: 0.5rem;">
+                                    <label class="quiz-option" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.6rem 1rem; border: 2px solid var(--border-color); border-radius: 8px; cursor: pointer;">
+                                        <input type="radio" name="property_type" value="single-family"> Single-family home
+                                    </label>
+                                    <label class="quiz-option" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.6rem 1rem; border: 2px solid var(--border-color); border-radius: 8px; cursor: pointer;">
+                                        <input type="radio" name="property_type" value="multi-family"> Multi-family
+                                    </label>
+                                    <label class="quiz-option" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.6rem 1rem; border: 2px solid var(--border-color); border-radius: 8px; cursor: pointer;">
+                                        <input type="radio" name="property_type" value="rural"> Rural / long driveway
+                                    </label>
+                                    <label class="quiz-option" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.6rem 1rem; border: 2px solid var(--border-color); border-radius: 8px; cursor: pointer;">
+                                        <input type="radio" name="property_type" value="urban"> Urban / suburban
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 8: DIY vs turnkey -->
+                        <div class="quiz-step" data-step="8" id="quiz-step-8" style="display: none;">
+                            <h3 style="margin-bottom: 1rem; font-size: 1.25rem;">How do you want to approach the project?</h3>
+                            <div class="form-group">
+                                <div class="quiz-options" style="display: flex; flex-direction: column; gap: 0.5rem;">
+                                    <label class="quiz-option" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.6rem 1rem; border: 2px solid var(--border-color); border-radius: 8px; cursor: pointer;">
+                                        <input type="radio" name="comfort_level" value="diy"> I'm handy – prefer DIY or minimal help
+                                    </label>
+                                    <label class="quiz-option" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.6rem 1rem; border: 2px solid var(--border-color); border-radius: 8px; cursor: pointer;">
+                                        <input type="radio" name="comfort_level" value="hybrid"> Mix of DIY and hired help
+                                    </label>
+                                    <label class="quiz-option" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.6rem 1rem; border: 2px solid var(--border-color); border-radius: 8px; cursor: pointer;">
+                                        <input type="radio" name="comfort_level" value="turnkey"> Full turnkey – I want it done for me
+                                    </label>
+                                </div>
                             </div>
                         </div>
 
@@ -198,12 +293,6 @@
                             <button type="submit" class="cta-button" id="quiz-submit-btn" style="display: none;">Get My Driveway Plan</button>
                         </div>
                     </form>
-                </div>
-
-                <!-- Thank you message (hidden by default) -->
-                <div id="quiz-thank-you" style="display: none; max-width: 600px; margin: 0 auto; text-align: center; padding: 2rem;">
-                    <h2 class="section-title">Thanks!</h2>
-                    <p style="font-size: 1.125rem; line-height: 1.6;">We're matching you with local driveway pros. Check your email shortly.</p>
                 </div>
             </div>
         </section>
@@ -233,11 +322,12 @@
         var backBtn = document.getElementById('quiz-back-btn');
         var nextBtn = document.getElementById('quiz-next-btn');
         var submitBtn = document.getElementById('quiz-submit-btn');
-        var formWrapper = document.getElementById('quiz-form-wrapper');
-        var thankYou = document.getElementById('quiz-thank-you');
+        var progressFill = document.getElementById('quiz-progress-fill');
+        var stepIndicator = document.getElementById('quiz-step-indicator');
 
         var currentStep = 1;
-        var totalSteps = 5;
+        var totalSteps = 8;
+        var N8N_WEBHOOK = 'https://drivewayzusa.app.n8n.cloud/webhook/drivewayz-lead';
 
         function showStep(step) {
             currentStep = step;
@@ -247,6 +337,39 @@
             backBtn.style.display = (step === 1) ? 'none' : 'inline-block';
             nextBtn.style.display = (step < totalSteps) ? 'inline-block' : 'none';
             submitBtn.style.display = (step === totalSteps) ? 'inline-block' : 'none';
+            if (progressFill) progressFill.style.width = (step / totalSteps * 100) + '%';
+            if (stepIndicator) stepIndicator.textContent = 'Step ' + step + ' of ' + totalSteps;
+        }
+
+        function validateStep(stepNum) {
+            var stepEl = form.querySelector('[data-step="' + stepNum + '"]');
+            if (!stepEl) return true;
+            var inputs = stepEl.querySelectorAll('input[required], select[required]');
+            for (var i = 0; i < inputs.length; i++) {
+                var inp = inputs[i];
+                if (inp.type === 'radio' || inp.type === 'checkbox') {
+                    var group = form.querySelectorAll('input[name="' + inp.name + '"]');
+                    var checked = false;
+                    for (var j = 0; j < group.length; j++) {
+                        if (group[j].checked) { checked = true; break; }
+                    }
+                    if (!checked) {
+                        form.reportValidity();
+                        return false;
+                    }
+                } else if (!inp.value || !inp.value.trim()) {
+                    inp.reportValidity ? inp.reportValidity() : form.reportValidity();
+                    return false;
+                }
+            }
+            if (stepNum === 4) {
+                var materialChecks = stepEl.querySelectorAll('input[name="material_interest"]:checked');
+                if (!materialChecks.length) {
+                    alert('Please select at least one material interest.');
+                    return false;
+                }
+            }
+            return true;
         }
 
         backBtn.addEventListener('click', function() {
@@ -254,61 +377,69 @@
         });
 
         nextBtn.addEventListener('click', function() {
-            var stepEl = form.querySelector('[data-step="' + currentStep + '"]');
-            var inputs = stepEl.querySelectorAll('input[required], select[required]');
-            var valid = true;
-            inputs.forEach(function(inp) {
-                if (!inp.value.trim()) valid = false;
-            });
-            if (valid && currentStep < totalSteps) {
+            if (validateStep(currentStep) && currentStep < totalSteps) {
                 showStep(currentStep + 1);
-            } else if (!valid) {
-                form.reportValidity();
             }
         });
 
         form.addEventListener('submit', async function(e) {
             e.preventDefault();
-            var submitBtn = form.querySelector('#quiz-submit-btn');
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Sending...';
+            if (!validateStep(currentStep)) return;
 
-            var nameParts = (document.getElementById('fullName').value || '').trim().split(' ');
-            var firstName = nameParts[0] || '';
-            var lastName = nameParts.slice(1).join(' ') || '';
+            var btn = document.getElementById('quiz-submit-btn');
+            btn.disabled = true;
+            btn.textContent = 'Sending...';
 
-            var data = {
-                firstName: firstName,
-                lastName: lastName,
-                fullName: document.getElementById('fullName').value.trim(),
-                email: document.getElementById('email').value.trim(),
-                zip: document.getElementById('zip').value.trim(),
-                state: document.getElementById('state').value,
-                projectTimeline: document.getElementById('projectTimeline').value,
-                budgetRange: document.getElementById('budgetRange').value,
-                materialInterest: document.getElementById('materialInterest').value,
-                persona: form.querySelector('input[name="persona"]').value,
-                source: form.querySelector('input[name="source"]').value
+            var materialChecked = form.querySelectorAll('input[name="material_interest"]:checked');
+            var materialValues = [];
+            for (var i = 0; i < materialChecked.length; i++) {
+                materialValues.push(materialChecked[i].value);
+            }
+
+            var payload = {
+                email: (document.getElementById('email').value || '').trim(),
+                first_name: (document.getElementById('first_name').value || '').trim(),
+                last_name: (document.getElementById('last_name').value || '').trim(),
+                phone: (document.getElementById('phone').value || '').trim(),
+                zip: (document.getElementById('zip').value || '').trim(),
+                state: (document.getElementById('state').value || '').trim(),
+                persona_segment: (form.querySelector('input[name="persona_segment"]:checked') || {}).value || '',
+                project_timeline: (document.getElementById('project_timeline').value || '').trim(),
+                budget_range: (document.getElementById('budget_range').value || '').trim(),
+                material_interest: materialValues.join(';') || 'Not sure yet',
+                quiz_completed: true,
+                lead_source_detail: 'homeowner_quiz',
+                property_type: (form.querySelector('input[name="property_type"]:checked') || {}).value || '',
+                comfort_level: (form.querySelector('input[name="comfort_level"]:checked') || {}).value || ''
             };
 
+            console.log('[Homeowner Quiz] Payload to send to HubSpot/n8n:', JSON.stringify(payload, null, 2));
+
             try {
-                var res = await fetch('https://drivewayzusa.app.n8n.cloud/webhook/drivewayz-lead', {
+                var res = await fetch(N8N_WEBHOOK, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data)
+                    body: JSON.stringify(payload)
                 });
                 if (res.ok) {
-                    gtag('event', 'generate_lead', { event_category: 'quiz', event_label: 'homeowner_quiz' });
-                    window.location.href = '/thank-you-homeowner/';
+                    if (typeof gtag === 'function') {
+                        gtag('event', 'generate_lead', { event_category: 'quiz', event_label: 'homeowner_quiz' });
+                    }
+                    var personaVal = payload.persona_segment ? encodeURIComponent(payload.persona_segment) : '';
+                    var thankYouUrl = '/thank-you-homeowner/' + (personaVal ? '?persona_segment=' + personaVal : '');
+                    window.location.href = thankYouUrl;
                     return;
                 } else {
+                    var errText = await res.text();
+                    console.error('[Homeowner Quiz] Server error:', res.status, errText);
                     alert('Something went wrong. Please try again.');
                 }
             } catch (err) {
+                console.error('[Homeowner Quiz] Network error:', err);
                 alert('Network error. Please try again later.');
             } finally {
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Get My Driveway Plan';
+                btn.disabled = false;
+                btn.textContent = 'Get My Driveway Plan';
             }
         });
 
