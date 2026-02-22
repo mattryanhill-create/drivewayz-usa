@@ -24,15 +24,6 @@
 #contractor-hero .hero-overlay {
     background: linear-gradient(135deg, rgba(30, 60, 114, 0.85), rgba(43, 87, 151, 0.75));
 }
-.contractor-benefits-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-    margin-top: 3rem;
-}
-@media (max-width: 768px) {
-    .contractor-benefits-grid { grid-template-columns: 1fr; }
-}
 .services-checkbox-group {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -51,6 +42,23 @@
 @media (max-width: 600px) {
     .services-checkbox-group { grid-template-columns: 1fr; }
 }
+.contractor-content-section {
+    padding: 4rem 0;
+}
+.contractor-content-section p {
+    color: var(--text-light);
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+}
+.contractor-content-section ul {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+}
+.contractor-content-section li {
+    color: var(--text-light);
+    line-height: 1.8;
+    margin-bottom: 0.75rem;
+}
 </style>
 </head>
 
@@ -68,9 +76,9 @@
                 <li><a href="/locations/">Locations</a></li>
                 <li><a href="/guides-hub/">Guides</a></li>
                 <li><a href="/for-homeowners.html">For Homeowners</a></li>
-                <li><a href="#homeowner-estimate">Contact</a></li>
+                <li><a href="#contractor-application">Contact</a></li>
             </ul>
-            <button class="cta-button-small" onclick="document.getElementById('homeowner-estimate').scrollIntoView({behavior: 'smooth'})">Free Estimate</button>
+            <button class="cta-button-small" onclick="document.getElementById('contractor-application').scrollIntoView({behavior: 'smooth'})">Free Estimate</button>
             <button class="hamburger" id="hamburger" aria-label="Toggle menu">
                 <span></span>
                 <span></span>
@@ -84,118 +92,148 @@
     <section id="contractor-hero" class="hero">
         <div class="hero-overlay"></div>
         <div class="container hero-content">
-            <h1 class="hero-title">Grow your driveway business with qualified leads</h1>
-            <p class="hero-subtitle">Join our contractor network and get matched with homeowners who are ready to hire in your area.</p>
+            <h1 class="hero-title">Get Better Driveway Jobs. Fewer Wasted Bids.</h1>
+            <p class="hero-subtitle">Drivewayz USA sends you qualified residential driveway leads—homeowners who've done their homework and are ready to hire. Not random web forms from people "just checking prices."</p>
+            <ul style="text-align: left; max-width: 600px; margin: 2rem auto; list-style: none; padding-left: 0;">
+                <li style="margin-bottom: 0.75rem;">✓ Pre-qualified homeowners who understand materials, costs, and timelines before you show up</li>
+                <li style="margin-bottom: 0.75rem;">✓ Clear project details including address, surface type, budget range, and timing window</li>
+                <li style="margin-bottom: 0.75rem;">✓ More consistent work year-round with fewer seasonal gaps and less crew downtime</li>
+            </ul>
             <div class="cta-band-buttons" style="margin-top: 1.5rem; justify-content: center; gap: 1rem;">
-                <a href="#contractor-application" class="cta-band-button primary">Apply to join</a>
-                <a href="#how-it-works" class="cta-band-button secondary">See how it works</a>
+                <a href="#contractor-application" class="cta-band-button primary">Apply to Join the Network</a>
+                <a href="#contractor-application" class="cta-band-button secondary">Schedule a 15-Minute Intro Call</a>
             </div>
         </div>
     </section>
 
-    <!-- Trust Strip -->
-    <section class="trust-strip">
+    <!-- Main Content -->
+    <section class="how-it-works">
         <div class="container">
-            <div class="trust-strip-inner">
-                <p class="trust-item">500+ Contractors Nationwide</p>
-                <p class="trust-item">Pre-Qualified Homeowner Leads</p>
-                <p class="trust-item">No Upfront Fees</p>
+            <h2 class="section-title">How Drivewayz USA Works for Contractors</h2>
+            <div class="contractor-content-section">
+                <h3>Homeowner Requests an Estimate</h3>
+                <p>A homeowner finds one of our driveway guides—asphalt costs, gravel options, concrete durability, climate considerations—and decides they're ready to move forward. They fill out a detailed request for estimates in their area.</p>
+
+                <h3>We Collect the Details That Matter</h3>
+                <p>We don't just grab a name and phone number. We ask about location, surface condition, preferred materials, budget range, and timeline. By the time you see the lead, the homeowner already knows the basics.</p>
+
+                <h3>Matched to the Right Contractor</h3>
+                <p>Leads go to vetted contractors based on service area, materials, and project size. If you specialize in chip seal and gravel drives in rural counties, you get those jobs—not urban paver projects three hours away.</p>
+
+                <h3>You Close the Job, We Keep Sending More</h3>
+                <p>Complete the work, earn the review, stay active in the network. Drivewayz USA keeps sending similar jobs your way, building a pipeline that fits your crew capacity and expertise.</p>
             </div>
         </div>
     </section>
 
-    <!-- How It Works -->
-    <section id="how-it-works" class="how-it-works">
-        <div class="container">
-            <h2 class="section-title">How it works</h2>
-            <div class="steps-grid" style="grid-template-columns: repeat(3, minmax(0, 1fr));">
-                <article class="step-card">
-                    <div class="step-number">1</div>
-                    <h3>Apply &amp; Get Verified</h3>
-                    <p>Submit your application with license info, service area, and specialties. We verify your credentials within 48 hours.</p>
-                </article>
-                <article class="step-card">
-                    <div class="step-number">2</div>
-                    <h3>Receive Matched Leads</h3>
-                    <p>Get homeowner leads pre-qualified by location, project type, and budget. Only pay for leads you accept.</p>
-                </article>
-                <article class="step-card">
-                    <div class="step-number">3</div>
-                    <h3>Win Jobs &amp; Grow</h3>
-                    <p>Close more deals with homeowners who are already educated on their project. Build your reputation with reviews.</p>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- Why Contractors Choose Drivewayz -->
     <section class="why-choose">
         <div class="container">
-            <h2 class="section-title">Why Contractors Choose Drivewayz</h2>
-            <div class="contractor-benefits-grid">
-                <div class="feature">
-                    <div class="feature-icon">📋</div>
-                    <h3>Pre-Qualified Leads</h3>
-                    <p>Every lead comes with project details, budget range, and timeline. No cold calling.</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">📍</div>
-                    <h3>Your Service Area</h3>
-                    <p>Set your coverage radius and only receive leads within your territory.</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">💳</div>
-                    <h3>No Monthly Fees</h3>
-                    <p>Zero subscription costs. You only pay per lead you choose to accept.</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">📊</div>
-                    <h3>Pro Dashboard (Coming Soon)</h3>
-                    <p>Track leads, manage jobs, and view analytics in one place.</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">📢</div>
-                    <h3>Marketing Support</h3>
-                    <p>Your business gets featured on state and city location pages for free organic exposure.</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">✓</div>
-                    <h3>Verified Badge</h3>
-                    <p>Stand out to homeowners with our licensed, insured, and vetted contractor badge.</p>
-                </div>
+            <h2 class="section-title">What Makes Our Leads Different</h2>
+            <p class="section-subtitle">Most lead gen sites flood you with contacts who clicked a button and filled in three fields. Our homeowners are different:</p>
+            <div class="contractor-content-section">
+                <p><strong>They've read a driveway guide first.</strong> They understand why asphalt costs more than gravel, why concrete cracks in freeze-thaw climates, and what a reasonable budget looks like. You spend less time educating and more time quoting real jobs.</p>
+
+                <p><strong>Requests include specifics.</strong> Address, surface type, approximate square footage, timing window, budget range. You know what you're walking into before you burn fuel and crew hours.</p>
+
+                <p><strong>Fewer tire-kickers.</strong> Because homeowners invest time reading our materials, "just curious" submissions drop significantly. The people who reach out are further along in the decision process.</p>
+
+                <p><strong>We prioritize lead quality over volume.</strong> Better-fit projects mean higher close rates and healthier margins.</p>
             </div>
         </div>
     </section>
 
-    <!-- Contractor Resources -->
-    <section class="guides">
+    <section class="how-it-works">
         <div class="container">
-            <h2 class="section-title">Contractor Resources</h2>
-            <div class="guides-grid">
-                <article class="guide-card">
-                    <h3>How to Vet a Driveway Contractor</h3>
-                    <p>Essential questions homeowners ask before hiring. Know what to expect and how to position your business.</p>
-                    <a href="/guides/how-to-vet-a-driveway-contractor-questions-to-ask/" class="guide-link">Read Full Guide →</a>
-                </article>
-                <article class="guide-card">
-                    <h3>Driveway Cost Breakdown</h3>
-                    <p>Understand labor, materials, and equipment costs to build accurate bids and educate clients.</p>
-                    <a href="/guides/driveway-cost-breakdown-labor-materials-and-equipment/" class="guide-link">Read Full Guide →</a>
-                </article>
-                <article class="guide-card">
-                    <h3>Concrete vs Asphalt vs Gravel</h3>
-                    <p>Compare the pros, cons, and costs of the most popular driveway materials for informed recommendations.</p>
-                    <a href="/guides/concrete-vs-asphalt-vs-gravel/" class="guide-link">Read Full Guide →</a>
-                </article>
+            <h2 class="section-title">Types of Projects We Send You</h2>
+            <div class="contractor-content-section">
+                <h3>New Gravel Driveways and Long Rural Drives</h3>
+                <p>High-demand jobs in suburban and rural areas. Often large square footage, straightforward scope, homeowners who value durability over aesthetics. Good margins with the right equipment.</p>
+
+                <h3>Asphalt Tear-Out and Repave</h3>
+                <p>Solid ticket size with clear scope: remove old surface, prep base, lay new asphalt. Homeowners who request these estimates have aging drives and real urgency—less price shopping, more timeline focus.</p>
+
+                <h3>Concrete Driveways and Extensions</h3>
+                <p>Higher-end residential work with longer lifespans. These homeowners plan to stay put and care about curb appeal. Leads to referrals and repeat business for patios, walkways, and additions.</p>
+
+                <h3>Chip Seal, Tar-and-Chip, and Resurfacing</h3>
+                <p>Popular in warmer climates and budget-conscious markets. Fast turnaround, lower material costs, steady demand. Good filler work between larger paving projects.</p>
+
+                <h3>Paver and Cobblestone Upgrades</h3>
+                <p>Premium residential jobs with strong margins. Homeowners who choose pavers have already ruled out cheaper options—they're investing in aesthetics and longevity.</p>
             </div>
-            <p class="guides-footer-link">
-                <a href="/guides-hub/" class="guide-link">View All Guides →</a>
-            </p>
+        </div>
+    </section>
+
+    <section class="why-choose">
+        <div class="container">
+            <h2 class="section-title">Where We're Growing Contractor Coverage</h2>
+            <div class="contractor-content-section">
+                <p>Drivewayz USA is building a vetted network of driveway professionals across the United States. We're especially focused on suburban and rural regions where homeowners need guidance choosing materials and long-term solutions—not just the lowest bid.</p>
+                <p>Priority regions include areas with:</p>
+                <ul>
+                    <li>Seasonal freeze-thaw cycles where material expertise matters</li>
+                    <li>Growing exurban communities with long private drives</li>
+                    <li>Aging housing stock due for driveway replacement</li>
+                </ul>
+                <p>Contractors in under-served regions who apply early can secure territory before competition increases. If you cover counties where homeowners struggle to find qualified driveway pros, we want to talk.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">What Contractors Get When They Join</h2>
+            <div class="contractor-content-section">
+                <ul>
+                    <li>Steady stream of homeowner driveway leads in your service area, matched to your materials and capacity</li>
+                    <li>Less time on basic education because homeowners have read our guides and understand tradeoffs before you arrive</li>
+                    <li>Simple, transparent pricing with no hidden fees or long-term contracts</li>
+                    <li>Support on messaging and follow-up, including email and text templates for quoting, scheduling, and post-visit follow-through</li>
+                    <li>Direct line to our team for feedback on lead quality and territory adjustments</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="why-choose">
+        <div class="container">
+            <h2 class="section-title">Who This Is (and Isn't) For</h2>
+            <div class="contractor-content-section">
+                <h3>Good Fit</h3>
+                <p>Licensed and insured contractors who specialize in residential driveways. You show up when you say you will, communicate clearly with homeowners, and care about long-term quality and reputation. You understand that a happy customer sends neighbors your way.</p>
+
+                <h3>Not a Fit</h3>
+                <p>Door-to-door "today only" operations, unlicensed crews, or contractors who treat every job as a one-time transaction. If you don't return calls, skip site visits, or rely on high-pressure tactics, this network isn't for you.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">What It Costs to Work with Us</h2>
+            <div class="contractor-content-section">
+                <p>Our pricing model is designed to be profitable on a per-job basis. Costs align with project size and local demand—bigger tickets carry different economics than smaller resurfacing jobs. No monthly retainers. No long-term commitments.</p>
+                <p>We don't publish one-size-fits-all rates because every market is different. What we can say: contractors who close jobs through Drivewayz USA typically find the economics work in their favor when they factor in time saved on unqualified leads and higher close rates on pre-educated homeowners.</p>
+                <p>Apply or book a 15-minute intro call and we'll walk through the numbers for your service area and project mix.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="why-choose">
+        <div class="container">
+            <h2 class="section-title">Ready to Fill Your Pipeline With Better Driveway Jobs?</h2>
+            <div class="contractor-content-section">
+                <p>Drivewayz USA understands driveway work and the homeowners who need it. We've built one of the largest collections of driveway education guides in the United States—materials, costs, climate considerations, maintenance, and more. That expertise attracts homeowners who are serious about their projects and ready to hire qualified contractors.</p>
+                <p>If you're tired of chasing cold leads and want a consistent source of qualified residential driveway work, let's talk.</p>
+                <div class="cta-band-buttons" style="margin-top: 2rem; justify-content: center; gap: 1rem;">
+                    <a href="#contractor-application" class="cta-band-button primary">Apply to Join the Network</a>
+                    <a href="#contractor-application" class="cta-band-button secondary">Schedule a 15-Minute Intro Call</a>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Contractor Application Form -->
-    <div id="homeowner-estimate">
     <section id="contractor-application" class="contact">
         <div class="container">
             <h2 class="section-title">Apply to Join Our Network</h2>
@@ -353,7 +391,6 @@
             </div>
         </div>
     </section>
-    </div>
 
     <!-- Footer -->
     <footer class="footer">
@@ -362,7 +399,7 @@
             <p class="footer-links">
                 <a href="/#services">Services</a> • <a href="/locations/">Locations</a> •
                 <a href="/guides-hub/">Guides</a> •
-                <a href="#homeowner-estimate">Contact</a> •
+                <a href="#contractor-application">Contact</a> •
                 <a href="#">Privacy Policy</a>
             </p>
         </div>
