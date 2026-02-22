@@ -41,6 +41,11 @@
         }
 
 
+        /* Breadcrumb - top-left of hero */
+        .state-breadcrumb { position: absolute; top: 1rem; left: 2rem; z-index: 3; padding: 1rem 2rem; display: flex; gap: 0.5rem; font-size: 0.9rem; text-align: left; }
+        .state-breadcrumb a { color: rgba(255,255,255,0.8); text-decoration: none; }
+        .state-breadcrumb a:hover { color: white; }
+
         /* Hero Section */
         .state-hero {
             position: relative;
@@ -360,23 +365,26 @@
             content: "📋";
         }
 
-        /* State page 2-column layout with sticky sidebar */
+        /* State page 2-column layout – left sticky sidebar (matches guides hub pattern) */
         .state-page-layout {
-            display: flex;
+            background: var(--bg-light);
+        }
+        .state-layout-inner {
+            display: grid;
+            grid-template-columns: 320px 1fr;
             gap: 2rem;
-            align-items: flex-start;
+            align-items: start;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-        .state-main-content {
-            flex: 1;
-            min-width: 0;
+            padding: 2rem 1.5rem;
         }
         .state-sidebar {
-            flex: 0 0 320px;
             position: sticky;
             top: 120px;
+            height: fit-content;
+        }
+        .state-main {
+            min-width: 0;
         }
         .popular-guides-sidebar {
             background: var(--white);
@@ -455,13 +463,17 @@
         .sidebar-cta-card .btn-primary:hover {
             background: #f0f0f0;
         }
-        @media (max-width: 768px) {
-            .state-page-layout {
-                flex-direction: column;
+        @media (max-width: 992px) {
+            .state-layout-inner {
+                grid-template-columns: 1fr;
+                /* Main content first, sidebar below */
+                grid-template-areas: "main" "sidebar";
+            }
+            .state-main {
+                grid-area: main;
             }
             .state-sidebar {
-                flex: none;
-                width: 100%;
+                grid-area: sidebar;
                 position: static;
             }
         }
@@ -3360,6 +3372,9 @@
                 <!-- Hero Section -->
                 <section class="state-hero" style="${heroStyle}">
                     <div style="${heroImageStyle}; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-size: cover; background-position: center; opacity: 0.3; z-index: 1;"></div>
+                    <div class="state-breadcrumb">
+                        <a href="/">Home</a><span>/</span><a href="/locations/">Locations</a><span>/</span><span>${state.name}</span>
+                    </div>
                     <div class="state-hero-content">
                         <span class="state-badge">${state.abbreviation}</span>
                         <h1>${state.name}</h1>
@@ -3368,9 +3383,21 @@
                     </div>
                 </section>
 
-                <!-- 2-column layout: main content + sticky sidebar -->
-                <div class="state-page-layout">
-                <div class="state-main-content">
+                <!-- 2-column layout: left sticky sidebar + main content (matches guides hub) -->
+                <section class="state-page-layout">
+                <div class="state-layout-inner">
+                <aside class="state-sidebar">
+                    <div class="popular-guides-sidebar">
+                        <h4>📚 New ${state.name} Driveway Guides</h4>
+                        ${guidesSidebarHTML}
+                    </div>
+                    <div class="popular-guides-sidebar sidebar-cta-card">
+                        <h4>🚀 Get Started Today</h4>
+                        <p>Ready to transform your driveway? Get a free estimate from our experts.</p>
+                        <a href="/#contact" class="btn-primary">Get Free Estimate</a>
+                    </div>
+                </aside>
+                <div class="state-main">
 
                 <!-- NEW: Intro Section -->
                 ${state.introHTML ? `
@@ -3477,18 +3504,8 @@
                 ` : ''}
 
                 </div>
-                <aside class="state-sidebar">
-                    <div class="popular-guides-sidebar">
-                        <h4>📚 Popular Guides</h4>
-                        ${guidesSidebarHTML}
-                    </div>
-                    <div class="popular-guides-sidebar sidebar-cta-card">
-                        <h4>🚀 Get Started Today</h4>
-                        <p>Ready to transform your driveway? Get a free estimate from our experts.</p>
-                        <a href="/#contact" class="btn-primary">Get Free Estimate</a>
-                    </div>
-                </aside>
                 </div>
+                </section>
 
                 <!-- NEW: Related Resources Section -->
                 ${resourcesHTML ? `

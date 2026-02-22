@@ -382,29 +382,55 @@ def build_state_html(state_name: str, slug: str, data: dict) -> str:
             f"        </section>\n"
         )
 
-    # Featured guides section (state-specific internal links) or fallback to Related Resources
-    res_section = ""
-    state_guides_map = build_state_guides_map(max_per_state=5)
+    # Sidebar: Popular Guides cards + CTA (matches guides hub / state-page template)
+    def _guide_category(s: str) -> str:
+        s = s.lower()
+        if "cost" in s or "pricing" in s:
+            return "COST"
+        if "permits" in s or "regulations" in s:
+            return "PLANNING"
+        if "best-driveway" in s or "material" in s:
+            return "MATERIALS"
+        if "repair" in s:
+            return "REPAIR"
+        return "BEGINNER"
+
+    state_guides_map = build_state_guides_map(max_per_state=3, sort_by_recent=True)
     featured_guides = state_guides_map.get(slug, [])
 
+    sidebar_guides_html = ""
     if featured_guides:
-        guides_list = "\n".join(
-            f'                <li><a href="/guides/{html.escape(gs)}/" class="resource-link">{html.escape(title)}</a></li>'
+        sidebar_guides_html = "\n".join(
+            f'''                    <a href="/guides/{html.escape(gs)}/" class="sidebar-guide-card">
+                        <span class="category-badge {_guide_category(gs)}">{_guide_category(gs)}</span>
+                        <div class="guide-title">{html.escape(title)}</div>
+                        <div class="read-time">12 min read</div>
+                    </a>'''
             for gs, title in featured_guides
         )
-        res_section = (
-            f"        <section class=\"resources-section featured-guides-section\">\n"
-            f"            <div class=\"container\">\n"
-            f"                <h3>Featured Driveway Guides for {state_name}</h3>\n"
-            f"                <p class=\"section-sub\">Essential reading for {state_name} homeowners planning a driveway project</p>\n"
-            f"                <ul class=\"featured-guides-list\">\n"
-            f"{guides_list}\n"
-            f"                </ul>\n"
-            f"                <p class=\"more-guides-link\"><a href=\"/guides-hub/\" class=\"resource-link\">View all driveway guides</a></p>\n"
-            f"            </div>\n"
-            f"        </section>\n"
-        )
-    elif resources_html:
+
+    sidebar_html = ""
+    if sidebar_guides_html:
+        sidebar_html = f'''        <!-- 2-column layout: left sticky sidebar + main content -->
+        <section class="state-page-layout">
+        <div class="state-layout-inner">
+        <aside class="state-sidebar">
+            <div class="popular-guides-sidebar">
+                <h4>📚 New {state_name} Driveway Guides</h4>
+                {sidebar_guides_html}
+            </div>
+            <div class="popular-guides-sidebar sidebar-cta-card">
+                <h4>🚀 Get Started Today</h4>
+                <p>Ready to transform your driveway? Get a free estimate from our experts.</p>
+                <a href="/#contact" class="btn-primary">Get Free Estimate</a>
+            </div>
+        </aside>
+        <div class="state-main">
+'''
+
+    # Related Resources (only when no featured guides; otherwise guides are in sidebar)
+    res_section = ""
+    if not featured_guides and resources_html:
         res_section = (
             f"        <section class=\"resources-section\">\n"
             f"            <div class=\"container\">\n"
@@ -416,6 +442,31 @@ def build_state_html(state_name: str, slug: str, data: dict) -> str:
             f"        </section>\n"
         )
 
+    # Closing tags for layout (when sidebar is present)
+    layout_close = ""
+    if sidebar_html:
+        layout_close = """
+        </div>
+        </div>
+        </section>
+"""
+
+    # Breadcrumb: Home / Locations / State (top-left of hero)
+    breadcrumb_html = f'''            <div class="state-breadcrumb">
+                <a href="/">Home</a><span>/</span><a href="/locations/">Locations</a><span>/</span><span>{html.escape(state_name)}</span>
+            </div>
+'''
+
+    # Breadcrumb JSON-LD schema
+    breadcrumb_schema = f'''    <script type="application/ld+json">
+    {{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+        {{"@type":"ListItem","position":1,"name":"Home","item":"{BASE_URL}/"}},
+        {{"@type":"ListItem","position":2,"name":"Locations","item":"{BASE_URL}/locations/"}},
+        {{"@type":"ListItem","position":3,"name":"{html.escape(state_name)}"}}
+    ]}}
+    </script>
+'''
+
     # Hero image: use state-specific if exists, else gradient-only (no img)
     hero_img_path = f"/images/hero-{slug}.webp"
     hero_img_html = f'''            <img src="{hero_img_path}" alt="{html.escape(state_name)} driveway services — Drivewayz USA" class="state-hero-img" width="1200" height="630" loading="eager" fetchpriority="high">
@@ -425,6 +476,7 @@ def build_state_html(state_name: str, slug: str, data: dict) -> str:
     <main id="content">
         <!-- Hero Section -->
         <section class="state-hero" style="background: {gradient};">
+{breadcrumb_html}
 {hero_img_html}
             <div class="state-hero-content">
                 <span class="state-badge">{abbr}</span>
@@ -433,7 +485,7 @@ def build_state_html(state_name: str, slug: str, data: dict) -> str:
                 <a href="/#contact" class="btn-primary">Get Your Free Estimate</a>
             </div>
         </section>
-
+{sidebar_html}
         <!-- Intro Section -->
         <section class="intro-section">
             <div class="container">
@@ -490,6 +542,7 @@ def build_state_html(state_name: str, slug: str, data: dict) -> str:
         </section>
 
 {refs_section}{res_section}
+{layout_close}
         <!-- CTA Section -->
         <section class="cta-section">
             <div class="cta-box">
@@ -531,10 +584,10 @@ def build_state_html(state_name: str, slug: str, data: dict) -> str:
 </script>'''
         new_head = new_head + "\n" + ga_block
 
-    # Get nav and footer from template
-    nav_match = re.search(r'<nav class="navbar"[^>]*>.*?</nav>', full_template, re.DOTALL)
+    # Get header (navbar) and footer from template - use <header class="site-header navbar"> not <nav>
+    header_match = re.search(r'<header class="site-header navbar"[^>]*>.*?</header>', full_template, re.DOTALL)
     footer_match = re.search(r'<footer class="footer">.*?</footer>', full_template, re.DOTALL)
-    nav_html = nav_match.group(0) if nav_match else ""
+    nav_html = header_match.group(0) if header_match else ""
     footer_html = footer_match.group(0) if footer_match else ""
 
     # Update footer with state name
@@ -543,6 +596,20 @@ def build_state_html(state_name: str, slug: str, data: dict) -> str:
         f"&copy; 2024 Drivewayz USA. All rights reserved. | {state_name} Driveway Services",
         footer_html
     )
+
+    # Inject breadcrumb CSS if not present
+    styles_block = full_template[full_template.find("<style>"):full_template.find("</style>") + 8]
+    if ".state-breadcrumb" not in styles_block:
+        breadcrumb_css = """
+        /* Breadcrumb - top-left of hero */
+        .state-breadcrumb { position: absolute; top: 1rem; left: 2rem; z-index: 3; padding: 1rem 2rem; display: flex; gap: 0.5rem; font-size: 0.9rem; text-align: left; }
+        .state-breadcrumb a { color: rgba(255,255,255,0.8); text-decoration: none; }
+        .state-breadcrumb a:hover { color: white; }
+"""
+        if "        /* Hero Section */" in styles_block:
+            styles_block = styles_block.replace("        /* Hero Section */", breadcrumb_css.strip() + "\n\n        /* Hero Section */", 1)
+        else:
+            styles_block = styles_block.replace("<style>", "<style>\n" + breadcrumb_css, 1)
 
     full_html = f"""<!DOCTYPE html>
 <html lang="en">
@@ -553,7 +620,7 @@ def build_state_html(state_name: str, slug: str, data: dict) -> str:
     <meta name="description" content="{html.escape(meta_desc)}">
     <link rel="canonical" href="{canonical_url}">
     <link rel="stylesheet" href="/main.css">
-{full_template[full_template.find("<style>"):full_template.find("</style>") + 8]}
+{styles_block}
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id={GA_TAG}"></script>
 <script>
@@ -562,6 +629,7 @@ def build_state_html(state_name: str, slug: str, data: dict) -> str:
   gtag('js', new Date());
   gtag('config', '{GA_TAG}');
 </script>
+{breadcrumb_schema}
 </head>
 
 <body>

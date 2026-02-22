@@ -42,6 +42,11 @@
         }
 
 
+        /* Breadcrumb - top-left of hero */
+        .state-breadcrumb { position: absolute; top: 1rem; left: 2rem; z-index: 3; padding: 1rem 2rem; display: flex; gap: 0.5rem; font-size: 0.9rem; text-align: left; }
+        .state-breadcrumb a { color: rgba(255,255,255,0.8); text-decoration: none; }
+        .state-breadcrumb a:hover { color: white; }
+
         /* Hero Section */
         .state-hero {
             position: relative;
@@ -361,6 +366,119 @@
             content: "📋";
         }
 
+        /* State page 2-column layout – left sticky sidebar (matches guides hub pattern) */
+        .state-page-layout {
+            background: var(--bg-light);
+        }
+        .state-layout-inner {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 2rem;
+            align-items: start;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+        .state-sidebar {
+            position: sticky;
+            top: 120px;
+            height: fit-content;
+        }
+        .state-main {
+            min-width: 0;
+        }
+        .popular-guides-sidebar {
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .popular-guides-sidebar h4 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+        .sidebar-guide-card {
+            display: block;
+            padding: 0.85rem 0;
+            border-bottom: 1px solid #eee;
+            text-decoration: none;
+            color: var(--text-dark);
+            transition: all 0.2s ease;
+        }
+        .sidebar-guide-card:last-of-type {
+            border-bottom: none;
+        }
+        .sidebar-guide-card:hover {
+            color: var(--primary);
+        }
+        .category-badge {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.4rem;
+        }
+        .category-badge.PLANNING { background: #10b981; color: white; }
+        .category-badge.MATERIALS { background: #8b5cf6; color: white; }
+        .category-badge.COST { background: #0ea5e9; color: white; }
+        .category-badge.REPAIR { background: #dc2626; color: white; }
+        .category-badge.MAINTENANCE { background: #f59e0b; color: white; }
+        .category-badge.BEGINNER { background: #6b7280; color: white; }
+        .sidebar-guide-card .guide-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+        .sidebar-guide-card .read-time {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            margin-top: 0.25rem;
+        }
+        .sidebar-cta-card {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+        }
+        .sidebar-cta-card h4 {
+            color: white;
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+        }
+        .sidebar-cta-card p {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            opacity: 0.95;
+        }
+        .sidebar-cta-card .btn-primary {
+            display: block;
+            text-align: center;
+            background: white;
+            color: var(--primary-dark);
+        }
+        .sidebar-cta-card .btn-primary:hover {
+            background: #f0f0f0;
+        }
+        @media (max-width: 992px) {
+            .state-layout-inner {
+                grid-template-columns: 1fr;
+                /* Main content first, sidebar below */
+                grid-template-areas: "main" "sidebar";
+            }
+            .state-main {
+                grid-area: main;
+            }
+            .state-sidebar {
+                grid-area: sidebar;
+                position: static;
+            }
+        }
+
         /* Related Resources Section - NEW */
         .resources-section {
             padding: 4rem 2rem;
@@ -644,6 +762,14 @@
   gtag('js', new Date());
   gtag('config', 'G-V08M9YKRR7');
 </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+        {"@type":"ListItem","position":1,"name":"Home","item":"https://drivewayzusa.co/"},
+        {"@type":"ListItem","position":2,"name":"Locations","item":"https://drivewayzusa.co/locations/"},
+        {"@type":"ListItem","position":3,"name":"Indiana"}
+    ]}
+    </script>
+
 </head>
 
 <body>
@@ -678,6 +804,10 @@
     <main id="content">
         <!-- Hero Section -->
         <section class="state-hero" style="background: linear-gradient(135deg, #2B5797 0%, #5B9BD5 50%, #4A90D9 100%);">
+            <div class="state-breadcrumb">
+                <a href="/">Home</a><span>/</span><a href="/locations/">Locations</a><span>/</span><span>Indiana</span>
+            </div>
+
             <img src="/images/hero-indiana.webp" alt="Indiana driveway services — Drivewayz USA" class="state-hero-img" width="1200" height="630" loading="eager" fetchpriority="high">
         
             <div class="state-hero-content">
@@ -687,6 +817,35 @@
                 <a href="/#contact" class="btn-primary">Get Your Free Estimate</a>
             </div>
         </section>
+        <!-- 2-column layout: left sticky sidebar + main content -->
+        <section class="state-page-layout">
+        <div class="state-layout-inner">
+        <aside class="state-sidebar">
+            <div class="popular-guides-sidebar">
+                <h4>📚 New Indiana Driveway Guides</h4>
+                                    <a href="/guides/best-driveway-material-for-indiana-homes/" class="sidebar-guide-card">
+                        <span class="category-badge MATERIALS">MATERIALS</span>
+                        <div class="guide-title">Best Driveway Material for Indiana Homes</div>
+                        <div class="read-time">12 min read</div>
+                    </a>
+                    <a href="/guides/driveway-contractors-in-indianapolis-in-how-to-choose/" class="sidebar-guide-card">
+                        <span class="category-badge BEGINNER">BEGINNER</span>
+                        <div class="guide-title">Driveway Contractors in Indianapolis, IN: How to Choose</div>
+                        <div class="read-time">12 min read</div>
+                    </a>
+                    <a href="/guides/asphalt-driveway-cost-in-indiana-local-pricing/" class="sidebar-guide-card">
+                        <span class="category-badge COST">COST</span>
+                        <div class="guide-title">Asphalt Driveway Cost in Indiana: Local Pricing</div>
+                        <div class="read-time">12 min read</div>
+                    </a>
+            </div>
+            <div class="popular-guides-sidebar sidebar-cta-card">
+                <h4>🚀 Get Started Today</h4>
+                <p>Ready to transform your driveway? Get a free estimate from our experts.</p>
+                <a href="/#contact" class="btn-primary">Get Free Estimate</a>
+            </div>
+        </aside>
+        <div class="state-main">
 
         <!-- Intro Section -->
         <section class="intro-section">
@@ -901,17 +1060,10 @@
                 </ul>
             </div>
         </section>
-        <section class="resources-section featured-guides-section">
-            <div class="container">
-                <h3>Featured Driveway Guides for Indiana</h3>
-                <p class="section-sub">Essential reading for Indiana homeowners planning a driveway project</p>
-                <ul class="featured-guides-list">
-                <li><a href="/guides/asphalt-driveway-cost-in-indiana-local-pricing/" class="resource-link">Asphalt Driveway Cost in Indiana: Local Pricing</a></li>
-                <li><a href="/guides/best-driveway-material-for-indiana-homes/" class="resource-link">Best Driveway Material for Indiana Homes</a></li>
-                <li><a href="/guides/driveway-contractors-in-indianapolis-in-how-to-choose/" class="resource-link">Driveway Contractors in Indianapolis, IN: How to Choose</a></li>
-                </ul>
-                <p class="more-guides-link"><a href="/guides-hub/" class="resource-link">View all driveway guides</a></p>
-            </div>
+
+
+        </div>
+        </div>
         </section>
 
         <!-- CTA Section -->

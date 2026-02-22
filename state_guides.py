@@ -103,13 +103,14 @@ def _extract_state_from_slug(slug: str) -> Optional[str]:
     return None
 
 
-def build_state_guides_map(max_per_state: int = 5) -> dict:
+def build_state_guides_map(max_per_state: int = 5, sort_by_recent: bool = False) -> dict:
     """
     Build mapping state_slug -> [(guide_slug, title), ...].
-    Each state gets up to max_per_state guides, favoring cost/permits/material guides.
+    Each state gets up to max_per_state guides.
+    If sort_by_recent: use most recently modified guides first; else prioritize cost/permits/material.
     """
     hero_map = _load_hero_map()
-    by_state: dict[str, list[tuple[str, str]]] = {}
+    by_state: dict[str, list[tuple[str, str, float]]] = {}  # (slug, title, mtime)
 
     if not GUIDES_DIR.exists():
         return by_state
@@ -118,16 +119,17 @@ def build_state_guides_map(max_per_state: int = 5) -> dict:
         if not sub.is_dir():
             continue
         slug = sub.name
-        if (sub / "index.html").exists():
+        index_path = sub / "index.html"
+        if index_path.exists():
             state = _extract_state_from_slug(slug)
             if state:
                 title = _get_guide_title(slug, hero_map)
+                mtime = index_path.stat().st_mtime
                 if state not in by_state:
                     by_state[state] = []
-                by_state[state].append((slug, title))
+                by_state[state].append((slug, title, mtime))
 
-    # Prioritize: cost guides, permits, best material, then others. Limit per state.
-    def priority(item: tuple[str, str]) -> int:
+    def priority(item: tuple[str, str, float]) -> int:
         s = item[0].lower()
         if "cost" in s or "pricing" in s:
             return 0
@@ -139,11 +141,15 @@ def build_state_guides_map(max_per_state: int = 5) -> dict:
             return 3
         return 4
 
+    result: dict[str, list[tuple[str, str]]] = {}
     for state in by_state:
-        items = sorted(by_state[state], key=priority)
-        by_state[state] = items[:max_per_state]
-
-    return by_state
+        items = by_state[state]
+        if sort_by_recent:
+            items = sorted(items, key=lambda x: x[2], reverse=True)
+        else:
+            items = sorted(items, key=lambda x: priority(x))
+        result[state] = [(slug, title) for slug, title, _ in items[:max_per_state]]
+    return result
 
 
 def get_state_for_guide(guide_slug: str) -> Optional[str]:

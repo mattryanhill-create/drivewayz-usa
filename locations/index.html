@@ -6,6 +6,12 @@
     <title>Our Service Locations | Drivewayz USA</title>
         <meta name="description" content="Find driveway installation and repair services near you. Drivewayz USA serves all 50 states with expert contractors.">
         <link rel="canonical" href="https://drivewayzusa.co/locations/">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+        {"@type":"ListItem","position":1,"name":"Home","item":"https://drivewayzusa.co/"},
+        {"@type":"ListItem","position":2,"name":"Locations"}
+    ]}
+    </script>
     <link rel="stylesheet" href="/main.css?v=3">
     <style>
         * {
@@ -54,8 +60,14 @@
         }
 
 
+        /* Breadcrumb - top-left of hero */
+        .locations-breadcrumb { position: absolute; top: 1rem; left: 2rem; z-index: 3; padding: 1rem 2rem; display: flex; gap: 0.5rem; font-size: 0.9rem; text-align: left; }
+        .locations-breadcrumb a { color: rgba(255,255,255,0.8); text-decoration: none; }
+        .locations-breadcrumb a:hover { color: white; }
+
         /* Hero Section */
         .hero{
+            position: relative;
             margin-top: 140px;
             background: linear-gradient(135deg, rgba(43, 87, 151, 0.65) 0%, rgba(91, 155, 213, 0.6) 100%), url('/images/hero-locations-hub.webp'); 
             color: white;
@@ -666,6 +678,9 @@
 
     <!-- Hero Section -->
     <section class="hero">
+        <div class="locations-breadcrumb">
+            <a href="/">Home</a><span>/</span><span>Locations</span>
+        </div>
         <div class="hero-content">
             <h1>Our Service Locations</h1>
             <p class="hero-subtitle">Proudly serving homeowners across all 50 states and U.S. territories</p>
