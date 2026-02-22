@@ -16,6 +16,31 @@
   gtag('js', new Date());
   gtag('config', 'G-V08M9YKRR7');
 </script>
+<style>
+.services-checkbox-group {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem 2rem;
+}
+.services-checkbox-group label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: normal;
+  cursor: pointer;
+}
+.services-checkbox-group input[type="checkbox"] {
+  width: auto;
+}
+@media (max-width: 600px) {
+  .services-checkbox-group { grid-template-columns: 1fr; }
+}
+#needsOtherWrapper.visible {
+  max-height: 120px;
+  opacity: 1;
+  margin-top: 0.5rem;
+}
+</style>
 </head>
 
 <body>
@@ -160,20 +185,19 @@
                             <input type="tel" id="phone" name="phone" required>
                         </div>
                         <div class="form-group">
-                            <label for="driveway-type">Driveway Type</label>
-                            <select id="driveway-type" name="driveway-type">
-                                <option value="">Select a type...</option>
-                                <option value="gravel">Gravel</option>
-                                <option value="chip-seal">Chip Seal</option>
-                                <option value="exposed-aggregate">Exposed Aggregate Concrete</option>
-                                <option value="cobblestone">Cobblestone</option>
-                                <option value="pavestone">Pavestone</option>
-                                <option value="basalt">Basalt</option>
-                                <option value="recycled-glass">Recycled Glass</option>
-                                <option value="oyster-shell">Oyster Shell</option>
-                                <option value="concrete-repair">Concrete Repair</option>
-                                <option value="not-sure">Not Sure</option>
-                            </select>
+                            <label>What do you need? <span style="font-weight:normal;color:#888;">(select all that apply)</span></label>
+                            <div class="services-checkbox-group">
+                                <label><input type="checkbox" name="needs" value="New Driveway Installation"> New Driveway Installation</label>
+                                <label><input type="checkbox" name="needs" value="Driveway Repair / Resurfacing"> Driveway Repair / Resurfacing</label>
+                                <label><input type="checkbox" name="needs" value="Sealcoating / Maintenance"> Sealcoating / Maintenance</label>
+                                <label><input type="checkbox" name="needs" value="Replace Existing Driveway"> Replace Existing Driveway</label>
+                                <label><input type="checkbox" name="needs" value="Not Sure - Just Exploring"> Not Sure – Just Exploring</label>
+                                <label><input type="checkbox" name="needs" value="Other" id="needsOtherCheckbox"> Other</label>
+                            </div>
+                            <div id="needsOtherWrapper" style="max-height:0;overflow:hidden;transition:max-height 0.3s ease,opacity 0.3s ease;opacity:0;margin-top:0;">
+                                <input type="text" id="needsOtherText" name="needsOther" placeholder="e.g., heated driveway, turnaround area, ADA accessibility" style="margin-top:0.75rem;width:100%;">
+                                <small style="color:#888;display:block;margin-top:0.25rem;">Please describe what you need</small>
+                            </div>
                         </div>
                     </div>
 
@@ -225,6 +249,28 @@
     </footer>
     <script src="/main.js?v=4" defer></script>
 
+    <!-- Progressive disclosure: show/hide "Other" text field + conditional required -->
+    <script>
+    (function() {
+      var otherCheckbox = document.getElementById('needsOtherCheckbox');
+      var otherWrapper = document.getElementById('needsOtherWrapper');
+      var otherText = document.getElementById('needsOtherText');
+      if (otherCheckbox && otherWrapper && otherText) {
+        otherCheckbox.addEventListener('change', function() {
+          if (this.checked) {
+            otherWrapper.classList.add('visible');
+            otherText.required = true;
+            otherText.focus();
+          } else {
+            otherWrapper.classList.remove('visible');
+            otherText.required = false;
+            otherText.value = '';
+          }
+        });
+      }
+    })();
+    </script>
+
     <!-- n8n Webhook Form Handler -->
     <script>
     document.getElementById("contactForm").addEventListener("submit", async function(e) {
@@ -237,12 +283,34 @@
         var firstName = nameParts[0] || "";
         var lastName = nameParts.slice(1).join(" ") || "";
 
+        // Validate: if "Other" is checked, the text field must not be empty
+        var otherCb = document.getElementById('needsOtherCheckbox');
+        var otherTxt = document.getElementById('needsOtherText');
+        if (otherCb && otherCb.checked && (!otherTxt.value || !otherTxt.value.trim())) {
+          otherTxt.style.borderColor = '#e74c3c';
+          otherTxt.focus();
+          var wrapper = document.getElementById('needsOtherWrapper');
+          if (wrapper && !wrapper.classList.contains('visible')) {
+            wrapper.classList.add('visible');
+          }
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Request Free Estimate';
+          return;
+        }
+
         var data = {
             firstName: firstName,
             lastName: lastName,
             email: document.getElementById("email").value.trim(),
             phone: document.getElementById("phone").value.trim(),
-            drivewayType: document.getElementById("driveway-type").value,
+            needs: (function() {
+              var checked = [];
+              document.querySelectorAll('input[name="needs"]:checked').forEach(function(cb) {
+                checked.push(cb.value);
+              });
+              return checked;
+            })(),
+            needsOther: document.getElementById('needsOtherText').value.trim(),
             message: document.getElementById("message").value.trim(),
             zip: document.getElementById("zip").value.trim(),
             persona: form.querySelector('input[name="persona"]').value,
@@ -267,6 +335,10 @@
                 msgDiv.textContent = "Thank you! We will be in touch shortly.";
                 msgDiv.style.color = "green";
                 form.reset();
+                var needsWrapper = document.getElementById('needsOtherWrapper');
+                if (needsWrapper) needsWrapper.classList.remove('visible');
+                var needsOtherTxt = document.getElementById('needsOtherText');
+                if (needsOtherTxt) { needsOtherTxt.required = false; needsOtherTxt.style.borderColor = ''; }
                 submitBtn.textContent = "\u2713 Submission Complete";
                 submitBtn.style.backgroundColor = "#28a745";
                 submitBtn.style.borderColor = "#28a745";
