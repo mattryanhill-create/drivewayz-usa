@@ -663,10 +663,7 @@ sans-serif;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url('hero-driveway.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: scroll;
+    /* Hero image served via <picture> in HTML for WebP support */
     margin-top: 100px;
     min-height: calc(90vh - 100px);
 }
