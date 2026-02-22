@@ -10,12 +10,12 @@ import glob
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 # The nav insertion: add For Contractors after For Homeowners
-NAV_OLD = '<li><a href="/for-homeowners.html">For Homeowners</a></li>'
-NAV_NEW = '<li><a href="/for-homeowners.html">For Homeowners</a></li>\n                    <li><a href="/for-contractors.html">For Contractors</a></li>'
+NAV_OLD = '<li><a href="/for-homeowners">For Homeowners</a></li>'
+NAV_NEW = '<li><a href="/for-homeowners">For Homeowners</a></li>\n                    <li><a href="/for-contractors">For Contractors</a></li>'
 
 # Footer patterns for guides (simple footer)
 GUIDE_FOOTER_OLD = '<a href="/#contact">Contact</a>'
-GUIDE_FOOTER_NEW = '<a href="/#contact">Contact</a> &bull; <a href="/for-contractors.html">For Contractors</a>'
+GUIDE_FOOTER_NEW = '<a href="/#contact">Contact</a> &bull; <a href="/for-contractors">For Contractors</a>'
 
 def process_file(filepath):
     with open(filepath, 'r', encoding='utf-8') as f:
@@ -25,7 +25,7 @@ def process_file(filepath):
     changed = False
 
     # Add For Contractors nav link after For Homeowners (if not already present)
-    if NAV_OLD in content and 'for-contractors.html' not in content:
+    if NAV_OLD in content and 'href="/for-contractors"' not in content:
         content = content.replace(NAV_OLD, NAV_NEW, 1)
         changed = True
 
