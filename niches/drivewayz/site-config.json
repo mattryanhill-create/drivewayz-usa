@@ -1,0 +1,39 @@
+{
+  "brand_name": "Drivewayz USA",
+  "brand_slug": "drivewayz-usa",
+  "domain": "drivewayzusa.co",
+  "tagline": "America's Trusted Driveway Resource",
+  "niche": "driveway",
+  "service_category": "Driveway Installation & Repair",
+  "primary_keywords": ["driveway installation", "driveway repair", "driveway contractors"],
+  "cta_primary": "Get Your Free Driveway Estimate",
+  "cta_secondary": "Find Local Contractors",
+  "lead_form_heading": "Request Your Free Estimate",
+  "service_types": ["Concrete", "Asphalt", "Gravel", "Pavers", "Chip Seal", "Cobblestone"],
+  "colors": {
+    "primary": "#5B9BD5",
+    "accent": "#2B5797",
+    "background": "#f9fafb",
+    "text": "#1f2937"
+  },
+  "integrations": {
+    "ga4_id": "G-V08M9YKRR7",
+    "hubspot_portal_id": "",
+    "n8n_webhook_url": "https://drivewayzusa.app.n8n.cloud/webhook/4a46a030-9b41-482a-abf5-4724062aec71",
+    "google_maps_api_key": ""
+  },
+  "social": {
+    "facebook": "",
+    "instagram": "",
+    "linkedin": ""
+  },
+  "footer": {
+    "copyright_name": "Drivewayz USA",
+    "contact_email": ""
+  },
+  "seo": {
+    "site_title_suffix": "| Drivewayz USA",
+    "default_meta_description": "Professional driveway installation and repair services in the United States. Gravel, chip seal, concrete, pavestone, and more. Free estimates.",
+    "og_image": "https://drivewayzusa.co/images/logov3.png"
+  }
+}

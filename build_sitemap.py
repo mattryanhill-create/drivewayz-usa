@@ -1,26 +1,19 @@
 #!/usr/bin/env python3
 """
-build_sitemap.py
-
-Generates sitemap.xml for drivewayzusa.co covering:
-  - Core pages (index, guides-hub, locations)
-  - All /guides/*/ pages
-  - All /locations/*/ pages
-
-Run from Cursor Terminal: python3 build_sitemap.py
-Then: git add sitemap.xml robots.txt && git commit -m "Add sitemap.xml and robots.txt" && git push origin main
+Build sitemap.xml for septicsystemshq.com
+TODO: Ensure BASE_URL and paths reflect septic site structure.
 """
 
 from datetime import date
 from pathlib import Path
 
-BASE_URL = "https://drivewayzusa.co"
+BASE_URL = "https://septicsystemshq.com"
 PROJECT_ROOT = Path(__file__).resolve().parent
 OUTPUT_FILE = PROJECT_ROOT / "sitemap.xml"
 ROBOTS_FILE = PROJECT_ROOT / "robots.txt"
 TODAY = date.today().isoformat()
 
-# Core pages: (path, priority, changefreq)
+# Core pages
 CORE_PAGES = [
     ("/",                    "1.0", "weekly"),
     ("/guides-hub/",         "0.9", "daily"),
@@ -31,7 +24,6 @@ CORE_PAGES = [
     ("/for-homeowners-quiz/", "0.8", "monthly"),
 ]
 
-
 def build_url_entry(loc: str, priority: str, changefreq: str, lastmod: str = TODAY) -> str:
     return f"""  <url>
     <loc>{BASE_URL}{loc}</loc>
@@ -40,79 +32,19 @@ def build_url_entry(loc: str, priority: str, changefreq: str, lastmod: str = TOD
     <priority>{priority}</priority>
   </url>"""
 
-
-def collect_pages() -> list:
+def main():
     entries = []
-
-    # Core pages
     for path, priority, changefreq in CORE_PAGES:
         entries.append(build_url_entry(path, priority, changefreq))
-
-    # Guides
     guides_dir = PROJECT_ROOT / "guides"
     if guides_dir.exists():
-        guide_files = sorted(guides_dir.glob("*/index.html"))
-        print(f"Found {len(guide_files)} guide pages")
-        for f in guide_files:
-            loc = f"/guides/{f.parent.name}/"
-            entries.append(build_url_entry(loc, "0.8", "monthly"))
-    else:
-        print("WARNING: guides/ directory not found")
-
-    # Location pages
-    locations_dir = PROJECT_ROOT / "locations"
-    if locations_dir.exists():
-        loc_files = sorted(locations_dir.glob("*/index.html"))
-        print(f"Found {len(loc_files)} location pages")
-        for f in loc_files:
-            slug = f.parent.name
-            if slug == "state-page":
-                continue
-            loc = f"/locations/{slug}/"
-            entries.append(build_url_entry(loc, "0.7", "monthly"))
-    else:
-        print("WARNING: locations/ directory not found")
-
-    return entries
-
-
-def build_sitemap(entries: list) -> str:
-    urls_xml = "\n".join(entries)
-    return f"""<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-{urls_xml}
-</urlset>
-"""
-
-
-def build_robots() -> str:
-    return f"""User-agent: *
-Allow: /
-
-Sitemap: {BASE_URL}/sitemap.xml
-"""
-
-
-def main():
-    print("Collecting pages...")
-    entries = collect_pages()
-    print(f"Total URLs: {len(entries)}")
-
-    sitemap_xml = build_sitemap(entries)
-    OUTPUT_FILE.write_text(sitemap_xml, encoding="utf-8")
-    print(f"Written sitemap.xml ({len(entries)} URLs) to {OUTPUT_FILE}")
-
-    robots_txt = build_robots()
-    ROBOTS_FILE.write_text(robots_txt, encoding="utf-8")
-    print(f"Written robots.txt to {ROBOTS_FILE}")
-
-    print(f"\nNext steps:")
-    print(f"  git add sitemap.xml robots.txt")
-    print(f"  git commit -m 'Add sitemap.xml with {len(entries)} URLs and robots.txt'")
-    print(f"  git push origin main")
-    print(f"\nAfter pushing, submit to Google Search Console:")
-    print(f"  {BASE_URL}/sitemap.xml")
-
+        for f in sorted(guides_dir.glob("*/index.html")):
+            entries.append(build_url_entry(f"/guides/{f.parent.name}/", "0.8", "monthly"))
+    urls = "\n".join(entries)
+    output = f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{urls}\n</urlset>'
+    OUTPUT_FILE.write_text(output, encoding="utf-8")
+    ROBOTS_FILE.write_text(f"User-agent: *\nAllow: /\n\nSitemap: {BASE_URL}/sitemap.xml\n", encoding="utf-8")
+    print(f"Wrote {OUTPUT_FILE}")
 
 if __name__ == "__main__":
     main()

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Driveway Services | Drivewayz USA</title>
+    <title>Driveway Services | Septic Systems HQ</title>
     <meta name="description" content="Professional driveway services tailored to your state's unique climate and terrain.">
     <link rel="stylesheet" href="/main.css">
     <style>
@@ -757,12 +757,12 @@
 <!-- Google tag (gtag.js) -->
 <link rel="preconnect" href="https://www.googletagmanager.com">
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-V08M9YKRR7"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-V08M9YKRR7');
+  gtag('config', 'G-XXXXXXXXXX');
 </script>
 </head>
 
@@ -771,7 +771,7 @@
         <header class="site-header navbar" id="navbar">
         <div class="container nav-container">
             <div class="logo">
-                <a href="/"><picture><source srcset="/images/logov3-640.webp 640w, /images/logov3-1280.webp 1280w" type="image/webp"><img src="/images/logov3-640.png" srcset="/images/logov3-640.png 640w, /images/logov3-800.png 800w" alt="Drivewayz USA" width="1536" height="1024" loading="eager" onerror="this.style.display='none'"></picture></a>
+                <a href="/"><picture><source srcset="/images/logov3-640.webp 640w, /images/logov3-1280.webp 1280w" type="image/webp"><img src="/images/logov3-640.png" srcset="/images/logov3-640.png 640w, /images/logov3-800.png 800w" alt="Septic Systems HQ" width="1536" height="1024" loading="eager" onerror="this.style.display='none'"></picture></a>
             </div>
             <nav class="main-nav" aria-label="Main navigation">
                 <ul class="main-nav__list nav-links" id="main-nav-menu">
@@ -802,7 +802,7 @@
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-section">
-                <h4>Drivewayz USA</h4>
+                <h4><span data-config="brand_name">Septic Systems HQ</span></h4>
                 <p>Professional driveway services across all 50 states.</p>
             </div>
             <div class="footer-section">
@@ -818,11 +818,11 @@
             </div>
             <div class="footer-section">
                 <h4>Contact</h4>
-                <a href="/#contact">Get a Free Estimate</a>
+                <a href="/#contact"><span data-config="cta_primary">Get a Free Estimate</span></a>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 Drivewayz USA. All rights reserved.</p>
+            <p>&copy; 2024 <span data-config="footer.copyright_name">Septic Systems HQ</span>. All rights reserved.</p>
         </div>
     </footer>
 
@@ -3278,7 +3278,7 @@
             factItem.classList.toggle('active');
         }
 
-        function renderPage() {
+        async function renderPage() {
             const stateKey = getStateFromHash();
             
             if (!stateKey || !statesData[stateKey]) {
@@ -3287,9 +3287,11 @@
             }
 
             const state = statesData[stateKey];
+            const config = (typeof getSiteConfig === 'function') ? await getSiteConfig() : {};
+            const brandName = config.brand_name || 'Septic Systems HQ';
             
             // Update page title and meta
-            document.title = `${state.name} Driveway Services | Drivewayz USA`;
+            document.title = `${state.name} Driveway Services | ${brandName}`;
             const metaDesc = document.querySelector('meta[name="description"]');
             if (metaDesc) {
                 metaDesc.content = state.metaDescription;
@@ -3537,8 +3539,11 @@
             // Update footer text
             const footerText = document.querySelector('.footer-bottom p');
             if (footerText) {
-                footerText.innerHTML = `&copy; 2024 Drivewayz USA. All rights reserved. | ${state.name} Driveway Services`;
+                footerText.innerHTML = `&copy; 2024 ${brandName}. All rights reserved. | ${state.name} Driveway Services`;
             }
+
+            // Re-apply config to any data-config elements (including dynamic content)
+            if (typeof renderConfig === 'function') renderConfig();
         }
 
         // Render on page load
@@ -3549,5 +3554,7 @@
     </script>
         <script src="state-page-enhancements.js" defer></script>
 <script src="/js/seo.js"></script>
+<script src="/config-loader.js" defer></script>
+<script>document.addEventListener('DOMContentLoaded', () => renderConfig());</script>
 </body>
 </html>
