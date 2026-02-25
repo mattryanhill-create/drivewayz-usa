@@ -628,7 +628,7 @@ function enhanceFooter() {
     '</div>' +
     '<div class="footer-bottom">' +
     '<p>\u00A9 2026 Drivewayz USA. Licensed & Insured. Serving the United States with Pride.</p>' +
-    '<p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>' +
+    '<p><a href="/privacy-policy/">Privacy Policy</a> | <a href="#">Terms of Service</a></p>' +
     '</div>';
   document.body.appendChild(footer);
 }
