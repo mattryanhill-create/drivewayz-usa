@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Septic Cost Calculator | Septic Systems HQ</title>
-    <meta name="description" content="Estimate your septic system project cost by type, size, and region. Free instant calculator.">
-    <link rel="canonical" href="https://septicsystemshq.com/cost-calculator/">
+    <title>Driveway Cost Calculator | Drivewayz USA</title>
+    <meta name="description" content="Estimate your driveway project cost by material, size, and region. Free instant calculator.">
+    <link rel="canonical" href="https://drivewayzusa.co/cost-calculator/">
     <link rel="stylesheet" href="/main.css?v=6">
 <!-- Google tag (gtag.js) -->
 <link rel="preconnect" href="https://www.googletagmanager.com">
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-V08M9YKRR7"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX');
+  gtag('config', 'G-V08M9YKRR7');
 </script>
 <style>
 .calc-section { padding: 4rem 0; background: var(--bg-light); }
@@ -50,7 +50,7 @@
     <header class="site-header navbar" id="navbar">
         <div class="container nav-container">
             <div class="logo">
-                <a href="/"><picture><source srcset="/images/logov3-640.webp 640w, /images/logov3-1280.webp 1280w" type="image/webp"><img src="/images/logov3-640.png" srcset="/images/logov3-640.png 640w, /images/logov3-800.png 800w" alt="Septic Systems HQ" width="1536" height="1024" loading="eager" onerror="this.style.display='none'"></picture></a>
+                <a href="/"><picture><source srcset="/images/logov3-640.webp 640w, /images/logov3-1280.webp 1280w" type="image/webp"><img src="/images/logov3-640.png" srcset="/images/logov3-640.png 640w, /images/logov3-800.png 800w" alt="Drivewayz USA" width="1536" height="1024" loading="eager" onerror="this.style.display='none'"></picture></a>
             </div>
             <nav class="main-nav" aria-label="Main navigation">
                 <ul class="main-nav__list nav-links" id="main-nav-menu">
@@ -76,11 +76,11 @@
     <!-- Hero Section -->
     <section class="hero" style="position:relative;">
         <div class="calc-breadcrumb"><a href="/">Home</a> / <span>Cost Calculator</span></div>
-        <picture class="hero-bg-picture" style="position:absolute;inset:0;z-index:0;width:100%;height:100%;margin:0;padding:0;display:block;"><source srcset="/images/hero-septic.webp 640w, /images/hero-septic.webp 1280w" type="image/webp"><img src="/images/hero-septic.webp" srcset="/images/hero-septic.webp 640w, /images/hero-septic.webp 900w" alt="" width="7360" height="4912" loading="eager" fetchpriority="high" style="width:100%;height:100%;object-fit:cover;display:block;"></picture>
+        <picture class="hero-bg-picture" style="position:absolute;inset:0;z-index:0;width:100%;height:100%;margin:0;padding:0;display:block;"><source srcset="/hero-driveway-640.webp 640w, /hero-driveway-1280.webp 1280w" type="image/webp"><img src="/hero-driveway-640.jpg" srcset="/hero-driveway-640.jpg 640w, /hero-driveway-900.jpg 900w" alt="" width="7360" height="4912" loading="eager" fetchpriority="high" style="width:100%;height:100%;object-fit:cover;display:block;"></picture>
         <div class="hero-overlay"></div>
         <div class="container hero-content">
-            <h1 class="hero-title">Septic Cost Calculator</h1>
-            <p class="hero-subtitle">Get an instant estimate based on your system type, tank size, and location.</p>
+            <h1 class="hero-title">Driveway Cost Calculator</h1>
+            <p class="hero-subtitle">Get an instant estimate based on your material, driveway size, and location.</p>
         </div>
     </section>
 
@@ -92,26 +92,28 @@
                 <form id="calcForm" class="calc-form contact-form">
                     <div class="form-row" style="grid-template-columns: 1fr;">
                         <div class="form-group">
-                            <label for="material">Septic System Type</label>
+                            <label for="material">Driveway Material</label>
                             <select id="material" name="material" required>
-                                <option value="conventional">Conventional ($3,000-$8,000)</option>
-                                <option value="aerobic">Aerobic ($10,000-$20,000)</option>
-                                <option value="mound">Mound ($10,000-$25,000)</option>
-                                <option value="chamber">Chamber ($8,000-$15,000)</option>
-                                <option value="drip">Drip Distribution ($12,000-$22,000)</option>
-                                <option value="sandfilter">Sand Filter ($10,000-$18,000)</option>
+                                <option value="concrete">Concrete ($8-$15/sqft)</option>
+                                <option value="asphalt">Asphalt ($3-$7/sqft)</option>
+                                <option value="gravel">Gravel ($1-$3/sqft)</option>
+                                <option value="pavers">Pavers ($10-$30/sqft)</option>
+                                <option value="chipseal">Chip Seal ($2.50-$4/sqft)</option>
+                                <option value="exposed">Exposed Aggregate ($10-$18/sqft)</option>
+                                <option value="cobblestone">Cobblestone ($15-$30/sqft)</option>
+                                <option value="stamped">Stamped Concrete ($12-$20/sqft)</option>
                                 <option value="notsure">Not Sure</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-row" style="grid-template-columns: 1fr 1fr;">
                         <div class="form-group">
-                            <label for="length">Number of Bedrooms</label>
-                            <input type="number" id="length" name="length" value="3" min="1" max="8" required placeholder="3">
+                            <label for="length">Driveway Length (ft)</label>
+                            <input type="number" id="length" name="length" value="50" min="5" max="500" required>
                         </div>
                         <div class="form-group">
-                            <label for="width">Tank Size (gallons) – optional</label>
-                            <input type="number" id="width" name="width" value="1000" min="500" max="3000" placeholder="1000">
+                            <label for="width">Driveway Width (ft)</label>
+                            <input type="number" id="width" name="width" value="12" min="6" max="50" required>
                         </div>
                     </div>
                     <div class="form-row" style="grid-template-columns: 1fr;">
@@ -132,8 +134,8 @@
                             <label>Project Type</label>
                             <div class="radio-group">
                                 <label><input type="radio" name="projectType" value="new" checked> New Installation</label>
-                                <label><input type="radio" name="projectType" value="replace"> Replace Existing (+25% for removal)</label>
-                                <label><input type="radio" name="projectType" value="repair"> Repair/Pump Only (15% of full cost)</label>
+                                <label><input type="radio" name="projectType" value="replace"> Replace Existing (+20% for tearout)</label>
+                                <label><input type="radio" name="projectType" value="repair"> Repair/Resurface (50% of full cost)</label>
                             </div>
                         </div>
                     </div>
@@ -142,10 +144,10 @@
 
                 <div id="resultSingle" class="result-card">
                     <h3>Your Estimate</h3>
-                    <p class="result-detail"><strong>Bedrooms:</strong> <span id="resultSqft">0</span></p>
+                    <p class="result-detail"><strong>Square footage:</strong> <span id="resultSqft">0</span> sq ft</p>
                     <p class="result-detail"><strong>Region modifier:</strong> <span id="resultModifier">—</span></p>
                     <p class="result-estimate" id="resultRange">Estimated Cost: $0 - $0</p>
-                    <p class="result-disclaimer">This is a rough estimate. Actual costs depend on soil conditions, perc test results, local codes, and labor rates.</p>
+                    <p class="result-disclaimer">This is a rough estimate. Actual costs depend on site conditions, grading, drainage, and local labor rates.</p>
                     <div class="calc-cta">
                         <p>Want an exact quote?</p>
                         <a href="/for-homeowners/#homeowner-estimate" class="cta-band-button primary">Get your free estimate</a>
@@ -158,11 +160,11 @@
                     <p class="result-detail"><strong>Region modifier:</strong> <span id="compareModifier">—</span></p>
                     <div style="overflow-x: auto;">
                         <table class="comparison-table" id="compareTable">
-                            <thead><tr><th>System Type</th><th>Low Estimate</th><th>High Estimate</th></tr></thead>
+                            <thead><tr><th>Material</th><th>Low Estimate</th><th>High Estimate</th></tr></thead>
                             <tbody></tbody>
                         </table>
                     </div>
-                    <p class="result-disclaimer">This is a rough estimate. Actual costs depend on soil conditions, perc test results, local codes, and labor rates.</p>
+                    <p class="result-disclaimer">This is a rough estimate. Actual costs depend on site conditions, grading, drainage, and local labor rates.</p>
                     <div class="calc-cta">
                         <p>Want an exact quote?</p>
                         <a href="/for-homeowners/#homeowner-estimate" class="cta-band-button primary">Get your free estimate</a>
@@ -175,7 +177,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2026 Septic Systems HQ. Licensed & Insured. Serving the United States with Pride.</p>
+            <p>&copy; 2026 Drivewayz USA. Licensed & Insured. Serving the United States with Pride.</p>
             <p class="footer-links">
                 <a href="/for-homeowners/">For Homeowners</a> &bull;
                 <a href="/for-contractors/">For Contractors</a> &bull;
@@ -191,12 +193,14 @@
     <script>
     (function() {
         var MATERIALS = {
-            conventional: { name: 'Conventional', low: 3000, high: 8000 },
-            aerobic: { name: 'Aerobic', low: 10000, high: 20000 },
-            mound: { name: 'Mound', low: 10000, high: 25000 },
-            chamber: { name: 'Chamber', low: 8000, high: 15000 },
-            drip: { name: 'Drip Distribution', low: 12000, high: 22000 },
-            sandfilter: { name: 'Sand Filter', low: 10000, high: 18000 }
+            concrete: { name: 'Concrete', low: 8, high: 15 },
+            asphalt: { name: 'Asphalt', low: 3, high: 7 },
+            gravel: { name: 'Gravel', low: 1, high: 3 },
+            pavers: { name: 'Pavers', low: 10, high: 30 },
+            chipseal: { name: 'Chip Seal', low: 2.5, high: 4 },
+            exposed: { name: 'Exposed Aggregate', low: 10, high: 18 },
+            cobblestone: { name: 'Cobblestone', low: 15, high: 30 },
+            stamped: { name: 'Stamped Concrete', low: 12, high: 20 }
         };
         var REGIONS = {
             northeast: { name: 'Northeast', mod: 1.1 },
@@ -206,14 +210,14 @@
             westcoast: { name: 'West Coast', mod: 1.15 },
             mountainwest: { name: 'Mountain West', mod: 0.95 }
         };
-        var PROJECT_TYPES = { new: 1, replace: 1.25, repair: 0.15 };
+        var PROJECT_TYPES = { new: 1, replace: 1.2, repair: 0.5 };
 
         function fmt(n) { return Math.round(n).toLocaleString(); }
 
         function calc() {
-            var bedrooms = parseFloat(document.getElementById('length').value) || 3;
-            var tankGallons = parseFloat(document.getElementById('width').value) || 1000;
-            var sqft = Math.max(1, bedrooms * 350);
+            var length = parseFloat(document.getElementById('length').value) || 50;
+            var width = parseFloat(document.getElementById('width').value) || 12;
+            var sqft = length * width;
             var regionKey = document.getElementById('region').value;
             var projectKey = document.querySelector('input[name="projectType"]:checked').value;
             var region = REGIONS[regionKey];
@@ -226,14 +230,14 @@
 
             if (single) {
                 var m = MATERIALS[materialKey];
-                var low = m.low * modifier;
-                var high = m.high * modifier;
+                var low = sqft * m.low * modifier;
+                var high = sqft * m.high * modifier;
                 var mid = (low + high) / 2;
 
                 document.getElementById('resultSingle').classList.add('visible');
                 document.getElementById('resultCompare').style.display = 'none';
-                document.getElementById('resultSqft').textContent = bedrooms + ' BR';
-                document.getElementById('resultModifier').textContent = modLabel + (projectMod !== 1 ? ' | ' + (projectMod === 1.25 ? '+25% removal' : '15% pump/repair') : '');
+                document.getElementById('resultSqft').textContent = fmt(sqft);
+                document.getElementById('resultModifier').textContent = modLabel + (projectMod !== 1 ? ' | ' + (projectMod === 1.2 ? '+20% tearout' : '50% resurface') : '');
                 document.getElementById('resultRange').textContent = 'Estimated Cost: $' + fmt(low) + ' - $' + fmt(high);
 
                 if (typeof gtag === 'function') {
@@ -242,16 +246,16 @@
             } else {
                 document.getElementById('resultSingle').classList.remove('visible');
                 document.getElementById('resultCompare').style.display = 'block';
-                document.getElementById('compareSqft').textContent = bedrooms + ' BR';
-                document.getElementById('compareModifier').textContent = modLabel + (projectMod !== 1 ? ' | ' + (projectMod === 1.25 ? '+25% removal' : '15% pump/repair') : '');
+                document.getElementById('compareSqft').textContent = fmt(sqft);
+                document.getElementById('compareModifier').textContent = modLabel + (projectMod !== 1 ? ' | ' + (projectMod === 1.2 ? '+20% tearout' : '50% resurface') : '');
 
                 var tbody = document.getElementById('compareTable').querySelector('tbody');
                 tbody.innerHTML = '';
                 var totalMid = 0;
                 for (var k in MATERIALS) {
                     var mat = MATERIALS[k];
-                    var lo = mat.low * modifier;
-                    var hi = mat.high * modifier;
+                    var lo = sqft * mat.low * modifier;
+                    var hi = sqft * mat.high * modifier;
                     totalMid += (lo + hi) / 2;
                     var tr = document.createElement('tr');
                     tr.innerHTML = '<td>' + mat.name + '</td><td>$' + fmt(lo) + '</td><td>$' + fmt(hi) + '</td>';
@@ -259,7 +263,7 @@
                 }
 
                 if (typeof gtag === 'function') {
-                    gtag('event', 'calculator_use', { event_category: 'tool', event_label: 'notsure', value: totalMid / 6 });
+                    gtag('event', 'calculator_use', { event_category: 'tool', event_label: 'notsure', value: totalMid / 8 });
                 }
             }
         }
