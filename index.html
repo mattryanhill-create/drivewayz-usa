@@ -268,15 +268,20 @@
             <p class="section-subtitle">Proudly serving homeowners across the United States</p>
             
             <div class="contact-content">
+                <div class="contact-form-wrapper">
                 <form id="contactForm" class="contact-form">
+                    <div id="formBannerError" class="form-banner-error" style="display:none;" role="alert"></div>
+                    
                     <div class="form-row">
                         <div class="form-group">
                             <label for="name">Name *</label>
                             <input type="text" id="name" name="name" required>
+                            <span class="field-error" id="name-error" aria-live="polite"></span>
                         </div>
                         <div class="form-group">
                             <label for="email">Email *</label>
                             <input type="email" id="email" name="email" required>
+                            <span class="field-error" id="email-error" aria-live="polite"></span>
                         </div>
                     </div>
                     
@@ -284,6 +289,7 @@
                         <div class="form-group">
                             <label for="phone">Phone *</label>
                             <input type="tel" id="phone" name="phone" required>
+                            <span class="field-error" id="phone-error" aria-live="polite"></span>
                         </div>
                         <div class="form-group">
                             <label for="driveway-type">Driveway Type</label>
@@ -303,22 +309,26 @@
                         </div>
                     </div>
 
-                                    <div class="form-row">
-                    <div class="form-group">
-                        <label for="zip">ZIP Code *</label>
-                        <input type="text" id="zip" name="zip" required>
-                    </div>
-                </div>
-                    
-                    <div class="form-group">
-                                            <label for="message">Tell us about your project</label>
-                                            <textarea id="message" name="message" rows="5"></textarea>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="zip">ZIP Code *</label>
+                            <input type="text" id="zip" name="zip" required>
+                            <span class="field-error" id="zip-error" aria-live="polite"></span>
+                        </div>
                     </div>
                     
-                    <button type="submit" class="cta-button">Request Free Estimate</button>
+                    <div class="form-group">
+                        <label for="message">Tell us about your project</label>
+                        <textarea id="message" name="message" rows="5"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="cta-button" id="submitBtn">Request Free Estimate</button>
                     <div id="formMessage" class="form-message"></div>
                 </form>
-                
+                <div id="formSuccessMessage" class="form-success-message" style="display:none;" role="status">
+                    <p><strong>Thank you!</strong> Your request has been submitted. We'll be in touch soon. If you don't hear from us, call (800) 555-DRWY.</p>
+                </div>
+                </div>
                 <div class="contact-info">
                     <h3>Serving the United States</h3>
                     <p>Nationwide driveway installation and repair services across all 50 states</p>
@@ -348,7 +358,7 @@
                 <a href="/locations/">Locations</a> &bull;
                 <a href="/guides-hub/">Guides</a> &bull;
                 <a href="/#contact">Contact</a> &bull;
-                <a href="#">Privacy Policy</a>
+                <a href="/privacy-policy/">Privacy Policy</a>
             </p>
         </div>
     </footer>
@@ -356,55 +366,130 @@
 
             <!-- n8n Webhook Form Handler -->
     <script>
-    document.getElementById("contactForm").addEventListener("submit", async function(e) {
-        e.preventDefault();
-        var form = e.target;
-        var submitBtn = form.querySelector('button[type="submit"]');
-        var msgDiv = document.getElementById("formMessage");
-        var fullName = document.getElementById("name").value.trim();
-        var nameParts = fullName.split(" ");
-        var firstName = nameParts[0] || "";
-        var lastName = nameParts.slice(1).join(" ") || "";
+    (function() {
+        var form = document.getElementById("contactForm");
+        var submitBtn = document.getElementById("submitBtn");
+        var bannerError = document.getElementById("formBannerError");
+        var formSuccess = document.getElementById("formSuccessMessage");
+        var nameEl = document.getElementById("name");
+        var emailEl = document.getElementById("email");
+        var phoneEl = document.getElementById("phone");
+        var zipEl = document.getElementById("zip");
 
-        var data = {
-            firstName: firstName,
-            lastName: lastName,
-            email: document.getElementById("email").value.trim(),
-            phone: document.getElementById("phone").value.trim(),
-            drivewayType: document.getElementById("driveway-type").value,
-            message: document.getElementById("message").value.trim(),
-                        zip: document.getElementById("zip").value.trim()
-        };
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-        submitBtn.disabled = true;
-        submitBtn.textContent = "Sending...";
-
-        try {
-            var res = await fetch("https://drivewayzusa.app.n8n.cloud/webhook/4a46a030-9b41-482a-abf5-4724062aec71", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(data)
+        function clearFieldErrors() {
+            [nameEl, emailEl, phoneEl, zipEl].forEach(function(el) {
+                el.classList.remove("input-error");
             });
-            if (res.ok) {
-                gtag('event', 'generate_lead', {
-                    'event_category': 'form',
-                    'event_label': 'free_estimate',
-                    'value': 1
-                });
-                window.location.href = '/thank-you-homeowner/';
-                return;
-            } else {
-                msgDiv.textContent = "Something went wrong. Please try again.";
-                msgDiv.style.color = "red";
-            }
-        } catch (err) {
-            msgDiv.textContent = "Network error. Please try again later.";
-            msgDiv.style.color = "red";
-        } finally {
-            submitBtn.disabled = false;
-            submitBtn.textContent = "Request Free Estimate";
+            document.querySelectorAll(".field-error").forEach(function(el) {
+                el.textContent = "";
+            });
+            bannerError.style.display = "none";
+            bannerError.textContent = "";
         }
-    });
+
+        function setFieldError(id, message) {
+            var el = document.getElementById(id);
+            var errEl = document.getElementById(id + "-error");
+            if (el && errEl) {
+                el.classList.add("input-error");
+                errEl.textContent = message;
+            }
+        }
+
+        function validate() {
+            clearFieldErrors();
+            var valid = true;
+            var nameVal = nameEl.value.trim();
+            var emailVal = emailEl.value.trim();
+            var phoneVal = phoneEl.value.replace(/\D/g, "");
+            var zipVal = zipEl.value.trim();
+
+            if (!nameVal || nameVal.length < 2) {
+                setFieldError("name", "Name is required (min 2 characters)");
+                valid = false;
+            }
+            if (!emailVal) {
+                setFieldError("email", "Email is required");
+                valid = false;
+            } else if (!emailRegex.test(emailVal)) {
+                setFieldError("email", "Please enter a valid email address");
+                valid = false;
+            }
+            if (!phoneVal || phoneVal.length < 10) {
+                setFieldError("phone", "Phone is required (10+ digits)");
+                valid = false;
+            }
+            if (!zipVal || !/^\d{5}$/.test(zipVal)) {
+                setFieldError("zip", "ZIP Code must be 5 digits");
+                valid = false;
+            }
+            return valid;
+        }
+
+        function setLoading(loading) {
+            if (loading) {
+                submitBtn.disabled = true;
+                submitBtn.classList.add("btn-loading");
+                submitBtn.innerHTML = '<span class="btn-spinner"></span> Submitting...';
+            } else {
+                submitBtn.disabled = false;
+                submitBtn.classList.remove("btn-loading");
+                submitBtn.innerHTML = "Request Free Estimate";
+            }
+        }
+
+        form.addEventListener("submit", async function(e) {
+            e.preventDefault();
+            if (!validate()) return;
+
+            setLoading(true);
+            clearFieldErrors();
+
+            var fullName = nameEl.value.trim();
+            var nameParts = fullName.split(" ");
+            var firstName = nameParts[0] || "";
+            var lastName = nameParts.slice(1).join(" ") || "";
+
+            var data = {
+                firstName: firstName,
+                lastName: lastName,
+                email: emailEl.value.trim(),
+                phone: phoneEl.value.trim(),
+                drivewayType: document.getElementById("driveway-type").value,
+                message: document.getElementById("message").value.trim(),
+                zip: zipEl.value.trim()
+            };
+
+            try {
+                var res = await fetch("https://drivewayzusa.app.n8n.cloud/webhook/4a46a030-9b41-482a-abf5-4724062aec71", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(data)
+                });
+                if (res.ok) {
+                    gtag('event', 'generate_lead', {
+                        'event_category': 'form',
+                        'event_label': 'free_estimate',
+                        'value': 1
+                    });
+                    form.style.display = "none";
+                    formSuccess.style.display = "block";
+                    setLoading(false);
+                    window.location.href = '/thank-you-homeowner/';
+                    return;
+                } else {
+                    bannerError.textContent = "Something went wrong. Please try again or call (800) 555-DRWY.";
+                    bannerError.style.display = "block";
+                }
+            } catch (err) {
+                bannerError.textContent = "Something went wrong. Please try again or call (800) 555-DRWY.";
+                bannerError.style.display = "block";
+            }
+            setLoading(false);
+        });
+    })();
     </script>
         <script src="/js/seo.js"></script>
 
