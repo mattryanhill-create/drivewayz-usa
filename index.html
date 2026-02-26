@@ -269,7 +269,7 @@
             
             <div class="contact-content">
                 <div class="contact-form-wrapper">
-                <form id="contactForm" class="contact-form">
+                <form id="contactForm" class="contact-form" novalidate>
                     <div id="formBannerError" class="form-banner-error" style="display:none;" role="alert"></div>
                     
                     <div class="form-row">
@@ -366,7 +366,7 @@
 
             <!-- n8n Webhook Form Handler -->
     <script>
-    (function() {
+    document.addEventListener("DOMContentLoaded", function() {
         var form = document.getElementById("contactForm");
         var submitBtn = document.getElementById("submitBtn");
         var bannerError = document.getElementById("formBannerError");
@@ -440,12 +440,12 @@
             }
         }
 
-        form.addEventListener("submit", async function(e) {
+        document.getElementById("contactForm").addEventListener("submit", async function(e) {
             e.preventDefault();
+            clearFieldErrors();
             if (!validate()) return;
 
             setLoading(true);
-            clearFieldErrors();
 
             var fullName = nameEl.value.trim();
             var nameParts = fullName.split(" ");
@@ -489,7 +489,7 @@
             }
             setLoading(false);
         });
-    })();
+    });
     </script>
         <script src="/js/seo.js"></script>
 
