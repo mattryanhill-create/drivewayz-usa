@@ -22,13 +22,8 @@ const nextConfig = {
       permanent: true,
     });
 
-    // 3. Redirect trailing-slash URLs to non-trailing (canonical)
-    // Matches any path that ends with / except the root "/"
-    redirectsList.push({
-      source: '/:path+/',
-      destination: '/:path+',
-      permanent: true,
-    });
+    // 3. REMOVED: trailing-slash→non-trailing caused redirect loop with /cost-calculator.
+    // Canonical URLs use trailing slash (sitemap, _redirects). Do NOT redirect /path/ to /path.
 
     return redirectsList;
   },
