@@ -7,7 +7,7 @@ TODO: Ensure BASE_URL and paths reflect septic site structure.
 from datetime import date
 from pathlib import Path
 
-BASE_URL = "https://septicsystemshq.com"
+BASE_URL = "https://drivewayzusa.co"
 PROJECT_ROOT = Path(__file__).resolve().parent
 OUTPUT_FILE = PROJECT_ROOT / "sitemap.xml"
 ROBOTS_FILE = PROJECT_ROOT / "robots.txt"

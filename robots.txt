@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://septicsystemshq.com/sitemap.xml
+Sitemap: https://drivewayzusa.co/sitemap.xml
