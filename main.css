@@ -448,7 +448,7 @@ a.service-card {
 }
 
 /* ----- Responsive Adjustments ----- */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .state-intro .container {
     grid-template-columns: 1fr;
   }
@@ -474,6 +474,7 @@ a.service-card {
     gap: 1rem;
   }
 }
+
 :root {
     --primary-color: #2E7D32;
     --primary-dark: #1565C0;
@@ -1338,8 +1339,33 @@ section {
 }
 
 @media (max-width: 480px) {
-  .hero-title {
-    font-size: 1.8rem;
+  .hero-title,
+  .state-hero h1 {
+    font-size: 1.6rem;
+  }
+
+  .hero-subtitle,
+  .state-hero .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .container,
+  .state-hero {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+  }
+
+  .contact-form button,
+  .cta-button,
+  .cta-band-button {
+    width: 100%;
+    min-height: 44px;
   }
 
   .cta-button {
@@ -1358,6 +1384,8 @@ section {
   .hero {
     margin-top: 56px;
     min-height: calc(90vh - 56px);
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
 
