@@ -2,3 +2,5 @@ User-agent: *
 Allow: /
 
 Sitemap: https://drivewayzusa.co/sitemap.xml
+Sitemap: https://drivewayzusa.co/guides-sitemap.xml
+Sitemap: https://drivewayzusa.co/images-sitemap.xml
