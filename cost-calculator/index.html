@@ -57,6 +57,33 @@
 .comparison-table tr:nth-child(even) { background: rgba(255,255,255,0.6); }
 @media (max-width: 768px) { .calc-card { padding: 1.5rem; } .result-estimate { font-size: 1.5rem; } }
 @media (max-width: 600px) { .form-row { grid-template-columns: 1fr !important; } }
+/* Upgrade sections */
+.recommended-reading, .share-estimate { display: none; margin-top: 2rem; }
+.recommended-reading.visible, .share-estimate.visible { display: block; }
+.recommended-reading h4, .share-estimate h4 { font-size: 1.1rem; color: var(--text-dark); margin-bottom: 1rem; }
+.reading-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem; }
+@media (max-width: 640px) { .reading-cards { grid-template-columns: 1fr; } }
+.reading-card { background: #fff; border-radius: 16px; padding: 1.25rem; box-shadow: var(--shadow); border: 1px solid var(--border-color); text-decoration: none; color: var(--text-dark); display: block; transition: box-shadow 0.2s ease; }
+.reading-card:hover { box-shadow: var(--shadow-lg); color: var(--text-dark); }
+.reading-card strong { color: var(--primary-dark); }
+.share-row { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+.share-row button, .share-row a { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-light); cursor: pointer; position: relative; transition: background 0.2s; }
+.share-row button:hover, .share-row a:hover { background: #e5e7eb; }
+.share-row button svg, .share-row a svg { width: 18px; height: 18px; }
+.embed-accordion { background: var(--bg-light); border-radius: 12px; margin-top: 2rem; overflow: hidden; }
+.embed-accordion-header { padding: 1rem 1.25rem; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; font-weight: 600; color: var(--text-dark); user-select: none; }
+.embed-accordion-header:hover { background: rgba(0,0,0,0.03); }
+.embed-accordion-toggle { transition: transform 0.2s; }
+.embed-accordion.expanded .embed-accordion-toggle { transform: rotate(90deg); }
+.embed-accordion-body { display: none; padding: 0 1.25rem 1.25rem; }
+.embed-accordion.expanded .embed-accordion-body { display: block; }
+.embed-code-block { background: #1f2937; color: #e5e7eb; padding: 1rem; border-radius: 8px; overflow-x: auto; font-family: ui-monospace, monospace; font-size: 0.8rem; margin: 1rem 0; }
+.embed-code-block code { white-space: pre; }
+.copy-embed-btn { margin-top: 0.5rem; padding: 0.5rem 1rem; font-size: 0.9rem; border-radius: 8px; border: 1px solid var(--border-color); background: #fff; cursor: pointer; }
+.copy-embed-btn:hover { background: var(--bg-light); }
+.copy-tooltip { position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); margin-bottom: 4px; padding: 4px 8px; background: #1f2937; color: #fff; font-size: 0.75rem; border-radius: 4px; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.2s; }
+.copy-tooltip.show { opacity: 1; }
+@media (max-width: 640px) { .share-row { flex-direction: column; align-items: flex-start; } }
 </style>
 </head>
 <body>
@@ -184,6 +211,34 @@
                         <a href="/for-homeowners/#homeowner-estimate" class="cta-band-button primary">Get your free estimate</a>
                     </div>
                 </div>
+
+                <div id="recommendedReading" class="recommended-reading">
+                    <h4>Learn More About Your Driveway</h4>
+                    <div class="reading-cards" id="readingCards"></div>
+                </div>
+                <div id="shareEstimate" class="share-estimate">
+                    <h4>Share Your Estimate</h4>
+                    <div class="share-row">
+                        <button type="button" id="copyLinkBtn" title="Copy link" aria-label="Copy link">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                            <span class="copy-tooltip" id="copyLinkTooltip">Copied!</span>
+                        </button>
+                        <a id="facebookShare" href="#" target="_blank" rel="noopener" aria-label="Share on Facebook" title="Share on Facebook"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+                        <a id="twitterShare" href="#" target="_blank" rel="noopener" aria-label="Share on X" title="Share on X"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#000"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+                        <a id="pinterestShare" href="#" target="_blank" rel="noopener" aria-label="Share on Pinterest" title="Share on Pinterest"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#E60023"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.215 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/></svg></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="calc-card embed-accordion" id="embedAccordion">
+                <div class="embed-accordion-header" id="embedAccordionHeader" role="button" tabindex="0" aria-expanded="false" aria-controls="embedAccordionBody">
+                    <span class="embed-accordion-toggle" aria-hidden="true">▶</span>
+                    <span>Add This Calculator to Your Website</span>
+                </div>
+                <div class="embed-accordion-body" id="embedAccordionBody" role="region">
+                    <pre class="embed-code-block"><code id="embedCodeSnippet"></code></pre>
+                    <button type="button" class="copy-embed-btn" id="copyEmbedBtn">Copy Embed Code</button>
+                </div>
             </div>
         </div>
     </section>
@@ -283,6 +338,122 @@
         }
 
         document.getElementById('calcBtn').addEventListener('click', function(e) { e.preventDefault(); calc(); });
+    })();
+    </script>
+    <script>
+    (function() {
+        var MATERIAL_GUIDES = {
+            concrete: { url: '/guides/concrete-driveway-installation-step-by-step-guide/', name: 'Concrete' },
+            asphalt: { url: '/guides/asphalt-driveway-cost-per-square-foot-guide/', name: 'Asphalt' },
+            gravel: { url: '/guides/gravel-driveway-installation-step-by-step-guide/', name: 'Gravel' },
+            pavers: { url: '/guides/pavers-vs-concrete-driveway-cost-durability-and-aesthetics/', name: 'Pavers' },
+            chipseal: { url: '/guides/chip-seal-driveway/', name: 'Chip Seal' },
+            exposed: { url: '/guides/exposed-aggregate-concrete-driveway-guide/', name: 'Exposed Aggregate' },
+            cobblestone: { url: '/guides/cobblestone-driveway/', name: 'Cobblestone' },
+            stamped: { url: '/guides/stamped-concrete-driveways-patterns-and-costs/', name: 'Stamped Concrete' },
+            notsure: { url: '/guides-hub/', name: 'Browse All Driveway Guides' }
+        };
+        var REGION_PAGES = {
+            northeast: { url: '/locations/new-york/', name: 'New York' },
+            southeast: { url: '/locations/florida/', name: 'Florida' },
+            midwest: { url: '/locations/ohio/', name: 'Ohio' },
+            southwest: { url: '/locations/texas/', name: 'Texas' },
+            westcoast: { url: '/locations/california/', name: 'California' },
+            mountainwest: { url: '/locations/colorado/', name: 'Colorado' }
+        };
+        var BASE_URL = 'https://drivewayzusa.co/cost-calculator/';
+        var EMBED_SNIPPET = '<iframe src="https://drivewayzusa.co/cost-calculator/" width="100%" height="900" frameborder="0" title="Driveway Cost Calculator"></iframe>\n<p style="font-size:12px;text-align:center;">Driveway cost estimates by <a href="https://drivewayzusa.co" target="_blank" rel="noopener">Drivewayz USA</a></p>';
+
+        function getShareUrl() {
+            var material = document.getElementById('material').value;
+            var length = document.getElementById('length').value;
+            var width = document.getElementById('width').value;
+            var region = document.getElementById('region').value;
+            var project = document.querySelector('input[name="projectType"]:checked').value;
+            var params = new URLSearchParams({ material: material, length: length, width: width, region: region, project: project });
+            return BASE_URL + '?' + params.toString();
+        }
+
+        function applyParamsFromUrl() {
+            var params = new URLSearchParams(window.location.search);
+            if (params.has('material')) document.getElementById('material').value = params.get('material') || 'concrete';
+            if (params.has('length')) document.getElementById('length').value = params.get('length') || '50';
+            if (params.has('width')) document.getElementById('width').value = params.get('width') || '12';
+            if (params.has('region')) document.getElementById('region').value = params.get('region') || 'southeast';
+            if (params.has('project')) {
+                var project = params.get('project');
+                var radio = document.querySelector('input[name="projectType"][value="' + project + '"]');
+                if (radio) radio.checked = true;
+            }
+            if (params.has('material') || params.has('length') || params.has('width') || params.has('region') || params.has('project')) {
+                document.getElementById('calcBtn').click();
+            }
+        }
+
+        function showUpgradeSections() {
+            var material = document.getElementById('material').value;
+            var region = document.getElementById('region').value;
+            var guide = MATERIAL_GUIDES[material] || MATERIAL_GUIDES.notsure;
+            var regionPage = REGION_PAGES[region] || REGION_PAGES.southeast;
+            var card1Text = material === 'notsure' ? 'Browse All Driveway Guides — Costs, installation tips, and what to expect.' : guide.name + ' Driveway Guide — Costs, installation tips, and what to expect.';
+            var card2Text = 'Driveway services in ' + regionPage.name + ' — Local recommendations and contractors.';
+
+            var cardsEl = document.getElementById('readingCards');
+            cardsEl.innerHTML = '<a href="' + guide.url + '" class="reading-card"><strong>' + (material === 'notsure' ? 'Browse All Driveway Guides' : guide.name + ' Driveway Guide') + '</strong><br><span style="font-size:0.9rem;color:var(--text-light);">Costs, installation tips, and what to expect.</span></a>' +
+                '<a href="' + regionPage.url + '" class="reading-card"><strong>Driveway services in ' + regionPage.name + '</strong><br><span style="font-size:0.9rem;color:var(--text-light);">Local recommendations and contractors.</span></a>';
+
+            document.getElementById('recommendedReading').classList.add('visible');
+            document.getElementById('shareEstimate').classList.add('visible');
+
+            var url = getShareUrl();
+            document.getElementById('facebookShare').href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url);
+            document.getElementById('twitterShare').href = 'https://twitter.com/intent/tweet?url=' + encodeURIComponent(url) + '&text=My+driveway+estimate+from+Drivewayz+USA';
+            document.getElementById('pinterestShare').href = 'https://pinterest.com/pin/create/button/?url=' + encodeURIComponent(url) + '&description=Driveway+Cost+Estimate';
+        }
+
+        function copyToClipboard(text, tooltipEl) {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text).then(function() {
+                    if (tooltipEl) { tooltipEl.classList.add('show'); setTimeout(function() { tooltipEl.classList.remove('show'); }, 1500); }
+                });
+            } else {
+                var ta = document.createElement('textarea');
+                ta.value = text;
+                ta.style.position = 'fixed'; ta.style.opacity = '0';
+                document.body.appendChild(ta);
+                ta.select();
+                document.execCommand('copy');
+                document.body.removeChild(ta);
+                if (tooltipEl) { tooltipEl.classList.add('show'); setTimeout(function() { tooltipEl.classList.remove('show'); }, 1500); }
+            }
+        }
+
+        document.getElementById('embedCodeSnippet').textContent = EMBED_SNIPPET;
+
+        document.getElementById('embedAccordionHeader').addEventListener('click', function() {
+            document.getElementById('embedAccordion').classList.toggle('expanded');
+            document.getElementById('embedAccordionHeader').setAttribute('aria-expanded', document.getElementById('embedAccordion').classList.contains('expanded'));
+        });
+        document.getElementById('embedAccordionHeader').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); this.click(); }
+        });
+
+        document.getElementById('copyEmbedBtn').addEventListener('click', function() {
+            copyToClipboard(EMBED_SNIPPET);
+            this.textContent = 'Copied!';
+            var btn = this;
+            setTimeout(function() { btn.textContent = 'Copy Embed Code'; }, 1500);
+        });
+
+        document.getElementById('calcBtn').addEventListener('click', function() {
+            setTimeout(showUpgradeSections, 0);
+        });
+
+        document.getElementById('copyLinkBtn').addEventListener('click', function() {
+            copyToClipboard(getShareUrl(), document.getElementById('copyLinkTooltip'));
+        });
+
+        applyParamsFromUrl();
     })();
     </script>
     <script>
