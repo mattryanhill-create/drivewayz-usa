@@ -1,0 +1,7 @@
+# Content-Type for XML sitemaps
+/sitemap.xml
+  Content-Type: application/xml
+/guides-sitemap.xml
+  Content-Type: application/xml
+/images-sitemap.xml
+  Content-Type: application/xml
