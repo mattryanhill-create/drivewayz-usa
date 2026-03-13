@@ -35,6 +35,55 @@
     window.gtag('js', new Date());
     window.gtag('config', GA_ID);
   }
+
+  // --- JSON-LD Organization & WebSite ---
+  // Only inject if not already present
+  var ldScripts = document.querySelectorAll('script[type="application/ld+json"]');
+  var hasOrg = false;
+  var hasWebSite = false;
+  ldScripts.forEach(function(s) {
+    try {
+      var data = JSON.parse(s.textContent || '{}');
+      if (data['@type'] === 'Organization') hasOrg = true;
+      if (data['@type'] === 'WebSite') hasWebSite = true;
+    } catch (e) {}
+  });
+  if (!hasOrg) {
+    var orgScript = document.createElement('script');
+    orgScript.type = 'application/ld+json';
+    orgScript.textContent = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Organization',
+      'name': 'Drivewayz USA',
+      'url': 'https://drivewayzusa.co',
+      'logo': 'https://drivewayzusa.co/images/logov3-1280.webp',
+      'description': 'Professional driveway installation and repair services across the United States',
+      'contactPoint': {
+        '@type': 'ContactPoint',
+        'telephone': '+1-800-555-DRWY',
+        'contactType': 'customer service',
+        'areaServed': 'US'
+      },
+      'sameAs': []
+    });
+    document.head.appendChild(orgScript);
+  }
+  if (!hasWebSite) {
+    var wsScript = document.createElement('script');
+    wsScript.type = 'application/ld+json';
+    wsScript.textContent = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      'name': 'Drivewayz USA',
+      'url': 'https://drivewayzusa.co',
+      'potentialAction': {
+        '@type': 'SearchAction',
+        'target': 'https://drivewayzusa.co/guides-hub/?q={search_term_string}',
+        'query-input': 'required name=search_term_string'
+      }
+    });
+    document.head.appendChild(wsScript);
+  }
 })();
 
 // ===========================================
