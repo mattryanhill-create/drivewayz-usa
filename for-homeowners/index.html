@@ -423,10 +423,48 @@
         var form = e.target;
         var submitBtn = form.querySelector('button[type="submit"]');
         var msgDiv = document.getElementById("formMessage");
-        var fullName = document.getElementById("name").value.trim();
-        var nameParts = fullName.split(" ");
-        var firstName = nameParts[0] || "";
-        var lastName = nameParts.slice(1).join(" ") || "";
+
+        // Clear all .form-error spans at the start of each submit attempt
+        form.querySelectorAll('.form-error').forEach(function(el) { el.remove(); });
+
+        // Client-side validation (before fetch)
+        var emailEl = document.getElementById("email");
+        var phoneEl = document.getElementById("phone");
+        var zipEl = document.getElementById("zip");
+        var emailVal = emailEl.value.trim();
+        var phoneVal = phoneEl.value.trim();
+        var zipVal = zipEl.value.trim();
+        var hasError = false;
+
+        function addErrorAfter(input, message) {
+          var existing = input.nextElementSibling;
+          if (existing && existing.classList.contains('form-error')) return;
+          var span = document.createElement('span');
+          span.className = 'form-error';
+          span.style.color = 'red';
+          span.style.fontSize = '0.85rem';
+          span.style.display = 'block';
+          span.style.marginTop = '4px';
+          span.textContent = message;
+          input.insertAdjacentElement('afterend', span);
+        }
+
+        // Email: must contain @ and a dot after it
+        if (!emailVal || !/@/.test(emailVal) || !/\./.test(emailVal.split('@')[1] || '')) {
+          addErrorAfter(emailEl, 'Please enter a valid email address.');
+          hasError = true;
+        }
+        // Phone: must contain at least 10 digits after stripping non-numeric
+        if (!phoneVal || (phoneVal.replace(/\D/g, '').length < 10)) {
+          addErrorAfter(phoneEl, 'Phone must contain at least 10 digits.');
+          hasError = true;
+        }
+        // ZIP: must be exactly 5 digits
+        if (!zipVal || !/^\d{5}$/.test(zipVal)) {
+          addErrorAfter(zipEl, 'ZIP code must be exactly 5 digits.');
+          hasError = true;
+        }
+        if (hasError) return;
 
         // Validate: if "Other" is checked, the text field must not be empty
         var otherCb = document.getElementById('needsOtherCheckbox');
@@ -440,57 +478,59 @@
             wrapper.style.opacity = '1';
             wrapper.style.marginTop = '0.75rem';
           }
-          submitBtn.disabled = false;
-          submitBtn.textContent = 'Request Free Estimate';
           return;
         }
 
+        // Build needs array from checked checkboxes (labels = values)
+        var needs = [];
+        document.querySelectorAll('input[name="needs"]:checked').forEach(function(cb) {
+          var label = cb.value;
+          if (cb.id === 'needsOtherCheckbox' && otherTxt && otherTxt.value.trim()) {
+            label = 'Other: ' + otherTxt.value.trim();
+          }
+          needs.push(label);
+        });
+
         var data = {
-            firstName: firstName,
-            lastName: lastName,
-            email: document.getElementById("email").value.trim(),
-            phone: document.getElementById("phone").value.trim(),
-            needs: (function() {
-              var checked = [];
-              document.querySelectorAll('input[name="needs"]:checked').forEach(function(cb) {
-                checked.push(cb.value);
-              });
-              return checked;
-            })(),
-            needsOther: document.getElementById('needsOtherText').value.trim(),
-            message: document.getElementById("message").value.trim(),
-            zip: document.getElementById("zip").value.trim(),
-            persona: form.querySelector('input[name="persona"]').value,
-            source: form.querySelector('input[name="source"]').value
+          name: document.getElementById("name").value.trim(),
+          email: emailVal,
+          phone: phoneVal,
+          zip: zipVal,
+          needs: needs,
+          message: document.getElementById("message").value.trim()
         };
 
         submitBtn.disabled = true;
         submitBtn.textContent = "Sending...";
+        msgDiv.textContent = "";
+        msgDiv.style.color = "";
 
         try {
-            var res = await fetch("https://drivewayzusa.app.n8n.cloud/webhook/4a46a030-9b41-482a-abf5-4724062aec71", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(data)
-            });
-            if (res.ok) {
-                gtag('event', 'generate_lead', {
-                    'event_category': 'form',
-                    'event_label': 'free_estimate',
-                    'value': 1
-                });
-                window.location.href = '/thank-you-homeowner/';
-                return;
-            } else {
-                msgDiv.textContent = "Something went wrong. Please try again.";
-                msgDiv.style.color = "red";
+          var res = await fetch("https://drivewayzusa.app.n8n.cloud/webhook/nurture-trigger", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+          });
+          if (res.ok) {
+            if (typeof gtag === 'function') {
+              gtag('event', 'generate_lead', {
+                'event_category': 'form',
+                'event_label': 'free_estimate',
+                'value': 1
+              });
             }
-        } catch (err) {
-            msgDiv.textContent = "Network error. Please try again later.";
+            window.location.href = '/thank-you-homeowner/';
+            return;
+          } else {
+            msgDiv.textContent = "Something went wrong. Please try again.";
             msgDiv.style.color = "red";
+          }
+        } catch (err) {
+          msgDiv.textContent = "Network error. Please try again later.";
+          msgDiv.style.color = "red";
         } finally {
-            submitBtn.disabled = false;
-            submitBtn.textContent = "Request Free Estimate";
+          submitBtn.disabled = false;
+          submitBtn.textContent = "Request Free Estimate";
         }
     });
     </script>
