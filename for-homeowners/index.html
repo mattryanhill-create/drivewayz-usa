@@ -505,13 +505,19 @@
           needs.push(label);
         });
 
+        var fullName = document.getElementById("name").value.trim();
+        var nameParts = fullName.split(" ");
+        var firstName = nameParts[0] || "";
+        var lastName = nameParts.slice(1).join(" ") || "";
+
         var data = {
-          name: document.getElementById("name").value.trim(),
+          firstName: firstName,
+          lastName: lastName,
           email: emailVal,
           phone: phoneVal,
-          zip: zipVal,
-          needs: needs,
-          message: document.getElementById("message").value.trim()
+          drivewayType: needs.join(", "),
+          message: document.getElementById("message").value.trim(),
+          zip: zipVal
         };
 
         submitBtn.disabled = true;
@@ -520,7 +526,7 @@
         msgDiv.style.color = "";
 
         try {
-          var res = await fetch("https://drivewayzusa.app.n8n.cloud/webhook/nurture-trigger", {
+          var res = await fetch("https://drivewayzusa.app.n8n.cloud/webhook/4a46a030-9b41-482a-abf5-4724062aec71", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data)
