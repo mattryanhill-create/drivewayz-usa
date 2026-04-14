@@ -1097,7 +1097,15 @@ https://www.drivewayzusa.co/* https://drivewayzusa.co/:splat  301
 /locations /locations/ 301
 /guides-hub /guides-hub/ 301
 # Fix .html guide 404s — bulk redirect to trailing-slash versions
-/guides/*.html /guides/:splat/ 301
+/guides/driveway-contractors-in-cleveland-oh-how-to-choose.html /guides/driveway-contractors-in-cleveland-oh-how-to-choose/ 301
+/guides/hidden-costs-in-driveway-projects-you-should-know.html /guides/hidden-costs-in-driveway-projects-you-should-know/ 301
+/guides/driveway-contractors-in-tulsa-ok-how-to-choose.html /guides/driveway-contractors-in-tulsa-ok-how-to-choose/ 301
+/guides/best-driveway-material-for-kansas-homes.html /guides/best-driveway-material-for-kansas-homes/ 301
+/guides/driveway-connected-home-integration-linking-to-smart-systems.html /guides/driveway-connected-home-integration-linking-to-smart-systems/ 301
+/guides/solar-powered-driveway-features.html /guides/solar-powered-driveway-features/ 301
+/guides/driveway-cost-breakdown-labor-materials-and-equipment.html /guides/driveway-cost-breakdown-labor-materials-and-equipment/ 301
+/guides/basalt-driveway.html /guides/basalt-driveway/ 301
+/guides/driveway-permits-and-regulations-in-connecticut.html /guides/driveway-permits-and-regulations-in-connecticut/ 301
 
 # Specific page redirects
 /locations.html /locations/ 301
