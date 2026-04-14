@@ -1096,3 +1096,23 @@ https://www.drivewayzusa.co/* https://drivewayzusa.co/:splat  301
 /guides/winter-driveway-survival-guide.html /guides/winter-driveway-survival-guide/ 301
 /locations /locations/ 301
 /guides-hub /guides-hub/ 301
+# Fix .html guide 404s — bulk redirect to trailing-slash versions
+/guides/*.html /guides/:splat/ 301
+
+# Specific page redirects
+/locations.html /locations/ 301
+/404.html /404/ 301
+
+# Missing guide — redirect to guides hub
+/guides/driveway-sealing-complete-guide/ /guides/hub/ 301
+
+# Missing images/assets — redirect to relevant pages
+/images/hero-driveway-contractors-portland-or.webp /for-homeowners/ 301
+/images/hero-driveway-contractors-louisville-ky.webp /for-homeowners/ 301
+/images/hero-driveway-permits-kansas.webp /for-homeowners/ 301
+/hero-driveway-640.jpg / 301
+/downloads/driveway-project-checklist-homeowners.pdf /guides/hub/ 301
+/pdf/driveway-cpm-cards.pdf /guides/hub/ 301
+
+# Non-existent pages
+/verify / 301
