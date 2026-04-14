@@ -2,6 +2,27 @@
 http://drivewayzusa.co/*    https://drivewayzusa.co/:splat  301
 http://www.drivewayzusa.co/* https://drivewayzusa.co/:splat  301
 https://www.drivewayzusa.co/* https://drivewayzusa.co/:splat  301
+/guides/driveway-contractors-in-cleveland-oh-how-to-choose.html /guides/driveway-contractors-in-cleveland-oh-how-to-choose/ 301
+/guides/hidden-costs-in-driveway-projects-you-should-know.html /guides/hidden-costs-in-driveway-projects-you-should-know/ 301
+/guides/driveway-contractors-in-tulsa-ok-how-to-choose.html /guides/driveway-contractors-in-tulsa-ok-how-to-choose/ 301
+/guides/best-driveway-material-for-kansas-homes.html /guides/best-driveway-material-for-kansas-homes/ 301
+/guides/driveway-connected-home-integration-linking-to-smart-systems.html /guides/driveway-connected-home-integration-linking-to-smart-systems/ 301
+/guides/solar-powered-driveway-features.html /guides/solar-powered-driveway-features/ 301
+/guides/driveway-cost-breakdown-labor-materials-and-equipment.html /guides/driveway-cost-breakdown-labor-materials-and-equipment/ 301
+/guides/basalt-driveway.html /guides/basalt-driveway/ 301
+/guides/driveway-permits-and-regulations-in-connecticut.html /guides/driveway-permits-and-regulations-in-connecticut/ 301
+/guides/acid-staining-a-concrete-driveway-unique-effects.html /guides/acid-staining-a-concrete-driveway-unique-effects/ 301
+/guides/asphalt-driveway-cost-in-arkansas-local-pricing.html /guides/asphalt-driveway-cost-in-arkansas-local-pricing/ 301
+/locations.html /locations/ 301
+/404.html /404/ 301
+/guides/driveway-sealing-complete-guide/ /guides/hub/ 301
+/images/hero-driveway-contractors-portland-or.webp /for-homeowners/ 301
+/images/hero-driveway-contractors-louisville-ky.webp /for-homeowners/ 301
+/images/hero-driveway-permits-kansas.webp /for-homeowners/ 301
+/hero-driveway-640.jpg / 301
+/downloads/driveway-project-checklist-homeowners.pdf /guides/hub/ 301
+/pdf/driveway-cpm-cards.pdf /guides/hub/ 301
+/verify / 301
 
 # Netlify redirects: legacy .html URLs → clean directory URLs
 # Hash-based state-page deprecated; use static /locations/[state]/ pages
@@ -19,7 +40,6 @@ https://www.drivewayzusa.co/* https://drivewayzusa.co/:splat  301
 /guides.html /guides-hub/ 301
 /guides/   /guides-hub/   301
 /locations /locations/ 301
-/locations.html /locations/ 301
 /locations/alabama.html /locations/alabama/ 301
 /locations/alaska.html /locations/alaska/ 301
 /locations/american-samoa.html /locations/american-samoa/ 301
@@ -77,7 +97,6 @@ https://www.drivewayzusa.co/* https://drivewayzusa.co/:splat  301
 /locations/wisconsin.html /locations/wisconsin/ 301
 /locations/wyoming.html /locations/wyoming/ 301
 /guides/accessible-driveway-design-ada-considerations.html /guides/accessible-driveway-design-ada-considerations/ 301
-/guides/acid-staining-a-concrete-driveway-unique-effects.html /guides/acid-staining-a-concrete-driveway-unique-effects/ 301
 /guides/airbnb-driveway-requirements-parking-for-short-term-rentals.html /guides/airbnb-driveway-requirements-parking-for-short-term-rentals/ 301
 /guides/annual-driveway-maintenance-costs-by-material-type.html /guides/annual-driveway-maintenance-costs-by-material-type/ 301
 /guides/ant-hill-prevention-in-paver-driveways.html /guides/ant-hill-prevention-in-paver-driveways/ 301
@@ -88,7 +107,6 @@ https://www.drivewayzusa.co/* https://drivewayzusa.co/:splat  301
 /guides/asphalt-driveway-cost-in-alabama-local-pricing.html /guides/asphalt-driveway-cost-in-alabama-local-pricing/ 301
 /guides/asphalt-driveway-cost-in-alaska-local-pricing.html /guides/asphalt-driveway-cost-in-alaska-local-pricing/ 301
 /guides/asphalt-driveway-cost-in-arizona-local-pricing.html /guides/asphalt-driveway-cost-in-arizona-local-pricing/ 301
-/guides/asphalt-driveway-cost-in-arkansas-local-pricing.html /guides/asphalt-driveway-cost-in-arkansas-local-pricing/ 301
 /guides/asphalt-driveway-cost-in-california-local-pricing.html /guides/asphalt-driveway-cost-in-california-local-pricing/ 301
 /guides/asphalt-driveway-cost-in-colorado-local-pricing.html /guides/asphalt-driveway-cost-in-colorado-local-pricing/ 301
 /guides/asphalt-driveway-cost-in-connecticut-local-pricing.html /guides/asphalt-driveway-cost-in-connecticut-local-pricing/ 301
@@ -146,7 +164,6 @@ https://www.drivewayzusa.co/* https://drivewayzusa.co/:splat  301
 /guides/asphalt-vs-concrete-in-hot-climates-heat-and-uv-resistance.html /guides/asphalt-vs-concrete-in-hot-climates-heat-and-uv-resistance/ 301
 /guides/asphalt-vs-gravel-driveway-long-term-cost-analysis.html /guides/asphalt-vs-gravel-driveway-long-term-cost-analysis/ 301
 /guides/average-driveway-replacement-cost-by-material.html /guides/average-driveway-replacement-cost-by-material/ 301
-/guides/basalt-driveway.html /guides/basalt-driveway/ 301
 /guides/before-and-after-driveway-renovation-photo-gallery-ideas.html /guides/before-and-after-driveway-renovation-photo-gallery-ideas/ 301
 /guides/best-asphalt-driveway-sealer-top-products-for-2026.html /guides/best-asphalt-driveway-sealer-top-products-for-2026/ 301
 /guides/best-budget-driveway-for-clay-soil.html /guides/best-budget-driveway-for-clay-soil/ 301
@@ -184,7 +201,6 @@ https://www.drivewayzusa.co/* https://drivewayzusa.co/:splat  301
 /guides/best-driveway-material-for-illinois-homes.html /guides/best-driveway-material-for-illinois-homes/ 301
 /guides/best-driveway-material-for-indiana-homes.html /guides/best-driveway-material-for-indiana-homes/ 301
 /guides/best-driveway-material-for-iowa-homes.html /guides/best-driveway-material-for-iowa-homes/ 301
-/guides/best-driveway-material-for-kansas-homes.html /guides/best-driveway-material-for-kansas-homes/ 301
 /guides/best-driveway-material-for-kentucky-homes.html /guides/best-driveway-material-for-kentucky-homes/ 301
 /guides/best-driveway-material-for-louisiana-homes.html /guides/best-driveway-material-for-louisiana-homes/ 301
 /guides/best-driveway-material-for-maine-homes.html /guides/best-driveway-material-for-maine-homes/ 301
@@ -432,7 +448,6 @@ https://www.drivewayzusa.co/* https://drivewayzusa.co/:splat  301
 /guides/driveway-condition-and-home-inspection-what-buyers-look-for.html /guides/driveway-condition-and-home-inspection-what-buyers-look-for/ 301
 /guides/driveway-condition-assessment-protocol-standardized-evaluation.html /guides/driveway-condition-assessment-protocol-standardized-evaluation/ 301
 /guides/driveway-condition-survey-form-annual-documentation.html /guides/driveway-condition-survey-form-annual-documentation/ 301
-/guides/driveway-connected-home-integration-linking-to-smart-systems.html /guides/driveway-connected-home-integration-linking-to-smart-systems/ 301
 /guides/driveway-construction-bond-financial-guarantee-requirements.html /guides/driveway-construction-bond-financial-guarantee-requirements/ 301
 /guides/driveway-continuing-education-staying-current-with-technology.html /guides/driveway-continuing-education-staying-current-with-technology/ 301
 /guides/driveway-contract-dispute-resolution-mediation-vs-arbitration.html /guides/driveway-contract-dispute-resolution-mediation-vs-arbitration/ 301
@@ -464,7 +479,6 @@ https://www.drivewayzusa.co/* https://drivewayzusa.co/:splat  301
 /guides/driveway-contractors-in-charleston-sc-how-to-choose.html /guides/driveway-contractors-in-charleston-sc-how-to-choose/ 301
 /guides/driveway-contractors-in-charlotte-nc-how-to-choose.html /guides/driveway-contractors-in-charlotte-nc-how-to-choose/ 301
 /guides/driveway-contractors-in-chicago-il-how-to-choose.html /guides/driveway-contractors-in-chicago-il-how-to-choose/ 301
-/guides/driveway-contractors-in-cleveland-oh-how-to-choose.html /guides/driveway-contractors-in-cleveland-oh-how-to-choose/ 301
 /guides/driveway-contractors-in-columbus-oh-how-to-choose.html /guides/driveway-contractors-in-columbus-oh-how-to-choose/ 301
 /guides/driveway-contractors-in-dallas-tx-how-to-choose.html /guides/driveway-contractors-in-dallas-tx-how-to-choose/ 301
 /guides/driveway-contractors-in-denver-co-how-to-choose.html /guides/driveway-contractors-in-denver-co-how-to-choose/ 301
@@ -509,11 +523,9 @@ https://www.drivewayzusa.co/* https://drivewayzusa.co/:splat  301
 /guides/driveway-contractors-in-spokane-wa-how-to-choose.html /guides/driveway-contractors-in-spokane-wa-how-to-choose/ 301
 /guides/driveway-contractors-in-st-louis-mo-how-to-choose.html /guides/driveway-contractors-in-st-louis-mo-how-to-choose/ 301
 /guides/driveway-contractors-in-tampa-fl-how-to-choose.html /guides/driveway-contractors-in-tampa-fl-how-to-choose/ 301
-/guides/driveway-contractors-in-tulsa-ok-how-to-choose.html /guides/driveway-contractors-in-tulsa-ok-how-to-choose/ 301
 /guides/driveway-contractors-in-virginia-beach-va-how-to-choose.html /guides/driveway-contractors-in-virginia-beach-va-how-to-choose/ 301
 /guides/driveway-core-sample-testing-thickness-verification.html /guides/driveway-core-sample-testing-thickness-verification/ 301
 /guides/driveway-corrective-maintenance-planning-addressing-existing-issues.html /guides/driveway-corrective-maintenance-planning-addressing-existing-issues/ 301
-/guides/driveway-cost-breakdown-labor-materials-and-equipment.html /guides/driveway-cost-breakdown-labor-materials-and-equipment/ 301
 /guides/driveway-cost-calculator-estimate-your-project-in-minutes.html /guides/driveway-cost-calculator-estimate-your-project-in-minutes/ 301
 /guides/driveway-cost-comparison-worksheet-budget-planning-tool.html /guides/driveway-cost-comparison-worksheet-budget-planning-tool/ 301
 /guides/driveway-cost-estimator-breaking-down-material-and-labor.html /guides/driveway-cost-estimator-breaking-down-material-and-labor/ 301
@@ -690,7 +702,6 @@ https://www.drivewayzusa.co/* https://drivewayzusa.co/:splat  301
 /guides/driveway-permits-and-regulations-in-arkansas.html /guides/driveway-permits-and-regulations-in-arkansas/ 301
 /guides/driveway-permits-and-regulations-in-california.html /guides/driveway-permits-and-regulations-in-california/ 301
 /guides/driveway-permits-and-regulations-in-colorado.html /guides/driveway-permits-and-regulations-in-colorado/ 301
-/guides/driveway-permits-and-regulations-in-connecticut.html /guides/driveway-permits-and-regulations-in-connecticut/ 301
 /guides/driveway-permits-and-regulations-in-delaware.html /guides/driveway-permits-and-regulations-in-delaware/ 301
 /guides/driveway-permits-and-regulations-in-florida.html /guides/driveway-permits-and-regulations-in-florida/ 301
 /guides/driveway-permits-and-regulations-in-georgia.html /guides/driveway-permits-and-regulations-in-georgia/ 301
@@ -924,7 +935,6 @@ https://www.drivewayzusa.co/* https://drivewayzusa.co/:splat  301
 /guides/gravel-vs-paved-driveway-which-is-right-for-you.html /guides/gravel-vs-paved-driveway-which-is-right-for-you/ 301
 /guides/heated-driveway-systems-cost-vs-benefit-analysis.html /guides/heated-driveway-systems-cost-vs-benefit-analysis/ 301
 /guides/heaving-and-frost-damage-repair.html /guides/heaving-and-frost-damage-repair/ 301
-/guides/hidden-costs-in-driveway-projects-you-should-know.html /guides/hidden-costs-in-driveway-projects-you-should-know/ 301
 /guides/hidden-costs-of-driveway-installation-you-should-know-about.html /guides/hidden-costs-of-driveway-installation-you-should-know-about/ 301
 /guides/high-altitude-driveways-colorado-considerations.html /guides/high-altitude-driveways-colorado-considerations/ 301
 /guides/historic-home-driveways-period-appropriate-materials.html /guides/historic-home-driveways-period-appropriate-materials/ 301
@@ -1052,7 +1062,6 @@ https://www.drivewayzusa.co/* https://drivewayzusa.co/:splat  301
 /guides/smart-driveway-technology-sensors-and-automation.html /guides/smart-driveway-technology-sensors-and-automation/ 301
 /guides/snow-melting-driveway-systems-radiant-heat-options.html /guides/snow-melting-driveway-systems-radiant-heat-options/ 301
 /guides/snow-plow-damage-to-driveways-prevention-and-repair.html /guides/snow-plow-damage-to-driveways-prevention-and-repair/ 301
-/guides/solar-powered-driveway-features.html /guides/solar-powered-driveway-features/ 301
 /guides/solar-reflective-driveway-materials-to-reduce-heat.html /guides/solar-reflective-driveway-materials-to-reduce-heat/ 301
 /guides/spring-driveway-inspection-checklist.html /guides/spring-driveway-inspection-checklist/ 301
 /guides/spring-driveway-maintenance-checklist-for-homeowners.html /guides/spring-driveway-maintenance-checklist-for-homeowners/ 301
@@ -1096,31 +1105,3 @@ https://www.drivewayzusa.co/* https://drivewayzusa.co/:splat  301
 /guides/winter-driveway-survival-guide.html /guides/winter-driveway-survival-guide/ 301
 /locations /locations/ 301
 /guides-hub /guides-hub/ 301
-# Fix .html guide 404s — bulk redirect to trailing-slash versions
-/guides/driveway-contractors-in-cleveland-oh-how-to-choose.html /guides/driveway-contractors-in-cleveland-oh-how-to-choose/ 301
-/guides/hidden-costs-in-driveway-projects-you-should-know.html /guides/hidden-costs-in-driveway-projects-you-should-know/ 301
-/guides/driveway-contractors-in-tulsa-ok-how-to-choose.html /guides/driveway-contractors-in-tulsa-ok-how-to-choose/ 301
-/guides/best-driveway-material-for-kansas-homes.html /guides/best-driveway-material-for-kansas-homes/ 301
-/guides/driveway-connected-home-integration-linking-to-smart-systems.html /guides/driveway-connected-home-integration-linking-to-smart-systems/ 301
-/guides/solar-powered-driveway-features.html /guides/solar-powered-driveway-features/ 301
-/guides/driveway-cost-breakdown-labor-materials-and-equipment.html /guides/driveway-cost-breakdown-labor-materials-and-equipment/ 301
-/guides/basalt-driveway.html /guides/basalt-driveway/ 301
-/guides/driveway-permits-and-regulations-in-connecticut.html /guides/driveway-permits-and-regulations-in-connecticut/ 301
-
-# Specific page redirects
-/locations.html /locations/ 301
-/404.html /404/ 301
-
-# Missing guide — redirect to guides hub
-/guides/driveway-sealing-complete-guide/ /guides/hub/ 301
-
-# Missing images/assets — redirect to relevant pages
-/images/hero-driveway-contractors-portland-or.webp /for-homeowners/ 301
-/images/hero-driveway-contractors-louisville-ky.webp /for-homeowners/ 301
-/images/hero-driveway-permits-kansas.webp /for-homeowners/ 301
-/hero-driveway-640.jpg / 301
-/downloads/driveway-project-checklist-homeowners.pdf /guides/hub/ 301
-/pdf/driveway-cpm-cards.pdf /guides/hub/ 301
-
-# Non-existent pages
-/verify / 301
