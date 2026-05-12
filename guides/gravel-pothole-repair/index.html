@@ -752,7 +752,7 @@
                 </div>
             </div>
             <div class="guide-actions">
-                <button class="action-btn action-btn-primary" onclick="scrollToTab('repair-steps')">
+                <button class="action-btn action-btn-primary" type="button" onclick="document.getElementById('repair-steps').scrollIntoView({behavior:'smooth',block:'start'})">
                     <span>🛠️</span> Start Repair Guide
                 </button>
                 <button class="action-btn action-btn-secondary" onclick="saveGuide()">
@@ -762,407 +762,177 @@
         </div>
     </section>
 
-    <!-- Tab Navigation -->
-    <section class="guide-tabs">
-        <div class="container">
-            <div class="tabs-container">
-                <button class="tab-btn active" onclick="switchTab('causes')">Causes</button>
-                <button class="tab-btn" onclick="switchTab('tools')">Tools & Materials</button>
-                <button class="tab-btn" onclick="switchTab('repair-steps')">Repair Steps</button>
-                <button class="tab-btn" onclick="switchTab('prevention')">Prevention</button>
-                <button class="tab-btn" onclick="switchTab('seasonal')">Seasonal Care</button>
-                <button class="tab-btn" onclick="switchTab('faq')">FAQ</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Tab Content -->
-    <section class="tab-content active" id="causes">
+    <section class="tab-content active" style="padding: 3rem 0;">
         <div class="container">
             <div class="guide-content-wrapper">
                 <div class="guide-main">
-                    <h2>What Causes Potholes in Gravel Driveways?</h2>
-                    <p>Understanding why potholes form is the first step to preventing them. Potholes in gravel driveways are caused by a combination of factors that work together to create those frustrating dips and holes.</p>
+                    <nav class="sidebar-card" aria-labelledby="on-this-page-gravel">
+                        <h4 id="on-this-page-gravel">On This Page</h4>
+                        <ul style="list-style:none;padding:0;margin:0;">
+                            <li style="margin-bottom:0.5rem;"><a href="#what-causes-potholes-in-gravel-driveways">What Causes Potholes in Gravel Driveways?</a></li>
+                            <li style="margin-bottom:0.5rem;"><a href="#tools-and-materials-needed-for-gravel-driveway-repair">Tools and Materials Needed for Gravel Driveway Repair</a></li>
+                            <li style="margin-bottom:0.5rem;"><a href="#repair-steps">Step-by-Step Guide to Fixing Potholes in Gravel Driveways</a></li>
+                            <li style="margin-bottom:0.5rem;"><a href="#expert-tips-for-long-lasting-gravel-driveway-repairs">Expert Tips for Long-Lasting Gravel Driveway Repairs</a></li>
+                            <li style="margin-bottom:0.5rem;"><a href="#how-to-prevent-potholes-in-gravel-driveways">How to Prevent Potholes in Gravel Driveways</a></li>
+                            <li style="margin-bottom:0.5rem;"><a href="#common-mistakes-to-avoid-when-repairing-potholes">Common Mistakes to Avoid When Repairing Potholes</a></li>
+                            <li style="margin-bottom:0.5rem;"><a href="#when-should-you-call-a-professional">When Should You Call a Professional?</a></li>
+                        </ul>
+                    </nav>
 
-                    <h3>Primary Causes</h3>
+                    <p>Gravel driveways are a cost-effective and attractive option for homeowners, but they require regular maintenance to stay in good condition. One of the most common issues is potholes, those frustrating dips and holes that make driving uncomfortable and can damage your vehicle.</p>
+
+                    <h2 id="what-causes-potholes-in-gravel-driveways">What Causes Potholes in Gravel Driveways?</h2>
+                    <p>Before jumping into repairs, it&rsquo;s important to understand why potholes form in the first place.</p>
+
+                    <h3 id="water-damage-and-poor-drainage">Water Damage and Poor Drainage</h3>
+                    <p>Water is the number one cause of potholes. When rainwater accumulates on your driveway, it seeps into the gravel and weakens the base layer. Over time, this leads to erosion and sinking. Improving <a href="/guides/driveway-drainage-problems-causes-and-fixes/">driveway drainage</a> helps reduce pooling and protects the base.</p>
+
+                    <h3 id="heavy-vehicle-traffic">Heavy Vehicle Traffic</h3>
+                    <p>Repeated pressure from vehicles pushes gravel outward, creating low spots that eventually turn into potholes.</p>
+
+                    <h3 id="improper-driveway-installation">Improper Driveway Installation</h3>
+                    <p>Driveways without a solid base or proper grading are more prone to developing potholes quickly.</p>
+
+                    <h3 id="seasonal-weather-changes">Seasonal Weather Changes</h3>
+                    <p>Freeze-thaw cycles can expand and contract the ground, loosening gravel and accelerating damage.</p>
+
+                    <h2 id="tools-and-materials-needed-for-gravel-driveway-repair">Tools and Materials Needed for Gravel Driveway Repair</h2>
+                    <p>Having the right tools and materials makes the repair process easier and more effective.</p>
+
+                    <h3 id="essential-tools">Essential Tools</h3>
                     <ul>
-                        <li><strong>Water Accumulation:</strong> Standing water weakens the base material, causing it to shift and settle unevenly</li>
-                        <li><strong>Poor Drainage:</strong> Inadequate slope or blocked <a href="/guides/driveway-drainage-problems-causes-and-fixes/">drainage channels</a> allow water to pool</li>
-                        <li><strong>Heavy Traffic:</strong> Repeated vehicle weight compacts weak spots, creating depressions</li>
-                        <li><strong>Freeze-Thaw Cycles:</strong> Water expands when frozen, pushing gravel upward, then leaves voids when it melts</li>
-                        <li><strong>Inadequate Base:</strong> Insufficient or improperly compacted base material leads to settling</li>
-                        <li><strong>Erosion:</strong> Running water washes away fines and smaller gravel particles</li>
+                        <li>Shovel</li>
+                        <li>Rake</li>
+                        <li>Wheelbarrow</li>
+                        <li>Hand tamper or plate compactor</li>
+                        <li>Pickaxe (for stubborn or compacted areas)</li>
                     </ul>
 
-                    <div class="info-box info-box-tip">
-                        <div class="info-box-title"><span>💡</span> The Key Insight</div>
-                        <p>Potholes are a symptom of underlying <a href="/guides/percolation-test-for-driveway-drainage-planning/">drainage</a> or base problems. Simply filling the hole without addressing the cause means it will return. This guide shows you how to do both.</p>
-                    </div>
-
-                    <h3>Signs You Need Repair</h3>
+                    <h3 id="recommended-materials">Recommended Materials</h3>
                     <ul>
-                        <li>Visible depressions or holes in the driveway surface</li>
-                        <li>Water pooling after rain</li>
-                        <li>Gravel displacement around the affected area</li>
-                        <li>Uneven driving surface that causes vehicle bouncing</li>
-                        <li>Expanding potholes that grow larger over time</li>
+                        <li>Crushed gravel with fines (for better binding)</li>
+                        <li>Coarse aggregate (for base layer stability)</li>
+                        <li>Water (for compaction)</li>
+                    </ul>
+                    <p>Using high-quality gravel ensures better compaction and longer-lasting repairs.</p>
+
+                    <h2 id="repair-steps">Step-by-Step Guide to Fixing Potholes in Gravel Driveways</h2>
+                    <p>Follow these steps carefully to ensure a durable and professional-looking repair.</p>
+
+                    <h3 id="step-1-remove-loose-material-and-debris">Step 1: Remove Loose Material and Debris</h3>
+                    <p>Start by clearing out the pothole completely.</p>
+                    <ul>
+                        <li>Remove loose gravel, dirt, mud, and weeds</li>
+                        <li>Dig until you reach firm, stable ground</li>
+                        <li>Create clean, defined edges for better bonding</li>
+                    </ul>
+                    <p>Proper preparation prevents the new gravel from shifting later.</p>
+
+                    <h3 id="step-2-address-the-base-layer">Step 2: Address the Base Layer</h3>
+                    <p>A strong base is critical for preventing future potholes.</p>
+                    <ul>
+                        <li>Loosen compacted soil at the bottom</li>
+                        <li>Add a layer of coarse gravel for stability</li>
+                        <li>Ensure the base promotes proper drainage</li>
+                    </ul>
+                    <p>Skipping this step often leads to repeated pothole formation.</p>
+
+                    <h3 id="step-3-fill-the-pothole-in-layers">Step 3: Fill the Pothole in Layers</h3>
+                    <p>Layering is key to a long-lasting repair.</p>
+                    <ul>
+                        <li>Add gravel in 2-4 inch layers</li>
+                        <li>Lightly moisten each layer before compacting</li>
+                        <li>Avoid dumping all material at once</li>
+                    </ul>
+                    <p>This technique improves density and minimizes future settling.</p>
+
+                    <h3 id="step-4-compact-each-layer-thoroughly">Step 4: Compact Each Layer Thoroughly</h3>
+                    <p>Compaction is the most important step in gravel driveway repair.</p>
+                    <ul>
+                        <li>Use a hand tamper or plate compactor</li>
+                        <li>Compress each layer firmly before adding more</li>
+                        <li>Eliminate air pockets for a solid finish</li>
+                    </ul>
+                    <p>Without proper compaction, potholes will reappear quickly.</p>
+
+                    <h3 id="step-5-create-a-crown-for-drainage">Step 5: Create a Crown for Drainage</h3>
+                    <p>After filling the pothole, shape the surface slightly higher than the surrounding area.</p>
+                    <ul>
+                        <li>Form a gentle crown in the center</li>
+                        <li>Allow water to flow away from the repair</li>
+                    </ul>
+                    <p>Proper drainage significantly reduces the chances of future damage.</p>
+
+                    <h3 id="step-6-smooth-and-blend-the-surface">Step 6: Smooth and Blend the Surface</h3>
+                    <p>Finish the repair by blending it with the rest of the driveway.</p>
+                    <ul>
+                        <li>Rake the surface evenly</li>
+                        <li>Match the surrounding texture and level</li>
+                        <li>Ensure a seamless appearance</li>
+                    </ul>
+                    <p>This step not only improves aesthetics but also enhances durability.</p>
+
+                    <h2 id="expert-tips-for-long-lasting-gravel-driveway-repairs">Expert Tips for Long-Lasting Gravel Driveway Repairs</h2>
+                    <p>To get the best results, keep these professional tips in mind:</p>
+
+                    <h3 id="use-the-right-gravel-mix">Use the Right Gravel Mix</h3>
+                    <p>Gravel with a mix of particle sizes compacts better and provides a stronger surface.</p>
+
+                    <h3 id="dont-skip-compaction">Don&rsquo;t Skip Compaction</h3>
+                    <p>Even the best materials will fail without proper compaction.</p>
+
+                    <h3 id="slightly-overfill-the-area">Slightly Overfill the Area</h3>
+                    <p>Allow for natural settling by adding a little extra gravel.</p>
+
+                    <h3 id="fix-drainage-issues-first">Fix Drainage Issues First</h3>
+                    <p>Addressing water problems is essential for preventing recurring potholes.</p>
+
+                    <h2 id="how-to-prevent-potholes-in-gravel-driveways">How to Prevent Potholes in Gravel Driveways</h2>
+                    <p>Prevention is always better than repair. Regular maintenance can save time and money.</p>
+
+                    <h3 id="maintain-proper-drainage">Maintain Proper Drainage</h3>
+                    <ul>
+                        <li>Keep a crown along the driveway</li>
+                        <li>Install drainage ditches if needed</li>
                     </ul>
 
-                    <div class="emergency-cta">
-                        <h4>🚨 Severe Damage?</h4>
-                        <p>If your driveway has multiple large potholes or significant base failure, <a href="/guides/concrete-vs-asphalt-vs-gravel/">upgrading to a paved surface</a> or professional regrading may be needed.</p>
-                        <button onclick="window.location.href='/#contact'" style="padding: 0.75rem 1.5rem; background-color: white; color: #dc2626; border: none; border-radius: 8px; font-weight: 700; cursor: pointer;">Get Professional Help</button>
-                    </div>
+                    <h3 id="perform-routine-maintenance">Perform Routine Maintenance</h3>
+                    <ul>
+                        <li>Rake and level the surface periodically</li>
+                        <li>Fill small dips before they become potholes</li>
+                    </ul>
+
+                    <h3 id="regrade-the-driveway">Regrade the Driveway</h3>
+                    <p>Grading restores the correct slope and prevents water accumulation.</p>
+
+                    <h3 id="use-quality-materials">Use Quality Materials</h3>
+                    <p>Investing in good gravel reduces long-term maintenance needs.</p>
+
+                    <h2 id="common-mistakes-to-avoid-when-repairing-potholes">Common Mistakes to Avoid When Repairing Potholes</h2>
+                    <p>Avoid these errors to ensure a successful repair:</p>
+                    <ul>
+                        <li>Filling potholes without removing loose debris</li>
+                        <li>Using the wrong type of gravel</li>
+                        <li>Skipping the layering process</li>
+                        <li>Ignoring drainage problems</li>
+                        <li>Not compacting the material properly</li>
+                    </ul>
+                    <p>These mistakes often result in short-term fixes and recurring damage.</p>
+
+                    <h2 id="when-should-you-call-a-professional">When Should You Call a Professional?</h2>
+                    <p>While DIY repairs work well for small potholes, some situations require expert help:</p>
+                    <ul>
+                        <li>Large or widespread driveway damage</li>
+                        <li>Persistent drainage issues</li>
+                        <li>Severely damaged or unstable base layers</li>
+                    </ul>
+                    <p>Professionals can provide grading, resurfacing, or complete driveway restoration if needed. Fixing potholes in gravel driveways doesn&rsquo;t have to be complicated. With the right tools, proper technique, and attention to drainage, you can restore your driveway and extend its lifespan.</p>
                 </div>
-
-                <aside class="guide-sidebar">
-                    <div class="sidebar-card">
-                        <h4>📊 Quick Facts</h4>
-                        <div class="quick-stat">
-                            <span class="quick-stat-label">Repair Time</span>
-                            <span class="quick-stat-value">2-4 hours</span>
-                        </div>
-                        <div class="quick-stat">
-                            <span class="quick-stat-label">Cost per Pothole</span>
-                            <span class="quick-stat-value">$20-50</span>
-                        </div>
-                        <div class="quick-stat">
-                            <span class="quick-stat-label">Best Season</span>
-                            <span class="quick-stat-value">Dry weather</span>
-                        </div>
-                        <div class="quick-stat">
-                            <span class="quick-stat-label">Prevention</span>
-                            <span class="quick-stat-value">Annual grading</span>
-                        </div>
-                    </div>
-
-                    <div class="sidebar-card sidebar-cta">
-                        <h4>🚀 Need Materials?</h4>
-                        <p>We deliver high-quality gravel and base materials directly to your property.</p>
-                        <button onclick="window.location.href='/#contact'" style="width: 100%; padding: 0.75rem; background-color: white; color: var(--guide-primary-dark); border: none; border-radius: 8px; font-weight: 700; cursor: pointer;">Order Materials</button>
-                    </div>
-                </aside>
             </div>
         </div>
     </section>
 
-    <section class="tab-content" id="tools">
-        <div class="container">
-            <div class="guide-content-wrapper">
-                <div class="guide-main">
-                    <h2>Tools & Materials Checklist</h2>
-                    <p>Gather everything you need before starting. Having the right tools makes the job faster and ensures professional-quality results.</p>
-
-                    <h3>Tools Required</h3>
-                    <div class="tools-checklist">
-                        <div class="tool-item" onclick="toggleTool(this)">
-                            <div class="tool-checkbox"></div>
-                            <span>Shovel (square point)</span>
-                        </div>
-                        <div class="tool-item" onclick="toggleTool(this)">
-                            <div class="tool-checkbox"></div>
-                            <span>Rake (landscape)</span>
-                        </div>
-                        <div class="tool-item" onclick="toggleTool(this)">
-                            <div class="tool-checkbox"></div>
-                            <span>Tamper or plate compactor</span>
-                        </div>
-                        <div class="tool-item" onclick="toggleTool(this)">
-                            <div class="tool-checkbox"></div>
-                            <span>Wheelbarrow</span>
-                        </div>
-                        <div class="tool-item" onclick="toggleTool(this)">
-                            <div class="tool-checkbox"></div>
-                            <span>Level (2-4 foot)</span>
-                        </div>
-                        <div class="tool-item" onclick="toggleTool(this)">
-                            <div class="tool-checkbox"></div>
-                            <span>Measuring tape</span>
-                        </div>
-                        <div class="tool-item" onclick="toggleTool(this)">
-                            <div class="tool-checkbox"></div>
-                            <span>Garden hose with spray nozzle</span>
-                        </div>
-                        <div class="tool-item" onclick="toggleTool(this)">
-                            <div class="tool-checkbox"></div>
-                            <span>Safety gear (gloves, glasses)</span>
-                        </div>
-                    </div>
-
-                    <h3>Materials Needed</h3>
-                    <ul>
-                        <li><strong>Base Material (Crusher Run):</strong> For rebuilding the foundation - approximately 1/2 ton per large pothole</li>
-                        <li><strong>Gravel (Matching Size):</strong> For surface layer - approximately 1/4 ton per large pothole</li>
-                        <li><strong>Geotextile Fabric (Optional):</strong> For severe cases to prevent future settling</li>
-                    </ul>
-
-                    <div class="info-box info-box-warning">
-                        <div class="info-box-title"><span>⚠️</span> Safety First</div>
-                        <p>Always wear safety glasses when working with gravel and dust mask when handling dry materials. Work gloves protect against blisters and sharp stones.</p>
-                    </div>
-
-                    <h3>Material Calculator</h3>
-                    <p>Estimate materials based on pothole size:</p>
-                    <ul>
-                        <li><strong>Small (2x2 ft):</strong> 100-150 lbs base + 50-75 lbs gravel</li>
-                        <li><strong>Medium (3x3 ft):</strong> 300-400 lbs base + 150-200 lbs gravel</li>
-                        <li><strong>Large (4x4+ ft):</strong> 600-800 lbs base + 300-400 lbs gravel</li>
-                    </ul>
-                </div>
-
-                <aside class="guide-sidebar">
-                    <div class="sidebar-card">
-                        <h4>✅ Checklist Progress</h4>
-                        <div class="quick-stat">
-                            <span class="quick-stat-label">Items Checked</span>
-                            <span class="quick-stat-value" id="toolProgress">0/8</span>
-                        </div>
-                        <div class="progress-bar" style="margin-top: 1rem;">
-                            <div class="progress-fill" id="toolProgressBar" style="width: 0%"></div>
-                        </div>
-                    </div>
-                </aside>
-            </div>
-        </div>
-    </section>
-
-    <section class="tab-content" id="repair-steps">
-        <div class="container">
-            <div class="guide-content-wrapper">
-                <div class="guide-main">
-                    <h2>Step-by-Step Repair Process</h2>
-                    
-                    <div class="progress-container">
-                        <div class="progress-header">
-                            <span>Your Progress</span>
-                            <span id="progressText">0 of 7 steps completed</span>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress-fill" id="progressFill" style="width: 0%"></div>
-                        </div>
-                    </div>
-
-                    <div class="steps-container">
-                        <div class="step-item" onclick="toggleStep(this, 0)">
-                            <div class="step-checkbox"></div>
-                            <div class="step-content">
-                                <h4>Step 1: Assess and Mark the Area</h4>
-                                <p>Inspect the pothole and surrounding area. Mark the repair zone 12-18 inches beyond the visible hole edges—damage often extends further than it appears. Check for drainage issues that caused the problem.</p>
-                            </div>
-                        </div>
-
-                        <div class="step-item" onclick="toggleStep(this, 1)">
-                            <div class="step-checkbox"></div>
-                            <div class="step-content">
-                                <h4>Step 2: Remove Loose Material</h4>
-                                <p>Dig out all loose gravel, dirt, and debris from the pothole and marked area. Excavate to firm, undisturbed soil—typically 6-8 inches deep for driveways. The sides should slope inward (like a bowl) for better stability.</p>
-                            </div>
-                        </div>
-
-                        <div class="step-item" onclick="toggleStep(this, 2)">
-                            <div class="step-checkbox"></div>
-                            <div class="step-content">
-                                <h4>Step 3: Address Drainage (Critical)</h4>
-                                <p>Ensure water can drain from the area. If the pothole was caused by poor drainage, create a slight slope (1/4 inch per foot) away from the center. Consider installing a small drainage channel if water consistently pools.</p>
-                            </div>
-                        </div>
-
-                        <div class="step-item" onclick="toggleStep(this, 3)">
-                            <div class="step-checkbox"></div>
-                            <div class="step-content">
-                                <h4>Step 4: Add Base Material</h4>
-                                <p>Fill the excavation with crusher run or road base material in 2-inch layers. Compact each layer thoroughly with a tamper or plate compactor. Continue until you're 2-3 inches below the final surface level. The base should be firm and level.</p>
-                            </div>
-                        </div>
-
-                        <div class="step-item" onclick="toggleStep(this, 4)">
-                            <div class="step-checkbox"></div>
-                            <div class="step-content">
-                                <h4>Step 5: Add Surface Gravel</h4>
-                                <p>Add your surface gravel to bring the repair flush with the surrounding driveway. Slightly overfill (1/4 inch) to account for settling. Use gravel that matches your existing driveway material for a seamless appearance.</p>
-                            </div>
-                        </div>
-
-                        <div class="step-item" onclick="toggleStep(this, 5)">
-                            <div class="step-checkbox"></div>
-                            <div class="step-content">
-                                <h4>Step 6: Compact the Surface</h4>
-                                <p>Compact the surface gravel thoroughly. A plate compactor is ideal, but a hand tamper works for small repairs. The surface should be level with the surrounding driveway and feel firm underfoot.</p>
-                            </div>
-                        </div>
-
-                        <div class="step-item" onclick="toggleStep(this, 6)">
-                            <div class="step-checkbox"></div>
-                            <div class="step-content">
-                                <h4>Step 7: Blend and Finish</h4>
-                                <p>Rake the edges to blend the repair with the surrounding driveway. Lightly spray with water to help settle the gravel. Check level and add more material if needed. The repair should be slightly crowned to shed water.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="info-box info-box-tip">
-                        <div class="info-box-title"><span>💡</span> Pro Tip</div>
-                        <p>For best results, wait for dry weather before repairing. Wet gravel is difficult to compact properly and may lead to premature failure. If you must repair in wet conditions, allow extra time for proper compaction.</p>
-                    </div>
-                </div>
-
-                <aside class="guide-sidebar">
-                    <div class="sidebar-card sidebar-cta">
-                        <h4>👷 Rather Hire a Pro?</h4>
-                        <p>Our maintenance team can repair potholes quickly and professionally, often same-day service.</p>
-                        <button onclick="window.location.href='/#contact'" style="width: 100%; padding: 0.75rem; background-color: white; color: var(--guide-primary-dark); border: none; border-radius: 8px; font-weight: 700; cursor: pointer;">Schedule Repair</button>
-                    </div>
-
-                    <div class="sidebar-card">
-                        <h4>📚 Related Guides</h4>
-                        <a href="/guides/driveway-basics-types-costs-lifespan/" class="related-guide">
-                            <div class="related-guide-image" style="background: linear-gradient(135deg, #a16207 0%, #ca8a04 100%);"></div>
-                            <div class="related-guide-content">
-                                <h5>Driveway Basics: Types, Costs &amp; Lifespan</h5>
-                                <span>20 min read</span>
-                            </div>
-                        </a>
-                        <a href="/guides/recycled-glass-driveway/" class="related-guide">
-                            <div class="related-guide-image" style="background: linear-gradient(135deg, #0d9488 0%, #14b8a6 100%);"></div>
-                            <div class="related-guide-content">
-                                <h5>Recycled Glass Driveway</h5>
-                                <span>15 min read</span>
-                            </div>
-                        </a>
-                    </div>
-                </aside>
-            </div>
-        </div>
-    </section>
-
-    <section class="tab-content" id="prevention">
-        <div class="container">
-            <div class="guide-content-wrapper">
-                <div class="guide-main">
-                    <h2>Preventing Future Potholes</h2>
-                    
-                    <p>The best pothole repair is preventing them in the first place. These proactive measures will keep your gravel driveway smooth and pothole-free for years.</p>
-
-                    <h3>Regular Maintenance Schedule</h3>
-                    
-                    <h4>Monthly</h4>
-                    <ul>
-                        <li>Inspect driveway after heavy rain for new depressions or pooling water</li>
-                        <li>Fill small depressions before they become potholes</li>
-                        <li>Clear drainage channels and culverts of debris</li>
-                    </ul>
-
-                    <h4>Quarterly</h4>
-                    <ul>
-                        <li>Grade the driveway to maintain proper crown (center higher than edges)</li>
-                        <li>Add fresh gravel to thin or worn areas</li>
-                        <li>Compact high-traffic zones</li>
-                    </ul>
-
-                    <h4>Annually</h4>
-                    <ul>
-                        <li>Professional grading and re-crowning</li>
-                        <li>Top-dress with fresh gravel (1-2 inches)</li>
-                        <li>Inspect and repair drainage systems</li>
-                    </ul>
-
-                    <h3>Key Prevention Strategies</h3>
-                    <ul>
-                        <li><strong>Maintain Crown:</strong> Keep the center of your driveway 2-4 inches higher than the edges to shed water—see our <a href="/guides/driveway-drainage-problems-causes-and-fixes/">driveway drainage guide</a> for details</li>
-                        <li><strong>Control Speed:</strong> Avoid sudden stops and sharp turns that displace gravel</li>
-                        <li><strong>Fix Drainage:</strong> Ensure water flows off the driveway, not across it</li>
-                        <li><strong>Use Proper Gravel:</strong> Angular stone with fines (crusher run) creates a more stable surface than rounded river rock</li>
-                        <li><strong>Compact Regularly:</strong> Annual compaction prevents loosening and displacement</li>
-                    </ul>
-
-                    <div class="info-box info-box-tip">
-                        <div class="info-box-title"><span>💡</span> The 80/20 Rule</div>
-                        <p>80% of pothole problems are caused by water. Fix your drainage, and you'll prevent most potholes before they start.</p>
-                    </div>
-                </div>
-
-                <aside class="guide-sidebar">
-                    <div class="sidebar-card">
-                        <h4>✅ Maintenance Checklist</h4>
-                        <div class="quick-stat">
-                            <span class="quick-stat-label">Visual Inspection</span>
-                            <span class="quick-stat-value">Monthly</span>
-                        </div>
-                        <div class="quick-stat">
-                            <span class="quick-stat-label">Grading</span>
-                            <span class="quick-stat-value">Quarterly</span>
-                        </div>
-                        <div class="quick-stat">
-                            <span class="quick-stat-label">Professional Service</span>
-                            <span class="quick-stat-value">Annually</span>
-                        </div>
-                        <div class="quick-stat">
-                            <span class="quick-stat-label">Fresh Gravel</span>
-                            <span class="quick-stat-value">Every 2-3 years</span>
-                        </div>
-                    </div>
-                </aside>
-            </div>
-        </div>
-    </section>
-
-    <section class="tab-content" id="seasonal">
-        <div class="container">
-            <div class="guide-content-wrapper">
-                <div class="guide-main">
-                    <h2>Seasonal Gravel Driveway Care</h2>
-                    
-                    <p>Your local climate presents unique challenges for gravel driveway maintenance. Follow these seasonal tips to keep your driveway in top condition year-round.</p>
-
-                    <div class="seasonal-grid">
-                        <div class="season-card">
-                            <div class="season-icon">🌸</div>
-                            <h4>Spring</h4>
-                            <p>Repair winter damage, regrade after heavy rains, replenish gravel washed away by storms. Best time for major repairs.</p>
-                        </div>
-                        <div class="season-card">
-                            <div class="season-icon">☀️</div>
-                            <h4>Summer</h4>
-                            <p>Compact loose gravel, address drainage issues before hurricane season, apply dust suppressant if needed.</p>
-                        </div>
-                        <div class="season-card">
-                            <div class="season-icon">🍂</div>
-                            <h4>Fall</h4>
-                            <p>Clear leaves that trap moisture, prepare for dry season, inspect drainage before winter rains.</p>
-                        </div>
-                        <div class="season-card">
-                            <div class="season-icon">❄️</div>
-                            <h4>Winter</h4>
-                            <p>Monitor for erosion during storms, avoid driving on saturated gravel, plan spring repairs.</p>
-                        </div>
-                    </div>
-
-                    <h3>Regional Climate Considerations</h3>
-                    <ul>
-                        <li><strong>Hurricane Season:</strong> Ensure drainage is clear June-November to handle heavy rainfall</li>
-                        <li><strong>High Water Table:</strong> Consider raising driveway height or installing French drains in low-lying areas</li>
-                        <li><strong>Sandy Soil:</strong> May require thicker base layer for stability</li>
-                        <li><strong>Intense Sun:</strong> Lighter colored gravel stays cooler but may show stains more</li>
-                    </ul>
-
-                    <div class="info-box info-box-warning">
-                        <div class="info-box-title"><span>⚠️</span> When to Call a Pro</div>
-                        <p>If your driveway has recurring potholes in the same spots, widespread settling, or drainage that can't be resolved with simple grading, professional regrading or base repair may be needed.</p>
-                    </div>
-                </div>
-
-                <aside class="guide-sidebar">
-                    <div class="sidebar-card sidebar-cta">
-                        <h4>📅 Schedule Maintenance</h4>
-                        <p>Join our maintenance program for seasonal driveway care and priority repair service.</p>
-                        <button onclick="window.location.href='/#contact'" style="width: 100%; padding: 0.75rem; background-color: white; color: var(--guide-primary-dark); border: none; border-radius: 8px; font-weight: 700; cursor: pointer;">Learn More</button>
-                    </div>
-                </aside>
-            </div>
-        </div>
-    </section>
-
-    <section class="tab-content" id="faq">
+    <section class="tab-content active" id="faq">
         <div class="container">
             <div class="guide-content-wrapper">
                 <div class="guide-main">
@@ -1244,92 +1014,12 @@
     </footer>
 
     <script>
-        // Tab switching
-        function switchTab(tabName) {
-            document.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            event.target.classList.add('active');
-
-            document.querySelectorAll('.tab-content').forEach(content => {
-                content.classList.remove('active');
-            });
-            document.getElementById(tabName).classList.add('active');
-
-            localStorage.setItem('gravelRepairGuideTab', tabName);
-        }
-
-        function scrollToTab(tabName) {
-            document.querySelectorAll('.tab-btn').forEach(btn => {
-                if (btn.textContent.toLowerCase().includes(tabName)) {
-                    btn.click();
-                    btn.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }
-            });
-        }
-
-        // Tool checklist
-        let checkedTools = JSON.parse(localStorage.getItem('gravelRepairTools') || '[]');
-
-        function toggleTool(element) {
-            element.classList.toggle('checked');
-            const toolName = element.querySelector('span').textContent;
-            
-            if (element.classList.contains('checked')) {
-                if (!checkedTools.includes(toolName)) {
-                    checkedTools.push(toolName);
-                }
-            } else {
-                checkedTools = checkedTools.filter(t => t !== toolName);
-            }
-            
-            localStorage.setItem('gravelRepairTools', JSON.stringify(checkedTools));
-            updateToolProgress();
-        }
-
-        function updateToolProgress() {
-            const totalTools = 8;
-            const checked = checkedTools.length;
-            const percentage = (checked / totalTools) * 100;
-            
-            document.getElementById('toolProgress').textContent = `${checked}/${totalTools}`;
-            document.getElementById('toolProgressBar').style.width = percentage + '%';
-        }
-
-        // Step completion tracking
-        let completedSteps = JSON.parse(localStorage.getItem('gravelRepairSteps') || '[]');
-
-        function toggleStep(element, stepIndex) {
-            element.classList.toggle('completed');
-            
-            if (element.classList.contains('completed')) {
-                if (!completedSteps.includes(stepIndex)) {
-                    completedSteps.push(stepIndex);
-                }
-            } else {
-                completedSteps = completedSteps.filter(s => s !== stepIndex);
-            }
-            
-            localStorage.setItem('gravelRepairSteps', JSON.stringify(completedSteps));
-            updateProgress();
-        }
-
         function toggleFaq(btn) { btn.parentElement.classList.toggle('open'); }
 
-        function updateProgress() {
-            const totalSteps = 7;
-            const completed = completedSteps.length;
-            const percentage = (completed / totalSteps) * 100;
-            
-            document.getElementById('progressFill').style.width = percentage + '%';
-            document.getElementById('progressText').textContent = `${completed} of ${totalSteps} steps completed`;
-        }
-
-        // Save guide functionality
         function saveGuide() {
             let savedGuides = JSON.parse(localStorage.getItem('savedGuides') || '[]');
             const guideId = 'gravel-pothole';
-            
+
             if (savedGuides.includes(guideId)) {
                 savedGuides = savedGuides.filter(id => id !== guideId);
                 document.getElementById('saveIcon').textContent = '🔖';
@@ -1339,46 +1029,18 @@
                 document.getElementById('saveIcon').textContent = '❤️';
                 document.getElementById('saveText').textContent = 'Saved!';
             }
-            
+
             localStorage.setItem('savedGuides', JSON.stringify(savedGuides));
         }
 
-        // Load saved state
         document.addEventListener('DOMContentLoaded', function() {
             const savedGuides = JSON.parse(localStorage.getItem('savedGuides') || '[]');
             if (savedGuides.includes('gravel-pothole')) {
                 document.getElementById('saveIcon').textContent = '❤️';
                 document.getElementById('saveText').textContent = 'Saved!';
             }
-
-            // Load checked tools
-            checkedTools.forEach(toolName => {
-                document.querySelectorAll('.tool-item').forEach(item => {
-                    if (item.querySelector('span').textContent === toolName) {
-                        item.classList.add('checked');
-                    }
-                });
-            });
-            updateToolProgress();
-
-            // Load completed steps
-            completedSteps.forEach(stepIndex => {
-                const steps = document.querySelectorAll('.step-item');
-                if (steps[stepIndex]) {
-                    steps[stepIndex].classList.add('completed');
-                }
-            });
-            updateProgress();
-
-            // Load last viewed tab
-            const lastTab = localStorage.getItem('gravelRepairGuideTab');
-            if (lastTab) {
-                const tabBtn = document.querySelector(`.tab-btn[onclick="switchTab('${lastTab}')"]`);
-                if (tabBtn) tabBtn.click();
-            }
         });
 
-        // Navbar scroll effect
         window.addEventListener('scroll', function() {
             const navbar = document.getElementById('navbar');
             if (window.scrollY > 50) {
