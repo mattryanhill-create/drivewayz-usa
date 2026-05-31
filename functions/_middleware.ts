@@ -55,8 +55,16 @@ interface Env {
     try {
       if (!env.GCP_SA_KEY) return { token: null, error: "GCP_SA_KEY env var is empty or undefined" };
       let sa: SAKey;
-      try { sa = JSON.parse(env.GCP_SA_KEY); }
-      catch (e: any) { return { token: null, error: `JSON.parse failed: ${e.message}. First 100 chars: ${env.GCP_SA_KEY.slice(0,100)}` }; }
+      try {
+        // Cloudflare's env var UI sometimes converts literal \n into real newlines
+        // inside JSON string values, which breaks JSON.parse. Re-escape them.
+        const repaired = env.GCP_SA_KEY.replace(/("private_key"\s*:\s*")([^"]*?)(")/, (_m, p1, body, p3) => {
+          return p1 + body.replace(/\r?\n/g, "\\n") + p3;
+        });
+        sa = JSON.parse(repaired);
+      } catch (e: any) {
+        return { token: null, error: `JSON.parse failed: ${e.message}. First 100 chars: ${env.GCP_SA_KEY.slice(0,100)}` };
+      }
   
       const now = Math.floor(Date.now() / 1000);
       const header = { alg: "RS256", typ: "JWT" };
