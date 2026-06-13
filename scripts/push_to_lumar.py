@@ -104,16 +104,18 @@ def main() -> int:
 
     # 2. Lumar auth
     log("Authenticating to Lumar…")
-    secret = os.environ["LUMAR_USER_KEY_SECRET"].strip()
-    user_key_id = os.environ["LUMAR_USER_KEY_ID"].strip()
-    # Lumar's ObjectID! scalar rejects variables for numeric IDs; only accepts
-    # them inline. Build the mutation as a literal string (same shape as the
-    # working bash script). secret is hex-only so safe to embed.
-    secret_safe = secret.replace('\\', '\\\\').replace('"', '\\"')
-    key_safe = user_key_id.replace('\\', '\\\\').replace('"', '\\"')
+    secret_raw = os.environ["LUMAR_USER_KEY_SECRET"]
+    key_raw = os.environ["LUMAR_USER_KEY_ID"]
+    # Aggressive whitespace strip + filter to expected charsets to defeat any
+    # stray newline/CR/space from secret storage.
+    import re
+    secret = re.sub(r'[^0-9a-fA-F]', '', secret_raw)
+    user_key_id = re.sub(r'[^0-9]', '', key_raw)
+    log(f"  key len raw={len(key_raw)} clean={len(user_key_id)}; "
+        f"secret len raw={len(secret_raw)} clean={len(secret)}")
     inline_mutation = (
         'mutation { createSessionUsingUserKey(input: '
-        '{secret: "' + secret_safe + '", userKeyId: "' + key_safe + '"}) '
+        '{secret: "' + secret + '", userKeyId: "' + user_key_id + '"}) '
         '{ token } }'
     )
     try:
