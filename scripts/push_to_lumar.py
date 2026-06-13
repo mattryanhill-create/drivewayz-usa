@@ -105,7 +105,13 @@ def main() -> int:
     # 2. Lumar auth
     log("Authenticating to Lumar…")
     secret = os.environ["LUMAR_USER_KEY_SECRET"].strip()
-    user_key_id = os.environ["LUMAR_USER_KEY_ID"].strip()
+    user_key_id_raw = os.environ["LUMAR_USER_KEY_ID"].strip()
+    # Lumar's ObjectID! scalar accepts an integer for numeric user-key IDs.
+    # Send as int if numeric, else fall back to string.
+    try:
+        user_key_id = int(user_key_id_raw)
+    except ValueError:
+        user_key_id = user_key_id_raw
     try:
         auth = graphql(None, (
             "mutation Auth($s: String!, $u: ObjectID!) {"
