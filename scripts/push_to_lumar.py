@@ -185,15 +185,19 @@ def main() -> int:
     # 4. Log Summary (rolled up across the window per url)
     log("Querying log_summary_daily…")
     ls_rows = list(bq.query(f"""
-        SELECT
-          url,
-          SUM(desktop_bot_request_count) AS desktop_bot_request_count,
-          SUM(mobile_bot_request_count)  AS mobile_bot_request_count
-        FROM `{gcp_project}.{gcp_dataset}.log_summary_daily`
-        WHERE report_date BETWEEN DATE('{start_date.isoformat()}')
-                              AND DATE('{report_date.isoformat()}')
-        GROUP BY url
-        ORDER BY (SUM(desktop_bot_request_count) + SUM(mobile_bot_request_count)) DESC
+        WITH agg AS (
+          SELECT
+            url,
+            SUM(desktop_bot_request_count) AS desktop_bot_request_count,
+            SUM(mobile_bot_request_count)  AS mobile_bot_request_count
+          FROM `{gcp_project}.{gcp_dataset}.log_summary_daily`
+          WHERE report_date BETWEEN DATE('{start_date.isoformat()}')
+                                AND DATE('{report_date.isoformat()}')
+          GROUP BY url
+        )
+        SELECT url, desktop_bot_request_count, mobile_bot_request_count
+        FROM agg
+        ORDER BY (desktop_bot_request_count + mobile_bot_request_count) DESC
     """).result())
     log(f"  → {len(ls_rows)} rows")
 
