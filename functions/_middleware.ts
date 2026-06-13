@@ -16,212 +16,254 @@
  */
 
 interface Env {
-    GCP_SA_KEY: string;
-  }
-  
-  /* ──────────────────────────────────────────────────────────────────────
-   * Bot Detection — order matters (most specific patterns first)
-   * Add new bots by appending to the relevant array.
-   * ────────────────────────────────────────────────────────────────────── */
-  
-  const AI_BOTS: Array<{ name: string; match: RegExp }> = [
-    { name: "OAI-SearchBot",         match: /OAI-SearchBot/i },
-    { name: "ChatGPT-User",          match: /ChatGPT-User/i },
-    { name: "GPTBot",                match: /GPTBot/i },
-    { name: "Claude-User",           match: /Claude-User/i },
-    { name: "Claude-Web",            match: /Claude-Web/i },
-    { name: "ClaudeBot",             match: /ClaudeBot/i },
-    { name: "Google-CloudVertexBot", match: /Google-CloudVertexBot/i },
-    { name: "Google-Extended",       match: /Google-Extended/i },
-    { name: "PerplexityUser",        match: /Perplexity-?User/i },
-    { name: "PerplexityBot",         match: /PerplexityBot/i },
-    { name: "Grok-DeepSearch",       match: /Grok-DeepSearch/i },
-    { name: "GrokBot",               match: /GrokBot/i },
-    { name: "DeepSeekBot",           match: /DeepSeekBot/i },
-    { name: "Meta-ExternalAgent",    match: /Meta-ExternalAgent/i },
-    { name: "Applebot-Extended",     match: /Applebot-Extended/i },
-  ];
-  
-  const SEARCH_BOTS: Array<{ name: string; match: RegExp }> = [
-    { name: "Googlebot-Image",       match: /Googlebot-Image/i },
-    { name: "Googlebot-Smartphone",  match: /Googlebot.*Mobile/i },
-    { name: "Googlebot",             match: /Googlebot/i },
-    { name: "Bingbot",               match: /bingbot/i },
-    { name: "Applebot",              match: /Applebot/i },
-    { name: "DuckDuckBot",           match: /DuckDuckBot/i },
-    { name: "YandexBot",             match: /YandexBot/i },
-    { name: "Baiduspider",           match: /Baiduspider/i },
-  ];
-  
-  function detectAiBot(ua: string): string | null {
-    for (const { name, match } of AI_BOTS) if (match.test(ua)) return name;
-    return null;
-  }
-  
-  function detectSearchBot(ua: string): string | null {
-    for (const { name, match } of SEARCH_BOTS) if (match.test(ua)) return name;
-    return null;
-  }
-  
-  function detectDeviceType(ua: string): string {
-    if (/Mobile|iPhone|Android.*Mobile|Windows Phone|iPod/i.test(ua)) return "mobile";
-    if (/iPad|Tablet|Android(?!.*Mobile)/i.test(ua)) return "tablet";
-    if (/Mozilla|Chrome|Safari|Firefox|Edge|MSIE|Trident|bot|spider|crawler/i.test(ua)) return "desktop";
-    return "unknown";
-  }
-  
-  /* ──────────────────────────────────────────────────────────────────────
-   * GCP OAuth: sign a JWT and exchange for a 1-hour access token.
-   * Token is cached in Cloudflare's edge cache for 50 minutes.
-   * ────────────────────────────────────────────────────────────────────── */
-  
-  interface ServiceAccountKey {
-    client_email: string;
-    private_key: string;
-    token_uri: string;
-    project_id: string;
-  }
-  
-  async function getAccessToken(env: Env): Promise<string | null> {
-    try {
-      if (!env.GCP_SA_KEY) return null;
-  
-      // Cloudflare's env var UI sometimes converts literal \n into real newlines
-      // inside JSON string values, which breaks JSON.parse. Re-escape them inside
-      // the private_key field before parsing.
-      const repaired = env.GCP_SA_KEY.replace(
-        /("private_key"\s*:\s*")([^"]*?)(")/,
-        (_m, p1, body, p3) => p1 + body.replace(/\r?\n/g, "\\n") + p3
-      );
-      const sa: ServiceAccountKey = JSON.parse(repaired);
-  
-      // Token cache (50 min — tokens last 60 min)
-      const cacheKey = new Request(`https://gcp-token-cache.drivewayzusa.co/${sa.client_email}`);
-      const cache = caches.default;
-      const cached = await cache.match(cacheKey);
-      if (cached) return await cached.text();
-  
-      // Build JWT
-      const now = Math.floor(Date.now() / 1000);
-      const header = { alg: "RS256", typ: "JWT" };
-      const claim = {
-        iss: sa.client_email,
-        scope: "https://www.googleapis.com/auth/bigquery.insertdata",
-        aud: sa.token_uri,
-        exp: now + 3600,
-        iat: now,
-      };
-      const enc = (o: object) =>
-        btoa(JSON.stringify(o)).replace(/=+$/, "").replace(/\+/g, "-").replace(/\//g, "_");
-      const toSign = `${enc(header)}.${enc(claim)}`;
-  
-      // Sign the JWT with the RSA private key
-      const pem = sa.private_key.replace(/-----[^-]+-----/g, "").replace(/\s+/g, "");
-      const keyBytes = Uint8Array.from(atob(pem), c => c.charCodeAt(0));
-      const cryptoKey = await crypto.subtle.importKey(
-        "pkcs8", keyBytes,
-        { name: "RSASSA-PKCS1-v1_5", hash: "SHA-256" },
-        false, ["sign"]
-      );
-      const sig = new Uint8Array(
-        await crypto.subtle.sign("RSASSA-PKCS1-v1_5", cryptoKey, new TextEncoder().encode(toSign))
-      );
-      const sigB64 = btoa(String.fromCharCode(...sig))
-        .replace(/=+$/, "").replace(/\+/g, "-").replace(/\//g, "_");
-      const jwt = `${toSign}.${sigB64}`;
-  
-      // Exchange JWT for access token
-      const tokenRes = await fetch(sa.token_uri, {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: `grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion=${jwt}`,
-      });
-      if (!tokenRes.ok) {
-        console.error("OAuth failed:", await tokenRes.text());
-        return null;
-      }
-      const { access_token } = await tokenRes.json() as { access_token: string };
-  
-      await cache.put(cacheKey, new Response(access_token, {
-        headers: { "Cache-Control": "max-age=3000" }
-      }));
-      return access_token;
-    } catch (e) {
-      console.error("getAccessToken error:", e);
+  GCP_SA_KEY: string;
+}
+
+/* ──────────────────────────────────────────────────────────────────────
+ * Bot Detection — order matters (most specific patterns first)
+ * Add new bots by appending to the relevant array.
+ * ────────────────────────────────────────────────────────────────────── */
+
+const AI_BOTS: Array<{ name: string; match: RegExp }> = [
+  { name: "OAI-SearchBot",         match: /OAI-SearchBot/i },
+  { name: "ChatGPT-User",          match: /ChatGPT-User/i },
+  { name: "GPTBot",                match: /GPTBot/i },
+  { name: "Claude-User",           match: /Claude-User/i },
+  { name: "Claude-Web",            match: /Claude-Web/i },
+  { name: "ClaudeBot",             match: /ClaudeBot/i },
+  { name: "Google-CloudVertexBot", match: /Google-CloudVertexBot/i },
+  { name: "Google-Extended",       match: /Google-Extended/i },
+  { name: "PerplexityUser",        match: /Perplexity-?User/i },
+  { name: "PerplexityBot",         match: /PerplexityBot/i },
+  { name: "Grok-DeepSearch",       match: /Grok-DeepSearch/i },
+  { name: "GrokBot",               match: /GrokBot/i },
+  { name: "DeepSeekBot",           match: /DeepSeekBot/i },
+  { name: "Meta-ExternalAgent",    match: /Meta-ExternalAgent/i },
+  { name: "Applebot-Extended",     match: /Applebot-Extended/i },
+];
+
+const SEARCH_BOTS: Array<{ name: string; match: RegExp }> = [
+  { name: "Googlebot-Image",       match: /Googlebot-Image/i },
+  { name: "Googlebot-Smartphone",  match: /Googlebot.*Mobile/i },
+  { name: "Googlebot",             match: /Googlebot/i },
+  { name: "Bingbot",               match: /bingbot/i },
+  { name: "Applebot",              match: /Applebot/i },
+  { name: "DuckDuckBot",           match: /DuckDuckBot/i },
+  { name: "YandexBot",             match: /YandexBot/i },
+  { name: "Baiduspider",           match: /Baiduspider/i },
+  { name: "Bytespider",            match: /Bytespider/i },
+  { name: "Amazonbot",             match: /Amazonbot/i },
+  { name: "FacebookBot",           match: /FacebookBot|facebookexternalhit/i },
+  { name: "Twitterbot",            match: /Twitterbot/i },
+  { name: "LinkedInBot",           match: /LinkedInBot/i },
+  { name: "Slackbot",              match: /Slackbot/i },
+  { name: "Discordbot",            match: /Discordbot/i },
+  { name: "PinterestBot",          match: /Pinterestbot/i },
+  { name: "Pingdom",               match: /pingdom/i },
+  { name: "UptimeRobot",           match: /UptimeRobot/i },
+];
+
+// Third-party SEO / analytics crawlers (Lumar-relevant but not search-engine bots).
+const SEO_BOTS: Array<{ name: string; match: RegExp }> = [
+  { name: "SemrushBot",            match: /SemrushBot/i },
+  { name: "AhrefsBot",             match: /AhrefsBot/i },
+  { name: "AhrefsSiteAudit",       match: /AhrefsSiteAudit/i },
+  { name: "MJ12bot",               match: /MJ12bot/i },
+  { name: "DotBot",                match: /DotBot/i },
+  { name: "BLEXBot",               match: /BLEXBot/i },
+  { name: "DataForSeoBot",         match: /DataForSeoBot/i },
+  { name: "MozBot",                match: /rogerbot|dotbot/i },
+  { name: "LumarBot",              match: /Lumar|DeepCrawl/i },
+  { name: "ScreamingFrog",         match: /Screaming Frog/i },
+  { name: "PetalBot",              match: /PetalBot/i },
+];
+
+// Generic catch-all for anything else that smells like a bot. Used only to set
+// the is_bot boolean; name is logged in user_agent for later analysis.
+const GENERIC_BOT_RX = /bot|crawl|spider|scraper|fetch|monitor|preview|http-?client|libwww|wget|curl|python|node-fetch|axios|java\/|go-http/i;
+
+function detectAiBot(ua: string): string | null {
+  for (const { name, match } of AI_BOTS) if (match.test(ua)) return name;
+  return null;
+}
+
+function detectSearchBot(ua: string): string | null {
+  for (const { name, match } of SEARCH_BOTS) if (match.test(ua)) return name;
+  return null;
+}
+
+function detectSeoBot(ua: string): string | null {
+  for (const { name, match } of SEO_BOTS) if (match.test(ua)) return name;
+  return null;
+}
+
+function isGenericBot(ua: string): boolean {
+  return !!ua && GENERIC_BOT_RX.test(ua);
+}
+
+function detectDeviceType(ua: string): string {
+  if (/Mobile|iPhone|Android.*Mobile|Windows Phone|iPod/i.test(ua)) return "mobile";
+  if (/iPad|Tablet|Android(?!.*Mobile)/i.test(ua)) return "tablet";
+  if (/Mozilla|Chrome|Safari|Firefox|Edge|MSIE|Trident|bot|spider|crawler/i.test(ua)) return "desktop";
+  return "unknown";
+}
+
+/* ──────────────────────────────────────────────────────────────────────
+ * GCP OAuth: sign a JWT and exchange for a 1-hour access token.
+ * Token is cached in Cloudflare's edge cache for 50 minutes.
+ * ────────────────────────────────────────────────────────────────────── */
+
+interface ServiceAccountKey {
+  client_email: string;
+  private_key: string;
+  token_uri: string;
+  project_id: string;
+}
+
+async function getAccessToken(env: Env): Promise<string | null> {
+  try {
+    if (!env.GCP_SA_KEY) return null;
+
+    // Cloudflare's env var UI sometimes converts literal \n into real newlines
+    // inside JSON string values, which breaks JSON.parse. Re-escape them inside
+    // the private_key field before parsing.
+    const repaired = env.GCP_SA_KEY.replace(
+      /("private_key"\s*:\s*")([^"]*?)(")/,
+      (_m, p1, body, p3) => p1 + body.replace(/\r?\n/g, "\\n") + p3
+    );
+    const sa: ServiceAccountKey = JSON.parse(repaired);
+
+    // Token cache (50 min — tokens last 60 min)
+    const cacheKey = new Request(`https://gcp-token-cache.drivewayzusa.co/${sa.client_email}`);
+    const cache = caches.default;
+    const cached = await cache.match(cacheKey);
+    if (cached) return await cached.text();
+
+    // Build JWT
+    const now = Math.floor(Date.now() / 1000);
+    const header = { alg: "RS256", typ: "JWT" };
+    const claim = {
+      iss: sa.client_email,
+      scope: "https://www.googleapis.com/auth/bigquery.insertdata",
+      aud: sa.token_uri,
+      exp: now + 3600,
+      iat: now,
+    };
+    const enc = (o: object) =>
+      btoa(JSON.stringify(o)).replace(/=+$/, "").replace(/\+/g, "-").replace(/\//g, "_");
+    const toSign = `${enc(header)}.${enc(claim)}`;
+
+    // Sign the JWT with the RSA private key
+    const pem = sa.private_key.replace(/-----[^-]+-----/g, "").replace(/\s+/g, "");
+    const keyBytes = Uint8Array.from(atob(pem), c => c.charCodeAt(0));
+    const cryptoKey = await crypto.subtle.importKey(
+      "pkcs8", keyBytes,
+      { name: "RSASSA-PKCS1-v1_5", hash: "SHA-256" },
+      false, ["sign"]
+    );
+    const sig = new Uint8Array(
+      await crypto.subtle.sign("RSASSA-PKCS1-v1_5", cryptoKey, new TextEncoder().encode(toSign))
+    );
+    const sigB64 = btoa(String.fromCharCode(...sig))
+      .replace(/=+$/, "").replace(/\+/g, "-").replace(/\//g, "_");
+    const jwt = `${toSign}.${sigB64}`;
+
+    // Exchange JWT for access token
+    const tokenRes = await fetch(sa.token_uri, {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: `grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion=${jwt}`,
+    });
+    if (!tokenRes.ok) {
+      console.error("OAuth failed:", await tokenRes.text());
       return null;
     }
+    const { access_token } = await tokenRes.json() as { access_token: string };
+
+    await cache.put(cacheKey, new Response(access_token, {
+      headers: { "Cache-Control": "max-age=3000" }
+    }));
+    return access_token;
+  } catch (e) {
+    console.error("getAccessToken error:", e);
+    return null;
   }
-  
-  /* ──────────────────────────────────────────────────────────────────────
-   * Streaming insert to BigQuery raw_logs table
-   * ────────────────────────────────────────────────────────────────────── */
-  
-  async function streamToBigQuery(env: Env, row: Record<string, any>) {
-    const token = await getAccessToken(env);
-    if (!token) return;
-  
-    const url =
-      "https://bigquery.googleapis.com/bigquery/v2/projects/drivewayz-logs/" +
-      "datasets/drivewayz/tables/raw_logs/insertAll";
-  
-    const res = await fetch(url, {
-      method: "POST",
-      headers: {
-        "Authorization": `Bearer ${token}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        skipInvalidRows: true,
-        ignoreUnknownValues: true,
-        rows: [{ json: row }],
-      }),
-    });
-  
-    if (!res.ok) {
-      console.error("BQ insert failed:", res.status, await res.text());
-    }
+}
+
+/* ──────────────────────────────────────────────────────────────────────
+ * Streaming insert to BigQuery raw_logs table
+ * ────────────────────────────────────────────────────────────────────── */
+
+async function streamToBigQuery(env: Env, row: Record<string, any>) {
+  const token = await getAccessToken(env);
+  if (!token) return;
+
+  const url =
+    "https://bigquery.googleapis.com/bigquery/v2/projects/drivewayz-logs/" +
+    "datasets/drivewayz/tables/raw_logs/insertAll";
+
+  const res = await fetch(url, {
+    method: "POST",
+    headers: {
+      "Authorization": `Bearer ${token}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      skipInvalidRows: true,
+      ignoreUnknownValues: true,
+      rows: [{ json: row }],
+    }),
+  });
+
+  if (!res.ok) {
+    console.error("BQ insert failed:", res.status, await res.text());
   }
-  
-  /* ──────────────────────────────────────────────────────────────────────
-   * Middleware — runs on every request to drivewayzusa.co
-   * ────────────────────────────────────────────────────────────────────── */
-  
-  export const onRequest: PagesFunction<Env> = async (context) => {
-    const { request, env, next } = context;
-  
-    // Serve the page first — logging never blocks.
-    const response = await next();
-  
-    // Skip logging for static asset paths (CSS, JS, images, etc.) to keep
-    // signal high and volume low.
-    const url = new URL(request.url);
-    const ASSET_RE = /\.(css|js|woff2?|ttf|otf|png|jpe?g|gif|svg|webp|ico|map|txt|xml|json)$/i;
-    if (ASSET_RE.test(url.pathname) || url.pathname === "/favicon.ico") {
-      return response;
-    }
-  
-    const ua = request.headers.get("user-agent") || "";
-    const aiBot     = detectAiBot(ua);
-    const searchBot = detectSearchBot(ua);
-  
-    const row = {
-      timestamp:   new Date().toISOString(),
-      url:         url.pathname + (url.search || ""),
-      method:      request.method,
-      status:      response.status,
-      user_agent:  ua.slice(0, 500),
-      ai_bot:      aiBot,
-      search_bot:  searchBot,
-      is_bot:      !!(aiBot || searchBot),
-      device_type: detectDeviceType(ua),
-      client_ip:   request.headers.get("CF-Connecting-IP") || "",
-      country:     (request.cf as any)?.country || "",
-      referer:     (request.headers.get("referer") || "").slice(0, 500),
-      bytes_sent:  parseInt(response.headers.get("content-length") || "0", 10) || 0,
-    };
-  
-    // Fire-and-forget — response already on its way to the user.
-    context.waitUntil(streamToBigQuery(env, row));
-  
+}
+
+/* ──────────────────────────────────────────────────────────────────────
+ * Middleware — runs on every request to drivewayzusa.co
+ * ────────────────────────────────────────────────────────────────────── */
+
+export const onRequest: PagesFunction<Env> = async (context) => {
+  const { request, env, next } = context;
+
+  // Serve the page first — logging never blocks.
+  const response = await next();
+
+  // Skip logging for static asset paths (CSS, JS, images, etc.) to keep
+  // signal high and volume low.
+  const url = new URL(request.url);
+  const ASSET_RE = /\.(css|js|woff2?|ttf|otf|png|jpe?g|gif|svg|webp|ico|map|txt|xml|json)$/i;
+  if (ASSET_RE.test(url.pathname) || url.pathname === "/favicon.ico") {
     return response;
+  }
+
+  const ua = request.headers.get("user-agent") || "";
+  const aiBot     = detectAiBot(ua);
+  const searchBot = detectSearchBot(ua);
+  const seoBot    = detectSeoBot(ua);
+  // Roll SEO crawlers up into the search_bot column so they reach Lumar; keep
+  // ai_bot reserved strictly for AI assistants (ChatGPT, Claude, Perplexity, etc.).
+  const searchBotEffective = searchBot || seoBot;
+
+  const row = {
+    timestamp:   new Date().toISOString(),
+    url:         url.pathname + (url.search || ""),
+    method:      request.method,
+    status:      response.status,
+    user_agent:  ua.slice(0, 500),
+    ai_bot:      aiBot,
+    search_bot:  searchBotEffective,
+    is_bot:      !!(aiBot || searchBotEffective) || isGenericBot(ua),
+    device_type: detectDeviceType(ua),
+    client_ip:   request.headers.get("CF-Connecting-IP") || "",
+    country:     (request.cf as any)?.country || "",
+    referer:     (request.headers.get("referer") || "").slice(0, 500),
+    bytes_sent:  parseInt(response.headers.get("content-length") || "0", 10) || 0,
   };
+
+  // Fire-and-forget — response already on its way to the user.
+  context.waitUntil(streamToBigQuery(env, row));
+
+  return response;
+};
