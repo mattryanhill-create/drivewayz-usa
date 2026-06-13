@@ -105,19 +105,19 @@ def main() -> int:
     # 2. Lumar auth
     log("Authenticating to Lumar…")
     secret = os.environ["LUMAR_USER_KEY_SECRET"].strip()
-    user_key_id_raw = os.environ["LUMAR_USER_KEY_ID"].strip()
-    # Lumar's ObjectID! scalar accepts an integer for numeric user-key IDs.
-    # Send as int if numeric, else fall back to string.
+    user_key_id = os.environ["LUMAR_USER_KEY_ID"].strip()
+    # Lumar's ObjectID! scalar rejects variables for numeric IDs; only accepts
+    # them inline. Build the mutation as a literal string (same shape as the
+    # working bash script). secret is hex-only so safe to embed.
+    secret_safe = secret.replace('\\', '\\\\').replace('"', '\\"')
+    key_safe = user_key_id.replace('\\', '\\\\').replace('"', '\\"')
+    inline_mutation = (
+        'mutation { createSessionUsingUserKey(input: '
+        '{secret: "' + secret_safe + '", userKeyId: "' + key_safe + '"}) '
+        '{ token } }'
+    )
     try:
-        user_key_id = int(user_key_id_raw)
-    except ValueError:
-        user_key_id = user_key_id_raw
-    try:
-        auth = graphql(None, (
-            "mutation Auth($s: String!, $u: ObjectID!) {"
-            "  createSessionUsingUserKey(input: {secret: $s, userKeyId: $u}) { token }"
-            "}"
-        ), {"s": secret, "u": user_key_id})
+        auth = graphql(None, inline_mutation, None)
         token = auth["createSessionUsingUserKey"]["token"]
         log(f"  ✓ Got session token (len={len(token)})")
     except Exception as e:
