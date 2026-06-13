@@ -82,7 +82,7 @@ def http_put(url: str, body: bytes) -> None:
 # ──────────────────────────────────────────────────────────────────────
 
 def main() -> int:
-    # 1. Figure out report date
+    # 1. Figure out report date (end-of-window) and window length
     requested = os.environ.get("REPORT_DATE", "").strip()
     if requested:
         try:
@@ -93,11 +93,22 @@ def main() -> int:
     else:
         report_date = (datetime.now(timezone.utc) - timedelta(days=1)).date()
 
+    # WINDOW_DAYS controls how many days to roll up ending at report_date.
+    # Default 1 = single-day push (same as before). Lumar accepts the aggregate.
+    try:
+        window_days = max(1, int(os.environ.get("WINDOW_DAYS", "1").strip() or "1"))
+    except ValueError:
+        log(f"Invalid WINDOW_DAYS='{os.environ.get('WINDOW_DAYS','')}'. Falling back to 1.")
+        window_days = 1
+    start_date = report_date - timedelta(days=window_days - 1)
+
     project_id = os.environ["LUMAR_PROJECT_ID"]
     gcp_project = os.environ["GCP_PROJECT"]
     gcp_dataset = os.environ["GCP_DATASET"]
 
-    log(f"Push for report_date={report_date}  ·  Lumar project={project_id}")
+    label = (f"{report_date}" if window_days == 1
+             else f"{start_date}..{report_date} ({window_days}d)")
+    log(f"Push for window={label}  ·  Lumar project={project_id}")
     log(f"BigQuery: {gcp_project}.{gcp_dataset}")
 
     bq = bigquery.Client(project=gcp_project)
@@ -126,12 +137,14 @@ def main() -> int:
         log(f"  ✗ Lumar auth FAILED: {e}")
         return 2
 
-    # 3. AI Bot Requests
+    # 3. AI Bot Requests (rolled up across the window per url + aiBot)
     log("Querying ai_bot_requests_daily…")
     ai_rows = list(bq.query(f"""
-        SELECT url, aiBot, logRequests
+        SELECT url, aiBot, SUM(logRequests) AS logRequests
         FROM `{gcp_project}.{gcp_dataset}.ai_bot_requests_daily`
-        WHERE report_date = DATE('{report_date.isoformat()}')
+        WHERE report_date BETWEEN DATE('{start_date.isoformat()}')
+                              AND DATE('{report_date.isoformat()}')
+        GROUP BY url, aiBot
         ORDER BY logRequests DESC
     """).result())
     log(f"  → {len(ai_rows)} rows")
@@ -144,7 +157,9 @@ def main() -> int:
             lines.append(f"{csv_safe(r.url)},{csv_safe(r.aiBot)},{r.logRequests}")
         csv = "\n".join(lines)
 
-        file_name = f"drivewayz-ai-bot-requests-{report_date.isoformat()}.csv"
+        suffix = (report_date.isoformat() if window_days == 1
+                  else f"{start_date.isoformat()}_to_{report_date.isoformat()}")
+        file_name = f"drivewayz-ai-bot-requests-{suffix}.csv"
         log(f"Creating signed upload for {file_name}…")
         try:
             res = graphql(token, (
@@ -167,13 +182,18 @@ def main() -> int:
     else:
         log("  (skipped — no rows)")
 
-    # 4. Log Summary
+    # 4. Log Summary (rolled up across the window per url)
     log("Querying log_summary_daily…")
     ls_rows = list(bq.query(f"""
-        SELECT url, desktop_bot_request_count, mobile_bot_request_count
+        SELECT
+          url,
+          SUM(desktop_bot_request_count) AS desktop_bot_request_count,
+          SUM(mobile_bot_request_count)  AS mobile_bot_request_count
         FROM `{gcp_project}.{gcp_dataset}.log_summary_daily`
-        WHERE report_date = DATE('{report_date.isoformat()}')
-        ORDER BY (desktop_bot_request_count + mobile_bot_request_count) DESC
+        WHERE report_date BETWEEN DATE('{start_date.isoformat()}')
+                              AND DATE('{report_date.isoformat()}')
+        GROUP BY url
+        ORDER BY (SUM(desktop_bot_request_count) + SUM(mobile_bot_request_count)) DESC
     """).result())
     log(f"  → {len(ls_rows)} rows")
 
@@ -186,7 +206,9 @@ def main() -> int:
             )
         csv = "\n".join(lines)
 
-        file_name = f"drivewayz-log-summary-{report_date.isoformat()}.csv"
+        suffix = (report_date.isoformat() if window_days == 1
+                  else f"{start_date.isoformat()}_to_{report_date.isoformat()}")
+        file_name = f"drivewayz-log-summary-{suffix}.csv"
         log(f"Creating signed upload for {file_name}…")
         try:
             res = graphql(token, (
