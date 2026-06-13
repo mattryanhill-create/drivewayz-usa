@@ -137,6 +137,43 @@ def main() -> int:
         log(f"  ✗ Lumar auth FAILED: {e}")
         return 2
 
+    # 2b. Dedup: delete any prior uploads whose filename starts with our
+    # window-specific stem. This protects against partial-failure retries
+    # leaving orphan duplicates in Lumar. Idempotent: a clean re-run finds
+    # nothing to delete and continues.
+    suffix_for_window = (report_date.isoformat() if window_days == 1
+                         else f"{start_date.isoformat()}_to_{report_date.isoformat()}")
+    stems = [
+        f"drivewayz-ai-bot-requests-{suffix_for_window}",
+        f"drivewayz-log-summary-{suffix_for_window}",
+    ]
+    log(f"Dedup: looking for prior uploads matching {stems}…")
+    try:
+        existing = graphql(token, (
+            'query { getProject(id: "' + project_id + '") {'
+            '  urlFileUploads(first: 100) {'
+            '    nodes { id fileName status }'
+            '  }'
+            '} }'
+        ))
+        prior = [n for n in existing["getProject"]["urlFileUploads"]["nodes"]
+                 if any(n["fileName"].startswith(stem) for stem in stems)]
+        log(f"  found {len(prior)} prior upload(s) to remove")
+        for n in prior:
+            try:
+                graphql(token, (
+                    'mutation Del($id: ObjectID!) {'
+                    '  deleteUrlFileUpload(input: {urlFileUploadId: $id}) {'
+                    '    urlFileUpload { id }'
+                    '  }'
+                    '}'
+                ), {"id": n["id"]})
+                log(f"  ✓ deleted {n['fileName']} (id={n['id']})")
+            except Exception as e:
+                log(f"  ⚠ could not delete {n['fileName']}: {e}")
+    except Exception as e:
+        log(f"  ⚠ dedup probe failed (continuing anyway): {e}")
+
     # 3. AI Bot Requests (rolled up across the window per url + aiBot)
     log("Querying ai_bot_requests_daily…")
     ai_rows = list(bq.query(f"""
