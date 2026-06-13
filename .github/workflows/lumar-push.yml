@@ -1,0 +1,54 @@
+name: Drivewayz → Lumar Daily Log Push
+
+on:
+  # Daily at 02:00 UTC (1h after the BigQuery MERGE schedules at 01:00/01:05 UTC)
+  schedule:
+    - cron: '0 2 * * *'
+
+  # Manual trigger via GitHub UI: Actions tab → "Run workflow" button
+  # Optionally specify a date to backfill
+  workflow_dispatch:
+    inputs:
+      report_date:
+        description: 'Date to push (YYYY-MM-DD). Empty = yesterday.'
+        required: false
+        default: ''
+
+permissions:
+  contents: read
+
+jobs:
+  push:
+    name: Push BigQuery aggregations to Lumar
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.GCP_SA_KEY }}
+
+      - name: Set up gcloud / bq
+        uses: google-github-actions/setup-gcloud@v2
+        with:
+          project_id: drivewayz-logs
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install Python deps
+        run: pip install google-cloud-bigquery
+      - name: Run push script
+        env:
+          LUMAR_USER_KEY_ID:     ${{ secrets.LUMAR_USER_KEY_ID }}
+          LUMAR_USER_KEY_SECRET: ${{ secrets.LUMAR_USER_KEY_SECRET }}
+          LUMAR_PROJECT_ID:      "461823"
+          GCP_PROJECT:           "drivewayz-logs"
+          GCP_DATASET:           "drivewayz"
+          REPORT_DATE:           ${{ inputs.report_date }}
+        run: python scripts/push_to_lumar.py
