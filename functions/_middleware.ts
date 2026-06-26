@@ -224,19 +224,111 @@ async function streamToBigQuery(env: Env, row: Record<string, any>) {
  * Middleware — runs on every request to drivewayzusa.co
  * ────────────────────────────────────────────────────────────────────── */
 
+
+// ─────────────────────────────────────────────────────────────────────────
+// Social meta injection (Phase 1: Open Graph + Twitter Cards)
+// ─────────────────────────────────────────────────────────────────────────
+
+const BRAND_OG_IMAGE = "https://drivewayzusa.co/images/logov3.png";
+const BRAND_SITE_NAME = "Drivewayz USA";
+const BRAND_TWITTER = "@drivewayzusa";
+
+function htmlEscape(s: string): string {
+  return s
+    .replace(/&/g, "&amp;")
+    .replace(/"/g, "&quot;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
+
+/**
+ * HTMLRewriter-based injector. Streams the response, captures <title> and
+ * <meta name="description">, and appends og + twitter tags before </head>.
+ * Skips injection if og:title already present (homepage etc.).
+ */
+function injectSocialMeta(response: Response, pageUrl: string): Response {
+  // Only operate on HTML responses
+  const ct = response.headers.get("content-type") || "";
+  if (!ct.includes("text/html")) return response;
+
+  let pageTitle = "";
+  let pageDescription = "";
+  let alreadyHasOg = false;
+
+  const rewriter = new HTMLRewriter()
+    .on("title", {
+      text(text) {
+        pageTitle += text.text;
+      },
+    })
+    .on('meta[name="description"]', {
+      element(el) {
+        const content = el.getAttribute("content");
+        if (content) pageDescription = content;
+      },
+    })
+    .on('meta[property="og:title"]', {
+      element() {
+        alreadyHasOg = true;
+      },
+    })
+    .on("head", {
+      element(el) {
+        // Defer to end-tag handler — at that point title/description/og-detection
+        // have all run because head is parsed top-to-bottom.
+        el.onEndTag((endTag) => {
+          if (alreadyHasOg) return;
+          if (!pageTitle) return;
+
+          const t = htmlEscape(pageTitle.trim());
+          const d = htmlEscape((pageDescription || pageTitle).trim());
+          const u = htmlEscape(pageUrl);
+          const img = htmlEscape(BRAND_OG_IMAGE);
+          const site = htmlEscape(BRAND_SITE_NAME);
+          const twitter = htmlEscape(BRAND_TWITTER);
+
+          const tags = [
+            `<meta property="og:type" content="article">`,
+            `<meta property="og:site_name" content="${site}">`,
+            `<meta property="og:title" content="${t}">`,
+            `<meta property="og:description" content="${d}">`,
+            `<meta property="og:url" content="${u}">`,
+            `<meta property="og:image" content="${img}">`,
+            `<meta property="og:image:width" content="1200">`,
+            `<meta property="og:image:height" content="630">`,
+            `<meta name="twitter:card" content="summary_large_image">`,
+            `<meta name="twitter:site" content="${twitter}">`,
+            `<meta name="twitter:title" content="${t}">`,
+            `<meta name="twitter:description" content="${d}">`,
+            `<meta name="twitter:image" content="${img}">`,
+          ].join("\n  ");
+
+          endTag.before("\n  " + tags + "\n", { html: true });
+        });
+      },
+    });
+
+  return rewriter.transform(response);
+}
+
 export const onRequest: PagesFunction<Env> = async (context) => {
   const { request, env, next } = context;
 
   // Serve the page first — logging never blocks.
-  const response = await next();
+  const rawResponse = await next();
 
   // Skip logging for static asset paths (CSS, JS, images, etc.) to keep
   // signal high and volume low.
   const url = new URL(request.url);
   const ASSET_RE = /\.(css|js|woff2?|ttf|otf|png|jpe?g|gif|svg|webp|ico|map|txt|xml|json)$/i;
   if (ASSET_RE.test(url.pathname) || url.pathname === "/favicon.ico") {
-    return response;
+    return rawResponse;
   }
+
+  // Inject Open Graph + Twitter Card meta tags into HTML responses.
+  // Skips if og:title already present (e.g. homepage). Static assets already
+  // returned above so this only touches actual page renders.
+  const response = injectSocialMeta(rawResponse, request.url);
 
   const ua = request.headers.get("user-agent") || "";
   const aiBot     = detectAiBot(ua);
