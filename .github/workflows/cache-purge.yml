@@ -1,0 +1,64 @@
+name: Cloudflare Cache Purge
+
+on:
+  push:
+    branches: [main]
+    # Skip purge for changes that don't affect served HTML/assets.
+    paths-ignore:
+      - '.github/**'
+      - 'scripts/**'
+      - 'README.md'
+      - '**/*.md'
+      - '.gitignore'
+
+# Allow only one purge to run at a time per ref; cancel any in-flight one if
+# a new push lands while we're waiting for Cloudflare Pages to deploy.
+concurrency:
+  group: cf-purge-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+env:
+  CF_ZONE_ID: 44dcf1d716cfba8c35097d67cb9aa3b6
+
+jobs:
+  purge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait for Cloudflare Pages deploy to complete
+        # Pages typically deploys within 60-120s of a push. We wait 150s as a
+        # safety margin so the purge doesn't fire before the new content is
+        # actually live at the edge.
+        run: |
+          echo "Sleeping 150s to let Cloudflare Pages finish deploying commit ${{ github.sha }}..."
+          sleep 150
+
+      - name: Purge Cloudflare cache
+        env:
+          CF_PURGE_TOKEN: ${{ secrets.CLOUDFLARE_PURGE_TOKEN }}
+        run: |
+          set -euo pipefail
+          echo "Purging cache for zone ${CF_ZONE_ID}..."
+          RESPONSE=$(curl -sS -X POST \
+            "https://api.cloudflare.com/client/v4/zones/${CF_ZONE_ID}/purge_cache" \
+            -H "Authorization: Bearer ${CF_PURGE_TOKEN}" \
+            -H "Content-Type: application/json" \
+            -d '{"purge_everything": true}')
+          echo "Response: ${RESPONSE}"
+          # Verify success
+          SUCCESS=$(echo "${RESPONSE}" | python3 -c 'import sys, json; print(json.load(sys.stdin).get("success", False))')
+          if [ "${SUCCESS}" != "True" ]; then
+            echo "::error::Cache purge failed"
+            exit 1
+          fi
+          echo "::notice::Cloudflare cache purged for ${{ github.sha }}"
+
+      - name: Verify cache is being repopulated
+        run: |
+          # Hit the homepage once to warm cache, then check the next hit shows HIT
+          curl -s -A "Mozilla/5.0" https://drivewayzusa.co/ -o /dev/null
+          sleep 2
+          STATUS=$(curl -sI -A "Mozilla/5.0" https://drivewayzusa.co/ | grep -i "cf-cache-status:" | head -1 | tr -d '\r')
+          echo "After purge + warm: ${STATUS}"
