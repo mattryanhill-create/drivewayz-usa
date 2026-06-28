@@ -246,6 +246,51 @@ function htmlEscape(s: string): string {
  * <meta name="description">, and appends og + twitter tags before </head>.
  * Skips injection if og:title already present (homepage etc.).
  */
+// ─────────────────────────────────────────────────────────────────────────
+// Cache-Control by path type (Phase 1: enable edge caching, max 5min stale)
+// ─────────────────────────────────────────────────────────────────────────
+//
+// Origin currently sets `Cache-Control: public, max-age=0, must-revalidate`,
+// which forces every request to the origin (cf-cache-status: DYNAMIC) and
+// produces 180-220ms TTFB on every page. This kills crawl efficiency for
+// Googlebot/ClaudeBot and risks 499s under load.
+//
+// Strategy: rewrite Cache-Control to enable edge caching with a fresh window
+// short enough that content updates land within 5 minutes WITHOUT a manual
+// purge, AND long enough (24h at the edge) to maximize cache hit rate.
+//
+// When the Cloudflare purge token is wired up via the deploy workflow,
+// updates will land instantly; until then, 5min browser cache is the worst-
+// case staleness window for HTML pages.
+
+function setCacheControl(response: Response, pathname: string): Response {
+  // Don't touch responses that already have a long-cache directive, or that
+  // are non-2xx (errors should not be cached aggressively).
+  if (response.status < 200 || response.status >= 400) return response;
+
+  // Sitemap + robots → short cache (search engines need fresh signals)
+  if (pathname === "/sitemap.xml"
+      || pathname === "/guides-sitemap.xml"
+      || pathname === "/robots.txt") {
+    response.headers.set("Cache-Control",
+      "public, max-age=300, s-maxage=300");
+    return response;
+  }
+
+  // Static assets → 1 year edge + browser cache, immutable
+  if (/\.(css|js|woff2?|ttf|otf|png|jpe?g|gif|svg|webp|ico)$/i.test(pathname)) {
+    response.headers.set("Cache-Control",
+      "public, max-age=31536000, immutable");
+    return response;
+  }
+
+  // HTML pages (everything else) → 5min browser cache, 24h edge cache.
+  // Edge cache will be invalidated on deploy once Cloudflare purge token wired.
+  response.headers.set("Cache-Control",
+    "public, max-age=300, s-maxage=86400");
+  return response;
+}
+
 function injectSocialMeta(response: Response, pageUrl: string): Response {
   // Only operate on HTML responses
   const ct = response.headers.get("content-type") || "";
@@ -322,13 +367,18 @@ export const onRequest: PagesFunction<Env> = async (context) => {
   const url = new URL(request.url);
   const ASSET_RE = /\.(css|js|woff2?|ttf|otf|png|jpe?g|gif|svg|webp|ico|map|txt|xml|json)$/i;
   if (ASSET_RE.test(url.pathname) || url.pathname === "/favicon.ico") {
-    return rawResponse;
+    // Apply long edge cache to static assets even on the early-return path.
+    return setCacheControl(rawResponse, url.pathname);
   }
 
   // Inject Open Graph + Twitter Card meta tags into HTML responses.
   // Skips if og:title already present (e.g. homepage). Static assets already
   // returned above so this only touches actual page renders.
-  const response = injectSocialMeta(rawResponse, request.url);
+  let response = injectSocialMeta(rawResponse, request.url);
+
+  // Rewrite Cache-Control to enable edge caching. Origin currently sends
+  // max-age=0 which forces a full origin round-trip on every request.
+  response = setCacheControl(response, url.pathname);
 
   const ua = request.headers.get("user-agent") || "";
   const aiBot     = detectAiBot(ua);
