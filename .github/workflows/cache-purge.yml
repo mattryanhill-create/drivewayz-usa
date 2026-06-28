@@ -10,6 +10,12 @@ on:
       - 'README.md'
       - '**/*.md'
       - '.gitignore'
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: 'Why are you manually purging? (for logs)'
+        required: false
+        default: 'Manual purge'
 
 # Allow only one purge to run at a time per ref; cancel any in-flight one if
 # a new push lands while we're waiting for Cloudflare Pages to deploy.
@@ -27,7 +33,8 @@ jobs:
   purge:
     runs-on: ubuntu-latest
     steps:
-      - name: Wait for Cloudflare Pages deploy to complete
+      - name: Wait for Cloudflare Pages deploy (push events only)
+        if: github.event_name == 'push'
         # Pages typically deploys within 60-120s of a push. We wait 150s as a
         # safety margin so the purge doesn't fire before the new content is
         # actually live at the edge.
@@ -47,7 +54,6 @@ jobs:
             -H "Content-Type: application/json" \
             -d '{"purge_everything": true}')
           echo "Response: ${RESPONSE}"
-          # Verify success
           SUCCESS=$(echo "${RESPONSE}" | python3 -c 'import sys, json; print(json.load(sys.stdin).get("success", False))')
           if [ "${SUCCESS}" != "True" ]; then
             echo "::error::Cache purge failed"
@@ -57,7 +63,6 @@ jobs:
 
       - name: Verify cache is being repopulated
         run: |
-          # Hit the homepage once to warm cache, then check the next hit shows HIT
           curl -s -A "Mozilla/5.0" https://drivewayzusa.co/ -o /dev/null
           sleep 2
           STATUS=$(curl -sI -A "Mozilla/5.0" https://drivewayzusa.co/ | grep -i "cf-cache-status:" | head -1 | tr -d '\r')
