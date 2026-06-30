@@ -61,7 +61,7 @@ For each guide, finds `<nav class="guide-internal-links" aria-label="Related pag
 | gravel | `/guides/gravel-pothole-repair/` — "Gravel pothole repair guide" |
 | cost, pricing | `/cost-calculator/` — "Calculate your driveway cost" |
 | repair, fix | `/for-homeowners/` — "Homeowner repair resources" |
-| seal, coat | `/guides/driveway-sealing-complete-guide/` — "Complete sealing guide" |
+| seal, coat | `/guides/best-asphalt-driveway-sealer-top-products-for-2026/` — "best asphalt driveway sealers" |
 | drain | `/guides/driveway-drainage-problems-causes-and-fixes/` — "Drainage solutions guide" |
 
 - Existing links (including "View all driveway guides") are preserved.
