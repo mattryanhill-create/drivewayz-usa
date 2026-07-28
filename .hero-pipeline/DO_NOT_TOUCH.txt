@@ -1,0 +1,51 @@
+# Files/paths this pipeline must never modify
+# Anything matching these globs is protected
+
+# PATH CONVENTION
+# All entries are root-relative (leading /). A path ending in / is a
+# directory prefix — anything under it is protected. A path not ending
+# in / is an exact file match.
+#
+# EXCEPTION: the bare root entry "/" is an EXACT match for the homepage URL
+# only. It must NOT be treated as a directory prefix — doing so would protect
+# every path on the site and make the pipeline a no-op.
+
+# Homepage — hero is brand-critical, hand-managed
+# "/" is the served URL, "/index.html" is the file on disk. Both, see EXCEPTION.
+/
+/index.html
+
+# All top-level informational pages (not under /guides/)
+/locations/
+/for-homeowners/
+/for-contractors/
+/cost-calculator/
+/niches/
+/privacy-policy/
+/guides-hub/
+
+# Additional top-level pages
+/guides-hub.html
+/thank-you-contractor.html
+/thank-you-homeowner.html
+/for-homeowners-quiz/
+/downloads/
+/pdf/
+
+# Legal + system pages
+/404.html
+/robots.txt
+/sitemap.xml
+/guides-sitemap.xml
+/_redirects
+/_headers
+
+# Pile D — already unique heroes, do not touch
+# 6 entries, set explicitly. The CSV lists 9; the other 3 were hero-fixed
+# today and are expected to re-pile as B on the next piling run.
+/guides/5-signs-your-driveway-needs-replacement/index.html
+/guides/best-budget-driveway-for-steep-driveways/index.html
+/guides/concrete-driveway-cost-in-maryland-2026-price-guide/index.html
+/guides/gravel-pothole-repair/index.html
+/guides/hot-climates-best-driveway-materials-for-florida/index.html
+/guides/resin-bound-driveway-installation-guide/index.html
