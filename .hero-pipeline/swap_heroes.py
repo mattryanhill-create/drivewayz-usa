@@ -57,10 +57,20 @@ JSONLD_PATTERNS = [
     ("object", re.compile(r'("image"\s*:\s*\{[^}]*?"url"\s*:\s*")([^"]+)(")', re.S)),
 ]
 
+# Inline `.guide-hero { ... background-image: ..., url('/images/x.webp') ... }`.
+# main.css neutralises this with `background-image: none !important` whenever the
+# <img> is present, so it is dead styling — but it keeps a stale path alive that
+# would resurface if that override were ever removed.
+# Matched on any /images/ path rather than pexels-* only: 15 pages point at
+# unsplash filenames and would otherwise be left stale.
+GUIDE_HERO_RULE_RE = re.compile(r"\.guide-hero\s*\{[^}]*\}")
+CSS_IMG_URL_RE = re.compile(r"""url\((['"]?)(/images/[^'")]+)(['"]?)\)""")
+
 SWAP_FIELDS = [
     "timestamp", "slug", "html_path", "status", "elapsed_ms",
     "old_src", "new_src", "old_alt", "new_alt",
-    "jsonld_shape", "jsonld_old", "jsonld_new", "notes",
+    "jsonld_shape", "jsonld_old", "jsonld_new",
+    "css_updated", "css_old", "css_new", "notes",
 ]
 SKIP_FIELDS = ["timestamp", "slug", "html_path", "reason", "detail"]
 WARN_FIELDS = ["timestamp", "slug", "html_path", "reason", "detail"]
@@ -109,6 +119,25 @@ def basename(url):
     return (url or "").rstrip("/").split("/")[-1]
 
 
+def update_inline_css(text, new_src):
+    """Point the .guide-hero background-image at the same hero as the <img>.
+
+    Returns (text, found, old_url). Only the url() inside a .guide-hero rule is
+    touched, so the data: SVG in .guide-hero::before is never a candidate.
+    """
+    for rule_match in GUIDE_HERO_RULE_RE.finditer(text):
+        rule = rule_match.group(0)
+        url_match = CSS_IMG_URL_RE.search(rule)
+        if not url_match:
+            continue
+        old_url = url_match.group(2)
+        if old_url == new_src:
+            return text, True, old_url
+        new_rule = rule[:url_match.start()] + f"url('{new_src}')" + rule[url_match.end():]
+        return text[:rule_match.start()] + new_rule + text[rule_match.end():], True, old_url
+    return text, False, ""
+
+
 def process_row(row, index, total, dry_run):
     """Inspect (and optionally rewrite) one page. Returns a result dict."""
     t0 = time.time()
@@ -129,7 +158,8 @@ def process_row(row, index, total, dry_run):
             "elapsed_ms": int((time.time() - t0) * 1000),
             "old_src": "", "new_src": "", "old_alt": "", "new_alt": "",
             "jsonld_shape": "", "jsonld_old": "", "jsonld_new": "",
-            "notes": "", "warning": None, "skip_detail": "",
+            "css_updated": "", "css_old": "", "css_new": "",
+            "notes": "", "warnings": [], "skip_detail": "",
             **extra,
         }
 
@@ -160,7 +190,7 @@ def process_row(row, index, total, dry_run):
 
     # Article JSON-LD image
     jsonld_shape = jsonld_old = ""
-    warning = None
+    warnings = []
     for shape, pattern in JSONLD_PATTERNS:
         jm = pattern.search(updated)
         if jm:
@@ -169,7 +199,13 @@ def process_row(row, index, total, dry_run):
             updated = updated[:jm.start()] + jm.group(1) + new_jsonld + jm.group(3) + updated[jm.end():]
             break
     else:
-        warning = "jsonld_image_missing"
+        warnings.append("jsonld_image_missing")
+
+    # Inline .guide-hero CSS background. Consistency only: a miss warns but does
+    # not block the img + JSON-LD swap.
+    updated, css_found, css_old = update_inline_css(updated, new_src)
+    if not css_found:
+        warnings.append("inline_css_url_not_found")
 
     if not dry_run:
         path.write_text(updated, encoding="utf-8")
@@ -180,7 +216,9 @@ def process_row(row, index, total, dry_run):
         old_alt=old_alt, new_alt=new_alt,
         jsonld_shape=jsonld_shape, jsonld_old=jsonld_old,
         jsonld_new=new_jsonld if jsonld_shape else "",
-        warning=warning,
+        css_updated=str(css_found).lower(), css_old=css_old,
+        css_new=new_src if css_found else "",
+        warnings=warnings,
     )
 
 
@@ -198,14 +236,20 @@ def print_dry_run(result, index, total):
         print(f"    JSON-LD: {basename(result['jsonld_old'])} \u2192 {basename(result['jsonld_new'])}")
     else:
         print("    JSON-LD: WARNING image field not found")
+    if result["css_updated"] == "true":
+        print(f"    CSS url: {basename(result['css_old'])} \u2192 {basename(result['css_new'])}")
+    else:
+        print("    CSS url: WARNING inline .guide-hero url() not found")
 
 
-def write_log(path, fields, rows):
+def write_log(path, fields, rows, append=False):
     if not rows:
         return False
-    with open(path, "w", newline="", encoding="utf-8") as f:
+    header = not (append and path.exists())
+    with open(path, "a" if append else "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=fields)
-        w.writeheader()
+        if header:
+            w.writeheader()
         for r in rows:
             w.writerow({k: r.get(k, "") for k in fields})
     return True
@@ -236,11 +280,11 @@ def main():
                 "html_path": result["html_path"], "reason": result["notes"],
                 "detail": result["skip_detail"],
             })
-        if result.get("warning"):
+        for reason in result.get("warnings", []):
             warnings.append({
                 "timestamp": result["timestamp"], "slug": result["slug"],
-                "html_path": result["html_path"], "reason": result["warning"],
-                "detail": "",
+                "html_path": result["html_path"], "reason": reason,
+                "detail": result["css_old"] if reason == "inline_css_url_not_found" else "",
             })
 
         if args.dry_run:
@@ -287,7 +331,9 @@ def main():
     if args.dry_run:
         print("\n  (dry run — no HTML and no log files were written)")
     else:
-        written = [SWAP_LOG.name] if write_log(SWAP_LOG, SWAP_FIELDS, results) else []
+        # swap_log accumulates across batched runs; the other two describe the
+        # current run only and are rewritten each time.
+        written = [SWAP_LOG.name] if write_log(SWAP_LOG, SWAP_FIELDS, results, append=True) else []
         if write_log(SKIPPED_LOG, SKIP_FIELDS, skipped):
             written.append(SKIPPED_LOG.name)
         if write_log(WARNINGS_LOG, WARN_FIELDS, warnings):
