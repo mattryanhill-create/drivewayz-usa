@@ -1,1 +1,19 @@
 .env
+
+# Hero pipeline working files — outputs live at /images/heroes/ instead
+.hero-pipeline/renders/
+.hero-pipeline/*.bak
+.hero-pipeline/*.log
+
+# macOS junk
+.DS_Store
+**/.DS_Store
+
+# Editor / IDE
+.cursor/settings.json
+
+# Backup and draft directories from prior batches
+.day-*-backup/
+.day-*-drafts/
+.day-*-recovery-backup/
+.day-*-split/
