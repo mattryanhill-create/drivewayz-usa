@@ -92,6 +92,14 @@ def load_rows(args):
     return rows
 
 
+def normalize_alt(text):
+    """Manifest alts are inconsistently cased at the first character (75 of 1,009
+    start lowercase). Uppercase only that character; the rest is left alone so
+    proper nouns and units survive."""
+    text = (text or "").strip()
+    return text[:1].upper() + text[1:] if text else text
+
+
 def shorten(text, width=60):
     text = text or ""
     return text if len(text) <= width else text[:width - 1] + "\u2026"
@@ -107,7 +115,7 @@ def process_row(row, index, total, dry_run):
     slug = row["slug"]
     filename = row["working_filename"]
     new_src = HERO_URL_BASE + filename
-    new_alt = row[ALT_COL].strip()
+    new_alt = normalize_alt(row[ALT_COL])
     new_jsonld = f"{SITE_ORIGIN}{HERO_URL_BASE}{filename}"
     rel_path = f"guides/{slug}/index.html"
     path = REPO / rel_path
