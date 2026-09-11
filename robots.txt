@@ -4,3 +4,43 @@ Allow: /
 Sitemap: https://drivewayzusa.co/sitemap.xml
 Sitemap: https://drivewayzusa.co/guides-sitemap.xml
 Sitemap: https://drivewayzusa.co/images-sitemap.xml
+
+# AI crawlers — explicit allow
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: MistralAI-User
+Allow: /
