@@ -1,0 +1,66 @@
+# Drivewayz USA
+
+> Drivewayz USA is a United States driveway installation and repair resource with expert homeowner guides on costs, materials, installation, repair, sealing, permits, and regional material choices.
+
+Last reviewed: 2026-09-11. This file is a curated table of contents for agents, not a sitemap. Each link is the single public canonical URL for that topic (`https://drivewayzusa.co/guides/{slug}/`, trailing slash, no query parameters).
+
+## Cost guides
+
+- [How Much Does a New Driveway Cost in 2026?](https://drivewayzusa.co/guides/how-much-does-a-new-driveway-cost-in-2026/): 2026 national price ranges by material, size, and labor so homeowners can budget a full replacement.
+- [Concrete Driveway Cost per Square Foot Guide](https://drivewayzusa.co/guides/concrete-driveway-cost-per-square-foot-guide/): Per-square-foot concrete pricing, thickness and finish adders, and what drives quotes up.
+- [Asphalt Driveway Cost per Square Foot Guide](https://drivewayzusa.co/guides/asphalt-driveway-cost-per-square-foot-guide/): Asphalt installed cost per square foot, overlay vs full replacement, and oil-price effects.
+- [Gravel Driveway Cost per Square Foot Guide](https://drivewayzusa.co/guides/gravel-driveway-cost-per-square-foot-guide/): Gravel install and refresh pricing, stone types, and base-depth cost drivers.
+- [Driveway Cost Breakdown: Labor, Materials, and Equipment](https://drivewayzusa.co/guides/driveway-cost-breakdown-labor-materials-and-equipment/): Line-item split of labor, materials, equipment, and typical allowances.
+- [Driveway 30-Year Total Cost: Material Lifecycle Comparison](https://drivewayzusa.co/guides/driveway-30-year-total-cost-material-lifecycle-comparison/): Lifecycle cost of asphalt, concrete, pavers, and gravel including maintenance and resurfacing.
+
+## Materials
+
+- [Concrete vs Asphalt vs Gravel: Complete Comparison](https://drivewayzusa.co/guides/concrete-vs-asphalt-vs-gravel/): Side-by-side cost, lifespan, and maintenance for the three most common driveway materials.
+- [Driveway Pros and Cons by Material: Complete Breakdown](https://drivewayzusa.co/guides/driveway-pros-and-cons-by-material-complete-breakdown/): Trade-offs for concrete, asphalt, pavers, gravel, and chip seal in one place.
+- [Driveway Basics: Types, Costs, and Lifespan Explained](https://drivewayzusa.co/guides/driveway-basics-types-costs-lifespan/): Primer on driveway types, typical costs, and how long each surface lasts.
+- [Chip Seal Driveway: An Affordable Asphalt Alternative](https://drivewayzusa.co/guides/chip-seal-driveway/): How tar-and-chip compares to asphalt and gravel for cost, look, and upkeep.
+- [Low-Maintenance Driveway Materials Ranked](https://drivewayzusa.co/guides/low-maintenance-driveway-materials-ranked/): Ranked surfaces by upkeep hours, reseal cycles, and long-term durability.
+- [Pavers vs Concrete Driveway: Cost, Durability, and Aesthetics](https://drivewayzusa.co/guides/pavers-vs-concrete-driveway-cost-durability-and-aesthetics/): When interlocking pavers beat a poured slab — and when they do not.
+
+## Installation
+
+- [Asphalt Driveway Installation Step-by-Step Guide](https://drivewayzusa.co/guides/asphalt-driveway-installation-step-by-step-guide/): Base, binder, surface course, compaction, and cure for a residential asphalt install.
+- [Concrete Driveway Installation Step-by-Step Guide](https://drivewayzusa.co/guides/concrete-driveway-installation-step-by-step-guide/): Forms, pour, joints, finish, and cure timeline for a concrete driveway.
+- [Gravel Driveway Installation Step-by-Step Guide](https://drivewayzusa.co/guides/gravel-driveway-installation-step-by-step-guide/): Subgrade, fabric, base rock, and surface gravel layers that keep a gravel drive from rutting.
+- [Paver Driveway Installation: Step-by-Step Guide](https://drivewayzusa.co/guides/paver-driveway-installation-step-by-step-guide/): Edge restraints, bedding, compaction, and jointing that keep pavers from spreading.
+- [Driveway Installation Checklist: Don't Miss These Steps](https://drivewayzusa.co/guides/driveway-installation-checklist-dont-miss-these-steps/): Pre-construction checklist covering utilities, drainage, permits, and inspections.
+- [How to Prepare Your Property for Driveway Installation](https://drivewayzusa.co/guides/how-to-prepare-your-property-for-driveway-installation/): What to move, mark, and protect before the crew arrives.
+
+## Repair
+
+- [When to Replace vs Repair Your Driveway](https://drivewayzusa.co/guides/when-to-replace-vs-repair-your-driveway/): Decision points for patching, overlay, or full replacement.
+- [How to Fix Driveway Cracks: Concrete, Asphalt, and Paver Repair](https://drivewayzusa.co/guides/how-to-fix-driveway-cracks-concrete-asphalt-and-paver-repair/): Crack types and the right fill, seal, or reset method for each surface.
+- [Fix Gravel Driveway Potholes: Step-by-Step Guide](https://drivewayzusa.co/guides/gravel-pothole-repair/): How to cut out, compact, and refill gravel potholes so they do not return after the next rain.
+- [Driveway Drainage Problems: Causes and Fixes](https://drivewayzusa.co/guides/driveway-drainage-problems-causes-and-fixes/): Standing water, negative slope, and drain fixes that stop premature failure.
+- [Sinking Driveway Repair Options](https://drivewayzusa.co/guides/sinking-driveway-repair-options/): Mudjacking, replacement, and base-failure repairs for sunken slabs and asphalt.
+- [5 Signs Your Driveway Needs Replacement](https://drivewayzusa.co/guides/5-signs-your-driveway-needs-replacement/): Alligator cracking, settlement, ponding, failed patches, and age thresholds.
+
+## Sealing
+
+- [Driveway Sealcoating: When, Why, and How Often](https://drivewayzusa.co/guides/driveway-sealcoating-when-why-and-how-often/): Sealcoat schedule, weather windows, and why asphalt needs periodic coating.
+- [Asphalt Sealing: Best Products and Application Tips](https://drivewayzusa.co/guides/asphalt-sealing-best-products-and-application-tips/): Product types and application steps for a lasting asphalt seal.
+- [Concrete Sealing: How Often and Why It Matters](https://drivewayzusa.co/guides/concrete-sealing-how-often-and-why-it-matters/): Penetrating vs film-forming sealers and reseal intervals for concrete.
+- [Paver Sealing: Pros, Cons, and Best Practices](https://drivewayzusa.co/guides/paver-sealing-pros-cons-and-best-practices/): When sealer helps pavers, when it backfires, and how to apply it.
+- [Driveway Sealing Cost: DIY vs Professional](https://drivewayzusa.co/guides/driveway-sealing-cost-diy-vs-professional/): DIY vs contractor sealcoat pricing and when hiring out pays off.
+
+## Regional
+
+- [Best Driveway Material for Florida Homes](https://drivewayzusa.co/guides/best-driveway-material-for-florida-homes/): Heat, humidity, and storm-drainage considerations for Florida driveways.
+- [Best Driveway Material for Arizona Homes](https://drivewayzusa.co/guides/best-driveway-material-for-arizona-homes/): Desert heat, UV, and soil-movement picks for Arizona.
+- [Best Driveway Material for Minnesota Homes](https://drivewayzusa.co/guides/best-driveway-material-for-minnesota-homes/): Freeze-thaw, salt, and plow-ready materials for Minnesota winters.
+- [Rainy Climates: Best Driveway Materials for Washington](https://drivewayzusa.co/guides/rainy-climates-best-driveway-materials-for-washington/): Wet-climate drainage and moss-resistant surfaces for Washington.
+- [Best Driveway Material for California Homes](https://drivewayzusa.co/guides/best-driveway-material-for-california-homes/): Matching material to California's coastal, valley, and inland climates.
+- [Best Driveway Material for Texas Homes](https://drivewayzusa.co/guides/best-driveway-material-for-texas-homes/): Heat, clay soil, and regional Texas conditions that drive material choice.
+
+## Permits
+
+- [Driveway Permits: What You Need Before Starting](https://drivewayzusa.co/guides/driveway-permits-what-you-need-before-starting/): When a permit is required, typical documents, and how to apply.
+- [Driveway Permits: How Much Do They Cost?](https://drivewayzusa.co/guides/driveway-permits-how-much-do-they-cost/): Typical permit fees, deposits, and inspection costs before work starts.
+- [Driveway Access Permit: Municipal Street Connection](https://drivewayzusa.co/guides/driveway-access-permit-municipal-street-connection/): Curb-cut and right-of-way permits for connecting to a public street.
+- [Driveway Permits and Regulations in California](https://drivewayzusa.co/guides/driveway-permits-and-regulations-in-california/): California zoning, setbacks, drainage, and approval timelines.
+- [Environmental Permits for Driveway Projects](https://drivewayzusa.co/guides/environmental-permits-for-driveway-projects/): Wetland, runoff, and environmental reviews that can stall a driveway job.

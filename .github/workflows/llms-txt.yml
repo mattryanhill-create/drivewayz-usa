@@ -1,0 +1,38 @@
+name: Validate llms.txt
+
+on:
+  push:
+    paths:
+      - 'llms.txt'
+      - 'guides/**'
+      - 'scripts/validate_llms_txt.py'
+      - '.github/workflows/llms-txt.yml'
+  pull_request:
+    paths:
+      - 'llms.txt'
+      - 'guides/**'
+      - 'scripts/validate_llms_txt.py'
+      - '.github/workflows/llms-txt.yml'
+  schedule:
+    # Weekly revalidation so a stale Last reviewed date or moved guide fails loudly.
+    - cron: '0 14 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Revalidate llms.txt links
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Validate spec, date, and local canonical pages
+        run: python scripts/validate_llms_txt.py
