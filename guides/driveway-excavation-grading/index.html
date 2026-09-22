@@ -189,7 +189,7 @@
 
     </script>
 
-    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="/main.css?v=8">
     <style>
         :root { --guide-primary: #E07C24; --guide-primary-light: #F7931E; --guide-primary-dark: #C26100; --guide-accent: #FF9F43; --guide-bg: linear-gradient(135deg, #FFF8F0 0%, #FFEDD5 50%, #FFE4C4 100%); }
         html, body { overflow-x: hidden; width: 100%; }
@@ -481,6 +481,6 @@
         document.addEventListener('DOMContentLoaded',()=>{ if(JSON.parse(localStorage.getItem('savedGuides')||'[]').includes('excavation')){ document.getElementById('saveIcon').textContent='❤️'; document.getElementById('saveText').textContent='Saved!'; } });
         function handleSidebarSubmit(e){ e.preventDefault(); alert('Thank you! We will contact you shortly.'); e.target.reset(); }
     </script>
-<script src="/js/seo.js"></script>
+<script src="/js/seo.js?v=8"></script>
 </body>
 </html>

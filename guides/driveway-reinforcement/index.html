@@ -189,7 +189,7 @@
 
     </script>
 
-    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="/main.css?v=8">
     <style>
         :root { --guide-primary: #4A90A4; --guide-primary-light: #5BA3B8; --guide-primary-dark: #3A7285; --guide-accent: #7BB8C8; --guide-bg: linear-gradient(135deg, #F0F9FC 0%, #E0F2F7 50%, #CFF4F8 100%); }
         html, body { overflow-x: hidden; width: 100%; }
@@ -468,6 +468,6 @@
         document.addEventListener('DOMContentLoaded',()=>{ if(JSON.parse(localStorage.getItem('savedGuides')||'[]').includes('reinforcement')){ document.getElementById('saveIcon').textContent='❤️'; document.getElementById('saveText').textContent='Saved!'; } });
         function handleSidebarSubmit(e){ e.preventDefault(); alert('Thank you! We will contact you shortly.'); e.target.reset(); }
     </script>
-<script src="/js/seo.js"></script>
+<script src="/js/seo.js?v=8"></script>
 </body>
 </html>

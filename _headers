@@ -1,3 +1,14 @@
+# Shared CSS/JS are referenced by unhashed filenames, so Cloudflare's default
+# "max-age=31536000, immutable" left returning visitors pinned to a stale copy
+# for a year after any edit. Revalidate hourly instead; the ETag makes that a
+# cheap 304, and the deploy purge still updates the edge immediately.
+/main.css
+  Cache-Control: public, max-age=3600, must-revalidate
+/main.js
+  Cache-Control: public, max-age=3600, must-revalidate
+/js/*
+  Cache-Control: public, max-age=3600, must-revalidate
+
 # Content-Type for XML sitemaps
 /sitemap.xml
   Content-Type: application/xml
