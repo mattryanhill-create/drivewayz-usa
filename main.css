@@ -1619,3 +1619,62 @@ section {
     max-width: 320px;
   }
 }
+
+/* ----- In-Content Related Guides ----- */
+/* These blocks sit inside .guide-main, and each guide's inline <style> loads
+   after this file, so the selectors below are scoped one level deeper to
+   outrank its .guide-main h2 / ul / li rules. */
+.guide-main .related-guides {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.guide-main .related-guides h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.guide-main .related-guides ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.guide-main .related-guides li {
+  margin-bottom: 0;
+  background-color: var(--bg-light);
+  border-left: 4px solid var(--primary-color);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+}
+
+.guide-main .related-guides li:hover {
+  transform: translateX(5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.guide-main .related-guides a {
+  display: block;
+  padding: 1rem 1.25rem;
+  color: var(--primary-color);
+  font-weight: 600;
+  line-height: 1.5;
+  text-decoration: none;
+}
+
+.guide-main .related-guides a:hover {
+  color: var(--primary-dark);
+}
+
+@media (max-width: 768px) {
+  .guide-main .related-guides ul {
+    grid-template-columns: 1fr;
+  }
+}
