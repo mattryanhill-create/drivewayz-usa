@@ -1,8 +1,3 @@
-# Protocol and host normalization (place first—Netlify processes in order)
-http://drivewayzusa.co/*    https://drivewayzusa.co/:splat  301
-http://www.drivewayzusa.co/* https://drivewayzusa.co/:splat  301
-https://www.drivewayzusa.co/* https://drivewayzusa.co/:splat  301
-/guides/how-much-does-a-driveway-cost-2026/* /guides/how-much-does-a-new-driveway-cost-in-2026/ 301
 /guides/driveway-contractors-in-cleveland-oh-how-to-choose.html /guides/driveway-contractors-in-cleveland-oh-how-to-choose/ 301
 /guides/hidden-costs-in-driveway-projects-you-should-know.html /guides/hidden-costs-in-driveway-projects-you-should-know/ 301
 /guides/driveway-contractors-in-tulsa-ok-how-to-choose.html /guides/driveway-contractors-in-tulsa-ok-how-to-choose/ 301
@@ -1126,3 +1121,6 @@ https://www.drivewayzusa.co/* https://drivewayzusa.co/:splat  301
 /guides/winter-driveway-survival-guide.html /guides/winter-driveway-survival-guide/ 301
 /locations /locations/ 301
 /guides-hub /guides-hub/ 301
+
+# Keep wildcard rules last: Pages allows only 100 dynamic rules, and every rule below a wildcard counts as dynamic.
+/guides/how-much-does-a-driveway-cost-2026/* /guides/how-much-does-a-new-driveway-cost-in-2026/ 301
