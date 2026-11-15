@@ -469,10 +469,16 @@
       <div class="sidebar-card sidebar-cta">
         <h4>&#128640; Get Started Today</h4>
         <p>Get a free estimate from our driveway experts.</p>
-        <form onsubmit="handleSidebarSubmit(event)">
-          <input type="text" placeholder="Your Name" required aria-label="Your Name">
-          <input type="tel" placeholder="Phone Number" required aria-label="Phone Number">
+        <form data-lead-form="guide-sidebar" novalidate>
+          <input type="text" name="name" placeholder="Your Name" required aria-label="Your Name" autocomplete="name">
+          <input type="tel" name="phone" placeholder="Phone Number" required aria-label="Phone Number" autocomplete="tel">
+          <input type="text" name="zip" placeholder="ZIP Code" required aria-label="ZIP Code" autocomplete="postal-code" inputmode="numeric" pattern="\d{5}" maxlength="5">
+          <input type="email" name="email" placeholder="Email (optional)" aria-label="Email (optional)" autocomplete="email">
+          <div class="lead-hp" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;" aria-hidden="true">
+            <label>Leave this field empty <input type="text" name="hp_ref" tabindex="-1" autocomplete="new-password" readonly></label>
+          </div>
           <button type="submit">Request Free Estimate</button>
+          <p class="lead-consent">By submitting, you agree Drivewayz USA and local driveway pros may contact you about your project. See our <a href="/privacy-policy/">Privacy Policy</a>.</p>
         </form>
       </div>
 
@@ -522,8 +528,8 @@ document.addEventListener('DOMContentLoaded',function(){var sections=document.qu
 function toggleMobileToc(){var tocCol=document.querySelector('.toc-sidebar-col');var toggle=document.querySelector('.toc-mobile-toggle');tocCol.classList.toggle('mobile-open');toggle.classList.toggle('open')}
 function toggleFaq(btn){btn.parentElement.classList.toggle('open')}
 function saveGuide(){var si=document.getElementById('saveIcon'),st=document.getElementById('saveText');if(st.textContent==='Save Guide'){si.innerHTML='&#10084;&#65039;';st.textContent='Saved!'}else{si.innerHTML='&#128278;';st.textContent='Save Guide'}}
-function handleSidebarSubmit(e){e.preventDefault();alert('Thank you! We will contact you shortly with your free estimate.');e.target.reset()}
 </script>
+<script src="/js/lead-capture.js?v=1" defer></script>
 <script src="/js/seo.js?v=8"></script>
 </body>
 </html>
