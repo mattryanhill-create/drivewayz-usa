@@ -330,7 +330,7 @@
 
         var currentStep = 1;
         var totalSteps = 8;
-        var N8N_WEBHOOK = 'https://drivewayzusa.app.n8n.cloud/webhook/drivewayz-lead';
+        var N8N_WEBHOOK = 'https://drivewayzusa.app.n8n.cloud/webhook/4a46a030-9b41-482a-abf5-4724062aec71';
 
         function showStep(step) {
             currentStep = step;
@@ -415,6 +415,23 @@
                 property_type: (form.querySelector('input[name="property_type"]:checked') || {}).value || '',
                 comfort_level: (form.querySelector('input[name="comfort_level"]:checked') || {}).value || ''
             };
+            // Keys the production lead pipeline reads (same as /for-homeowners/).
+            payload.firstName = payload.first_name;
+            payload.lastName = payload.last_name;
+            payload.drivewayType = payload.material_interest;
+            payload.message = 'Homeowner quiz: timeline ' + (payload.project_timeline || 'n/a') +
+                ', budget ' + (payload.budget_range || 'n/a') +
+                ', property ' + (payload.property_type || 'n/a') +
+                ', segment ' + (payload.persona_segment || 'n/a');
+            payload.persona = 'homeowner';
+            payload.source = 'homeowner_quiz';
+            payload.form_location = 'homeowner_quiz';
+            payload.page_url = window.location.href;
+            payload.page_state = payload.state;
+            var qp = new URLSearchParams(window.location.search);
+            ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'].forEach(function(k) {
+                payload[k] = qp.get(k) || '';
+            });
 
             console.log('[Homeowner Quiz] Payload to send to HubSpot/n8n:', JSON.stringify(payload, null, 2));
 
